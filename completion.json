@@ -1,11 +1,15 @@
 {
-  "complete": false,
+  "passed": true,
+  "complete": true,
   "local_release_checks": true,
-  "publication": false,
+  "publication": true,
+  "status": "Complete course, reviewed and published",
+  "scope": "Complete24-chapter public course edition; source coverage, independent scientific reviews, executable checks, offline reader, committed-source-free installation/rebuild and actual live deployment verified",
   "chapters": 24,
   "recording_count": 61,
   "substantive_lessons": 60,
-  "status": "Scientific and local/source-free checks complete; live publication pending",
+  "worked_solutions": 212,
+  "chapter_programs": 24,
   "chapter_hashes": {
     "chapter-01-microstructure-phases-composition.html": "c123f965c6d72ccdea4914960efca3346e1ba70a7aafd83d676e70b3e06bcee5",
     "chapter-02-chemical-order-sites-composition.html": "9f882d8f9ce3cc80fc3a7f42db67eff355ab4017b464ab43fe5db0a6ceabaf0d",
@@ -32,5 +36,11 @@
     "chapter-23-material-property-models-and-strength.html": "d8627dae1bd38782199af5940f481f669e3c4b363974d609abe27247d70e30eb",
     "chapter-24-size-electrochemical-reservoirs-database-limits.html": "3ef129e72d7153d8d962ec8785d68379ce7e599fc50b497e9c84c178b9bc0a14"
   },
-  "scope": "Complete24-chapter manuscript,48accepted scientific rounds,all61sources and actual local/committed-source-free checks; no live claim yet"
+  "source_free_archive_commit": "aecbd68ba8afff7dd71e11d0afacb6282ac96f4c",
+  "publication_report": "publication-validation.json",
+  "limitations": [
+    "Machine transcript reading is not complete audiovisual or board-equation verification",
+    "Original synthetic examples do not validate real materials",
+    "Primary-source reading scopes are bounded in each chapter"
+  ]
 }
