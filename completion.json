@@ -1,11 +1,11 @@
 {
   "complete": false,
-  "local_release_checks": false,
+  "local_release_checks": true,
   "publication": false,
   "chapters": 24,
   "recording_count": 61,
   "substantive_lessons": 60,
-  "status": "Scientific manuscript complete; final local/source-free/publication checks pending",
+  "status": "Scientific and local/source-free checks complete; live publication pending",
   "chapter_hashes": {
     "chapter-01-microstructure-phases-composition.html": "c123f965c6d72ccdea4914960efca3346e1ba70a7aafd83d676e70b3e06bcee5",
     "chapter-02-chemical-order-sites-composition.html": "9f882d8f9ce3cc80fc3a7f42db67eff355ab4017b464ab43fe5db0a6ceabaf0d",
@@ -31,5 +31,6 @@
     "chapter-22-high-throughput-design-phase-identification.html": "be3771499520b00e6780c0ed68adfc0a0f2ee858d90a9c28b092525dd27e6e3b",
     "chapter-23-material-property-models-and-strength.html": "d8627dae1bd38782199af5940f481f669e3c4b363974d609abe27247d70e30eb",
     "chapter-24-size-electrochemical-reservoirs-database-limits.html": "3ef129e72d7153d8d962ec8785d68379ce7e599fc50b497e9c84c178b9bc0a14"
-  }
+  },
+  "scope": "Complete24-chapter manuscript,48accepted scientific rounds,all61sources and actual local/committed-source-free checks; no live claim yet"
 }

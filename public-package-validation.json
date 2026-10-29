@@ -1,6 +1,6 @@
 {
   "passed": true,
-  "mode": "content",
+  "mode": "prepublication",
   "scope": "Public payload and declared evidence audit, not new scientific review",
   "issues": [],
   "warnings": [],
@@ -494,7 +494,7 @@
     },
     {
       "path": "completion.json",
-      "sha256": "5366f886138b8054e6b3e9e92fcfbea748c454a9bbc58fdf76e828df4d723d7f"
+      "sha256": "85470f4d21e2a864cae5d90d541d0abdd54df75268f1590f5831be910159cfc3"
     },
     {
       "path": "content-inventory.json",
@@ -554,7 +554,7 @@
     },
     {
       "path": "source-free-validation.json",
-      "sha256": "c71f2aa1b420e8ec838db2f139e900fda4fab1214379b7a2f9571c80821e8a77"
+      "sha256": "ca36bfd30360a4fce451423ab7e372c591b515ca8012f555f0365e30f326e6ab"
     },
     {
       "path": "source-manifest.json",

@@ -1,6 +1,1104 @@
 {
-  "passed": false,
-  "status": "pending actual final verification",
+  "passed": true,
+  "mode": "release-content",
+  "scope": "Public-only reproduction; final publication/completion is a separate gate",
+  "export": "work/release-tooling-implementation/exports/public-ttkhr5am",
+  "checks": [
+    {
+      "command": [
+        "python",
+        "-m",
+        "venv",
+        ".\\work\\release-tooling-implementation\\exports\\public-ttkhr5am\\work\\venv"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python",
+        "-m",
+        "pip",
+        "install",
+        "--disable-pip-version-check",
+        "-r",
+        "requirements.txt",
+        "playwright==1.57.0"
+      ],
+      "returncode": 0,
+      "stdout": "Collecting playwright==1.57.0\n  Downloading playwright-1.57.0-py3-none-win_amd64.whl.metadata (3.5 kB)\nCollecting pycalphad==0.11.1 (from -r requirements.txt (line 1))\n  Downloading pycalphad-0.11.1-cp313-cp313-win_amd64.whl.metadata (5.3 kB)\nCollecting numpy==2.5.4 (from -r requirements.txt (line 2))\n  Downloading numpy-2.5.4-cp313-cp313-win_amd64.whl.metadata (6.6 kB)\nCollecting symengine==0.13.0 (from -r requirements.txt (line 3))\n  Downloading symengine-0.13.0-cp313-cp313-win_amd64.whl.metadata (1.2 kB)\nCollecting scipy==1.18.1 (from -r requirements.txt (line 4))\n  Downloading scipy-1.18.1-cp313-cp313-win_amd64.whl.metadata (61 kB)\nCollecting xarray==2026.9.0 (from -r requirements.txt (line 5))\n  Downloading xarray-2026.9.0-py3-none-any.whl.metadata (12 kB)\nCollecting pandas==3.1.0 (from -r requirements.txt (line 6))\n  Downloading pandas-3.1.0-cp313-cp313-win_amd64.whl.metadata (18 kB)\nCollecting matplotlib==3.11.2 (from -r requirements.txt (line 7))\n  Downloading matplotlib-3.11.2-cp313-cp313-win_amd64.whl.metadata (80 kB)\nCollecting pyee<14,>=13 (from playwright==1.57.0)\n  Downloading pyee-13.0.1-py3-none-any.whl.metadata (3.0 kB)\nCollecting greenlet<4.0.0,>=3.1.1 (from playwright==1.57.0)\n  Downloading greenlet-3.5.6-cp313-cp313-win_amd64.whl.metadata (3.9 kB)\nCollecting pint (from pycalphad==0.11.1->-r requirements.txt (line 1))\n  Downloading pint-0.26.2-py3-none-any.whl.metadata (10 kB)\nCollecting pyparsing>=2.4 (from pycalphad==0.11.1->-r requirements.txt (line 1))\n  Downloading pyparsing-3.3.3-py3-none-any.whl.metadata (5.9 kB)\nCollecting pytest (from pycalphad==0.11.1->-r requirements.txt (line 1))\n  Downloading pytest-9.2.0-py3-none-any.whl.metadata (7.9 kB)\nCollecting pytest-cov (from pycalphad==0.11.1->-r requirements.txt (line 1))\n  Downloading pytest_cov-7.1.0-py3-none-any.whl.metadata (32 kB)\nCollecting runtype (from pycalphad==0.11.1->-r requirements.txt (line 1))\n  Downloading runtype-0.5.3-py3-none-any.whl.metadata (6.4 kB)\nCollecting setuptools_scm>=6.0 (from setuptools_scm[toml]>=6.0->pycalphad==0.11.1->-r requirements.txt (line 1))\n  Downloading setuptools_scm-10.3.4-py3-none-any.whl.metadata (6.7 kB)\nCollecting tinydb>=3.8 (from pycalphad==0.11.1->-r requirements.txt (line 1))\n  Downloading tinydb-4.9.0-py3-none-any.whl.metadata (6.7 kB)\nCollecting typing_extensions (from pycalphad==0.11.1->-r requirements.txt (line 1))\n  Downloading typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)\nCollecting packaging>=24.2 (from xarray==2026.9.0->-r requirements.txt (line 5))\n  Downloading packaging-26.3-py3-none-any.whl.metadata (3.5 kB)\nCollecting python-dateutil>=2.9.0 (from pandas==3.1.0->-r requirements.txt (line 6))\n  Downloading python_dateutil-3.0.0-py2.py3-none-any.whl.metadata (8.2 kB)\nCollecting tzdata (from pandas==3.1.0->-r requirements.txt (line 6))\n  Downloading tzdata-2026.6-py2.py3-none-any.whl.metadata (1.4 kB)\nCollecting contourpy>=1.0.1 (from matplotlib==3.11.2->-r requirements.txt (line 7))\n  Downloading contourpy-1.4.0-cp313-cp313-win_amd64.whl.metadata (3.8 kB)\nCollecting cycler>=0.10 (from matplotlib==3.11.2->-r requirements.txt (line 7))\n  Downloading cycler-0.12.1-py3-none-any.whl.metadata (3.8 kB)\nCollecting fonttools>=4.28.2 (from matplotlib==3.11.2->-r requirements.txt (line 7))\n  Downloading fonttools-4.68.0-cp313-cp313-win_amd64.whl.metadata (142 kB)\nCollecting kiwisolver>=1.3.1 (from matplotlib==3.11.2->-r requirements.txt (line 7))\n  Downloading kiwisolver-1.5.1-cp313-cp313-win_amd64.whl.metadata (5.2 kB)\nCollecting pillow>=9 (from matplotlib==3.11.2->-r requirements.txt (line 7))\n  Downloading pillow-13.0.0-cp313-cp313-win_amd64.whl.metadata (9.3 kB)\nCollecting six>=1.6 (from python-dateutil>=2.9.0->pandas==3.1.0->-r requirements.txt (line 6))\n  Downloading six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)\nCollecting vcs-versioning<3,>=2.5.0.dev0 (from setuptools_scm>=6.0->setuptools_scm[toml]>=6.0->pycalphad==0.11.1->-r requirements.txt (line 1))\n  Downloading vcs_versioning-2.6.0-py3-none-any.whl.metadata (1.7 kB)\nCollecting setuptools (from setuptools_scm>=6.0->setuptools_scm[toml]>=6.0->pycalphad==0.11.1->-r requirements.txt (line 1))\n  Downloading setuptools-84.2.1-py3-none-any.whl.metadata (6.6 kB)\nCollecting flexcache>=0.3 (from pint->pycalphad==0.11.1->-r requirements.txt (line 1))\n  Downloading flexcache-0.3-py3-none-any.whl.metadata (7.0 kB)\nCollecting flexparser>=0.4 (from pint->pycalphad==0.11.1->-r requirements.txt (line 1))\n  Downloading flexparser-0.4-py3-none-any.whl.metadata (18 kB)\nCollecting platformdirs>=2.1.0 (from pint->pycalphad==0.11.1->-r requirements.txt (line 1))\n  Downloading platformdirs-4.14.0-py3-none-any.whl.metadata (5.4 kB)\nCollecting colorama>=0.4 (from pytest->pycalphad==0.11.1->-r requirements.txt (line 1))\n  Downloading colorama-0.4.6-py2.py3-none-any.whl.metadata (17 kB)\nCollecting iniconfig>=2 (from pytest->pycalphad==0.11.1->-r requirements.txt (line 1))\n  Downloading iniconfig-2.3.1-py3-none-any.whl.metadata (2.8 kB)\nCollecting pluggy<2,>=1.6 (from pytest->pycalphad==0.11.1->-r requirements.txt (line 1))\n  Downloading pluggy-1.7.0-py3-none-any.whl.metadata (5.0 kB)\nCollecting pygments>=2.15 (from pytest->pycalphad==0.11.1->-r requirements.txt (line 1))\n  Downloading pygments-2.21.0-py3-none-any.whl.metadata (2.5 kB)\nCollecting coverage>=7.10.6 (from coverage[toml]>=7.10.6->pytest-cov->pycalphad==0.11.1->-r requirements.txt (line 1))\n  Downloading coverage-7.17.0-cp313-cp313-win_amd64.whl.metadata (8.3 kB)\nDownloading playwright-1.57.0-py3-none-win_amd64.whl (36.6 MB)\n   ---------------------------------------- 36.6/36.6 MB 716.0 kB/s eta 0:00:00\nDownloading pycalphad-0.11.1-cp313-cp313-win_amd64.whl (1.0 MB)\n   ---------------------------------------- 1.0/1.0 MB 1.1 MB/s eta 0:00:00\nDownloading symengine-0.13.0-cp313-cp313-win_amd64.whl (17.8 MB)\n   ---------------------------------------- 17.8/17.8 MB 1.3 MB/s eta 0:00:00\nDownloading numpy-2.5.4-cp313-cp313-win_amd64.whl (12.6 MB)\n   ---------------------------------------- 12.6/12.6 MB 3.1 MB/s eta 0:00:00\nDownloading scipy-1.18.1-cp313-cp313-win_amd64.whl (36.6 MB)\n   ---------------------------------------- 36.6/36.6 MB 410.9 kB/s eta 0:00:00\nDownloading xarray-2026.9.0-py3-none-any.whl (1.4 MB)\n   ---------------------------------------- 1.4/1.4 MB 732.8 kB/s eta 0:00:00\nDownloading pandas-3.1.0-cp313-cp313-win_amd64.whl (10.7 MB)\n   ---------------------------------------- 10.7/10.7 MB 645.1 kB/s eta 0:00:00\nDownloading matplotlib-3.11.2-cp313-cp313-win_amd64.whl (9.3 MB)\n   ---------------------------------------- 9.3/9.3 MB 537.9 kB/s eta 0:00:00\nDownloading greenlet-3.5.6-cp313-cp313-win_amd64.whl (324 kB)\nDownloading pyee-13.0.1-py3-none-any.whl (15 kB)\nDownloading contourpy-1.4.0-cp313-cp313-win_amd64.whl (234 kB)\nDownloading cycler-0.12.1-py3-none-any.whl (8.3 kB)\nDownloading fonttools-4.68.0-cp313-cp313-win_amd64.whl (2.5 MB)\n   ---------------------------------------- 2.5/2.5 MB 394.9 kB/s eta 0:00:00\nDownloading kiwisolver-1.5.1-cp313-cp313-win_amd64.whl (70 kB)\nDownloading packaging-26.3-py3-none-any.whl (129 kB)\nDownloading pillow-13.0.0-cp313-cp313-win_amd64.whl (7.3 MB)\n   ---------------------------------------- 7.3/7.3 MB 363.1 kB/s eta 0:00:00\nDownloading pyparsing-3.3.3-py3-none-any.whl (126 kB)\nDownloading python_dateutil-3.0.0-py2.py3-none-any.whl (94 kB)\nDownloading setuptools_scm-10.3.4-py3-none-any.whl (33 kB)\nDownloading vcs_versioning-2.6.0-py3-none-any.whl (123 kB)\nDownloading six-1.17.0-py2.py3-none-any.whl (11 kB)\nDownloading tinydb-4.9.0-py3-none-any.whl (25 kB)\nDownloading pint-0.26.2-py3-none-any.whl (351 kB)\nDownloading flexcache-0.3-py3-none-any.whl (13 kB)\nDownloading flexparser-0.4-py3-none-any.whl (27 kB)\nDownloading platformdirs-4.14.0-py3-none-any.whl (35 kB)\nDownloading typing_extensions-4.16.0-py3-none-any.whl (45 kB)\nDownloading pytest-9.2.0-py3-none-any.whl (411 kB)\nDownloading pluggy-1.7.0-py3-none-any.whl (27 kB)\nDownloading colorama-0.4.6-py2.py3-none-any.whl (25 kB)\nDownloading iniconfig-2.3.1-py3-none-any.whl (7.6 kB)\nDownloading pygments-2.21.0-py3-none-any.whl (1.3 MB)\n   ---------------------------------------- 1.3/1.3 MB 306.7 kB/s eta 0:00:00\nDownloading pytest_cov-7.1.0-py3-none-any.whl (22 kB)\nDownloading coverage-7.17.0-cp313-cp313-win_amd64.whl (228 kB)\nDownloading runtype-0.5.3-py3-none-any.whl (31 kB)\nDownloading setuptools-84.2.1-py3-none-any.whl (876 kB)\n   -------------------------------------- 876.3/876.3 kB 390.9 kB/s eta 0:00:00\nDownloading tzdata-2026.6-py2.py3-none-any.whl (348 kB)\nInstalling collected packages: tzdata, typing_extensions, tinydb, symengine, six, setuptools, runtype, pyparsing, pygments, pluggy, platformdirs, pillow, packaging, numpy, kiwisolver, iniconfig, greenlet, fonttools, cycler, coverage, colorama, vcs-versioning, scipy, python-dateutil, pytest, pyee, flexparser, flexcache, contourpy, setuptools_scm, pytest-cov, playwright, pint, pandas, matplotlib, xarray, pycalphad\n\nSuccessfully installed colorama-0.4.6 contourpy-1.4.0 coverage-7.17.0 cycler-0.12.1 flexcache-0.3 flexparser-0.4 fonttools-4.68.0 greenlet-3.5.6 iniconfig-2.3.1 kiwisolver-1.5.1 matplotlib-3.11.2 numpy-2.5.4 packaging-26.3 pandas-3.1.0 pillow-13.0.0 pint-0.26.2 platformdirs-4.14.0 playwright-1.57.0 pluggy-1.7.0 pycalphad-0.11.1 pyee-13.0.1 pygments-2.21.0 pyparsing-3.3.3 pytest-9.2.0 pytest-cov-7.1.0 python-dateutil-3.0.0 runtype-0.5.3 scipy-1.18.1 setuptools-84.2.1 setuptools_scm-10.3.4 six-1.17.0 symengine-0.13.0 tinydb-4.9.0 typing_extensions-4.16.0 tzdata-2026.6 vcs-versioning-2.6.0 xarray-2026.9.0\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python",
+        "-m",
+        "pip",
+        "check"
+      ],
+      "returncode": 0,
+      "stdout": "No broken requirements found.\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python",
+        "-m",
+        "pip",
+        "freeze"
+      ],
+      "returncode": 0,
+      "stdout": "colorama==0.4.6\ncontourpy==1.4.0\ncoverage==7.17.0\ncycler==0.12.1\nflexcache==0.3\nflexparser==0.4\nfonttools==4.68.0\ngreenlet==3.5.6\niniconfig==2.3.1\nkiwisolver==1.5.1\nmatplotlib==3.11.2\nnumpy==2.5.4\npackaging==26.3\npandas==3.1.0\npillow==13.0.0\nPint==0.26.2\nplatformdirs==4.14.0\nplaywright==1.57.0\npluggy==1.7.0\npycalphad==0.11.1\npyee==13.0.1\nPygments==2.21.0\npyparsing==3.3.3\npytest==9.2.0\npytest-cov==7.1.0\npython-dateutil==3.0.0\nruntype==0.5.3\nscipy==1.18.1\nsetuptools==84.2.1\nsetuptools-scm==10.3.4\nsix==1.17.0\nsymengine==0.13.0\ntinydb==4.9.0\ntyping_extensions==4.16.0\ntzdata==2026.6\nvcs-versioning==2.6.0\nxarray==2026.9.0\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python",
+        "tools/build_book.py"
+      ],
+      "returncode": 0,
+      "stdout": "Built five navigation pages for 24 authored chapters; 24 accepted in two scientific rounds.\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python",
+        "tools/validate_book.py"
+      ],
+      "returncode": 0,
+      "stdout": "{\"local_references_checked\": 522, \"errors\": [], \"chapter_digests\": \"pass\", \"timestamps\": \"pass\", \"code_exits\": \"pass\", \"displayed_source_and_output\": \"pass\"}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python",
+        "numerical_lab.py"
+      ],
+      "returncode": 0,
+      "stdout": "{\n  \"model\": \"symmetric regular solution; synthetic teaching model\",\n  \"interaction_Omega_over_RT\": 3.0,\n  \"binodal\": [\n    0.07072018167994484,\n    0.9292798183200551\n  ],\n  \"spinodal\": [\n    0.21132486540518708,\n    0.7886751345948129\n  ],\n  \"common_tangent_slope\": 0.0,\n  \"coexistence_g_over_RT\": -0.058341349441440093,\n  \"mass_balance_checks\": 101,\n  \"sampled_supporting_line_min_residual\": 2.9341639257163266e-08,\n  \"phase_mole_fractions_at_x_0_4\": [\n    0.6164741454552187,\n    0.3835258545447812\n  ],\n  \"limitations\": \"Finite grid check supplements model derivation; not a measured alloy.\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python",
+        "tools/plot_microstructure.py"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python",
+        "code/plot_ch23_property_models.py"
+      ],
+      "returncode": 0,
+      "stdout": "Synthetic crossover: 7.368062997 nm, 108.576705 MPa\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python",
+        "code/ch01_microstructure.py"
+      ],
+      "returncode": 0,
+      "stdout": "FCC atoms per conventional cell: 4\nBCC atoms per conventional cell: 2\nH atomic fraction in H2O: 2/3\nH mass fraction for stipulated masses H=1, O=16: 1/9\noverall sugar mass fraction: 0.71428571\nliquid sugar mass fraction: 0.68750000\nsolid sugar mass g: 30\nsolid phase mass fraction: 0.08571429\nsection B area fractions: 1/9 1/9\nsection interface lengths in cell-edge units: 8 16\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python",
+        "tools/verify_source_free.py",
+        "--browser-worker",
+        "--browser-executable",
+        "<local-path>"
+      ],
+      "returncode": 0,
+      "stdout": "BROWSER 1440 book-overview.html\nBROWSER 1440 chapter-01-microstructure-phases-composition.html\nBROWSER 1440 chapter-02-chemical-order-sites-composition.html\nBROWSER 1440 chapter-03-unary-binary-equilibrium-diagrams.html\nBROWSER 1440 chapter-04-ternary-sections-reactions-projections.html\nBROWSER 1440 chapter-05-phase-amounts-heat-flow-cooling-curves.html\nBROWSER 1440 chapter-06-states-molecular-energy-heat-capacity.html\nBROWSER 1440 chapter-07-first-law-reversible-adiabatic-paths.html\nBROWSER 1440 chapter-08-entropy-engines-statistical-concentration.html\nBROWSER 1440 chapter-09-entropy-contributions-thermodynamic-potentials.html\nBROWSER 1440 chapter-10-lattice-stability-caloric-mixing.html\nBROWSER 1440 chapter-11-mixing-chemical-potentials-activities.html\nBROWSER 1440 chapter-12-global-tangents-driving-forces-phase-rule.html\nBROWSER 1440 chapter-13-calphad-models-database-minimization.html\nBROWSER 1440 chapter-14-reproducible-equilibrium-calculations.html\nBROWSER 1440 chapter-15-composition-paths-references-tzero.html\nBROWSER 1440 chapter-16-scheil-solidification-conservative-histories.html\nBROWSER 1440 chapter-17-assessment-data-measurements-constraints.html\nBROWSER 1440 chapter-18-sublattice-models-assessment-databases.html\nBROWSER 1440 chapter-19-diffusion-mobility-thermodynamic-forces.html\nBROWSER 1440 chapter-20-conservative-transport-interfaces-rapid-solidification.html\nBROWSER 1440 chapter-21-nucleation-transformation-diagrams-precipitation-aging.html\nBROWSER 1440 chapter-22-high-throughput-design-phase-identification.html\nBROWSER 1440 chapter-23-material-property-models-and-strength.html\nBROWSER 1440 chapter-24-size-electrochemical-reservoirs-database-limits.html\nBROWSER 1440 index.html\nBROWSER 1440 numerical-lab.html\nBROWSER 1440 references.html\nBROWSER 1440 source-map.html\nBROWSER 390 book-overview.html\nBROWSER 390 chapter-01-microstructure-phases-composition.html\nBROWSER 390 chapter-02-chemical-order-sites-composition.html\nBROWSER 390 chapter-03-unary-binary-equilibrium-diagrams.html\nBROWSER 390 chapter-04-ternary-sections-reactions-projections.html\nBROWSER 390 chapter-05-phase-amounts-heat-flow-cooling-curves.html\nBROWSER 390 chapter-06-states-molecular-energy-heat-capacity.html\nBROWSER 390 chapter-07-first-law-reversible-adiabatic-paths.html\nBROWSER 390 chapter-08-entropy-engines-statistical-concentration.html\nBROWSER 390 chapter-09-entropy-contributions-thermodynamic-potentials.html\nBROWSER 390 chapter-10-lattice-stability-caloric-mixing.html\nBROWSER 390 chapter-11-mixing-chemical-potentials-activities.html\nBROWSER 390 chapter-12-global-tangents-driving-forces-phase-rule.html\nBROWSER 390 chapter-13-calphad-models-database-minimization.html\nBROWSER 390 chapter-14-reproducible-equilibrium-calculations.html\nBROWSER 390 chapter-15-composition-paths-references-tzero.html\nBROWSER 390 chapter-16-scheil-solidification-conservative-histories.html\nBROWSER 390 chapter-17-assessment-data-measurements-constraints.html\nBROWSER 390 chapter-18-sublattice-models-assessment-databases.html\nBROWSER 390 chapter-19-diffusion-mobility-thermodynamic-forces.html\nBROWSER 390 chapter-20-conservative-transport-interfaces-rapid-solidification.html\nBROWSER 390 chapter-21-nucleation-transformation-diagrams-precipitation-aging.html\nBROWSER 390 chapter-22-high-throughput-design-phase-identification.html\nBROWSER 390 chapter-23-material-property-models-and-strength.html\nBROWSER 390 chapter-24-size-electrochemical-reservoirs-database-limits.html\nBROWSER 390 index.html\nBROWSER 390 numerical-lab.html\nBROWSER 390 references.html\nBROWSER 390 source-map.html\n",
+      "stderr": ""
+    }
+  ],
+  "issues": [],
+  "git_archive_commit": "aecbd68ba8afff7dd71e11d0afacb6282ac96f4c",
+  "browser_checks_requested": true,
+  "dependency_installation": "isolated project-local venv from public requirements",
+  "code_checks": {
+    "passed": true,
+    "issues": [],
+    "records": [
+      {
+        "command": [
+          "python",
+          "code/ch01_microstructure.py"
+        ],
+        "returncode": 0,
+        "stdout": "FCC atoms per conventional cell: 4\nBCC atoms per conventional cell: 2\nH atomic fraction in H2O: 2/3\nH mass fraction for stipulated masses H=1, O=16: 1/9\noverall sugar mass fraction: 0.71428571\nliquid sugar mass fraction: 0.68750000\nsolid sugar mass g: 30\nsolid phase mass fraction: 0.08571429\nsection B area fractions: 1/9 1/9\nsection interface lengths in cell-edge units: 8 16\n",
+        "stderr": "",
+        "program": "code/ch01_microstructure.py",
+        "chapter": "chapter-01-microstructure-phases-composition.html",
+        "exact_source_bytes": true,
+        "displayed_output_matches": true,
+        "passed": true
+      },
+      {
+        "command": [
+          "python",
+          "code/ch02_order_and_bases.py"
+        ],
+        "returncode": 0,
+        "stdout": "A on alpha | eta | labelled configurations\n0 | -1 | 1\n1 | -1/2 | 16\n2 | 0 | 36\n3 | 1/2 | 16\n4 | 1 | 1\nVacancy example: atomic x_B = 1/4 ; site y_B = 1/5\nInterstitial example: y_B = 1/4 ; atomic x_B = 1/5\nFe3C rounded-mass construction: carbon mass fraction = 1/15\nPhase atom-amount fractions: 11/15 4/15\nPhase atomic compositions x_A: 9/22 3/4\nOverall x_A = 1/2 ; lever gamma fraction = 4/15\nAll exact conservation and enumeration checks passed.\n",
+        "stderr": "",
+        "program": "code/ch02_order_and_bases.py",
+        "chapter": "chapter-02-chemical-order-sites-composition.html",
+        "exact_source_bytes": true,
+        "displayed_output_matches": true,
+        "passed": true
+      },
+      {
+        "command": [
+          "python",
+          "code/ch03_phase_diagrams.py"
+        ],
+        "returncode": 0,
+        "stdout": "At T=1200.0 K: x_B(liquid)=0.400458048, x_B(solid)=0.509359331\nAt overall x_B=0.45: solid atomic-amount fraction=0.454925331\nSolidus=1172.060463 K; liquidus=1224.416841 K\n101 lever balances and 10002 sampled support-line inequalities passed.\nMinimum sampled tangent gap=3.30166085e-05 J/mol\nHypoeutectic construction: remaining liquid= 1/2 ; beta inside eutectic= 3/8 ; total beta= 3/16\nAll numbers are synthetic teaching models, not assessed alloy data.\n",
+        "stderr": "",
+        "program": "code/ch03_phase_diagrams.py",
+        "chapter": "chapter-03-unary-binary-equilibrium-diagrams.html",
+        "exact_source_bytes": true,
+        "displayed_output_matches": true,
+        "passed": true
+      },
+      {
+        "command": [
+          "python",
+          "code/ch04_ternary_balances.py"
+        ],
+        "returncode": 0,
+        "stdout": "Synthetic overall (A,B,C): 53/200 69/200 39/100\nRecovered phase atomic-amount fractions: 1/5 3/10 1/2\nArea ratios: 0.200000 0.300000 0.500000\nExact grid reconstructions: 231\nOff-section tie-line bulk: 17/50 2/5 13/50\nNIST table all-solid product MASS fractions (Ag3Sn,Cu6Sn5,Sn): 0.050089233 0.021755823 0.928154944\nCenter ternary energy for lambda=+/-2700 J/mol: +/-100 J/mol\nAll conservation, area, section and boundary checks passed.\n",
+        "stderr": "",
+        "program": "code/ch04_ternary_balances.py",
+        "chapter": "chapter-04-ternary-sections-reactions-projections.html",
+        "exact_source_bytes": true,
+        "displayed_output_matches": true,
+        "passed": true
+      },
+      {
+        "command": [
+          "python",
+          "code/ch05_cooling_curves.py"
+        ],
+        "returncode": 0,
+        "stdout": "Pure: liquidus arrival 1500 s; arrest 1000 s; completion 2500 s.\nPure at 2000 s: T = 1000.0 K; solid mass fraction = 0.500.\nRange model: first solid 1000 s; last liquid 3000 s; slope -0.100 K/s.\nSensor at 100 s: true 1280.000 K; observed 1281.999909 K; offset +1.999909 K.\nRecalescence: 20 K undercooling -> 0.100 solid mass fraction.\nRelaxation at 10, 100, 300 s: 0.076130, 0.505696, 0.760170\n95% of equilibrium amount: 299.573227 s.\nDiffusion estimates: 1000000 s (11.574074 days); 10 s.\nChecks: 4001 caloric identities, pure-phase boundaries, sensor sign and burst enthalpy PASS.\n",
+        "stderr": "",
+        "program": "code/ch05_cooling_curves.py",
+        "chapter": "chapter-05-phase-amounts-heat-flow-cooling-curves.html",
+        "exact_source_bytes": true,
+        "displayed_output_matches": true,
+        "passed": true
+      },
+      {
+        "command": [
+          "python",
+          "code/ch06_molecular_caloric.py"
+        ],
+        "returncode": 0,
+        "stdout": "Exact SI product R = 8.314462618153 J/(mol K).\nScaled Maxwell integrals: norm 1.000000000; mean 1.128379167; second 1.500000000.\nAt 300 K, stipulated 20 g/mol: most-probable / mean / rms = 499.433558 / 563.550422 / 611.678688 m/s.\nOne mole at 300 K, 100 kPa: V = 0.024943388 m3; monatomic U = 3741.508178 J.\nMonatomic Cv,m = 12.471693927; Cp,m = 20.786156545; difference = 8.314462618 J/(mol K).\nSynthetic Cp integral, 300 -> 900 K: Delta H,m = 15622.222222222 J/mol.\nEinstein Cv/(3R) at T/Theta = 0.1, 0.5, 1, 2, 10: 0.004540405, 0.724061661, 0.920673594, 0.979424522, 0.999167083\nChecks: independent speed moments, scaling, caloric integral/derivative and quantum limits PASS.\n",
+        "stderr": "",
+        "program": "code/ch06_molecular_caloric.py",
+        "chapter": "chapter-06-states-molecular-energy-heat-capacity.html",
+        "exact_source_bytes": true,
+        "displayed_output_matches": true,
+        "passed": true
+      },
+      {
+        "command": [
+          "python",
+          "code/ch07_first_law_paths.py"
+        ],
+        "returncode": 0,
+        "stdout": "Isothermal doubling: reversible 1728.943896 J; one-step 1247.169393 J.\nTwo / ten / hundred load steps: 1455.030958, 1668.142450, 1722.723639 J.\nOne-step isothermal compression W_by = -2494.338785 J; full return cycle W_by = -1247.169393 J.\nAdiabatic to 50 kPa: reversible T 227.357485 K, V/V1 1.515717, W_by 905.975213 J.\nAdiabatic to 50 kPa: one-step T 240.000000 K, V/V1 1.600000, W_by 748.301636 J.\nAdiabatic one-step return to 100 kPa: T 336.000000 K; V/V1 1.120000.\nAdiabatic one-step gas entropy change = 1.124849532 J/K.\nHarmonic stiffness x4 quench: mean W_on/kBT 1.500000000; exp average 0.500000000; Delta F/kBT 0.693147181.\nChecks: common isothermal endpoints, monotone load sums, both adiabatic balances and quench integrals PASS.\n",
+        "stderr": "",
+        "program": "code/ch07_first_law_paths.py",
+        "chapter": "chapter-07-first-law-reversible-adiabatic-paths.html",
+        "exact_source_bytes": true,
+        "displayed_output_matches": true,
+        "passed": true
+      },
+      {
+        "command": [
+          "python",
+          "code/ch08_entropy_and_counts.py"
+        ],
+        "returncode": 0,
+        "stdout": "Carnot 600/300 K, isothermal ratio2: Qhot 3457.887793 J; Qcold -1728.943896 J; work 1728.943896 J; efficiency 0.500000.\nEqual finite bodies: final 450.0 K; DeltaS_hot -287.682072452; DeltaS_cold 405.465108108; total 117.783035656 J/K.\nOne-step 300 K expansion: DeltaS_gas 5.763146322; reservoir -4.157231309; generated 1.605915013 J/K.\nIdeal isolated doubling: Q=0, W=0; DeltaS=R ln2 = 5.763146322 J/K.\n1000 fair coins, log10 multiplicities at 100 / 300 / 500 heads: 139.805164384, 263.734659845, 299.431827152\n1000 coins: exact middle probability 0.025225018; 450..550 band 0.998608258; fractional standard deviation 0.015811388.\nAll-head probability log10 = -301.029995664; this event has positive probability.\nTwo four-oscillator groups: modal split6/6; probability 0.140033341; total microstates 50388.\nChecks: cyclic entropy, finite-body signs, actual reservoir heat, exact normalization and multiplicity convolution PASS.\n",
+        "stderr": "",
+        "program": "code/ch08_entropy_and_counts.py",
+        "chapter": "chapter-08-entropy-engines-statistical-concentration.html",
+        "exact_source_bytes": true,
+        "displayed_output_matches": true,
+        "passed": true
+      },
+      {
+        "command": [
+          "python",
+          "code/ch09_potentials_entropy.py"
+        ],
+        "returncode": 0,
+        "stdout": "Four-mode transfer: dS_hot/k=-1.029619417; cold=1.609437912; total=0.579818495\nCorrelated binary pair: S_joint/k=0.693147181; sum_marginals=1.386294361; mutual=0.693147181\nIdeal fundamental relation: S=8.964664332 J/K; T=450.000000 K; p=93537.704456 Pa; A=1578.163318 J\n600-to300 K cooling at100 kPa: Q=-6235.846964 J; dS_gas=-14.407865804 J/K; generation=6.378290741 J/K; dPhi=-1913.487222 J\nTemperature-dependent phase differences: T=500: dH=0.000000, dS=-3.862943611, dG=1931.471806; T=1000: dH=10000.000000, dS=10.000000000, dG=0.000000; T=1500: dH=20000.000000, dS=18.109302162, dG=-7163.953243\nOscillator theta/T=2: Z=1.156517643; mean_quanta=0.156517643; S/k=0.458448743\nAnalytic entropy slope: exact=43.862943611, finite_difference=43.862943519 J/(mol K); sigma_G=0.5 J/mol gives sigma_slope=3.535533906\nAll fundamental-relation, availability, counting and finite-difference checks passed.\n",
+        "stderr": "",
+        "program": "code/ch09_potentials_entropy.py",
+        "chapter": "chapter-09-entropy-contributions-thermodynamic-potentials.html",
+        "exact_source_bytes": true,
+        "displayed_output_matches": true,
+        "passed": true
+      },
+      {
+        "command": [
+          "python",
+          "code/ch10_lattice_caloric.py"
+        ],
+        "returncode": 0,
+        "stdout": "Caloric path T=100: H=750.000000 J/mol; S=10.000000000 J/(mol K); G=-250.000000 J/mol\nCaloric path T=1000: H=27750.000000 J/mol; S=79.077552790 J/(mol K); G=-51327.552790 J/mol\nCaloric path T=1200: H=45750.000000 J/mol; S=96.370415062 J/(mol K); G=-69894.498074 J/mol\nFusion jump: H=10000.000000; S=10.000000000; G=0.000000000\nLattice difference: T=800: dG=1785.148411 J/mol; T=1000: dG=0.000000 J/mol; T=1200: dG=-2187.858682 J/mol\nIndependent phase zeroing destroys offset: omitted H_liq-H_sol at298K=2980.000000; wrong fusion=7020.000000 J/mol\nRandom bond model: unordered_edges=300; expected_AB=126.000000; molar_dH=2520.000000 J/mol\nFixed30B/70A finite100site ensemble: expected_AB=127.272727273; thermodynamic-limit=126.000000000\nStiffness change theta300to600 atT=300: dU=576.338374387; dS=-4.840705985; dF=2028.550169894\nStiffness change theta300to600 atT=30000: dU=6.235794999; dS=-5.763042392; dF=172897.507559812\nOnebar-to-oneatm: delta_p=1325 Pa; atV=1e-5m3/mol delta_g=0.01325000 J/mol\nPublished extract Al fcc->bcc: SGTE=0.105; inflection=0.047; shape-constrained=0.094 eV; inflection-minus-SGTE=-0.058\nPublished extract Ni fcc->bcc: SGTE=0.090; inflection=0.094; shape-constrained=0.093 eV; inflection-minus-SGTE=0.004\nAll declared caloric, reference-invariance, bond-count and oscillator checks passed.\n",
+        "stderr": "",
+        "program": "code/ch10_lattice_caloric.py",
+        "chapter": "chapter-10-lattice-stability-caloric-mixing.html",
+        "exact_source_bytes": true,
+        "displayed_output_matches": true,
+        "passed": true
+      },
+      {
+        "command": [
+          "python",
+          "code/ch11_mixtures_activity.py"
+        ],
+        "returncode": 0,
+        "stdout": "800K xB0.3: g=-14543.206723360; muA=-11292.448390568; muB=-22128.309499873 J/mol; Euler and amount derivatives passed\nActivities: aA=0.823404862; aB=0.726170100; gammaA=1.176292660; gammaB=2.420566998\nMatched-reference ideal vapor: pA=82.340486220; pB=14.523401990 Pa\nAdding0.2molA: exact dG=-2245.287233895; initial-mu approximation=-2258.489678114; integrated mu=-2245.287233895 J\n600K midcomposition: mixing_g=-457.887792986 J/mol; curvature=-4045.289716432; symmetric split minus homogeneous=-0.202197959 J/mol\nEqual-mu with3000J/mol standard offset at1000K: a_alpha=0.400000000; a_beta=0.278842605\n100site30B count: exact S/k=58.642095641; extensive Stirling term=61.086430205\nFive-cation ideal entropy: equimolar=13.381611359; fractions0.4,0.15x4=12.511505933 J/(mol_sites K); ideal T*S at1148.15K=15364.097082033 J/mol_sites\nAll Euler, Gibbs-Duhem, derivative, activity and finite-addition checks passed.\n",
+        "stderr": "",
+        "program": "code/ch11_mixtures_activity.py",
+        "chapter": "chapter-11-mixing-chemical-potentials-activities.html",
+        "exact_source_bytes": true,
+        "displayed_output_matches": true,
+        "passed": true
+      },
+      {
+        "command": [
+          "python",
+          "code/ch12_global_tangents.py"
+        ],
+        "returncode": 0,
+        "stdout": "Parabolic delta=0: coexistence=0.200000000,0.800000000; slope=0.000000000; T0 composition=0.500000000\nParabolic delta=500: coexistence=0.241666667,0.841666667; slope=833.333333333; T0 composition=0.541666667\nAt overallxB0.3: beta mole fraction=0.166666667; finite release=100.000000000 J/mol_initial\nThird-phase counterexample: old common line=0; competing gamma at0.5=-200.000000 J/mol\nInfinitesimal product: xB=0.900000000; parent-tangent release=1200.000000000 J/mol_product; finite_difference_derivative=-1199.999640\nFull constrained path: initial affinity=1100.000000000 J/mol_product; integral=100.000000000 J/mol_initial; final affinity=0.000000000\nLine compound: x_alpha=0.183772234; x_beta=0.816227766; admissible purecompound support slopes=[-324.555320337,324.555320337]\nRegular model: criticalT=721.634130256 K; binodal=0.169140902,0.830859098; spinodal=0.294723517,0.705276483\nMetastable local test: xB=0.231932209; curvature=4004.306176615; above equilibrium line=16.879041231 J/mol\nGeneric intensive counts: binary2phase F=2, fixedp F=1; binary3phase fixedp F=0; ternary2phase fixedTp F=1\nAll exact supporting-line, conservation, affinity and bounded root checks passed.\n",
+        "stderr": "",
+        "program": "code/ch12_global_tangents.py",
+        "chapter": "chapter-12-global-tangents-driving-forces-phase-rule.html",
+        "exact_source_bytes": true,
+        "displayed_output_matches": true,
+        "passed": true
+      },
+      {
+        "command": [
+          "python",
+          "code/ch13_calphad_models.py"
+        ],
+        "returncode": 0,
+        "stdout": "Unary at 900 K: g=8861.722713412, s=6.089443899, h=14342.222222222, cp=28.353086420\nAdded 3T: delta g=2700.000000, delta s=-3.000000, delta h=0, delta cp=0\nPiecewise join: added 100 J/mol upper offset causes delta g=100, delta h=100; not a valid smooth join\nRK at 900 K, xB=.2: gE=1227.256171491, sE=0.257715365, hE=1459.200000000, cpE=-0.320000000\nRelabeling check: original=1227.256171491, wrong unchanged coefficients=1630.456171491\nEven RK: gE(.25)=-2343.750000, gE(.75)=-2343.750000\nTernary (.2,.3,.5): binary sum=-190.000000, correction=-3000.000000, total=-3190.000000\nEqual coefficients, n=4: total binary/ternary/quaternary weights=0.375000000, 0.062500000, 0.003906250\nEqual coefficients, n=10: total binary/ternary/quaternary weights=0.450000000, 0.120000000, 0.021000000\nPressure increase 1 GPa: gP=9950.815057423, V=9.90242735743e-06, incompressible V0 dp=10000.000000\nSampled equilibrium z=.35: g=0.000000000, states=(('alpha', 0.2, 0.7500000000000001), ('beta', 0.8, 0.24999999999999992)); dual line ell=0 certifies optimum\nCommon elemental gauge: cost shift=45.000000000, expected=45.000000000; phase amounts unchanged\n",
+        "stderr": "",
+        "program": "code/ch13_calphad_models.py",
+        "chapter": "chapter-13-calphad-models-database-minimization.html",
+        "exact_source_bytes": true,
+        "displayed_output_matches": true,
+        "passed": true
+      },
+      {
+        "command": [
+          "python",
+          "code/ch14_equilibrium_workflow.py"
+        ],
+        "returncode": 0,
+        "stdout": "Engine: pycalphad 0.11.1; R=8.3145 J/(mol K)\nFe-45 mass percent Cr: xCr=0.467730064, mean molar mass=54.044753756 g/mol\nTeaching fractions: beta mole=0.250000, mass=0.333333, volume=0.400000\nRestricted 600 K: xAlpha=0.230992, xBeta=0.769008, fBeta=0.314132, GM=-1310.3017\nAnalytic coexistence and elemental/amount balances: PASS\nHomogeneous ALPHA at xNi=.4: GM=-957.4533; excess above restricted equilibrium=352.8484\nGAMMA entered: fraction=1.000000, GM=-8357.4533\nFixed bulk sweep T=400 K: fBeta=0.360586\nFixed bulk sweep T=600 K: fBeta=0.314132\nFixed bulk sweep T=1000 K: fBeta=0.210926\nDELTA composition sets: xLow=0.169144, xHigh=0.830856, fHigh=0.348877\nSampling-density repeat against analytic certificate: PASS\nTernary off-section balance: bulk=(.46,.32,.22), phase C fractions=.10 and .40\n",
+        "stderr": "",
+        "program": "code/ch14_equilibrium_workflow.py",
+        "chapter": "chapter-14-reproducible-equilibrium-calculations.html",
+        "exact_source_bytes": true,
+        "displayed_output_matches": true,
+        "passed": true
+      },
+      {
+        "command": [
+          "python",
+          "code/ch15_sections_references_tzero.py"
+        ],
+        "returncode": 0,
+        "stdout": "Five-component path: rank 5, fractions (.32,.16,.16,.16,.20) at xV=.20\nTangent contact x=0.2: w=0.333333333, molar-plot slope=1440.000000, specific g=-10.000000000 J/g\nTangent contact x=0.8: w=0.888888889, molar-plot slope=3240.000000, specific g=6.666666667 J/g\nCorrect mass-specific supporting line: -20 + 30w J/g\nT0 at xNi=.4: 1080.000000 K; equal homogeneous GM=-4443.4159 J/mol\nCoexistence at T0: xP=0.297860, xQ=0.508348, fQ=0.485253, GM=-4655.4648\nHomogeneous equality lies 212.0489 J/mol above global equilibrium\nCommon reference raw gQ-gP=800.0000; independent phase mixing references difference=0.0000\nCommon elemental reference subtraction preserves phase competition: PASS\nPartitionless Q to P, T=1000: delta g=-800.0000 J/mol\nPartitionless Q to P, T=1080: delta g=0.0000 J/mol\nPartitionless Q to P, T=1160: delta g=800.0000 J/mol\nTwo-root counterexample: endpoints600/1400 positive; roots800 and1200; interior1000 negative\nTangential root: 1000 K, no sign change and no stability-order reversal\n",
+        "stderr": "",
+        "program": "code/ch15_sections_references_tzero.py",
+        "chapter": "chapter-15-composition-paths-references-tzero.html",
+        "exact_source_bytes": true,
+        "displayed_output_matches": true,
+        "passed": true
+      },
+      {
+        "command": [
+          "python",
+          "code/ch16_scheil_conservation.py"
+        ],
+        "returncode": 0,
+        "stdout": "Synthetic path: liquidus=927.000000 K, equilibrium solidus=886.846154 K, eutectic=861.000000 K\nfs=0.5: liquid=0.018276629, new solid=0.002375962, mean solid=0.001723371, equilibrium liquid=0.017699115\nfs=0.9: liquid=0.074131024, new solid=0.009637033, mean solid=0.002874331, equilibrium liquid=0.046082949\nEutectic starts: primary solid=0.942514040, residual liquid=0.057485960, liquid composition=0.120000000\nTerminal mixture: beta within eutectic=0.108253837, final beta mass fraction=0.006223076, final total solute=0.010000000\nLiquid-composition steps=20: residual=0.054725859, absolute error=0.002760101, conservation PASS\nLiquid-composition steps=40: residual=0.056173825, absolute error=0.001312135, conservation PASS\nLiquid-composition steps=80: residual=0.056846896, absolute error=0.000639063, conservation PASS\nLiquid-composition steps=160: residual=0.057170652, absolute error=0.000315308, conservation PASS\nFrozen-solid concentration variance=0.000006805318; layer-minus-mean enthalpy=6.805318 J/kg of primary solid\nClock illustration t=0.1 s: Fo_s=0.000010, Fo_liquid=10.0; path itself has no clock\nClock illustration t=100.0 s: Fo_s=0.010000, Fo_liquid=10000.0; path itself has no clock\nEndpoint/partition checks: k=1 no segregation; k>1 depletes liquid; classical path stopped before unphysical divergence\n",
+        "stderr": "",
+        "program": "code/ch16_scheil_conservation.py",
+        "chapter": "chapter-16-scheil-solidification-conservative-histories.html",
+        "exact_source_bytes": true,
+        "displayed_output_matches": true,
+        "passed": true
+      },
+      {
+        "command": [
+          "python",
+          "code/ch17_data_constraints.py"
+        ],
+        "returncode": 0,
+        "stdout": "Original regular-solution example: H_ex=1890.000000 J/mol, a_B=0.427255929, oriented EMF=0.036639698 V\nJoint calorimetry/activity recovery: A=9000.000000 J/mol, B=-3.000000 J/(mol K)\nCalorimetry-only entropy null direction: B=-8,0,5 all give the same H_ex\nGibbs-Duhem identity PASS; its integration still requires a reference constant\nHess cycle: formation enthalpy=-15000.000000 J/mol AB; opposite subtraction would have wrong sign\nIdeal-gas reaction correction: DeltaU=-100000.000000, DeltaH=-102478.957030 J/mol reaction\nFour readings: correct mean standard uncertainty=3.162277660, false independent-total value=1.802775638\nMixed-volume toy: observed=0.225000, particle=0.600000, uncertainty amplification=4.0\nFinite-T toy: 0.05 eV/atom=4824.266606 J/mol atoms; entropy reversal at 482.426661 K\nAB2 basis: -90 kJ/mol formula = -30 kJ/mol atoms; x_B=2/3\nLandau example: G,S,H continuous at Tc; latent heat zero, Cp step=1.600000 J/(mol K)\nCubic(110) Bragg example: 2theta=42.584217 deg; 2% contraction shifts it by 0.912839 deg\nData audit PASS: reference, phase, amount basis, measurement model and correlated uncertainty remain explicit\n",
+        "stderr": "",
+        "program": "code/ch17_data_constraints.py",
+        "chapter": "chapter-17-assessment-data-measurements-constraints.html",
+        "exact_source_bytes": true,
+        "displayed_output_matches": true,
+        "passed": true
+      },
+      {
+        "command": [
+          "python",
+          "code/ch18_models_and_assessment.py"
+        ],
+        "returncode": 0,
+        "stdout": "Symmetric two-sublattice toy: Tc=962.178840 K; T/Tc=0.8, order parameter=0.710411783\nSites at x_B=0.5: y_B1=0.144794108, y_B2=0.855205892; ordered-minus-disordered G=-229.456096 J/mol atoms\n(Fe)1(C,Va)3 at y_C=0.1: x_C=0.230769231; entropy=8.108671 J/(mol formula K)\nSame entropy per mole real atoms=6.237439; vacancy-only sublattice contributes zero ideal entropy\nAssociation K=9: n_AB=0.341886117, species fraction y_AB=0.519493853, overall atomic x_B=0.500000000\nWeighted fit: L(1000)=6042.830189 J/mol, slope=-3.049433962 J/(mol K), chi2=0.317169811\nKnown-noise covariance: u_L1000=113.270423, u_slope=0.134585317, correlation=0.693103280\nConditional model prediction T=1000 K: L=6042.830189, standard uncertainty=113.270423 J/mol\nConditional model prediction T=1500 K: L=4518.113208, standard uncertainty=167.106338 J/mol\nConditional model prediction T=3000 K: L=-56.037736, standard uncertainty=357.137466 J/mol\nQuaternary-only term: zero on every lower-order boundary, equimolar shift=-3906.250000 J/mol atoms\nFive sublattices: 2 constituents each -> 32 end members; 4 each -> 1024\nFour components: 6 binaries, 4 ternaries; subsystem counts do not prove extrapolation accuracy\nMerged (Fe,Cr)1(C,Va)1: missing end member Cr:C must be explicitly assessed or labeled provisional\nAll model-constraint, weighted-gradient and balance checks PASS; no MCMC or commercial Ag-Cu reproduction claimed\n",
+        "stderr": "",
+        "program": "code/ch18_models_and_assessment.py",
+        "chapter": "chapter-18-sublattice-models-assessment-databases.html",
+        "exact_source_bytes": true,
+        "displayed_output_matches": true,
+        "passed": true
+      },
+      {
+        "command": [
+          "python",
+          "code/ch19_diffusion_mobility.py"
+        ],
+        "returncode": 0,
+        "stdout": "Uncorrelated 3D walk: total jump rate=1000000/s, D=1.041666666667e-14 m2/s\nArrhenius synthetic data: D1000=3.962309341158e-15, D1200=1.462032348885e-13; recovered Q=180000.000000 J/mol\n1000 Celsius versus 1000 kelvin: diffusivity ratio=104.034691\nDetailed balance: forward/reverse rate ratio=1.824601807; reverse rate positive, equilibrium net flux zero\nHalf-space target: eta=0.476936276, time=109905.466916 s, concentration at1mm=3000.000000 mol/m3\nHalf-space excess solute per area=4.731781680 mol/m2; fixed surface boundary is a continuing reservoir\nRegular-solution x=0.2: curvature=7179.234818 J/mol, thermodynamic factor=0.230256928, Dchemical=2.302569277266e-19 m2/s\nRegular-solution x=0.5: curvature=-4045.289716 J/mol, thermodynamic factor=-0.202723550, Dchemical=-2.027235504273e-19 m2/s\nLinear spinodal toy: fastest wavelength=139.707606 nm, growth rate=2.050188734555e-04/s\nOne-hour linear amplitude=0.002091890; quadratic excess energy -0.000505661 -> -0.002212775 J/mol, mean x remains0.5\nCoupled flux toy: J=(1.0, 5.0), total dissipation=14.000000; component1 can move along its own potential gradient\nD=L*H=((0.0, 1.0), (-3.0, 8.0)); nonsymmetric with a negative cross entry, eigenvalues=0.394448725,7.605551275\nConservative moving interface: speed=1.000000000000e-10 m/s; flux jump matched to concentration jump\nAll checks PASS; linearized spinodal mode is not a full nonlinear phase-field simulation\n",
+        "stderr": "",
+        "program": "code/ch19_diffusion_mobility.py",
+        "chapter": "chapter-19-diffusion-mobility-thermodynamic-forces.html",
+        "exact_source_bytes": true,
+        "displayed_output_matches": true,
+        "passed": true
+      },
+      {
+        "command": [
+          "python",
+          "code/ch20_conservative_transport.py"
+        ],
+        "returncode": 0,
+        "stdout": "Closed diffusion N=40: steps=320, max error=1.534346948e-04, mean drift=2.109e-15, variance=2.862217841e-03\nClosed diffusion N=80: steps=1280, max error=3.842403998e-05, mean drift=7.550e-15, variance=2.854645264e-03\nClosed diffusion N=160: steps=5120, max error=9.610107172e-06, mean drift=2.870e-14, variance=2.852750284e-03\nConvergence ratios=3.993195,3.998295; second-order combined refinement\nVariable-D closed specimen: mean=0.250000000000, range=0.194902573..0.281842641; every-step conservation, positivity and variance checks PASS\nFirst-mode homogenization threshold 0.001: time=59.795740 h; higher-mode bound=3.908e-23\nThermal diffusion clock=3.420519444474e-11 m2; equivalent1050K time=3079.122317 s; quadrature relative difference=4.383e-14\nOne-sided interface: lambda=0.712159358, s1000=45.040913 um, v=2.252045627298e-08 m/s; local jump and integrated solute PASS\nFinite closed equal-density equilibrium: solid fraction=0.657894737; semi-infinite growth is not valid through finite saturation\nCoupled diffusion path at20um: xA=0.265001306, xB=0.172866267, deviation from end-member straight line=-0.009634386\nMixed-control (time_s,position_um,local exponent): [(1.0, 0.009950494, 0.995073771), (100.0, 0.732050808, 0.788675135), (10000.0, 13.177446879, 0.535267281)]\nBack-diffusion scale (K/s, integratedD/halfspacing2): [(10.0, 0.007426542), (1.0, 0.016), (0.1, 0.034470955), (0.001, 0.16)]\nFixed-speed trapping toy (v_m/s,k,remaining liquid x): [(0.0, 0.2, 0.252382938), (0.1, 0.272727273, 0.213467969), (1.0, 0.6, 0.100475457), (10.0, 0.927272727, 0.047291955)]\nAll checks PASS; no commercial demo or multicomponent solidification history was reproduced\n",
+        "stderr": "",
+        "program": "code/ch20_conservative_transport.py",
+        "chapter": "chapter-20-conservative-transport-interfaces-rapid-solidification.html",
+        "exact_source_bytes": true,
+        "displayed_output_matches": true,
+        "passed": true
+      },
+      {
+        "command": [
+          "python",
+          "code/ch21_nucleation_aging.py"
+        ],
+        "returncode": 0,
+        "stdout": "Capillarity: critical radius=1.250000000 nm, zero crossing=1.875000000 nm, barrier/kBT=38.036693552, flat60degree factor=0.156250000\nIllustrative homogeneous events: rate=3.026034538e+15/m3/s; probability in1e-18m3 over100s=0.261107957; mean wait=330.465494507s\nConstant random nucleation/linear growth: K=1.047197551197e-10/s4; t1%,t50%,t99%=[98.977843939, 285.232632883, 457.935451981]\nSite-saturated linear growth: n=3, t50=54.900835100s; no added induction time\nSame isothermal K at both stages, different histories: X_A=0.154267031, X_B=0.035357214; TTT K alone does not determine CCT\nSynthetic TTT1% grid nose=647K, time=0.370627202s; no real alloy calibration\nSynthetic continuous cooling 1K/s: T1%=796.1148832948575, final X=1.000000000; refinement temperature difference=0.004632958569459333\nSynthetic continuous cooling 10K/s: T1%=754.9699668813141, final X=1.000000000; refinement temperature difference=0.0010464991969456605\nSynthetic continuous cooling 100K/s: T1%=667.2820882658245, final X=0.477455662; refinement temperature difference=0.0005804459813134599\nTwo-bin population: mean radius=5.000000nm, exact volume fraction=0.005445427266, mean-radius substitution=0.002617993878, ratio=2.080000000\nSolute inventory: matrix x=0.000441044861; planar-equilibrium amount fraction=0.006802721088; current fraction below inventory bound\nGibbs-Thomson toy: reservoir critical radius=3.406146793nm; growth at2/8nm=-1.858729122781e-15,3.529739923427e-16m/s\nEqual-volume area check: combined radius=8.041451517nm; new/old area=0.950955037; geometric comparison, not coalescence simulation\nIllustrative fixed-fraction strength (radius_nm,yield_MPa): [(2.0, 200.0), (8.0, 350.0), (32.0, 125.0)]\nAll checks PASS; no KWN solver, commercial precipitation demo or experimental aging curve reproduced\n",
+        "stderr": "",
+        "program": "code/ch21_nucleation_aging.py",
+        "chapter": "chapter-21-nucleation-transformation-diagrams-precipitation-aging.html",
+        "exact_source_bytes": true,
+        "displayed_output_matches": true,
+        "passed": true
+      },
+      {
+        "command": [
+          "python",
+          "code/ch22_screening_characterization.py"
+        ],
+        "returncode": 0,
+        "stdout": "Five-component 5%-grid, positive / zero-allowed: 3246, 7051\nUnrestricted 26-element equimolar subsets of sizes3--6: 313560\n0.8 times 1250 Celsius: operational=1000.000 C; absolute-ratio=945.370 C\nEndpoint-only fraction test: endpoints=.100,.100; interior=0.700\nParent tangent-plane advantage=300.000000; same-composition product penalty=1300.000000 J/mol\nPartitioned product amount=0.1: matrix x=0.255555556, total change=-12.222222222 J/mol\nPartitioned product amount=0.2: matrix x=0.200000000, total change=20.000000000 J/mol\nSynthetic common-line contacts T=900 K: MATRIX=0.443488203, PRECIP=0.798445520\nSynthetic common-line contacts T=1000 K: MATRIX=0.391289385, PRECIP=0.731327105\nSynthetic xNi=0.35: fPRECIP900/1000=0.000000,0.000000; nominal=False; robust=False\nSynthetic xNi=0.40: fPRECIP900/1000=0.000000,0.025617; nominal=False; robust=False\nSynthetic xNi=0.45: fPRECIP900/1000=0.018345,0.172659; nominal=False; robust=False\nSynthetic xNi=0.50: fPRECIP900/1000=0.159207,0.319702; nominal=True; robust=True\nSynthetic xNi=0.55: fPRECIP900/1000=0.300069,0.466744; nominal=True; robust=False\nSynthetic xNi=0.60: fPRECIP900/1000=0.440931,0.613787; nominal=False; robust=False\nSynthetic xNi=0.65: fPRECIP900/1000=0.581793,0.760829; nominal=False; robust=False\nExecuted equilibrium batch:14 cases, every mass/composition balance and analytic fraction PASS\nDeliberately absent result classified as unknown, not reject or pass\nCubic h2+k2+l2=3: exact 2theta shift=-0.227398 deg; first-order=-0.228625 deg\nCubic h2+k2+l2=4: exact 2theta shift=-0.269791 deg; first-order=-0.271291 deg\nCubic h2+k2+l2=8: exact 2theta shift=-0.432799 deg; first-order=-0.435586 deg\nSynthetic five-peak joint fit: a=0.361800000 nm; zero=0.040000000 deg; SSE<1e-20 deg^2\nScope: no measured pattern, real-alloy screening, mechanical-property prediction or thermal-history simulation\n",
+        "stderr": "",
+        "program": "code/ch22_screening_characterization.py",
+        "chapter": "chapter-22-high-throughput-design-phase-identification.html",
+        "exact_source_bytes": true,
+        "displayed_output_matches": true,
+        "passed": true
+      },
+      {
+        "command": [
+          "python",
+          "code/ch23_material_properties.py"
+        ],
+        "returncode": 0,
+        "stdout": "Local molar volume at 1100 K, pressure increment 1 GPa: 9.960000000e-06\nVolumetric expansivity and compressibility: 6.024096386e-05, 1.004016064e-11\nIsothermal bulk modulus and Cv: 99.600000 GPa, 21.040000 J/(mol K)\nFinite-difference volume and Cp: 9.960000000e-06, 24.999999\nMaxwell entropy-pressure derivative: -6.000000000e-10 m3/(mol K)\nViscosity at x=.25, .5, .75: 0.003765057, 0.003387626, 0.002785121 Pa s\nEquimolar no-excess viscosity and multiplier: 0.002828427, 1.197706565\nTwo-composition reconstructed L0, L1: 6000.000000, -2000.000000 J/mol\nReference density and kinematic viscosity: 3600.000000 kg/m3, 9.410071491e-07 m2/s\nParallel/series thermal conductivity: 55.000000, 18.181818 W/(m K)\nEndmember weights: 0.720000, 0.180000, 0.080000, 0.020000\nIntrinsic strength and atomic C/Ti fractions: 80.000000 MPa, 0.090909091, 0.181818182\nGrain and matrix-solute increments: 16.000000, 29.472252 MPa\nLinear baseline without precipitation: 125.472252 MPa\nUsing bulk solute .04 instead of matrix .02 gives: 46.784284 MPa\nToy crossover radius and increment: 7.368062997 nm, 108.576705 MPa\nToy total strength at the crossover: 234.048957 MPa\nDistribution operation checks, average(min), min(average), min(at mean r): 48.284271, 117.726990, 72.727273 MPa\nTwo stipulated 100 MPa increments: linear=200.000000, quadrature=141.421356 MPa\n",
+        "stderr": "",
+        "program": "code/ch23_material_properties.py",
+        "chapter": "chapter-23-material-property-models-and-strength.html",
+        "exact_source_bytes": true,
+        "displayed_output_matches": true,
+        "passed": true
+      },
+      {
+        "command": [
+          "python",
+          "code/ch24_size_electrochemistry_scope.py"
+        ],
+        "returncode": 0,
+        "stdout": "Spherical surface contribution, total/n and derivative: 3000.000000, 2000.000000 J/mol\nCentered finite-difference derivative: 2000.000000 J/mol\nFixed-radius two-state crossing, radius 5 nm: 760.000000 K\nFixed-radius two-state crossing, radius 10 nm: 880.000000 K\nFixed-radius two-state crossing, radius 50 nm: 976.000000 K\nToy path fractions bulk/GB/pipe: 0.98993750, 0.01000000, 0.00006250\nToy effective/bulk mobility, parallel and series: 1673.481770, 1.010164\nNernst decade factor at 298.15 K: 0.059159350 V\nIllustrative m/n=1 reduction boundary, pH 0: 0.800000000 V\nIllustrative m/n=1 reduction boundary, pH 7: 0.385884552 V\nIllustrative m/n=1 reduction boundary, pH 14: -0.028230896 V\nIllustrative M2+/M boundary at ion activity 1e-6: -0.377478049 V\nToy oxide equilibrium log10(pO2/pstandard): -13.928965365\nFive-component binary/ternary subsystem counts: 10, 10\nEdge-invisible ternary interaction at center: -1000.000000 J/mol\nEdge-invisible ternary interaction at center: 1000.000000 J/mol\nMissing-phase toy at x=.4, restricted/enlarged envelope: 0.000000, -400.000000 J/mol\nEnergy-difference interval under stipulated bound: [-800.0, 200.0] J/mol\n",
+        "stderr": "",
+        "program": "code/ch24_size_electrochemistry_scope.py",
+        "chapter": "chapter-24-size-electrochemical-reservoirs-database-limits.html",
+        "exact_source_bytes": true,
+        "displayed_output_matches": true,
+        "passed": true
+      }
+    ]
+  },
+  "browser_checks": {
+    "passed": true,
+    "issues": [],
+    "pages_checked": [
+      "book-overview.html",
+      "chapter-01-microstructure-phases-composition.html",
+      "chapter-02-chemical-order-sites-composition.html",
+      "chapter-03-unary-binary-equilibrium-diagrams.html",
+      "chapter-04-ternary-sections-reactions-projections.html",
+      "chapter-05-phase-amounts-heat-flow-cooling-curves.html",
+      "chapter-06-states-molecular-energy-heat-capacity.html",
+      "chapter-07-first-law-reversible-adiabatic-paths.html",
+      "chapter-08-entropy-engines-statistical-concentration.html",
+      "chapter-09-entropy-contributions-thermodynamic-potentials.html",
+      "chapter-10-lattice-stability-caloric-mixing.html",
+      "chapter-11-mixing-chemical-potentials-activities.html",
+      "chapter-12-global-tangents-driving-forces-phase-rule.html",
+      "chapter-13-calphad-models-database-minimization.html",
+      "chapter-14-reproducible-equilibrium-calculations.html",
+      "chapter-15-composition-paths-references-tzero.html",
+      "chapter-16-scheil-solidification-conservative-histories.html",
+      "chapter-17-assessment-data-measurements-constraints.html",
+      "chapter-18-sublattice-models-assessment-databases.html",
+      "chapter-19-diffusion-mobility-thermodynamic-forces.html",
+      "chapter-20-conservative-transport-interfaces-rapid-solidification.html",
+      "chapter-21-nucleation-transformation-diagrams-precipitation-aging.html",
+      "chapter-22-high-throughput-design-phase-identification.html",
+      "chapter-23-material-property-models-and-strength.html",
+      "chapter-24-size-electrochemical-reservoirs-database-limits.html",
+      "index.html",
+      "numerical-lab.html",
+      "references.html",
+      "source-map.html"
+    ],
+    "widths": [
+      390,
+      1440
+    ],
+    "records": [
+      {
+        "page": "book-overview.html",
+        "width": 1440,
+        "rendered_math": 0,
+        "math_errors": 0,
+        "broken_images": [],
+        "overflow": false
+      },
+      {
+        "page": "chapter-01-microstructure-phases-composition.html",
+        "width": 1440,
+        "rendered_math": 106,
+        "math_errors": 0,
+        "broken_images": [],
+        "overflow": false
+      },
+      {
+        "page": "chapter-02-chemical-order-sites-composition.html",
+        "width": 1440,
+        "rendered_math": 159,
+        "math_errors": 0,
+        "broken_images": [],
+        "overflow": false
+      },
+      {
+        "page": "chapter-03-unary-binary-equilibrium-diagrams.html",
+        "width": 1440,
+        "rendered_math": 195,
+        "math_errors": 0,
+        "broken_images": [],
+        "overflow": false
+      },
+      {
+        "page": "chapter-04-ternary-sections-reactions-projections.html",
+        "width": 1440,
+        "rendered_math": 154,
+        "math_errors": 0,
+        "broken_images": [],
+        "overflow": false
+      },
+      {
+        "page": "chapter-05-phase-amounts-heat-flow-cooling-curves.html",
+        "width": 1440,
+        "rendered_math": 163,
+        "math_errors": 0,
+        "broken_images": [],
+        "overflow": false
+      },
+      {
+        "page": "chapter-06-states-molecular-energy-heat-capacity.html",
+        "width": 1440,
+        "rendered_math": 181,
+        "math_errors": 0,
+        "broken_images": [],
+        "overflow": false
+      },
+      {
+        "page": "chapter-07-first-law-reversible-adiabatic-paths.html",
+        "width": 1440,
+        "rendered_math": 158,
+        "math_errors": 0,
+        "broken_images": [],
+        "overflow": false
+      },
+      {
+        "page": "chapter-08-entropy-engines-statistical-concentration.html",
+        "width": 1440,
+        "rendered_math": 152,
+        "math_errors": 0,
+        "broken_images": [],
+        "overflow": false
+      },
+      {
+        "page": "chapter-09-entropy-contributions-thermodynamic-potentials.html",
+        "width": 1440,
+        "rendered_math": 258,
+        "math_errors": 0,
+        "broken_images": [],
+        "overflow": false
+      },
+      {
+        "page": "chapter-10-lattice-stability-caloric-mixing.html",
+        "width": 1440,
+        "rendered_math": 162,
+        "math_errors": 0,
+        "broken_images": [],
+        "overflow": false
+      },
+      {
+        "page": "chapter-11-mixing-chemical-potentials-activities.html",
+        "width": 1440,
+        "rendered_math": 227,
+        "math_errors": 0,
+        "broken_images": [],
+        "overflow": false
+      },
+      {
+        "page": "chapter-12-global-tangents-driving-forces-phase-rule.html",
+        "width": 1440,
+        "rendered_math": 178,
+        "math_errors": 0,
+        "broken_images": [],
+        "overflow": false
+      },
+      {
+        "page": "chapter-13-calphad-models-database-minimization.html",
+        "width": 1440,
+        "rendered_math": 185,
+        "math_errors": 0,
+        "broken_images": [],
+        "overflow": false
+      },
+      {
+        "page": "chapter-14-reproducible-equilibrium-calculations.html",
+        "width": 1440,
+        "rendered_math": 51,
+        "math_errors": 0,
+        "broken_images": [],
+        "overflow": false
+      },
+      {
+        "page": "chapter-15-composition-paths-references-tzero.html",
+        "width": 1440,
+        "rendered_math": 68,
+        "math_errors": 0,
+        "broken_images": [],
+        "overflow": false
+      },
+      {
+        "page": "chapter-16-scheil-solidification-conservative-histories.html",
+        "width": 1440,
+        "rendered_math": 111,
+        "math_errors": 0,
+        "broken_images": [],
+        "overflow": false
+      },
+      {
+        "page": "chapter-17-assessment-data-measurements-constraints.html",
+        "width": 1440,
+        "rendered_math": 111,
+        "math_errors": 0,
+        "broken_images": [],
+        "overflow": false
+      },
+      {
+        "page": "chapter-18-sublattice-models-assessment-databases.html",
+        "width": 1440,
+        "rendered_math": 89,
+        "math_errors": 0,
+        "broken_images": [],
+        "overflow": false
+      },
+      {
+        "page": "chapter-19-diffusion-mobility-thermodynamic-forces.html",
+        "width": 1440,
+        "rendered_math": 134,
+        "math_errors": 0,
+        "broken_images": [],
+        "overflow": false
+      },
+      {
+        "page": "chapter-20-conservative-transport-interfaces-rapid-solidification.html",
+        "width": 1440,
+        "rendered_math": 83,
+        "math_errors": 0,
+        "broken_images": [],
+        "overflow": false
+      },
+      {
+        "page": "chapter-21-nucleation-transformation-diagrams-precipitation-aging.html",
+        "width": 1440,
+        "rendered_math": 56,
+        "math_errors": 0,
+        "broken_images": [],
+        "overflow": false
+      },
+      {
+        "page": "chapter-22-high-throughput-design-phase-identification.html",
+        "width": 1440,
+        "rendered_math": 114,
+        "math_errors": 0,
+        "broken_images": [],
+        "overflow": false
+      },
+      {
+        "page": "chapter-23-material-property-models-and-strength.html",
+        "width": 1440,
+        "rendered_math": 24,
+        "math_errors": 0,
+        "broken_images": [],
+        "overflow": false
+      },
+      {
+        "page": "chapter-24-size-electrochemical-reservoirs-database-limits.html",
+        "width": 1440,
+        "rendered_math": 108,
+        "math_errors": 0,
+        "broken_images": [],
+        "overflow": false
+      },
+      {
+        "page": "index.html",
+        "width": 1440,
+        "rendered_math": 0,
+        "math_errors": 0,
+        "broken_images": [],
+        "overflow": false
+      },
+      {
+        "page": "numerical-lab.html",
+        "width": 1440,
+        "rendered_math": 0,
+        "math_errors": 0,
+        "broken_images": [],
+        "overflow": false
+      },
+      {
+        "page": "references.html",
+        "width": 1440,
+        "rendered_math": 2,
+        "math_errors": 0,
+        "broken_images": [],
+        "overflow": false
+      },
+      {
+        "page": "source-map.html",
+        "width": 1440,
+        "rendered_math": 0,
+        "math_errors": 0,
+        "broken_images": [],
+        "overflow": false
+      },
+      {
+        "page": "book-overview.html",
+        "width": 390,
+        "rendered_math": 0,
+        "math_errors": 0,
+        "broken_images": [],
+        "overflow": false
+      },
+      {
+        "page": "chapter-01-microstructure-phases-composition.html",
+        "width": 390,
+        "rendered_math": 106,
+        "math_errors": 0,
+        "broken_images": [],
+        "overflow": false
+      },
+      {
+        "page": "chapter-02-chemical-order-sites-composition.html",
+        "width": 390,
+        "rendered_math": 159,
+        "math_errors": 0,
+        "broken_images": [],
+        "overflow": false
+      },
+      {
+        "page": "chapter-03-unary-binary-equilibrium-diagrams.html",
+        "width": 390,
+        "rendered_math": 195,
+        "math_errors": 0,
+        "broken_images": [],
+        "overflow": false
+      },
+      {
+        "page": "chapter-04-ternary-sections-reactions-projections.html",
+        "width": 390,
+        "rendered_math": 154,
+        "math_errors": 0,
+        "broken_images": [],
+        "overflow": false
+      },
+      {
+        "page": "chapter-05-phase-amounts-heat-flow-cooling-curves.html",
+        "width": 390,
+        "rendered_math": 163,
+        "math_errors": 0,
+        "broken_images": [],
+        "overflow": false
+      },
+      {
+        "page": "chapter-06-states-molecular-energy-heat-capacity.html",
+        "width": 390,
+        "rendered_math": 181,
+        "math_errors": 0,
+        "broken_images": [],
+        "overflow": false
+      },
+      {
+        "page": "chapter-07-first-law-reversible-adiabatic-paths.html",
+        "width": 390,
+        "rendered_math": 158,
+        "math_errors": 0,
+        "broken_images": [],
+        "overflow": false
+      },
+      {
+        "page": "chapter-08-entropy-engines-statistical-concentration.html",
+        "width": 390,
+        "rendered_math": 152,
+        "math_errors": 0,
+        "broken_images": [],
+        "overflow": false
+      },
+      {
+        "page": "chapter-09-entropy-contributions-thermodynamic-potentials.html",
+        "width": 390,
+        "rendered_math": 258,
+        "math_errors": 0,
+        "broken_images": [],
+        "overflow": false
+      },
+      {
+        "page": "chapter-10-lattice-stability-caloric-mixing.html",
+        "width": 390,
+        "rendered_math": 162,
+        "math_errors": 0,
+        "broken_images": [],
+        "overflow": false
+      },
+      {
+        "page": "chapter-11-mixing-chemical-potentials-activities.html",
+        "width": 390,
+        "rendered_math": 227,
+        "math_errors": 0,
+        "broken_images": [],
+        "overflow": false
+      },
+      {
+        "page": "chapter-12-global-tangents-driving-forces-phase-rule.html",
+        "width": 390,
+        "rendered_math": 178,
+        "math_errors": 0,
+        "broken_images": [],
+        "overflow": false
+      },
+      {
+        "page": "chapter-13-calphad-models-database-minimization.html",
+        "width": 390,
+        "rendered_math": 185,
+        "math_errors": 0,
+        "broken_images": [],
+        "overflow": false
+      },
+      {
+        "page": "chapter-14-reproducible-equilibrium-calculations.html",
+        "width": 390,
+        "rendered_math": 51,
+        "math_errors": 0,
+        "broken_images": [],
+        "overflow": false
+      },
+      {
+        "page": "chapter-15-composition-paths-references-tzero.html",
+        "width": 390,
+        "rendered_math": 68,
+        "math_errors": 0,
+        "broken_images": [],
+        "overflow": false
+      },
+      {
+        "page": "chapter-16-scheil-solidification-conservative-histories.html",
+        "width": 390,
+        "rendered_math": 111,
+        "math_errors": 0,
+        "broken_images": [],
+        "overflow": false
+      },
+      {
+        "page": "chapter-17-assessment-data-measurements-constraints.html",
+        "width": 390,
+        "rendered_math": 111,
+        "math_errors": 0,
+        "broken_images": [],
+        "overflow": false
+      },
+      {
+        "page": "chapter-18-sublattice-models-assessment-databases.html",
+        "width": 390,
+        "rendered_math": 89,
+        "math_errors": 0,
+        "broken_images": [],
+        "overflow": false
+      },
+      {
+        "page": "chapter-19-diffusion-mobility-thermodynamic-forces.html",
+        "width": 390,
+        "rendered_math": 134,
+        "math_errors": 0,
+        "broken_images": [],
+        "overflow": false
+      },
+      {
+        "page": "chapter-20-conservative-transport-interfaces-rapid-solidification.html",
+        "width": 390,
+        "rendered_math": 83,
+        "math_errors": 0,
+        "broken_images": [],
+        "overflow": false
+      },
+      {
+        "page": "chapter-21-nucleation-transformation-diagrams-precipitation-aging.html",
+        "width": 390,
+        "rendered_math": 56,
+        "math_errors": 0,
+        "broken_images": [],
+        "overflow": false
+      },
+      {
+        "page": "chapter-22-high-throughput-design-phase-identification.html",
+        "width": 390,
+        "rendered_math": 114,
+        "math_errors": 0,
+        "broken_images": [],
+        "overflow": false
+      },
+      {
+        "page": "chapter-23-material-property-models-and-strength.html",
+        "width": 390,
+        "rendered_math": 24,
+        "math_errors": 0,
+        "broken_images": [],
+        "overflow": false
+      },
+      {
+        "page": "chapter-24-size-electrochemical-reservoirs-database-limits.html",
+        "width": 390,
+        "rendered_math": 108,
+        "math_errors": 0,
+        "broken_images": [],
+        "overflow": false
+      },
+      {
+        "page": "index.html",
+        "width": 390,
+        "rendered_math": 0,
+        "math_errors": 0,
+        "broken_images": [],
+        "overflow": false
+      },
+      {
+        "page": "numerical-lab.html",
+        "width": 390,
+        "rendered_math": 0,
+        "math_errors": 0,
+        "broken_images": [],
+        "overflow": false
+      },
+      {
+        "page": "references.html",
+        "width": 390,
+        "rendered_math": 2,
+        "math_errors": 0,
+        "broken_images": [],
+        "overflow": false
+      },
+      {
+        "page": "source-map.html",
+        "width": 390,
+        "rendered_math": 0,
+        "math_errors": 0,
+        "broken_images": [],
+        "overflow": false
+      }
+    ],
+    "browser_executable": "chrome-headless-shell.exe",
+    "browser_version": "151.0.7922.34",
+    "chapter_hashes": {
+      "chapter-01-microstructure-phases-composition.html": "c123f965c6d72ccdea4914960efca3346e1ba70a7aafd83d676e70b3e06bcee5",
+      "chapter-02-chemical-order-sites-composition.html": "9f882d8f9ce3cc80fc3a7f42db67eff355ab4017b464ab43fe5db0a6ceabaf0d",
+      "chapter-03-unary-binary-equilibrium-diagrams.html": "ae63a2c757cbbdef3c842bc7619b04b6afccfeb23b8a20172cf095bb3f51b0b4",
+      "chapter-04-ternary-sections-reactions-projections.html": "87135b8f136963346689c752e7cf4013ec6658cd5a5adc20ec89bd08f98f6cdd",
+      "chapter-05-phase-amounts-heat-flow-cooling-curves.html": "acdc265dcfe2c732651440b9b3237d39ca775312e258a91d8b402360c0174288",
+      "chapter-06-states-molecular-energy-heat-capacity.html": "0af2b4020037a6d4b526ff7d12a6e0ed7312aba7af4d857e076ea92c44af379d",
+      "chapter-07-first-law-reversible-adiabatic-paths.html": "e8312d8f0b9a414bedc763b1f8fdada0b49dd44437348b282d1b170c0f1f9381",
+      "chapter-08-entropy-engines-statistical-concentration.html": "cf40efb072ac317a7d76975a417c342ebcabf523a5d80bff061a7b9f5859cdc0",
+      "chapter-09-entropy-contributions-thermodynamic-potentials.html": "d58476469ddb382c9ec776b4fc37d5367ba2df8fa95ffa18c3c3a6d9fe7277bd",
+      "chapter-10-lattice-stability-caloric-mixing.html": "095746842be219508ced20167f325853515d56456efa5532725bef3feee6b120",
+      "chapter-11-mixing-chemical-potentials-activities.html": "c12bda2a41c816ffc28f484236a6bd7e3bef0aa43d5f9ee0a688e8bb9186ff13",
+      "chapter-12-global-tangents-driving-forces-phase-rule.html": "6f8f77bbb4554d11e2207bbb8381806f8512dc5d218329871128e251b1dcb59b",
+      "chapter-13-calphad-models-database-minimization.html": "7f4fc8dcc83c4c7c45b5c8721bb11cc542de675f8475d01693c143c0a5adcc16",
+      "chapter-14-reproducible-equilibrium-calculations.html": "d9950d0ffd018ee5bd1b6778311684b2b74ddcaa8c034c6e93a9bc0d3403e348",
+      "chapter-15-composition-paths-references-tzero.html": "23c1e3e09cf4a1009554c7e731aff9e89c4c72758c9bdbaa1dc686261765ff80",
+      "chapter-16-scheil-solidification-conservative-histories.html": "da4aaf511c100fa28edc0e55e1e0e8c9b63badb0368fb1cd6bf7e88c3b774a58",
+      "chapter-17-assessment-data-measurements-constraints.html": "1d14960c3b7134e0149f34e656150adcc7378664b76b0b4c9f56c98200d26cc3",
+      "chapter-18-sublattice-models-assessment-databases.html": "f528fff6d2e6b2fe4ef696f838c804ca0449425b6ab882ea3ae35a0a8ffc99ae",
+      "chapter-19-diffusion-mobility-thermodynamic-forces.html": "50b09f397003f5ac587b0a840c409446644d30d24212513df9f9458fbd2c1a97",
+      "chapter-20-conservative-transport-interfaces-rapid-solidification.html": "f081244ad1ec7b41949bcaa32106c7376e4a36f3c2af7d776f2b94f272394836",
+      "chapter-21-nucleation-transformation-diagrams-precipitation-aging.html": "b7229e9e8b92c5cb654a5f423bb840699390bd4cf7f6957dbe2d44692a914b84",
+      "chapter-22-high-throughput-design-phase-identification.html": "be3771499520b00e6780c0ed68adfc0a0f2ee858d90a9c28b092525dd27e6e3b",
+      "chapter-23-material-property-models-and-strength.html": "d8627dae1bd38782199af5940f481f669e3c4b363974d609abe27247d70e30eb",
+      "chapter-24-size-electrochemical-reservoirs-database-limits.html": "3ef129e72d7153d8d962ec8785d68379ce7e599fc50b497e9c84c178b9bc0a14"
+    },
+    "web_input_sha256": {
+      "assets/assessment-identifiability.svg": "1dcd5dee2c1aaf8388a5c248b442ca7963470ee60a935b3482f7d16a6bf47c20",
+      "assets/assessment-models.svg": "18c0cafcb96756eaa2fca91a32216605eab49a130fc1ff2a7db94917c1745704",
+      "assets/book.css": "0db5a603b9820800c9cbd02af1a332a3be2610201bb26625cac5786e212cb97a",
+      "assets/book.js": "e31d522b88712b15eddb3323de2c325a4e1ff1bf77bf0cde74f021809d2bae4f",
+      "assets/calphad-continuation.svg": "f06037c4f0a4682dad50dd71a7ae916704c24f6ae79de224a27fce07a5f31e79",
+      "assets/ch22_screening_diffraction.svg": "e92171550c8cc706fcc9dd5ea32abb5e341b8fd1dd0e0906e1ab526fcb96c801",
+      "assets/ch23_property_models.svg": "c1547ac0116721423837283efb9a196adaf31f028c18ea479c3cc91c4dec58cf",
+      "assets/ch24_size_reservoirs.svg": "71b6132d799b55dc1b60c99e42211e81bb75926019811178f6f0af744fe45ce4",
+      "assets/conservative-transport.svg": "fa8bed0a8c2ae25bf1d74231d268e9ab12dc26e09f58955d2d79e7c8cb51207d",
+      "assets/cooling-models.svg": "7ab681271f399334a69fd9ffcc2a60a27e12e9576210ccea1e60bb895db7a5a1",
+      "assets/diffusion-mobility.svg": "3645c5515bec0b5b5ddf406f976f98e0f3db8ed375f75a1316bad67939ba82dd",
+      "assets/entropy-counts.svg": "625e62e7560dbdc75cc692fce0300e742ba4028e60418ee4b017c03cddb6ea76",
+      "assets/equilibrium-workflow.svg": "ef38949777336608b446edbaf08e986ca458d535409532b6bb2bb660cc1c013e",
+      "assets/first-law-paths.svg": "2b64000922340ed18088b7512f322ae206d8378f5bb7e230da0bc68da4536e66",
+      "assets/global-tangents.svg": "38f2a0916163642605be8ec47822520adcf6269682bc74170c0635707b412f15",
+      "assets/input/tex/extensions/boldsymbol.js": "d6771fee0772db2657796c8d0e20e1878bb3237f6d3ed1e828e1834a4ff743ca",
+      "assets/input/tex/extensions/cancel.js": "0d263ecf2671d1cc13135b8b4afcdca4d40151a9aea51b69402e68adde4cf8c9",
+      "assets/input/tex/extensions/mathtools.js": "04272d69a0b64783cd5b66820d6f8220ee510409d0b12c38626404be9ed9689c",
+      "assets/isomorphous-model.svg": "50d996bfbe1729b9c96194a4a461c8fab15fb919929a7d6486521df626e5beee",
+      "assets/lattice-caloric.svg": "a9fd986ebc2e41419dcf4091367d59ba91dc0242f32051707f8c34dc86d2c8e6",
+      "assets/math-config.js": "da226bd58ca06e2ef05c9f50c02047ccfe5a0c42556fa7148e7ed447a4bbd6d0",
+      "assets/mathjax-tex-svg.js": "d4295dc33744836935c1399feece5159577b34c5c8ffb9f1c6324cd82e03a882",
+      "assets/microstructure-map.svg": "ef92292447eef35d27b1228da64f102e9ad9bf4e12e5490b2977e5612b9ea1a8",
+      "assets/mixtures-activity.svg": "f4dcf7236c1a263ba7d2265841499fd8511164f5e5bb81803197be624b8fc4e7",
+      "assets/molecular-caloric.svg": "3729dd111adf2b406f977bbb38cfea007f37240b1bc5f935bc57be4295bc80e8",
+      "assets/nucleation-aging.svg": "a96a531350e3d395eeabe957f6701f5253c9d403c0efdef56dae2110fe68dbfd",
+      "assets/potentials-entropy.svg": "fefd942b339a3bcd01493fa6109e7a29a40f548e44df45b83483d6c611618e8c",
+      "assets/regular-solution.svg": "50b4bef2cbafcb0a99f7e63237aec0b2cf590bb972729d5cef0b161a8b83b4ad",
+      "assets/scheil-conservation.svg": "01a06c7157201ffdc511b1adf2f21ea5ef68f84bb4bbb3f893422d703e887ab4",
+      "assets/site-preview.png": "f6f3afa384bbf90c66401e4a1e70797dc7287c2933929522ec215b78cae2edfb",
+      "assets/sublattice-order.svg": "3e803d3a0a1b021b2035856e678dd5931ed472c293f5b9c804f2f3f436548459",
+      "assets/ternary-balances.svg": "d12c1c727b7b7ff2e7db190f022f1d2be6955bab7b951469fb700ae764f4d687",
+      "assets/ternary-lab.js": "03ce2742a120a0de87ae77ff100eeb83a9012327af459f7e53d3a7a21dc7de67",
+      "assets/tzero-paths.svg": "3faa433dd0bc1284e9db9619008fc2aef6d6b2398773e4f0d986fa9d299fdbb4",
+      "book-overview.html": "7a2c7284fbbb34b825523e37545d8c674c3ea7bf2621c1e9d8045df5d9584c3f",
+      "chapter-01-microstructure-phases-composition.html": "fe1b7c345a898a255cc96f35cd92fa4e582a943960db40c0cda60637c96c5928",
+      "chapter-02-chemical-order-sites-composition.html": "a4a928f76f512022786f66e302901a2489fbaae47fedab727ee054b13f69756e",
+      "chapter-03-unary-binary-equilibrium-diagrams.html": "0dc0cf1d1858dfbfd04be1d0e90ac8e71f099eb64949a243b55d717fa8ab8a24",
+      "chapter-04-ternary-sections-reactions-projections.html": "7476cf48509811935889031d09119729f922278d62bbbf4ecd7c946109c48e6a",
+      "chapter-05-phase-amounts-heat-flow-cooling-curves.html": "f7bd53cd658a0357ad9be2f6942fe1fab4e42aca2bffdfdef99d1fd57c9ff2eb",
+      "chapter-06-states-molecular-energy-heat-capacity.html": "6edf47a6eac2af4ad6102df11004353d8d90f13939290ead4a4f54e55f80079e",
+      "chapter-07-first-law-reversible-adiabatic-paths.html": "9ad6450cafd67298a53dad1fe5626890026cc585b38c8d141f97b5059dd8e24f",
+      "chapter-08-entropy-engines-statistical-concentration.html": "6fa587996835577c8004eb99de341a4b5b8cba87eff0b9fcd6d3d3bfd67deb84",
+      "chapter-09-entropy-contributions-thermodynamic-potentials.html": "38c9cc47c14b3f6185f532832f9f1f88438a1e2711222eeebce356341fbedf5e",
+      "chapter-10-lattice-stability-caloric-mixing.html": "ea2509657835b248b950bf41ad4b2d67ddbbb4e1d612fe16c26812b77e5a2971",
+      "chapter-11-mixing-chemical-potentials-activities.html": "55006634a59c54cc44416b53284ba4c37f3616c4dd11077d630d3697cb8424e1",
+      "chapter-12-global-tangents-driving-forces-phase-rule.html": "49f45c5082ea68379558bdfb55ac54a45f898b21bf2e8bcc5865320b3e370c35",
+      "chapter-13-calphad-models-database-minimization.html": "b908a62e6e9578f0b5388a141b356dce2b4e3a8b5d8794dbab18dec3e93ceb83",
+      "chapter-14-reproducible-equilibrium-calculations.html": "d6aec512c2dfe736d39f977be82720d2dd9382216966d7a7250a58114ed1dbdf",
+      "chapter-15-composition-paths-references-tzero.html": "09c1ba15fbd03616c61280ee8dc5c5de2fbcbf6035badfc8bc8113c66d557fe0",
+      "chapter-16-scheil-solidification-conservative-histories.html": "2d679a767cfd36fd70f36e26bab030b2a51a127d5dd584d4498358babf4c3aa8",
+      "chapter-17-assessment-data-measurements-constraints.html": "776012da15c92f88e66edd47255bc470fe18c2171b54eb59c0f67e8ac7d056da",
+      "chapter-18-sublattice-models-assessment-databases.html": "540c2e89a3b7eefdd2b5f4d947fd8ccef869c1f596bac29df5a7eccfb0b71de3",
+      "chapter-19-diffusion-mobility-thermodynamic-forces.html": "b107e6de4a47e060da8a3fe672895ec14c52aec53088180640118221a4043f1a",
+      "chapter-20-conservative-transport-interfaces-rapid-solidification.html": "9a3d26220976f89d135dca06f11101d50e09fcef69427f5e7657f68cb7a08799",
+      "chapter-21-nucleation-transformation-diagrams-precipitation-aging.html": "498c94fa414f5592f85339dfd96a6d47aec60ecac3ae83cf1199c53be466d158",
+      "chapter-22-high-throughput-design-phase-identification.html": "58833e182747b48aef406e985ca10eadce38afeb20264569397f5b9f978e717e",
+      "chapter-23-material-property-models-and-strength.html": "5d6c69140da3bd1907f88d5f6e5721f2c65130f2e843291ad93b507ef0f6dc82",
+      "chapter-24-size-electrochemical-reservoirs-database-limits.html": "38f46cd0382ba638f1a88e005902a87662babf4273d9ced80682170fd36d434d",
+      "index.html": "c76757a64a0a792eee38a8fe70581e61404a2ff16bba086cda2ff56228e6ccae",
+      "numerical-lab.html": "edccdbd610ee7b1f8746931fbcfe3d357a853241ba8dbf0c6f2c5055669f49ef",
+      "references.html": "865dfdffcebff822449df0b9a4f0a87d406c2a7727e73231bb0c31846a3d5d38",
+      "source-map.html": "18791da7cba77bf6f5f372c79c6be1b7dd50fc7b68a71248b957a14b67617fee"
+    },
+    "scope": "Actual headless reader checks; no scientific or human visual certification"
+  },
+  "public_file_count": 162,
+  "html_count": 29,
+  "changed_html": [],
+  "byte_identical_html_rebuild": true,
+  "html_sha256": {
+    "book-overview.html": "7a2c7284fbbb34b825523e37545d8c674c3ea7bf2621c1e9d8045df5d9584c3f",
+    "chapter-01-microstructure-phases-composition.html": "fe1b7c345a898a255cc96f35cd92fa4e582a943960db40c0cda60637c96c5928",
+    "chapter-02-chemical-order-sites-composition.html": "a4a928f76f512022786f66e302901a2489fbaae47fedab727ee054b13f69756e",
+    "chapter-03-unary-binary-equilibrium-diagrams.html": "0dc0cf1d1858dfbfd04be1d0e90ac8e71f099eb64949a243b55d717fa8ab8a24",
+    "chapter-04-ternary-sections-reactions-projections.html": "7476cf48509811935889031d09119729f922278d62bbbf4ecd7c946109c48e6a",
+    "chapter-05-phase-amounts-heat-flow-cooling-curves.html": "f7bd53cd658a0357ad9be2f6942fe1fab4e42aca2bffdfdef99d1fd57c9ff2eb",
+    "chapter-06-states-molecular-energy-heat-capacity.html": "6edf47a6eac2af4ad6102df11004353d8d90f13939290ead4a4f54e55f80079e",
+    "chapter-07-first-law-reversible-adiabatic-paths.html": "9ad6450cafd67298a53dad1fe5626890026cc585b38c8d141f97b5059dd8e24f",
+    "chapter-08-entropy-engines-statistical-concentration.html": "6fa587996835577c8004eb99de341a4b5b8cba87eff0b9fcd6d3d3bfd67deb84",
+    "chapter-09-entropy-contributions-thermodynamic-potentials.html": "38c9cc47c14b3f6185f532832f9f1f88438a1e2711222eeebce356341fbedf5e",
+    "chapter-10-lattice-stability-caloric-mixing.html": "ea2509657835b248b950bf41ad4b2d67ddbbb4e1d612fe16c26812b77e5a2971",
+    "chapter-11-mixing-chemical-potentials-activities.html": "55006634a59c54cc44416b53284ba4c37f3616c4dd11077d630d3697cb8424e1",
+    "chapter-12-global-tangents-driving-forces-phase-rule.html": "49f45c5082ea68379558bdfb55ac54a45f898b21bf2e8bcc5865320b3e370c35",
+    "chapter-13-calphad-models-database-minimization.html": "b908a62e6e9578f0b5388a141b356dce2b4e3a8b5d8794dbab18dec3e93ceb83",
+    "chapter-14-reproducible-equilibrium-calculations.html": "d6aec512c2dfe736d39f977be82720d2dd9382216966d7a7250a58114ed1dbdf",
+    "chapter-15-composition-paths-references-tzero.html": "09c1ba15fbd03616c61280ee8dc5c5de2fbcbf6035badfc8bc8113c66d557fe0",
+    "chapter-16-scheil-solidification-conservative-histories.html": "2d679a767cfd36fd70f36e26bab030b2a51a127d5dd584d4498358babf4c3aa8",
+    "chapter-17-assessment-data-measurements-constraints.html": "776012da15c92f88e66edd47255bc470fe18c2171b54eb59c0f67e8ac7d056da",
+    "chapter-18-sublattice-models-assessment-databases.html": "540c2e89a3b7eefdd2b5f4d947fd8ccef869c1f596bac29df5a7eccfb0b71de3",
+    "chapter-19-diffusion-mobility-thermodynamic-forces.html": "b107e6de4a47e060da8a3fe672895ec14c52aec53088180640118221a4043f1a",
+    "chapter-20-conservative-transport-interfaces-rapid-solidification.html": "9a3d26220976f89d135dca06f11101d50e09fcef69427f5e7657f68cb7a08799",
+    "chapter-21-nucleation-transformation-diagrams-precipitation-aging.html": "498c94fa414f5592f85339dfd96a6d47aec60ecac3ae83cf1199c53be466d158",
+    "chapter-22-high-throughput-design-phase-identification.html": "58833e182747b48aef406e985ca10eadce38afeb20264569397f5b9f978e717e",
+    "chapter-23-material-property-models-and-strength.html": "5d6c69140da3bd1907f88d5f6e5721f2c65130f2e843291ad93b507ef0f6dc82",
+    "chapter-24-size-electrochemical-reservoirs-database-limits.html": "38f46cd0382ba638f1a88e005902a87662babf4273d9ced80682170fd36d434d",
+    "index.html": "c76757a64a0a792eee38a8fe70581e61404a2ff16bba086cda2ff56228e6ccae",
+    "numerical-lab.html": "edccdbd610ee7b1f8746931fbcfe3d357a853241ba8dbf0c6f2c5055669f49ef",
+    "references.html": "865dfdffcebff822449df0b9a4f0a87d406c2a7727e73231bb0c31846a3d5d38",
+    "source-map.html": "18791da7cba77bf6f5f372c79c6be1b7dd50fc7b68a71248b957a14b67617fee"
+  },
   "chapter_hashes": {
     "chapter-01-microstructure-phases-composition.html": "c123f965c6d72ccdea4914960efca3346e1ba70a7aafd83d676e70b3e06bcee5",
     "chapter-02-chemical-order-sites-composition.html": "9f882d8f9ce3cc80fc3a7f42db67eff355ab4017b464ab43fe5db0a6ceabaf0d",
@@ -26,5 +1124,159 @@
     "chapter-22-high-throughput-design-phase-identification.html": "be3771499520b00e6780c0ed68adfc0a0f2ee858d90a9c28b092525dd27e6e3b",
     "chapter-23-material-property-models-and-strength.html": "d8627dae1bd38782199af5940f481f669e3c4b363974d609abe27247d70e30eb",
     "chapter-24-size-electrochemical-reservoirs-database-limits.html": "3ef129e72d7153d8d962ec8785d68379ce7e599fc50b497e9c84c178b9bc0a14"
+  },
+  "raw_source_files_available": false,
+  "reproduction_input_sha256": {
+    ".gitattributes": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da",
+    ".gitignore": "887b2f56e7e8fad8a5cac4c94a12c3df84027b4bb0f56d4067c28b0263d32fc8",
+    ".nojekyll": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "README.md": "483cf36525f451f618695cb57765793cee02e90f81d2e42ce510eff95fb1e8a1",
+    "WORKFLOW.md": "52244db5559d0c7058d25ff24834657c628f1747e1e3fcb2faedf85f5a7e7cd0",
+    "assets/assessment-identifiability.svg": "1dcd5dee2c1aaf8388a5c248b442ca7963470ee60a935b3482f7d16a6bf47c20",
+    "assets/assessment-models.svg": "18c0cafcb96756eaa2fca91a32216605eab49a130fc1ff2a7db94917c1745704",
+    "assets/book.css": "0db5a603b9820800c9cbd02af1a332a3be2610201bb26625cac5786e212cb97a",
+    "assets/book.js": "e31d522b88712b15eddb3323de2c325a4e1ff1bf77bf0cde74f021809d2bae4f",
+    "assets/calphad-continuation.svg": "f06037c4f0a4682dad50dd71a7ae916704c24f6ae79de224a27fce07a5f31e79",
+    "assets/ch22_screening_diffraction.svg": "e92171550c8cc706fcc9dd5ea32abb5e341b8fd1dd0e0906e1ab526fcb96c801",
+    "assets/ch23_property_models.svg": "c1547ac0116721423837283efb9a196adaf31f028c18ea479c3cc91c4dec58cf",
+    "assets/ch24_size_reservoirs.svg": "71b6132d799b55dc1b60c99e42211e81bb75926019811178f6f0af744fe45ce4",
+    "assets/conservative-transport.svg": "fa8bed0a8c2ae25bf1d74231d268e9ab12dc26e09f58955d2d79e7c8cb51207d",
+    "assets/cooling-models.svg": "7ab681271f399334a69fd9ffcc2a60a27e12e9576210ccea1e60bb895db7a5a1",
+    "assets/diffusion-mobility.svg": "3645c5515bec0b5b5ddf406f976f98e0f3db8ed375f75a1316bad67939ba82dd",
+    "assets/entropy-counts.svg": "625e62e7560dbdc75cc692fce0300e742ba4028e60418ee4b017c03cddb6ea76",
+    "assets/equilibrium-workflow.svg": "ef38949777336608b446edbaf08e986ca458d535409532b6bb2bb660cc1c013e",
+    "assets/first-law-paths.svg": "2b64000922340ed18088b7512f322ae206d8378f5bb7e230da0bc68da4536e66",
+    "assets/global-tangents.svg": "38f2a0916163642605be8ec47822520adcf6269682bc74170c0635707b412f15",
+    "assets/input/tex/extensions/boldsymbol.js": "d6771fee0772db2657796c8d0e20e1878bb3237f6d3ed1e828e1834a4ff743ca",
+    "assets/input/tex/extensions/cancel.js": "0d263ecf2671d1cc13135b8b4afcdca4d40151a9aea51b69402e68adde4cf8c9",
+    "assets/input/tex/extensions/mathtools.js": "04272d69a0b64783cd5b66820d6f8220ee510409d0b12c38626404be9ed9689c",
+    "assets/isomorphous-model.svg": "50d996bfbe1729b9c96194a4a461c8fab15fb919929a7d6486521df626e5beee",
+    "assets/lattice-caloric.svg": "a9fd986ebc2e41419dcf4091367d59ba91dc0242f32051707f8c34dc86d2c8e6",
+    "assets/math-config.js": "da226bd58ca06e2ef05c9f50c02047ccfe5a0c42556fa7148e7ed447a4bbd6d0",
+    "assets/mathjax-LICENSE": "3ddf9be5c28fe27dad143a5dc76eea25222ad1dd68934a047064e56ed2fa40c5",
+    "assets/mathjax-tex-svg.js": "d4295dc33744836935c1399feece5159577b34c5c8ffb9f1c6324cd82e03a882",
+    "assets/microstructure-map.svg": "ef92292447eef35d27b1228da64f102e9ad9bf4e12e5490b2977e5612b9ea1a8",
+    "assets/mixtures-activity.svg": "f4dcf7236c1a263ba7d2265841499fd8511164f5e5bb81803197be624b8fc4e7",
+    "assets/molecular-caloric.svg": "3729dd111adf2b406f977bbb38cfea007f37240b1bc5f935bc57be4295bc80e8",
+    "assets/nucleation-aging.svg": "a96a531350e3d395eeabe957f6701f5253c9d403c0efdef56dae2110fe68dbfd",
+    "assets/potentials-entropy.svg": "fefd942b339a3bcd01493fa6109e7a29a40f548e44df45b83483d6c611618e8c",
+    "assets/regular-solution.svg": "50b4bef2cbafcb0a99f7e63237aec0b2cf590bb972729d5cef0b161a8b83b4ad",
+    "assets/scheil-conservation.svg": "01a06c7157201ffdc511b1adf2f21ea5ef68f84bb4bbb3f893422d703e887ab4",
+    "assets/site-preview.png": "f6f3afa384bbf90c66401e4a1e70797dc7287c2933929522ec215b78cae2edfb",
+    "assets/sublattice-order.svg": "3e803d3a0a1b021b2035856e678dd5931ed472c293f5b9c804f2f3f436548459",
+    "assets/ternary-balances.svg": "d12c1c727b7b7ff2e7db190f022f1d2be6955bab7b951469fb700ae764f4d687",
+    "assets/ternary-lab.js": "03ce2742a120a0de87ae77ff100eeb83a9012327af459f7e53d3a7a21dc7de67",
+    "assets/tzero-paths.svg": "3faa433dd0bc1284e9db9619008fc2aef6d6b2398773e4f0d986fa9d299fdbb4",
+    "book-overview.html": "7a2c7284fbbb34b825523e37545d8c674c3ea7bf2621c1e9d8045df5d9584c3f",
+    "chapter-01-microstructure-phases-composition.html": "fe1b7c345a898a255cc96f35cd92fa4e582a943960db40c0cda60637c96c5928",
+    "chapter-01-microstructure-phases-composition.meta.json": "b786f815a3143630bed8f73c1c04ec16e1f647f28f497f7ad556a79c53019626",
+    "chapter-02-chemical-order-sites-composition.html": "a4a928f76f512022786f66e302901a2489fbaae47fedab727ee054b13f69756e",
+    "chapter-02-chemical-order-sites-composition.meta.json": "86e68a9aad73cd5fb81759b064e3b25f405025f69e25956a0002542401a4b5d6",
+    "chapter-03-unary-binary-equilibrium-diagrams.html": "0dc0cf1d1858dfbfd04be1d0e90ac8e71f099eb64949a243b55d717fa8ab8a24",
+    "chapter-03-unary-binary-equilibrium-diagrams.meta.json": "038e9aa8d6588d7571d420058fc656f6917bad97faa2aa1022667b9d48f92472",
+    "chapter-04-ternary-sections-reactions-projections.html": "7476cf48509811935889031d09119729f922278d62bbbf4ecd7c946109c48e6a",
+    "chapter-04-ternary-sections-reactions-projections.meta.json": "c066e4f97eb416d82138fd86a8a7ccf047cd831f75dbd07ca76a0f044aa1a07b",
+    "chapter-05-phase-amounts-heat-flow-cooling-curves.html": "f7bd53cd658a0357ad9be2f6942fe1fab4e42aca2bffdfdef99d1fd57c9ff2eb",
+    "chapter-05-phase-amounts-heat-flow-cooling-curves.meta.json": "3b58fa7f6aa9fa776744ba35ac5953c23b09e5af85ab311b0db827456fcb1396",
+    "chapter-06-states-molecular-energy-heat-capacity.html": "6edf47a6eac2af4ad6102df11004353d8d90f13939290ead4a4f54e55f80079e",
+    "chapter-06-states-molecular-energy-heat-capacity.meta.json": "827883ffd28b82a0400f78b924e9fffde02c8be8a27800cb39ece6f2b43f27a4",
+    "chapter-07-first-law-reversible-adiabatic-paths.html": "9ad6450cafd67298a53dad1fe5626890026cc585b38c8d141f97b5059dd8e24f",
+    "chapter-07-first-law-reversible-adiabatic-paths.meta.json": "1e9f9e96d426c27c1cc0c468749677602c882e15e7d7e3e0d0c59243c9b96eea",
+    "chapter-08-entropy-engines-statistical-concentration.html": "6fa587996835577c8004eb99de341a4b5b8cba87eff0b9fcd6d3d3bfd67deb84",
+    "chapter-08-entropy-engines-statistical-concentration.meta.json": "9994cd92b69ffc68348402836e8db973a90d1b287cec39ae9899928cbbb13f91",
+    "chapter-09-entropy-contributions-thermodynamic-potentials.html": "38c9cc47c14b3f6185f532832f9f1f88438a1e2711222eeebce356341fbedf5e",
+    "chapter-09-entropy-contributions-thermodynamic-potentials.meta.json": "2177396b7a910f05d69245fbdc6583817c3990c3c2a322f86977c7fc03c53edb",
+    "chapter-10-lattice-stability-caloric-mixing.html": "ea2509657835b248b950bf41ad4b2d67ddbbb4e1d612fe16c26812b77e5a2971",
+    "chapter-10-lattice-stability-caloric-mixing.meta.json": "03db3dd1706514e2d6bccfd06b75d755171576a3dfd54aeb61c003190c8ad917",
+    "chapter-11-mixing-chemical-potentials-activities.html": "55006634a59c54cc44416b53284ba4c37f3616c4dd11077d630d3697cb8424e1",
+    "chapter-11-mixing-chemical-potentials-activities.meta.json": "f8330e2a4ab0deade7ba03d0f5f7e3829dc4ae26751ed197c2f95efba935ee5a",
+    "chapter-12-global-tangents-driving-forces-phase-rule.html": "49f45c5082ea68379558bdfb55ac54a45f898b21bf2e8bcc5865320b3e370c35",
+    "chapter-12-global-tangents-driving-forces-phase-rule.meta.json": "8d7ebeb44c5d03ecd17d3d2fa057f910e74d31172b6a8f64989b6540ec53d928",
+    "chapter-13-calphad-models-database-minimization.html": "b908a62e6e9578f0b5388a141b356dce2b4e3a8b5d8794dbab18dec3e93ceb83",
+    "chapter-13-calphad-models-database-minimization.meta.json": "dbd0e797e086ed94e0aaf57d318cb1e1e3e7d90c3546cac21163ca069e6a2751",
+    "chapter-14-reproducible-equilibrium-calculations.html": "d6aec512c2dfe736d39f977be82720d2dd9382216966d7a7250a58114ed1dbdf",
+    "chapter-14-reproducible-equilibrium-calculations.meta.json": "a237f28f60b96a36f94fa08d6966961c0fb9f422f6a3ba0153974fdc89a5b56f",
+    "chapter-15-composition-paths-references-tzero.html": "09c1ba15fbd03616c61280ee8dc5c5de2fbcbf6035badfc8bc8113c66d557fe0",
+    "chapter-15-composition-paths-references-tzero.meta.json": "87c4ff78d92c76d2a2ad620260cb66e958963431ee108fb61d25995eae9204c2",
+    "chapter-16-scheil-solidification-conservative-histories.html": "2d679a767cfd36fd70f36e26bab030b2a51a127d5dd584d4498358babf4c3aa8",
+    "chapter-16-scheil-solidification-conservative-histories.meta.json": "66bf2a5bd5777726495ed3f86de1b1bd5152c81de8637bf256e0315fe6badf86",
+    "chapter-17-assessment-data-measurements-constraints.html": "776012da15c92f88e66edd47255bc470fe18c2171b54eb59c0f67e8ac7d056da",
+    "chapter-17-assessment-data-measurements-constraints.meta.json": "9e8ad9b20e522a21deedf2e2850ce674646acc30b3ae46e010ce3726a34b77af",
+    "chapter-18-sublattice-models-assessment-databases.html": "540c2e89a3b7eefdd2b5f4d947fd8ccef869c1f596bac29df5a7eccfb0b71de3",
+    "chapter-18-sublattice-models-assessment-databases.meta.json": "44df1cf5d39719d96d0671a7beee555ce485a32cab810a6cede9d2f10c602a6f",
+    "chapter-19-diffusion-mobility-thermodynamic-forces.html": "b107e6de4a47e060da8a3fe672895ec14c52aec53088180640118221a4043f1a",
+    "chapter-19-diffusion-mobility-thermodynamic-forces.meta.json": "fc851ba5cd81aff84e01190186218a3ed22bba8a9459169b37917375b094291d",
+    "chapter-20-conservative-transport-interfaces-rapid-solidification.html": "9a3d26220976f89d135dca06f11101d50e09fcef69427f5e7657f68cb7a08799",
+    "chapter-20-conservative-transport-interfaces-rapid-solidification.meta.json": "35ca716c570d0afaad9f94c391affeee34b6b51d6c32af397b20ffa92b3f6ec1",
+    "chapter-21-nucleation-transformation-diagrams-precipitation-aging.html": "498c94fa414f5592f85339dfd96a6d47aec60ecac3ae83cf1199c53be466d158",
+    "chapter-21-nucleation-transformation-diagrams-precipitation-aging.meta.json": "f7a95f05aa1fceba1ed9681b5d7cb1756ff660eb2a3c3c3c668209bc40fe8a51",
+    "chapter-22-high-throughput-design-phase-identification.html": "58833e182747b48aef406e985ca10eadce38afeb20264569397f5b9f978e717e",
+    "chapter-22-high-throughput-design-phase-identification.meta.json": "c756e72c777cad3a9ce4361368f6ba891fab015df8eac39c49fd0fdc4e55495c",
+    "chapter-23-material-property-models-and-strength.html": "5d6c69140da3bd1907f88d5f6e5721f2c65130f2e843291ad93b507ef0f6dc82",
+    "chapter-23-material-property-models-and-strength.meta.json": "bffaab707719b8a44f4b5125f53a516f5669d5eadcd11080b7f9af9870b3d7db",
+    "chapter-24-size-electrochemical-reservoirs-database-limits.html": "38f46cd0382ba638f1a88e005902a87662babf4273d9ced80682170fd36d434d",
+    "chapter-24-size-electrochemical-reservoirs-database-limits.meta.json": "3ff5dd9c86093b2e81c176aa07dd133c5c0d7d3a4ae01121d5fef1ed76dfc201",
+    "code/ch01_microstructure.py": "6719ac070855d9b37ced6485e0cc7f11b04808053cd1b187da8e28840c50467c",
+    "code/ch02_order_and_bases.py": "235cbeb8f908cbf9d465f5f55d3956e63ebc09c543dbb7a818bb63c17930485b",
+    "code/ch03_phase_diagrams.py": "9eb3093dbfae3ef26718e9f179facdac8825b7b1a21c036d51082741a93e82c3",
+    "code/ch04_ternary_balances.py": "b6f524f815901253962e045eea2ba7382e2187ff1c3035f3c7483fd514d70f6d",
+    "code/ch05_cooling_curves.py": "8dbf20601e6d88e7c373ed90402c6e63e3bdc5ea0707c23e812b58e46dff2c05",
+    "code/ch06_molecular_caloric.py": "ce4843a81b8bfcfa20db5e64b5553ce6da578f58014f787a51f3963fd2a9edfa",
+    "code/ch07_first_law_paths.py": "5089ce4e383654b903d7b08942f7cae28fbd76bc0b3df81a0288426854d67112",
+    "code/ch08_entropy_and_counts.py": "8d960c500c456340c9aeb7ba8e727a4f9fc4d7337ab69f25e8a4a77347d5d4fc",
+    "code/ch09_potentials_entropy.py": "a5318df4ff6879503278ab233d7bbe9a159bcfcf801340c4bfcbe747dbfb01f1",
+    "code/ch10_lattice_caloric.py": "c568a7b07f7f75d64d6e4c993569b8f3190dfc5858dc23c6f33d1628af513903",
+    "code/ch11_mixtures_activity.py": "63806ed3f6e7d8a70408d2da69a3045bf86560ae5b7e7921996142eb56156c23",
+    "code/ch12_global_tangents.py": "c86a283f570599723251f45cbc015c034487a48f0f5940d3aad3101a93d9c431",
+    "code/ch13_calphad_models.py": "b84a17e1e702205aa9bbd493d5ac4f021783c26d30c0fc81d4e9ece3bebebbc1",
+    "code/ch14_equilibrium_workflow.py": "9b5050fc1a0f2ec6bd7add50bffb0a1b28412eaa20237c94f276c2ee769b9445",
+    "code/ch15_sections_references_tzero.py": "6cd061552216b4e8878b594681ddabe3517a0eb61cbc771647dd955a6d350ff2",
+    "code/ch16_scheil_conservation.py": "b8a9f7dc2bc2856fe67f1995037f612cfedddd2423cf42eddbf0cefaf37812c5",
+    "code/ch17_data_constraints.py": "1bc74ba7221a035fcfa9a31ae2cdfd907703bf13ae28691fdb937d78b7028ca4",
+    "code/ch18_models_and_assessment.py": "c2d7894f6c44ec50cd11096cd4728d5e145edd857c92c3c75431da3f1e5bc991",
+    "code/ch19_diffusion_mobility.py": "e94675c2913e9617ebf9338b91c3793c98be0f2d4130f1e132a88f2eec153680",
+    "code/ch20_conservative_transport.py": "8787c3c2e5d4d4d40ff72d178ac562386535025f81175f4d5ff743bc17f101de",
+    "code/ch21_nucleation_aging.py": "a9f114ac0652eca4be6650c4f3ed641062f45827ad21e44a0015cce1528ea383",
+    "code/ch22_screening_characterization.py": "371708c7c61f8a5aefed3013c63af12a04a22132c5418171544ae3f5202e064f",
+    "code/ch23_material_properties.py": "11b08d89d36443bdb99fd29a376bbcd87f78a2f7054260cd1d2fac887a3d190a",
+    "code/ch24_size_electrochemistry_scope.py": "4cff3a99657b3f333a24203e0d63aa4ec2192b90fa0b96ffe93bfa37cd5f5e65",
+    "code/plot_ch23_property_models.py": "4be679327ca9db2d704c8c11c96cf9a34c4d5bcd74ffc2fa51efb4ba104566b0",
+    "data/ch14_synthetic.tdb": "b3df86459160237326667b7463aa892d994615583a8f59a475b32025ef4afa01",
+    "data/ch15_tzero.tdb": "82a29427e05c7b09c34ae808b1f1a3e706caa29ea3b82b02803cd7bf67a759b6",
+    "data/ch22_screening.tdb": "5338495c814ecf130d3990dfffc12dae4eb04da9df5c765557db37d2b8ceb0ac",
+    "index.html": "c76757a64a0a792eee38a8fe70581e61404a2ff16bba086cda2ff56228e6ccae",
+    "numerical-lab.html": "edccdbd610ee7b1f8746931fbcfe3d357a853241ba8dbf0c6f2c5055669f49ef",
+    "numerical_lab.py": "25321701609f47dae732b980fdf66db99dd8d85bca87f1a7f3673607e535df49",
+    "references.html": "865dfdffcebff822449df0b9a4f0a87d406c2a7727e73231bb0c31846a3d5d38",
+    "requirements.txt": "c02322066f3828cd919fb13250e23acfbfd628a40ab08b2937cc59e673742390",
+    "source-manifest.json": "266487297100c6c9cbe42fa250483d72626de6445c659594e1ab70f332b25809",
+    "source-map.html": "18791da7cba77bf6f5f372c79c6be1b7dd50fc7b68a71248b957a14b67617fee",
+    "tools/audit_public.py": "a93e0efe52ff1d015287d3bdc7d03626afcb130021195dae6e5312868d82046c",
+    "tools/build_book.py": "dab84e2b493e179aefdc8717f46108a34dad57ac26bfaf2d70902733d5591e3d",
+    "tools/plot_assessment_identifiability.py": "680fea29f11020ea0aec27d964186b4714656d245a9c14880e700be38aa8313a",
+    "tools/plot_assessment_models.py": "dac2341edbaf1bcef746135fe83f80f15c2ff44c743f67146aaecf0cb11d7015",
+    "tools/plot_calphad_models.py": "c6270b7486ea40d17883a885fcd4f6b6d618be0978e45be6365f47a66f315372",
+    "tools/plot_conservative_transport.py": "b3cbd71790349c5d09710b7cf3a8bca170b5dc17d3418e24c1178abb50093062",
+    "tools/plot_cooling.py": "47d98f6b5d1e514838998a6989ea9f6f13eb315f4a7d42a91f4d03b5e58624b2",
+    "tools/plot_diffusion_mobility.py": "309cc8b25961522491615ab6a28dc93a95d7b5f08b96f37b39c64a8765d4fa8b",
+    "tools/plot_entropy.py": "6502835bfff30217341e4397416fbc6b3cedd509dc24b9e8d8af2159ae931d21",
+    "tools/plot_equilibrium_workflow.py": "49b9dad12dbaab916b2119cb41dd534ad90088470af4f5b08279030dd96b5502",
+    "tools/plot_first_law.py": "716106c4bcf4b2a5cb0ce942e87ce59be929c62b44902f4e59db449586701b93",
+    "tools/plot_lattice.py": "7f959a4662c06b436c447974d62cfd70dce19dc85a9f2cd9c4b11fa4a8d6ac36",
+    "tools/plot_microstructure.py": "5b2f8f482fb79c2468a0482212809908ca2e0939ccc017545e1a2041130adc7f",
+    "tools/plot_mixtures.py": "2a20c52e80d33ac0909dbb05d4307bd17cb680218615a11ede8be8deac568d51",
+    "tools/plot_molecular_caloric.py": "e388c4ef5bede9e0c0bd3bf698f7f6e52b272f0e017f41d8cf6cc49828af7cb1",
+    "tools/plot_nucleation_aging.py": "2fa53e8bd8eb196cc74f3cf5426ba96369d66dda0fa9b3cf61cbbdc6d7fc895f",
+    "tools/plot_order.py": "15917b410311788985937dce0f974ebf2101a8746fe01655342f239b17efb65b",
+    "tools/plot_phase_diagrams.py": "688db83de7167f7342fd0237614924c9e58f8e22d207f449f0f054b456448608",
+    "tools/plot_potentials.py": "cbb9e07334bd7a2dc14f76eeeb6b73948d3486b4aa23a147557f4d6159a2ca43",
+    "tools/plot_regular_solution.py": "7a53119bd5bef435c4862607ce01e0b9aab8d36405558768f86ad233adf01278",
+    "tools/plot_scheil_conservation.py": "541edfe96780ea98c559fb3890a773d36330681e94b40add849dad1726838fd4",
+    "tools/plot_tangents.py": "c8894434562a072499056bc49bee28ed6629222b1958bbee50ff392edef9b33c",
+    "tools/plot_ternary.py": "c94a0e0f5cc11710055bcc94514cdb1bf9518ef93d771ef6645ddb979dd595fd",
+    "tools/plot_tzero_paths.py": "8bbb4efd0d6e4d66e64935b9a2fe6e09630caf4adbed38f05d70fad2ed2ea0c4",
+    "tools/validate_book.py": "e042ea96526ad1863645e1e3adba0515e4b1c6fe70d2bcfb617783410ebe7110",
+    "tools/verify_publication.py": "6964117de0b3528bf9e0116f223ca50eef598e3a90cf22a9fb3ac8d7ebc8f89c",
+    "tools/verify_source_free.py": "19689e72edac7516c1af47daa64cd6b27bd3957dede6282fbb7f52ad67f0a9e1"
   }
 }
