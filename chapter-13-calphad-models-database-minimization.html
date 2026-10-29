@@ -1,8 +1,8 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="dark light"><meta name="book-content-sha256" content="7f4fc8dcc83c4c7c45b5c8721bb11cc542de675f8475d01693c143c0a5adcc16"><title>CALPHAD models and constrained equilibrium · Computational Thermodynamics</title><link rel="stylesheet" href="assets/book.css"><script src="assets/math-config.js"></script><script defer src="assets/mathjax-tex-svg.js"></script><script defer src="assets/book.js"></script></head>
-<body><a class="skip" href="#main">Skip to content</a><header class="site-header"><a class="brand" href="index.html">Computational Thermodynamics and Kinetics of Materials</a><nav class="course-nav"><a href="index.html">Chapters</a><a href="source-map.html">Source map</a><a href="references.html">References</a><a href="numerical-lab.html">Numerical lab</a></nav></header><div class="layout"><aside class="toc" id="chapter-toc"><h2>On this page</h2></aside><main id="main"><div class="reading-tools"><button id="theme-toggle" aria-pressed="false">Light theme</button><button id="text-toggle" aria-pressed="false">Larger text</button><button id="solutions-toggle" aria-pressed="false">Expand solutions</button><button id="print-page">Print with solutions</button></div>
+<body><a class="skip" href="#main">Skip to content</a><header class="site-header"><a class="brand" href="index.html">Computational Thermodynamics and Kinetics of Materials</a><nav class="course-nav"><a href="index.html">Chapters</a><a href="source-map.html">Source map</a><a href="references.html">References</a><a href="numerical-lab.html">Numerical lab</a></nav></header><div class="layout"><aside class="toc" id="chapter-toc"><h2 id="on-this-page">On this page</h2></aside><main id="main"><div class="reading-tools"><button id="theme-toggle" aria-pressed="false">Light theme</button><button id="text-toggle" aria-pressed="false">Larger text</button><button id="solutions-toggle" aria-pressed="false">Expand solutions</button><button id="print-page">Print with solutions</button></div>
 <article id="chapter-content"><!-- BOOK-CONTENT-START -->
-<h1>13. CALPHAD models, database consistency and constrained equilibrium</h1>
+<h1 id="chapter-title">13. CALPHAD models, database consistency and constrained equilibrium</h1>
 <p class="lead">A thermodynamic database is an executable hypothesis about Gibbs energy. The equilibrium solver selects phase amounts and compositions under conservation constraints; it cannot supply missing physics or repair incompatible reference states. This chapter builds the path from unary functions to multicomponent models and then to an optimum with a checkable certificate.</p>
 <div class="callout"><strong>Scope and conventions.</strong> Lessons 25–26 introduce CALPHAD, unary descriptions, binary excess functions, continuation into higher-component systems, and constrained minimization. Here \(g\) is Gibbs energy per mole of atoms in a vacancy-free substitutional model; \(n_\phi\) uses that same basis. Temperature is kelvin, pressure pascals, energies J mol\(^{-1}\). All numerical coefficients below are original teaching data, not an assessed description of silver, iron or another material. Magnetic ordering, ordered sublattices and variable species stoichiometry require additional declarations.</div>
 <h2 id="workflow">1. Calculation and assessment solve different problems</h2>
@@ -88,84 +88,180 @@
 <p>The program is independent of commercial databases and uses only the Python standard library. It differentiates the declared functions analytically, checks reference invariance, exposes the higher-order blind spot and solves the finite binary phase-state problem. Full double-precision output is recorded below. The agreement of its assertions certifies these specified teaching constructions, not an experimental material description.</p>
 <p><a href="code/ch13_calphad_models.py" download>Download the exact program</a>. Before using a real database, state its component and phase set, mole basis, reference convention, version, validity range, imposed chemical reservoirs, excluded phases, numerical settings and balance residuals. An attractive equilibrium diagram without that information is difficult to reproduce or interpret.</p>
 <pre data-run="code/ch13_calphad_models.py"><code class="language-python">"""Synthetic CALPHAD building blocks; no assessed elemental data."""
+
 from math import log, log1p, isclose, comb
 
 R = 8.31446261815324
 # Numerical coefficients assume kelvin, J/mol and the declared log scale.
-a,b,c,d2,dm1 = -10000.0, 20.0, -25.0, -0.002, 100000.0
+a, b, c, d2, dm1 = -10000.0, 20.0, -25.0, -0.002, 100000.0
+
 
 def unary(T):
-    g = a+b*T+c*T*log(T/1000)+d2*T*T+dm1/T
-    s = -b-c*(log(T/1000)+1)-2*d2*T+dm1/T**2
-    h = a-c*T-d2*T*T+2*dm1/T
-    cp = -c-2*d2*T-2*dm1/T**2
-    return g,s,h,cp
+    g = a + b * T + c * T * log(T / 1000) + d2 * T * T + dm1 / T
+    s = -b - c * (log(T / 1000) + 1) - 2 * d2 * T + dm1 / T**2
+    h = a - c * T - d2 * T * T + 2 * dm1 / T
+    cp = -c - 2 * d2 * T - 2 * dm1 / T**2
+    return g, s, h, cp
 
-T=900.0
-g,s,h,cp=unary(T)
-assert isclose(h,g+T*s,abs_tol=1e-8)
-print(f'Unary at 900 K: g={g:.9f}, s={s:.9f}, h={h:.9f}, cp={cp:.9f}')
+
+T = 900.0
+g, s, h, cp = unary(T)
+assert isclose(h, g + T * s, abs_tol=1e-8)
+print(f"Unary at 900 K: g={g:.9f}, s={s:.9f}, h={h:.9f}, cp={cp:.9f}")
 # A slope shift changes entropy, not enthalpy or heat capacity.
-delta_b=3.0
-assert isclose((g+delta_b*T)+T*(s-delta_b),h,abs_tol=1e-8)
-print(f'Added 3T: delta g={delta_b*T:.6f}, delta s={-delta_b:.6f}, delta h=0, delta cp=0')
+delta_b = 3.0
+assert isclose((g + delta_b * T) + T * (s - delta_b), h, abs_tol=1e-8)
+print(
+    (
+        f"Added 3T: delta g="
+        f"{delta_b * T:.6f}"
+        f", delta s="
+        f"{-delta_b:.6f}"
+        f", delta h=0, delta cp=0"
+    )
+)
 # A deliberately bad upper branch with an extra 100 J/mol offset.
-print('Piecewise join: added 100 J/mol upper offset causes delta g=100, delta h=100; not a valid smooth join')
+print(
+    (
+        "Piecewise join: added 100 J/mol upper offset causes delta g=100, del"
+        "ta h=100; not a valid smooth join"
+    )
+)
 
-x=0.2; y=1-2*x; w=x*(1-x)
-L0=12000-4*T+2*T*log(T/1000); L1=-3000+T; L2=2000
-L0p=-2+2*log(T/1000); L1p=1.0
-ge=w*(L0+L1*y+L2*y*y)
-se=-w*(L0p+L1p*y)
-he=ge+T*se
-cpe=-2*w
-print(f'RK at 900 K, xB=.2: gE={ge:.9f}, sE={se:.9f}, hE={he:.9f}, cpE={cpe:.9f}')
+x = 0.2
+y = 1 - 2 * x
+w = x * (1 - x)
+L0 = 12000 - 4 * T + 2 * T * log(T / 1000)
+L1 = -3000 + T
+L2 = 2000
+L0p = -2 + 2 * log(T / 1000)
+L1p = 1.0
+ge = w * (L0 + L1 * y + L2 * y * y)
+se = -w * (L0p + L1p * y)
+he = ge + T * se
+cpe = -2 * w
+print(
+    f"RK at 900 K, xB=.2: gE={ge:.9f}, sE={se:.9f}, hE={he:.9f}, cpE={cpe:.9f}"
+)
+
+
 # Relabeling A/B reverses odd coefficients; retaining them changes the model.
 def rk(x, coeff):
-    return x*(1-x)*sum(L*(1-2*x)**k for k,L in enumerate(coeff))
-coeff=[L0,L1,L2]
-assert isclose(ge,rk(1-x,[L0,-L1,L2]),abs_tol=1e-10)
-print(f'Relabeling check: original={ge:.9f}, wrong unchanged coefficients={rk(1-x,coeff):.9f}')
-# A symmetric even-order shape need not reduce to L0 alone.
-print(f'Even RK: gE(.25)={rk(.25,[-10000,0,-10000]):.6f}, gE(.75)={rk(.75,[-10000,0,-10000]):.6f}')
+    return x * (1 - x) * sum(L * (1 - 2 * x) ** k for k, L in enumerate(coeff))
 
-xa,xb,xc=.2,.3,.5
-binary=xa*xb*1000+xa*xc*2000+xb*xc*(-3000)
-ternary=xa*xb*xc*(-100000)
-assert isclose(binary,-190)
-print(f'Ternary (.2,.3,.5): binary sum={binary:.6f}, correction={ternary:.6f}, total={binary+ternary:.6f}')
-for n in (4,10):
-    terms=[comb(n,k)/n**k for k in (2,3,4)]
-    print(f'Equal coefficients, n={n}: total binary/ternary/quaternary weights='+', '.join(f'{v:.9f}' for v in terms))
+
+coeff = [L0, L1, L2]
+assert isclose(ge, rk(1 - x, [L0, -L1, L2]), abs_tol=1e-10)
+print(
+    (
+        f"Relabeling check: original="
+        f"{ge:.9f}"
+        f", wrong unchanged coefficients="
+        f"{rk(1 - x, coeff):.9f}"
+    )
+)
+# A symmetric even-order shape need not reduce to L0 alone.
+print(
+    (
+        f"Even RK: gE(.25)="
+        f"{rk(0.25, [-10000, 0, -10000]):.6f}"
+        f", gE(.75)="
+        f"{rk(0.75, [-10000, 0, -10000]):.6f}"
+    )
+)
+
+xa, xb, xc = 0.2, 0.3, 0.5
+binary = xa * xb * 1000 + xa * xc * 2000 + xb * xc * (-3000)
+ternary = xa * xb * xc * (-100000)
+assert isclose(binary, -190)
+print(
+    (
+        f"Ternary (.2,.3,.5): binary sum="
+        f"{binary:.6f}"
+        f", correction="
+        f"{ternary:.6f}"
+        f", total="
+        f"{binary + ternary:.6f}"
+    )
+)
+for n in (4, 10):
+    terms = [comb(n, k) / n**k for k in (2, 3, 4)]
+    print(
+        f"Equal coefficients, n={n}: total binary/ternary/quaternary weights="
+        + ", ".join(f"{v:.9f}" for v in terms)
+    )
 
 # Pressure correction from a constant-parameter Murnaghan volume law.
-V0=1e-5; B0=1e11; Bp=4.0; dp=1e9
-v=V0*(1+Bp*dp/B0)**(-1/Bp)
-gp=V0*B0/(Bp-1)*((1+Bp*dp/B0)**((Bp-1)/Bp)-1)
-print(f'Pressure increase 1 GPa: gP={gp:.9f}, V={v:.12g}, incompressible V0 dp={V0*dp:.6f}')
+V0 = 1e-5
+B0 = 1e11
+Bp = 4.0
+dp = 1e9
+v = V0 * (1 + Bp * dp / B0) ** (-1 / Bp)
+gp = V0 * B0 / (Bp - 1) * ((1 + Bp * dp / B0) ** ((Bp - 1) / Bp) - 1)
+print(
+    (
+        f"Pressure increase 1 GPa: gP="
+        f"{gp:.9f}"
+        f", V="
+        f"{v:.12g}"
+        f", incompressible V0 dp="
+        f"{V0 * dp:.6f}"
+    )
+)
 
-# Finite sampled phase candidates: exhaustive pairs plus a global LP dual certificate.
-z=.35; A=10000.0
-points=[(phase,i/20,A*(i/20-center)**2) for phase,center in [('alpha',.2),('beta',.8)] for i in range(21)]
-candidates=[]
-for phase,xx,gg in points:
-    if isclose(xx,z,abs_tol=1e-14):candidates.append((gg,(phase,xx,1.0),(phase,xx,0.0)))
-for i,(p,u,gu) in enumerate(points):
-    for q,vv,gv in points[i+1:]:
-        p,u,gu=points[i]
-        if u&gt;vv:p,u,gu,q,vv,gv=q,vv,gv,p,u,gu
-        if u&lt;vv and u&lt;=z&lt;=vv:
-            f=(z-u)/(vv-u)
-            candidates.append(((1-f)*gu+f*gv,(p,u,1-f),(q,vv,f)))
-best=min(candidates,key=lambda t:t[0])
-assert isclose(best[0],0,abs_tol=1e-9)
-assert all(gg&gt;=-1e-10 for _,_,gg in points)
-print(f'Sampled equilibrium z=.35: g={best[0]:.9f}, states={best[1:]}; dual line ell=0 certifies optimum')
+# Finite sampled phase candidates: exhaustive pairs plus a global LP dual
+# certificate.
+z = 0.35
+A = 10000.0
+points = [
+    (phase, i / 20, A * (i / 20 - center) ** 2)
+    for phase, center in [("alpha", 0.2), ("beta", 0.8)]
+    for i in range(21)
+]
+candidates = []
+for phase, xx, gg in points:
+    if isclose(xx, z, abs_tol=1e-14):
+        candidates.append((gg, (phase, xx, 1.0), (phase, xx, 0.0)))
+for i, (p, u, gu) in enumerate(points):
+    for q, vv, gv in points[i + 1:]:
+        p, u, gu = points[i]
+        if u &gt; vv:
+            p, u, gu, q, vv, gv = q, vv, gv, p, u, gu
+        if u &lt; vv and u &lt;= z &lt;= vv:
+            f = (z - u) / (vv - u)
+            candidates.append(
+                ((1 - f) * gu + f * gv, (p, u, 1 - f), (q, vv, f))
+            )
+best = min(candidates, key=lambda t: t[0])
+assert isclose(best[0], 0, abs_tol=1e-9)
+assert all(gg &gt;= -1e-10 for _, _, gg in points)
+print(
+    (
+        f"Sampled equilibrium z=.35: g="
+        f"{best[0]:.9f}"
+        f", states="
+        f"{best[1:]}"
+        f"; dual line ell=0 certifies optimum"
+    )
+)
+
+
 # Shared elemental reference shifts leave the optimizer unchanged.
-shift=lambda xx:500*(1-xx)-800*xx
-shifted_cost=best[1][2]*shift(best[1][1])+best[2][2]*shift(best[2][1])
-assert isclose(shifted_cost,shift(z),abs_tol=1e-10)
-print(f'Common elemental gauge: cost shift={shifted_cost:.9f}, expected={shift(z):.9f}; phase amounts unchanged')
+def shift(xx):
+    return 500 * (1 - xx) - 800 * xx
+
+
+shifted_cost = best[1][2] * shift(best[1][1]) + best[2][2] * shift(best[2][1])
+assert isclose(shifted_cost, shift(z), abs_tol=1e-10)
+print(
+    (
+        f"Common elemental gauge: cost shift="
+        f"{shifted_cost:.9f}"
+        f", expected="
+        f"{shift(z):.9f}"
+        f"; phase amounts unchanged"
+    )
+)
 </code></pre><pre class="output">Unary at 900 K: g=8861.722713412, s=6.089443899, h=14342.222222222, cp=28.353086420
 Added 3T: delta g=2700.000000, delta s=-3.000000, delta h=0, delta cp=0
 Piecewise join: added 100 J/mol upper offset causes delta g=100, delta h=100; not a valid smooth join
@@ -180,14 +276,14 @@ Sampled equilibrium z=.35: g=0.000000000, states=(('alpha', 0.2, 0.7500000000000
 Common elemental gauge: cost shift=45.000000000, expected=45.000000000; phase amounts unchanged
 </pre>
 <h2 id="exercises">9. Exercises with complete solutions</h2>
-<div class="exercise"><h3>1. What does heat capacity fail to identify?</h3><p>Two unary functions differ by \(A+BT\). Derive their differences in entropy, enthalpy and heat capacity. Which extra measurements anchor the two constants?</p><details class="solution"><summary>Solution</summary><p>Differentiation gives \(\Delta s=-B\), \(\Delta h=\Delta g-T\Delta g_T=A\), and \(\Delta c_p=0\). Thus caloric curvature alone cannot identify either constant. An enthalpy difference at one temperature fixes A; a compatible entropy datum or equivalent Gibbs/enthalpy combination fixes B. An added 3T changes g at 900 K by 2700 J/mol and entropy by −3 J/(mol K), while h and heat capacity are unchanged. These statements compare functions on the same amount and reference basis.</p></details></div>
-<div class="exercise"><h3>2. Repair a numerical join without inventing latent heat</h3><p>At \(T_j=1000\) K, an upper expression exceeds the lower by 100 J/mol and has a derivative larger by 0.2 J/(mol K). Find its linear correction. Can the correction also repair a heat-capacity mismatch?</p><details class="solution"><summary>Solution</summary><p>Set \(B=-0.2\) J/(mol K) and \(A=-100+1000(0.2)=100\) J/mol. The correction at the join is \(100-0.2(1000)=-100\), cancelling the value error, while its derivative −0.2 cancels the slope error. Both g and s match and therefore h matches. Its second derivative is zero, so any heat-capacity mismatch survives. Merely subtracting 100 matches g but leaves an entropy jump of −0.2 J/(mol K) and an enthalpy jump of −200 J/mol after the value correction; it is not the same repair.</p></details></div>
-<div class="exercise"><h3>3. Audit pressure integration</h3><p>Differentiate the displayed Murnaghan pressure correction to recover volume, and explain the sign of the leading compressibility correction.</p><details class="solution"><summary>Solution</summary><p>With \(u=1+B'\Delta p/B_0\), differentiating gives \(v_0B_0/(B'-1)\times[(B'-1)/B']u^{-1/B'}\times B'/B_0=v_0u^{-1/B'}\). Expanding this volume gives \(v=v_0[1-\Delta p/B_0+O(\Delta p^2)]\); integration gives \(v_0\Delta p-v_0\Delta p^2/(2B_0)+\cdots\). Positive bulk modulus makes volume fall under compression, hence the integral is less than v0 times the positive pressure interval. The laboratory’s 9950.815057 J/mol is below 10000 J/mol. Pressure work still has positive sign; the negative correction does not mean compression lowers g at positive molar volume.</p></details></div>
-<div class="exercise"><h3>4. Symmetry does not imply one coefficient</h3><p>Take \(L_0=L_2=-10000\) J/mol and all other coefficients zero. Compare the excess energies at \(x_B=0.25\) and 0.75. Why can no constant L0-only model reproduce this complete function?</p><details class="solution"><summary>Solution</summary><p>At either composition the prefactor is 3/16 and \((1-2x)^2=1/4\), so \(g^E=(3/16)(-10000-2500)=-2343.75\) J/mol. Equality follows from even parity. Dividing the full function by x(1−x) at an interior point leaves \(-10000[1+(1-2x)^2]\), which is not constant. At x=0.5 it is −10000; at x=0.25 it is −12500. No single constant zeroth coefficient can match both ratios.</p></details></div>
-<div class="exercise"><h3>5. Recover excess caloric quantities</h3><p>For the laboratory’s three interaction coefficients, compute hE and cpE at 900 K and xB=0.2 without numerical differentiation. Is the negative excess heat capacity a stability violation?</p><details class="solution"><summary>Solution</summary><p>Here w=0.16 and y=0.6. For order0, \(a_0-c_0T=12000-1800=10200\); order1 contributes \(a_1y=-1800\); order2 contributes \(a_2y^2=720\). Thus \(h^E=0.16(10200-1800+720)=1459.2\) J/mol. Only c0=2 is nonzero, so \(c_p^E=-0.16(2)=-0.32\) J/(mol K). Combining \(g^E=1227.256171491\) with \(s^E=0.257715365\) recovers hE within rounding. Stability concerns the total heat capacity, including unary and any other contributions. A negative excess difference alone is not a contradiction.</p></details></div>
-<div class="exercise"><h3>6. How much do exact binary edges determine?</h3><p>Two ternary models differ by \(Lx_Ax_Bx_C\). Show why all binary-edge measurements fail to identify L. How large can this energy difference become for a given absolute L?</p><details class="solution"><summary>Solution</summary><p>On every edge one fraction is zero, so the difference and its derivatives tangent to that edge vanish for every L. Interior data or other transverse information are needed. Since the fractions sum to one, their product is at most 1/27, attained at equal fractions. Thus \(|\Delta g|\le |L|/27\). For \(L=-100000\), its maximum magnitude is 3703.703704 J/mol; at (.2,.3,.5) it is 3000. A small geometric factor is a useful bound only once a coefficient bound is justified. The transverse derivative at the AB edge can still be nonzero; an infinitesimal third-component chemical potential may contain information absent from binary-edge energies.</p></details></div>
-<div class="exercise"><h3>7. Count the interactions before discarding them</h3><p>Assume an equiatomic ten-component substitutional model has an equal coefficient L for every distinct ternary subset. Derive the total ternary contribution and its limit for fixed interaction order as n increases.</p><details class="solution"><summary>Solution</summary><p>There are \(\binom{10}{3}=120\) distinct subsets, each with composition product \(10^{-3}\). The total contribution is 0.12L, not 0.001L. In general the weight is \(\binom{n}{k}/n^k=(1/k!)\prod_{j=0}^{k-1}(1-j/n)\), tending to 1/k! for fixed k. This toy assumption of equal coefficients is not an empirical rule for alloys. It shows exactly why the size of one product cannot alone bound a complete family of interactions.</p></details></div>
-<div class="exercise"><h3>8. Certify an equilibrium and its reference invariance</h3><p>Use the two laboratory parabolas and z=0.35 to compute equilibrium amounts and show that adding \(q(x)=500(1-x)-800x\) to both phases changes the objective but not the equilibrium.</p><details class="solution"><summary>Solution</summary><p>At contacts0.2 and0.8, conservation gives \(f_\beta=(.35-.2)/(.8-.2)=.25\), \(f_\alpha=.75\). Both energies vanish and both parabolas are nonnegative, proving the global lower bound0 is attained. After the shift, every feasible assemblage receives \(\sum f_jq(x_j)=q(\sum f_jx_j)=q(.35)=45\) J/mol. Thus the supporting line becomes q and the optimum energy becomes45 while the minimizing states and amounts are identical. Shifting beta alone would not be constant over the feasible assemblages and would generally move equilibrium.</p></details></div>
-<div class="exercise"><h3>9. What exactly does a sampled certificate establish?</h3><p>A sampled-state solver reports nonnegative balance-feasible weights and a line below all sampled energies. Does this prove continuous equilibrium? Give a counterexample and identify why the laboratory’s conclusion is stronger.</p><details class="solution"><summary>Solution</summary><p>It proves optimality only for the finite sampled problem when the primal objective equals the dual value. An omitted composition may have a narrow energy well below the line while every sampled value remains above it; a continuous bump of negative amplitude supported inside one grid interval supplies an explicit construction. That new state could lower the true objective. In the laboratory, analytic identities \(g^\alpha=10000(x-.2)^2\ge0\) and \(g^\beta=10000(x-.8)^2\ge0\) extend the inequality to every continuous composition, and the exact contacts are included. Therefore its same primal/dual pair proves the continuous optimum for those two specified branches. It says nothing about an omitted third phase.</p></details></div>
+<div class="exercise"><h3 id="1-what-does-heat-capacity-fail-to-identify">1. What does heat capacity fail to identify?</h3><p>Two unary functions differ by \(A+BT\). Derive their differences in entropy, enthalpy and heat capacity. Which extra measurements anchor the two constants?</p><details class="solution"><summary>Solution</summary><p>Differentiation gives \(\Delta s=-B\), \(\Delta h=\Delta g-T\Delta g_T=A\), and \(\Delta c_p=0\). Thus caloric curvature alone cannot identify either constant. An enthalpy difference at one temperature fixes A; a compatible entropy datum or equivalent Gibbs/enthalpy combination fixes B. An added 3T changes g at 900 K by 2700 J/mol and entropy by −3 J/(mol K), while h and heat capacity are unchanged. These statements compare functions on the same amount and reference basis.</p></details></div>
+<div class="exercise"><h3 id="2-repair-a-numerical-join-without-inventing-latent-heat">2. Repair a numerical join without inventing latent heat</h3><p>At \(T_j=1000\) K, an upper expression exceeds the lower by 100 J/mol and has a derivative larger by 0.2 J/(mol K). Find its linear correction. Can the correction also repair a heat-capacity mismatch?</p><details class="solution"><summary>Solution</summary><p>Set \(B=-0.2\) J/(mol K) and \(A=-100+1000(0.2)=100\) J/mol. The correction at the join is \(100-0.2(1000)=-100\), cancelling the value error, while its derivative −0.2 cancels the slope error. Both g and s match and therefore h matches. Its second derivative is zero, so any heat-capacity mismatch survives. Merely subtracting 100 matches g but leaves an entropy jump of −0.2 J/(mol K) and an enthalpy jump of −200 J/mol after the value correction; it is not the same repair.</p></details></div>
+<div class="exercise"><h3 id="3-audit-pressure-integration">3. Audit pressure integration</h3><p>Differentiate the displayed Murnaghan pressure correction to recover volume, and explain the sign of the leading compressibility correction.</p><details class="solution"><summary>Solution</summary><p>With \(u=1+B'\Delta p/B_0\), differentiating gives \(v_0B_0/(B'-1)\times[(B'-1)/B']u^{-1/B'}\times B'/B_0=v_0u^{-1/B'}\). Expanding this volume gives \(v=v_0[1-\Delta p/B_0+O(\Delta p^2)]\); integration gives \(v_0\Delta p-v_0\Delta p^2/(2B_0)+\cdots\). Positive bulk modulus makes volume fall under compression, hence the integral is less than v0 times the positive pressure interval. The laboratory’s 9950.815057 J/mol is below 10000 J/mol. Pressure work still has positive sign; the negative correction does not mean compression lowers g at positive molar volume.</p></details></div>
+<div class="exercise"><h3 id="4-symmetry-does-not-imply-one-coefficient">4. Symmetry does not imply one coefficient</h3><p>Take \(L_0=L_2=-10000\) J/mol and all other coefficients zero. Compare the excess energies at \(x_B=0.25\) and 0.75. Why can no constant L0-only model reproduce this complete function?</p><details class="solution"><summary>Solution</summary><p>At either composition the prefactor is 3/16 and \((1-2x)^2=1/4\), so \(g^E=(3/16)(-10000-2500)=-2343.75\) J/mol. Equality follows from even parity. Dividing the full function by x(1−x) at an interior point leaves \(-10000[1+(1-2x)^2]\), which is not constant. At x=0.5 it is −10000; at x=0.25 it is −12500. No single constant zeroth coefficient can match both ratios.</p></details></div>
+<div class="exercise"><h3 id="5-recover-excess-caloric-quantities">5. Recover excess caloric quantities</h3><p>For the laboratory’s three interaction coefficients, compute hE and cpE at 900 K and xB=0.2 without numerical differentiation. Is the negative excess heat capacity a stability violation?</p><details class="solution"><summary>Solution</summary><p>Here w=0.16 and y=0.6. For order0, \(a_0-c_0T=12000-1800=10200\); order1 contributes \(a_1y=-1800\); order2 contributes \(a_2y^2=720\). Thus \(h^E=0.16(10200-1800+720)=1459.2\) J/mol. Only c0=2 is nonzero, so \(c_p^E=-0.16(2)=-0.32\) J/(mol K). Combining \(g^E=1227.256171491\) with \(s^E=0.257715365\) recovers hE within rounding. Stability concerns the total heat capacity, including unary and any other contributions. A negative excess difference alone is not a contradiction.</p></details></div>
+<div class="exercise"><h3 id="6-how-much-do-exact-binary-edges-determine">6. How much do exact binary edges determine?</h3><p>Two ternary models differ by \(Lx_Ax_Bx_C\). Show why all binary-edge measurements fail to identify L. How large can this energy difference become for a given absolute L?</p><details class="solution"><summary>Solution</summary><p>On every edge one fraction is zero, so the difference and its derivatives tangent to that edge vanish for every L. Interior data or other transverse information are needed. Since the fractions sum to one, their product is at most 1/27, attained at equal fractions. Thus \(|\Delta g|\le |L|/27\). For \(L=-100000\), its maximum magnitude is 3703.703704 J/mol; at (.2,.3,.5) it is 3000. A small geometric factor is a useful bound only once a coefficient bound is justified. The transverse derivative at the AB edge can still be nonzero; an infinitesimal third-component chemical potential may contain information absent from binary-edge energies.</p></details></div>
+<div class="exercise"><h3 id="7-count-the-interactions-before-discarding-them">7. Count the interactions before discarding them</h3><p>Assume an equiatomic ten-component substitutional model has an equal coefficient L for every distinct ternary subset. Derive the total ternary contribution and its limit for fixed interaction order as n increases.</p><details class="solution"><summary>Solution</summary><p>There are \(\binom{10}{3}=120\) distinct subsets, each with composition product \(10^{-3}\). The total contribution is 0.12L, not 0.001L. In general the weight is \(\binom{n}{k}/n^k=(1/k!)\prod_{j=0}^{k-1}(1-j/n)\), tending to 1/k! for fixed k. This toy assumption of equal coefficients is not an empirical rule for alloys. It shows exactly why the size of one product cannot alone bound a complete family of interactions.</p></details></div>
+<div class="exercise"><h3 id="8-certify-an-equilibrium-and-its-reference-invariance">8. Certify an equilibrium and its reference invariance</h3><p>Use the two laboratory parabolas and z=0.35 to compute equilibrium amounts and show that adding \(q(x)=500(1-x)-800x\) to both phases changes the objective but not the equilibrium.</p><details class="solution"><summary>Solution</summary><p>At contacts0.2 and0.8, conservation gives \(f_\beta=(.35-.2)/(.8-.2)=.25\), \(f_\alpha=.75\). Both energies vanish and both parabolas are nonnegative, proving the global lower bound0 is attained. After the shift, every feasible assemblage receives \(\sum f_jq(x_j)=q(\sum f_jx_j)=q(.35)=45\) J/mol. Thus the supporting line becomes q and the optimum energy becomes45 while the minimizing states and amounts are identical. Shifting beta alone would not be constant over the feasible assemblages and would generally move equilibrium.</p></details></div>
+<div class="exercise"><h3 id="9-what-exactly-does-a-sampled-certificate-establish">9. What exactly does a sampled certificate establish?</h3><p>A sampled-state solver reports nonnegative balance-feasible weights and a line below all sampled energies. Does this prove continuous equilibrium? Give a counterexample and identify why the laboratory’s conclusion is stronger.</p><details class="solution"><summary>Solution</summary><p>It proves optimality only for the finite sampled problem when the primal objective equals the dual value. An omitted composition may have a narrow energy well below the line while every sampled value remains above it; a continuous bump of negative amplitude supported inside one grid interval supplies an explicit construction. That new state could lower the true objective. In the laboratory, analytic identities \(g^\alpha=10000(x-.2)^2\ge0\) and \(g^\beta=10000(x-.8)^2\ge0\) extend the inequality to every continuous composition, and the exact contacts are included. Therefore its same primal/dual pair proves the continuous optimum for those two specified branches. It says nothing about an omitted third phase.</p></details></div>
 <p class="chapter-nav"><a href="chapter-12-global-tangents-driving-forces-phase-rule.html">Previous: global tangents and driving forces</a> · <a href="index.html">All chapters</a></p>
 <!-- BOOK-CONTENT-END --></article><nav class="page-turn"><a href="index.html">Chapter index</a></nav></main></div><footer class="site-footer">Independent study edition. Prof. K. Guruvidyathri, University of Hyderabad; NPTEL coordinating institution IIT Madras. Original exposition and teaching constructions; attribution does not imply endorsement.</footer></body></html>

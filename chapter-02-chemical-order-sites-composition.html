@@ -1,23 +1,23 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="dark light"><meta name="book-content-sha256" content="9f882d8f9ce3cc80fc3a7f42db67eff355ab4017b464ab43fe5db0a6ceabaf0d"><title>Chemical order, site populations and composition bases · Computational Thermodynamics</title><link rel="stylesheet" href="assets/book.css"><script src="assets/math-config.js"></script><script defer src="assets/mathjax-tex-svg.js"></script><script defer src="assets/book.js"></script></head>
-<body><a class="skip" href="#main">Skip to content</a><header class="site-header"><a class="brand" href="index.html">Computational Thermodynamics and Kinetics of Materials</a><nav class="course-nav"><a href="index.html">Chapters</a><a href="source-map.html">Source map</a><a href="references.html">References</a><a href="numerical-lab.html">Numerical lab</a></nav></header><div class="layout"><aside class="toc" id="chapter-toc"><h2>On this page</h2></aside><main id="main"><div class="reading-tools"><button id="theme-toggle" aria-pressed="false">Light theme</button><button id="text-toggle" aria-pressed="false">Larger text</button><button id="solutions-toggle" aria-pressed="false">Expand solutions</button><button id="print-page">Print with solutions</button></div>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="dark light"><meta name="book-content-sha256" content="9202e3ab9d9bcaebddbd41d95199959526aa6a2c5547a712bba7aef8e022d15f"><title>Chemical order, site populations and composition bases · Computational Thermodynamics</title><link rel="stylesheet" href="assets/book.css"><script src="assets/math-config.js"></script><script defer src="assets/mathjax-tex-svg.js"></script><script defer src="assets/book.js"></script></head>
+<body><a class="skip" href="#main">Skip to content</a><header class="site-header"><a class="brand" href="index.html">Computational Thermodynamics and Kinetics of Materials</a><nav class="course-nav"><a href="index.html">Chapters</a><a href="source-map.html">Source map</a><a href="references.html">References</a><a href="numerical-lab.html">Numerical lab</a></nav></header><div class="layout"><aside class="toc" id="chapter-toc"><h2 id="on-this-page">On this page</h2></aside><main id="main"><div class="reading-tools"><button id="theme-toggle" aria-pressed="false">Light theme</button><button id="text-toggle" aria-pressed="false">Larger text</button><button id="solutions-toggle" aria-pressed="false">Expand solutions</button><button id="print-page">Print with solutions</button></div>
 <article id="chapter-content"><!-- BOOK-CONTENT-START -->
-<h1>2. Chemical order, site populations and composition bases</h1>
+<h1 id="chapter-title">2. Chemical order, site populations and composition bases</h1>
 <p class="lead">Two specimens each contain four A atoms and four B atoms. In the first, each of two equally large site groups contains two of each species. In the second, every site of the first group contains A and every site of the second contains B. Both specimens have atomic composition $x_A=1/2$. Their chemical order differs. A computational model that stores only the overall composition has discarded exactly the variable needed to distinguish them.</p>
 <p class="source-note">The second substantive lecture develops solid solutions, substitutional and interstitial occupancy, compounds, chemical order, components and composition units, then overall versus phase composition. The complete local machine transcript was read sequentially. The finite-site enumeration, vacancy example and internally consistent two-phase counting table below are original teaching constructions. Several recognized words and board counts are ambiguous; no comprehensive audiovisual audit is claimed. The exposition does not use an unspecified-temperature solubility range as material data.</p>
 
 <h2 id="solid-solutions" data-video="aFXTk8V6mcw" data-start="46" data-end="294">2.1 A solute must occupy something <a class="timestamp" href="https://www.youtube.com/watch?v=aFXTk8V6mcw&amp;t=46s">L2 · 00:46</a></h2>
 <p>A crystalline solution accommodates more than one chemical constituent within one crystalline phase. The <a href="https://goldbook.iupac.org/terms/view/M03940">IUPAC mixed-crystal entry</a> identifies the host-lattice setting and discourages extending this usage to amorphous materials. Calling a material a solid solution therefore describes a phase, rather than a collection of visibly separate pure-solid particles. It does not establish its stable composition range at every temperature.</p>
 <p>In a <dfn>substitutional</dfn> description, a solute occupies sites belonging to the host's principal lattice. The lecture uses Cu and Ni as its substitutional example. In an <dfn>interstitial</dfn> description, smaller solute atoms occupy specified spaces between host sites; carbon in iron supplies the lecture's example. The geometry identifies possible sites. The energetics, temperature, pressure and competing phases determine how many are actually occupied in equilibrium. Counting geometric holes does not measure a solubility limit.</p>
-<p>A simple substitutional model with $N$ occupied sites and no vacancies has $N_A+N_B=N$. Its atomic fraction $x_B=N_B/N$ is also the B site fraction. Introduce vacancies, and that equality fails. With 60 A atoms, 20 B atoms and 20 vacant sites, there are 100 sites but only 80 atoms. Consequently</p>
+<p>A simple substitutional model with a positive integer count $N$ of occupied sites and no vacancies has $N_A+N_B=N$. Its atomic fraction $x_B=N_B/N$ is also the B site fraction. Introduce vacancies, and that equality fails. With 60 A atoms, 20 B atoms and 20 vacant sites, there are 100 sites but only 80 atoms. Before writing the fractions, let $y_B$ and $y_{\mathrm{Va}}$ denote the dimensionless fractions of all sites occupied by B and by vacancies, respectively; $x_B$ instead counts B among atoms. Consequently</p>
 <div class="equation">$$x_B=\frac{20}{80}=\frac14,\qquad y_B=\frac{20}{100}=\frac15,\qquad y_{\mathrm{Va}}=\frac15.\tag{2.1}$$</div>
 <p>Here $y$ denotes a site fraction and $x$ an atomic fraction. Site fractions sum to one when the vacancy species is included; atomic fractions sum to one over atoms. A vacancy contributes a site occupation category but contributes no atom to the denominator of $x_B$. This distinction becomes essential when a thermodynamic database represents vacancies explicitly.</p>
-<p>For an equally explicit interstitial construction, let $N$ host atoms fill a host sublattice, and let an interstitial sublattice contain $rN$ available sites. Suppose only B or a vacancy can occupy those sites. If their B site fraction is $y_B$, then $N_B=rNy_B$, whereas the total atom count is $N+rNy_B$. Therefore</p>
+<p>For an equally explicit interstitial construction, let $N$ host atoms fill a host sublattice, and let an interstitial sublattice contain $rN$ available sites, where $r\gt0$ is a dimensionless site-count ratio and $rN$ is an integer. Suppose only B or a vacancy can occupy those sites. If their B site fraction is $y_B$, then $N_B=rNy_B$, whereas the total atom count is $N+rNy_B$. Therefore</p>
 <div class="equation">$$x_B=\frac{r y_B}{1+r y_B},\qquad y_B=\frac{x_B}{r(1-x_B)}.\tag{2.2}$$</div>
 <p>The ratio $r$ is dimensionless and belongs to the chosen site model. For the constructed case $r=1$, one-quarter interstitial occupancy gives one-fifth B among all atoms. Even full occupation would give $x_B=1/2$, not one. Neither this limiting composition nor the choice $r=1$ is asserted to be an iron–carbon phase's stability limit. This is a denominator check, not an assessed alloy calculation.</p>
 
 <h2 id="compounds" data-video="aFXTk8V6mcw" data-start="294" data-end="401">2.2 A compound formula is a constraint, not a complete phase model <a class="timestamp" href="https://www.youtube.com/watch?v=aFXTk8V6mcw&amp;t=294s">L2 · 04:54</a></h2>
-<p>A stoichiometric compound has a specified ratio in an idealized formula: $A_3B$ contains three A atoms per B atom, so $x_B=1/4$. A <dfn>line-compound model</dfn> treats the phase as having exactly that composition. Real phases may instead possess a finite homogeneity range through antisite occupations, vacancies or other defects. That range depends on conditions and must be distinguished from the ideal formula.</p>
+<p>A stoichiometric compound has a specified ratio in an idealized formula: $A_3B$ contains three A atoms per B atom, so $x_B=1/4$. A <dfn>line-compound model</dfn> treats the phase as having exactly that composition. Real phases may instead possess a finite homogeneity range through antisite occupations (atoms on the opposite chemical sublattice), vacancies or other defects. That range depends on conditions and must be distinguished from the ideal formula.</p>
 <p>The lecture contrasts fixed-composition compounds and phases with compositional freedom. Fe$_3$C provides a useful formula-counting example: its ideal carbon atomic fraction is one-quarter. Because carbon is a nonmetal, it is more precise here to call it a carbide or compound than to make every compound an intermetallic. “Intermetallic” is useful for compounds of metallic constituents, but the adjective alone supplies neither a crystal structure nor a quantitative free energy.</p>
 <p>A formula and a structure label answer different questions. $A_3B$ fixes atom ratios; it does not specify how those atoms are arranged. Conversely, a structure prototype can occur in more than one chemical system. The <a href="https://aflow.org/p/AB3_cP4_221_a_c-001/">AFLOW Cu$_3$Au prototype entry</a> gives the $L1_2$ structure as a primitive cubic lattice with a four-atom basis: Au at a corner position and Cu at the three face-centre basis positions. It also lists Ni$_3$Al among compounds of this type. We use this verified example rather than infer a formula from the transcript's ambiguous spoken quiz notation.</p>
 <p>Pure elements, solutions and compounds are therefore not three mutually exclusive labels for every possible microscopic attribute. A compound phase can be crystalline and chemically ordered; it can also accommodate defects and a composition range. A substitutional phase can undergo an ordering transition. The model must state which degrees of freedom its labels retain.</p>
@@ -31,13 +31,14 @@
 <p>For the equiatomic case $x_A=1/2$, define the signed order parameter $\eta=p_A^\alpha-p_A^\beta$. Solving the sum and difference equations gives</p>
 <div class="equation">$$p_A^\alpha=\frac{1+\eta}{2},\qquad p_A^\beta=\frac{1-\eta}{2},\qquad -1\leq\eta\leq1.\tag{2.4}$$</div>
 <p>The bounds follow from requiring both occupations to lie in $[0,1]$. Perfect preference for A on $\alpha$ gives $\eta=1$; reversing the site labels gives $\eta=-1$. Equal average occupations give $\eta=0$. The sign distinguishes the two labelled variants rather than a different overall composition. Away from equiatomic composition the allowable range changes; equation (2.4) must not be reused without its composition constraint.</p>
+<p>Figure 2.1 isolates the lost information: identical atomic fractions can correspond to different site-group occupations.</p>
 <figure><img src="assets/sublattice-order.svg" alt="Two constructed eight-site patterns both contain four A and four B atoms. One has two A on each site group and eta zero; the other has four A on alpha and zero on beta, eta one."><figcaption>Figure 2.1. An original finite-site schematic, generated by <a href="tools/plot_order.py">this program</a>. Rows are labelled site groups, not a projection of a crystal. The left pattern establishes equal sublattice populations; one finite drawing does not establish statistical randomness.</figcaption></figure>
 <p>Notice what composition has and has not determined. Equations (2.3)–(2.4) permit an entire interval of order parameters at the same $x_A$. Selecting the equilibrium value would require a free-energy model and a temperature, as well as the specified constraints. The occupancy equations alone cannot choose it.</p>
 
 <h2 id="local-correlation">2.4 Equal populations do not prove randomness</h2>
 <p>Choosing one atom uniformly from a specimen containing $N_A$ A atoms and $N_B$ B atoms gives $P(A)=x_A$. That is an exact counting statement. It is not a statement that every specified site has A occupancy probability $x_A$. In perfect B2 order, a site known to belong to the A sublattice has A probability one in the ideal model, although the global atomic fraction is one-half.</p>
-<p>Even when equivalent sites share the same marginal probability, neighbouring occupations need not be independent. Let $P(B\mid A;1)$ be the conditional probability that a first-shell neighbour of an A atom is B. The independent, macroscopically large random-alloy model gives this probability as $x_B$. A convenient dimensionless diagnostic is</p>
-<div class="equation">$$\alpha_1=1-\frac{P(B\mid A;1)}{x_B},\qquad x_B>0.\tag{2.5}$$</div>
+<p>Even when equivalent sites share the same marginal probability (the probability for one site with the other occupations unobserved), neighbouring occupations need not be independent. Let $P(B\mid A;1)$ be the conditional probability that a first-shell neighbour of an A atom is B. The independent, macroscopically large random-alloy model gives this probability as $x_B$. A convenient dimensionless diagnostic is</p>
+<div class="equation">$$\alpha_1=1-\frac{P(B\mid A;1)}{x_B},\qquad x_B\gt 0.\tag{2.5}$$</div>
 <p>For $x_B=1/2$ and a stipulated conditional probability $3/4$, $\alpha_1=-1/2$. Unlike neighbours are enhanced relative to the independent reference. This pair statistic is not the long-range sublattice parameter $\eta$: a sample can have equivalent average site populations yet correlated nearby pairs. A fixed finite population also has a small sampling-without-replacement correction; after selecting one A from an eight-atom equiatomic set, a uniformly chosen distinct remaining atom is B with probability $4/7$, not $1/2$. That finite-population effect must not be misidentified as an energetic preference.</p>
 <p>This distinction has experimental consequences. <a href="https://www.repository.cam.ac.uk/items/f40c77df-e4f0-45a8-9e2e-4baa434407f2">Owen, Playford, Stone and Tucker's Cu$_3$Au study</a> uses total scattering and atomistic fitting to examine local chemical order beyond the long-range average structure. Its equation (5) defines the conditional-probability comparison used in (2.5). The paper reports ordering already present in a quenched sample and explicitly discusses possible evolution during quenching. Thus a preparation intended to preserve disorder is not itself proof of random occupations. Its discussion also warns that data-processing errors can create misleading fitted configurations. These results motivate measuring the relevant correlation and stating the reference model, rather than treating “disordered” as permission to assume independence.</p>
 
@@ -47,8 +48,8 @@
 <p>This matters computationally because an overly restricted component set can exclude the very decomposition the calculation is meant to test. A calculation that permits only AB units cannot represent partition into an A-rich phase and a B-rich phase by merely adjusting phase amounts. Conservation must be written for the independently conserved constituents, with phase models that can represent the proposed states.</p>
 
 <h2 id="amount-units" data-video="aFXTk8V6mcw" data-start="873" data-end="1182">2.6 Specify the counted entity before writing mole percent <a class="timestamp" href="https://www.youtube.com/watch?v=aFXTk8V6mcw&amp;t=873s">L2 · 14:33</a></h2>
-<p>The mole is the SI unit of amount of substance. The <a href="https://www.bipm.org/en/si-base-units/mole">BIPM definition</a> fixes $N_A=6.02214076\times10^{23}\ \mathrm{mol}^{-1}$ exactly and requires the elementary entities to be specified. For a chosen entity type, $n_i=N_i/N_A$ has units mol. An amount fraction $n_i/\sum_jn_j$ is dimensionless; multiplying it by 100 expresses amount percent. The unit mol is not merely a synonym for an arbitrary count.</p>
-<p>If each counted entity is an atom, the common $N_A$ cancels and amount fraction equals atomic fraction. If the entities are molecules, molecular amount fraction generally differs from atomic fraction. Consider a deliberately ideal counting mixture of 5 mol sucrose molecules, C$_{12}$H$_{22}$O$_{11}$, and 95 mol water molecules, H$_2$O. Water is 95% of the molecules. The amounts of atoms are instead 60 mol C, 300 mol H and 150 mol O: 510 mol atoms in all. Oxygen is $150/510=5/17$ of the atoms. Neither number can be relabelled as the other's percentage.</p>
+<p>The mole is the SI unit of amount of substance. The <a href="https://www.bipm.org/en/si-base-units/mole">BIPM definition</a> fixes the Avogadro constant $N_{\mathrm{Av}}=6.02214076\times10^{23}\ \mathrm{mol}^{-1}$ exactly and requires the elementary entities to be specified. For a chosen entity type, $n_i=N_i/N_{\mathrm{Av}}$ has units mol. An amount fraction $n_i/\sum_jn_j$ is dimensionless; multiplying it by 100 expresses amount percent. The unit mol is not merely a synonym for an arbitrary count.</p>
+<p>If each counted entity is an atom, the common $N_{\mathrm{Av}}$ cancels and amount fraction equals atomic fraction. If the entities are molecules, molecular amount fraction generally differs from atomic fraction. Consider a deliberately ideal counting mixture of 5 mol sucrose molecules, C$_{12}$H$_{22}$O$_{11}$, and 95 mol water molecules, H$_2$O. Water is 95% of the molecules. The amounts of atoms are instead 60 mol C, 300 mol H and 150 mol O: 510 mol atoms in all. Oxygen is $150/510=5/17$ of the atoms. Neither number can be relabelled as the other's percentage.</p>
 <p>Mass fraction introduces molar masses and another normalization. For atomic amount fractions $x_i$ and atomic molar masses $M_i$ in a consistent unit such as g/mol,</p>
 <div class="equation">$$w_i=\frac{x_i M_i}{\sum_jx_jM_j},\qquad x_i=\frac{w_i/M_i}{\sum_jw_j/M_j}.\tag{2.6}$$</div>
 <p>Derive the first formula by choosing an arbitrary total atomic amount $n$: species $i$ has mass $nx_iM_i$, and the total mass is $n\sum_jx_jM_j$. The arbitrary scale cancels. The inverse follows by choosing an arbitrary total mass and dividing each species mass by its molar mass. This derivation identifies which entities the $M_i$ must match.</p>
@@ -70,12 +71,14 @@
 
 <h2 id="equilibrium" data-video="aFXTk8V6mcw" data-start="1514" data-end="1569">2.8 A static picture does not establish equilibrium <a class="timestamp" href="https://www.youtube.com/watch?v=aFXTk8V6mcw&amp;t=1514s">L2 · 25:14</a></h2>
 <p>The recording closes by discussing single-phase and multiphase states in preparation for phase diagrams. A specimen may contain one phase or several whether or not it is at global equilibrium. A stationary-looking microstructure can be trapped by slow diffusion; an ordered pattern can be metastable; an image can miss a phase below its resolution. None of those possibilities is decided by conservation alone.</p>
-<p>At fixed temperature and pressure, the later thermodynamic calculation will compare admissible Gibbs energies subject to component conservation and other stated constraints. A constrained or metastable calculation may exclude transformations that are accessible to global equilibrium. Before using its result, identify the ensemble, allowed phases and internal degrees of freedom. Site fractions and chemical order are precisely some of the variables such a model may minimize over.</p>
+<p>At fixed temperature and pressure, the later thermodynamic calculation will compare admissible Gibbs energies subject to component conservation and other stated constraints. A constrained or metastable calculation may exclude transformations that are accessible to global equilibrium. Before using its result, identify the ensemble (the macroscopic constraints specifying the permitted states), allowed phases and internal degrees of freedom. Site fractions and chemical order are precisely some of the variables such a model may minimize over.</p>
 
 <h2 id="computation">2.9 Enumerate first, then interpret</h2>
-<p>The following standard-library program enumerates all $\binom84=70$ assignments of four A atoms to eight labelled sites. Four sites belong to each sublattice. If $k$ A atoms occupy $\alpha$, the remaining $4-k$ occupy $\beta$. There are $\binom4k\binom4{4-k}=\binom4k^2$ assignments at that value, and $\eta=k/2-1$. Summing the five counts recovers 70 independently of the direct enumeration.</p>
-<p>The central bin has more assignments than either perfectly ordered bin. This is a counting fact. A thermal probability would also need energies and an ensemble; the program does not assume that all configurations have the same energy or calculate a transition temperature. It then checks the fraction conversions and phase conservation using exact rational arithmetic.</p>
-<pre data-run="code/ch02_order_and_bases.py"><code class="language-python">"""Exact teaching constructions: composition, sublattices and phase balances."""
+<p>Write $\binom nk$ for the number of ways to choose $k$ sites from $n$ labelled sites without regard to selection order. The following standard-library program enumerates all $\binom84=70$ assignments of four A atoms to eight labelled sites. Four sites belong to each sublattice. If $k$ A atoms occupy $\alpha$, the remaining $4-k$ occupy $\beta$. There are $\binom4k\binom4{4-k}=\binom4k^2$ assignments at that value, and $\eta=k/2-1$. Summing the five counts recovers 70 independently of the direct enumeration.</p>
+<p>Inputs are the finite site counts and explicitly stipulated compositions and molar masses in the listing. It reads no files, writes only standard output, and makes no network requests. Exact rational assertions reject inconsistencies in enumeration, normalization or constituent conservation. The central bin has more assignments than either perfectly ordered bin. This is a counting fact. A thermal probability would also need energies and an ensemble; the program does not assume that all configurations have the same energy or calculate a transition temperature. It then checks the fraction conversions and phase conservation using exact rational arithmetic.</p>
+<pre data-run="code/ch02_order_and_bases.py"><code class="language-python">"""Exact teaching constructions: composition, sublattices and phase bal\
+ances."""
+
 from fractions import Fraction as F
 from itertools import combinations
 from math import comb
@@ -84,44 +87,45 @@ from math import comb
 hist = {k: 0 for k in range(5)}
 for occupied in combinations(range(8), 4):
     hist[sum(i &lt; 4 for i in occupied)] += 1
-assert list(hist.values()) == [comb(4, k)**2 for k in range(5)]
+assert list(hist.values()) == [comb(4, k) ** 2 for k in range(5)]
 assert sum(hist.values()) == comb(8, 4) == 70
-print('A on alpha | eta | labelled configurations')
+print("A on alpha | eta | labelled configurations")
 for k, count in hist.items():
-    print(k, F(k, 2)-1, count, sep=' | ')
+    print(k, F(k, 2) - 1, count, sep=" | ")
 # All configurations have x_A=1/2, but eta ranges from -1 to 1.
-assert all(F(k + (4-k), 8) == F(1, 2) for k in hist)
+assert all(F(k + (4 - k), 8) == F(1, 2) for k in hist)
 
 # Site fractions count vacancies; atomic fractions do not.
 x_B, y_B = F(20, 80), F(20, 100)
 assert x_B == F(1, 4) and y_B == F(1, 5)
-print('Vacancy example: atomic x_B =', x_B, '; site y_B =', y_B)
+print("Vacancy example: atomic x_B =", x_B, "; site y_B =", y_B)
 # Generic interstitial model: r=1 interstitial site per host atom.
 r, y = F(1), F(1, 4)
-x = r*y/(1+r*y)
-assert x == F(1, 5) and x/(r*(1-x)) == y
-print('Interstitial example: y_B =', y, '; atomic x_B =', x)
+x = r * y / (1 + r * y)
+assert x == F(1, 5) and x / (r * (1 - x)) == y
+print("Interstitial example: y_B =", y, "; atomic x_B =", x)
 
 # Explicitly rounded molar masses, g/mol: Fe 56, C 12.
 x_C, M_C, M_Fe = F(1, 4), F(12), F(56)
-w_C = x_C*M_C/(x_C*M_C + (1-x_C)*M_Fe)
+w_C = x_C * M_C / (x_C * M_C + (1 - x_C) * M_Fe)
 assert w_C == F(1, 15)
-print('Fe3C rounded-mass construction: carbon mass fraction =', w_C)
+print("Fe3C rounded-mass construction: carbon mass fraction =", w_C)
 
 # Original consistent two-phase table: alpha (18A,26B), eta (12A,4B).
 counts = [(18, 26), (12, 4)]
-N = sum(a+b for a, b in counts)
-phase_f = [F(a+b, N) for a, b in counts]
-phase_x = [F(a, a+b) for a, b in counts]
-x_A = sum(f*c for f, c in zip(phase_f, phase_x))
+N = sum(a + b for a, b in counts)
+phase_f = [F(a + b, N) for a, b in counts]
+phase_x = [F(a, a + b) for a, b in counts]
+x_A = sum(f * c for f, c in zip(phase_f, phase_x))
 assert phase_f == [F(11, 15), F(4, 15)]
 assert phase_x == [F(9, 22), F(3, 4)] and x_A == F(1, 2)
-lever_gamma = (x_A-phase_x[0])/(phase_x[1]-phase_x[0])
+lever_gamma = (x_A - phase_x[0]) / (phase_x[1] - phase_x[0])
 assert lever_gamma == phase_f[1]
-print('Phase atom-amount fractions:', *phase_f)
-print('Phase atomic compositions x_A:', *phase_x)
-print('Overall x_A =', x_A, '; lever gamma fraction =', lever_gamma)
-print('All exact conservation and enumeration checks passed.')</code></pre>
+print("Phase atom-amount fractions:", *phase_f)
+print("Phase atomic compositions x_A:", *phase_x)
+print("Overall x_A =", x_A, "; lever gamma fraction =", lever_gamma)
+print("All exact conservation and enumeration checks passed.")
+</code></pre>
 <pre class="output">A on alpha | eta | labelled configurations
 0 | -1 | 1
 1 | -1/2 | 16
@@ -148,7 +152,7 @@ All exact conservation and enumeration checks passed.</pre>
 <p><strong>5. Translate between composition bases.</strong> Use rounded Fe and C molar masses from (2.7). A specimen has carbon mass fraction $1/15$. Recover atomic $x_C$. Then explain why the result does not prove that the entire specimen is Fe$_3$C.</p>
 <details><summary>Solution</summary><p>Equation (2.6) gives $x_C=[(1/15)/12]/[(1/15)/12+(14/15)/56]=(1/180)/(1/180+1/60)=1/4$. This equals the ideal formula's atomic fraction. A mixture of phases can have the same overall composition, however, and composition does not determine crystal arrangement or equilibrium. Phase identification needs additional evidence or a thermodynamic comparison of allowed states.</p></details>
 <p><strong>6. Recover a phase amount and test feasibility.</strong> Keep $x_A^\alpha=9/22$ and $x_A^\gamma=3/4$. Find the phase atomic amounts at overall $\bar x_A=3/5$. What happens at $\bar x_A=4/5$?</p>
-<details><summary>Solution</summary><p>The endpoint gap is $3/4-9/22=15/44$. At $3/5$, the numerator is $3/5-9/22=21/110$, so $f_\gamma^{(n)}=(21/110)(44/15)=14/25$ and $f_\alpha^{(n)}=11/25$. The weighted average is $3/5$. At $4/5$, the numerator is $43/110$, yielding $f_\gamma^{(n)}=86/75>1$ and a negative $\alpha$ amount. The proposed endpoints cannot represent that overall composition with nonnegative amounts. This flags an inadmissible phase assumption; it does not justify accepting a negative phase fraction.</p></details>
+<details><summary>Solution</summary><p>The endpoint gap is $3/4-9/22=15/44$. At $3/5$, the numerator is $3/5-9/22=21/110$, so $f_\gamma^{(n)}=(21/110)(44/15)=14/25$ and $f_\alpha^{(n)}=11/25$. The weighted average is $3/5$. At $4/5$, the numerator is $43/110$, yielding $f_\gamma^{(n)}=86/75\gt 1$ and a negative $\alpha$ amount. The proposed endpoints cannot represent that overall composition with nonnegative amounts. This flags an inadmissible phase assumption; it does not justify accepting a negative phase fraction.</p></details>
 <p><strong>7. Distinguish three kinds of evidence.</strong> A specimen has equal average occupations on two site groups, $x_B=1/2$, and measured $P(B\mid A;1)=3/4$. Its microscope image appears unchanged for one hour. Which of zero sublattice bias, random independent occupations, enhanced unlike neighbours and global equilibrium follow?</p>
 <details><summary>Solution</summary><p>The specified equal group populations give $\eta=0$ for this two-sublattice parameter. Equation (2.5) gives $\alpha_1=-1/2$, indicating enhanced unlike neighbours relative to the independent macroscopic random reference. Independence is contradicted by the specified conditional probability. Global equilibrium does not follow from an hour of apparent visual stationarity: limited spatial resolution and slow transformation kinetics can hide continuing relaxation or a metastable state. The conclusion must match the variable actually measured.</p></details>
 

@@ -2,8 +2,8 @@
   "chapter": 6,
   "title": "Thermodynamic states, molecular energy and heat capacity",
   "file": "chapter-06-states-molecular-energy-heat-capacity.html",
-  "status": "Accepted in two independent scientific reviews",
-  "authored_body_sha256": "0af2b4020037a6d4b526ff7d12a6e0ed7312aba7af4d857e076ea92c44af379d",
+  "status": "Compliance repairs frozen; awaiting two independent focused reviews",
+  "authored_body_sha256": "74f53b06475011003be56a144fa166eac2bc6c9513a870e28b4daa516ff90081",
   "recordings": [
     {
       "official_lesson": 11,
@@ -102,6 +102,19 @@
     "Quantum harmonic partition sum and heat capacity with exact model limits"
   ],
   "independent_review": {
+    "status": "pending-focused-compliance-review",
+    "accepted": false,
+    "body_sha256": "74f53b06475011003be56a144fa166eac2bc6c9513a870e28b4daa516ff90081",
+    "scope": "Prior full scientific/source reviews apply to the separately bound accepted baseline; current definitions, derivation hinges, markup, code and figure amendments require focused independent closure."
+  },
+  "limitations": [
+    "No comprehensive audiovisual or board audit",
+    "Classical monatomic and equal-frequency oscillator results have stated restricted domains",
+    "Synthetic molar mass and caloric polynomial are not fitted real-material properties",
+    "Historical acoustic thermometry experiment and uncertainty budget not reproduced",
+    "General Cp-Cv identity stated with its conditions; full Maxwell-identity derivation deferred to thermodynamic potentials"
+  ],
+  "historical_scientific_review": {
     "status": "accepted",
     "accepted": true,
     "body_sha256": "0af2b4020037a6d4b526ff7d12a6e0ed7312aba7af4d857e076ea92c44af379d",
@@ -116,12 +129,5 @@
     "blocking": 0,
     "major": 0,
     "minor": 0
-  },
-  "limitations": [
-    "No comprehensive audiovisual or board audit",
-    "Classical monatomic and equal-frequency oscillator results have stated restricted domains",
-    "Synthetic molar mass and caloric polynomial are not fitted real-material properties",
-    "Historical acoustic thermometry experiment and uncertainty budget not reproduced",
-    "General Cp-Cv identity stated with its conditions; full Maxwell-identity derivation deferred to thermodynamic potentials"
-  ]
+  }
 }

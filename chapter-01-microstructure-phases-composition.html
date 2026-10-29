@@ -1,8 +1,8 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="dark light"><meta name="book-content-sha256" content="c123f965c6d72ccdea4914960efca3346e1ba70a7aafd83d676e70b3e06bcee5"><title>Microstructure, phases and composition · Computational Thermodynamics</title><link rel="stylesheet" href="assets/book.css"><script src="assets/math-config.js"></script><script defer src="assets/mathjax-tex-svg.js"></script><script defer src="assets/book.js"></script></head>
-<body><a class="skip" href="#main">Skip to content</a><header class="site-header"><a class="brand" href="index.html">Computational Thermodynamics and Kinetics of Materials</a><nav class="course-nav"><a href="index.html">Chapters</a><a href="source-map.html">Source map</a><a href="references.html">References</a><a href="numerical-lab.html">Numerical lab</a></nav></header><div class="layout"><aside class="toc" id="chapter-toc"><h2>On this page</h2></aside><main id="main"><div class="reading-tools"><button id="theme-toggle" aria-pressed="false">Light theme</button><button id="text-toggle" aria-pressed="false">Larger text</button><button id="solutions-toggle" aria-pressed="false">Expand solutions</button><button id="print-page">Print with solutions</button></div>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="dark light"><meta name="book-content-sha256" content="e8ab6bbe0271b7793c60438aac92824eb37d2dfb3b6060aaed410f56a1267e43"><title>Microstructure, phases and composition · Computational Thermodynamics</title><link rel="stylesheet" href="assets/book.css"><script src="assets/math-config.js"></script><script defer src="assets/mathjax-tex-svg.js"></script><script defer src="assets/book.js"></script></head>
+<body><a class="skip" href="#main">Skip to content</a><header class="site-header"><a class="brand" href="index.html">Computational Thermodynamics and Kinetics of Materials</a><nav class="course-nav"><a href="index.html">Chapters</a><a href="source-map.html">Source map</a><a href="references.html">References</a><a href="numerical-lab.html">Numerical lab</a></nav></header><div class="layout"><aside class="toc" id="chapter-toc"><h2 id="on-this-page">On this page</h2></aside><main id="main"><div class="reading-tools"><button id="theme-toggle" aria-pressed="false">Light theme</button><button id="text-toggle" aria-pressed="false">Larger text</button><button id="solutions-toggle" aria-pressed="false">Expand solutions</button><button id="print-page">Print with solutions</button></div>
 <article id="chapter-content"><!-- BOOK-CONTENT-START -->
-<h1>1. Microstructure, phases and composition</h1>
+<h1 id="chapter-title">1. Microstructure, phases and composition</h1>
 <p class="lead">A vessel contains 100 g of water and 250 g of sugar. Suppose, for a deliberately stipulated model at fixed temperature and pressure, that the liquid can dissolve at most 220 g of sugar in that water. The vessel is 71.43% sugar by mass. Its liquid is only 68.75% sugar, and 30 g of solid remains. Confusing those two compositions would give the wrong phase amounts before any sophisticated thermodynamic calculation began. Materials calculations need an equally careful distinction between what the whole specimen contains, which phases occur, and how those phases are arranged.</p>
 <p class="source-note">The first substantive recording supplies the topic sequence: micrographs and grains; periodic crystal structure; phase identity; chemical composition; sugar–water examples; processing and microstructure prediction. The mass balances, exact cell counts, synthetic phase maps, code and exercises below are teaching constructions. The sugar capacity is a stipulated number used to reconstruct the lecture's arithmetic, not a verified solubility datum at an unspecified room temperature. The complete recording was locally transcribed in bounded chunks; machine recognition and chunk boundaries remain fallible, and no comprehensive slide or audiovisual audit is claimed.</p>
 
@@ -10,7 +10,7 @@
 <p>A material's <dfn>microstructure</dfn> is its spatial organization at the scales relevant to the question: the phases present, their shapes and spatial distribution, and, in crystalline material, grains, orientations and interfaces. A <dfn>grain</dfn> is a connected crystalline region with a coherent crystallographic orientation, allowing the defects and small orientation variations of a real specimen. A <dfn>grain boundary</dfn> separates adjacent grains with differing orientations. A boundary between different phases is instead an interphase boundary; one interface can involve both changes.</p>
 <p>Cutting, mounting, polishing and sometimes etching a specimen makes a section accessible to microscopy. The resulting picture is an observation produced by a preparation and imaging method. Contrast can depend on orientation, surface preparation, composition, the detector and the relevant interaction with the specimen. Two shades in an image do not, by themselves, prove two thermodynamic phases. Conversely, two phases need not always be visibly separable with a particular instrument. Phase identification needs suitable structural or chemical evidence as well as the image.</p>
 <p>In a single-phase polycrystal, differently oriented grains can share the same crystal structure and equilibrium composition. Counting grains therefore does not count phases. W. C. Carter's <a href="https://ocw.mit.edu/courses/3-016-mathematics-for-materials-scientists-and-engineers-fall-2005/lecture_20.pdf">MIT notes, Lecture 20, p.125</a>, use this orientation distinction in introducing grain growth. It separates two design changes that would otherwise look similar: changing which phase is stable and changing the grain structure of an already selected phase.</p>
-<p>For a minimal mathematical description, choose a specimen region $\Omega$ with volume $V$. Position $\mathbf r$ is measured in metres. For each phase label $\alpha$, define an indicator $\chi_\alpha(\mathbf r)$ that is one inside that phase and zero elsewhere. In this sharp-interface bulk model, interfaces are treated as zero-volume dividing surfaces. Away from them, the phase labels partition the specimen, so $\sum_\alpha\chi_\alpha=1$ almost everywhere. Integrating that identity defines the normalized phase volume fractions:</p>
+<p>For a minimal mathematical description, choose a bounded specimen region $\Omega$ with positive volume $V$ in m³. Position $\mathbf r$ is measured in metres. For each phase label $\alpha$, define an indicator $\chi_\alpha(\mathbf r)$ that is one inside that phase and zero elsewhere. In this sharp-interface bulk model, interfaces are treated as zero-volume dividing surfaces. Away from them, the phase labels partition the specimen, so $\sum_\alpha\chi_\alpha=1$ almost everywhere: the identity may fail on the zero-volume dividing surfaces without changing a volume integral. Integrating that identity defines the normalized phase volume fractions:</p>
 \[
  f^V_\alpha=\frac{1}{V}\int_\Omega\chi_\alpha(\mathbf r)\,dV,
  \qquad \sum_\alpha f^V_\alpha=1. \tag{1.1}
@@ -36,7 +36,7 @@
 <p>The phase label $\alpha$ in (1.1) therefore records a physical distinction established by the model and evidence; it is not assigned merely to every colour or every disconnected object. Grain orientation and phase identity are different fields. This distinction will matter when a calculation predicts one stable crystal structure but an experiment reveals many grains of that structure, or when two compositionally distinct regions coexist with the same structure type.</p>
 
 <h2 id="composition" data-video="UA4P_D6fJkE" data-start="557" data-end="711">1.4 A composition number must declare its basis <a class="timestamp" href="https://www.youtube.com/watch?v=UA4P_D6fJkE&amp;t=557s">L1 · 09:17</a></h2>
-<p>Choose the constituents used to describe a material. Let $n_i$ be their amounts in moles and $m_i$ their masses. Their amount fractions and mass fractions are, respectively, $x_i=n_i/\sum_jn_j$ and $w_i=m_i/\sum_jm_j$. Each set sums to one. If $M_i=m_i/n_i$ is the molar mass of constituent $i$, then $m_i=M_in_i$, and substitution gives the conversions</p>
+<p>Choose the constituents used to describe a material. Let $n_i\geq0$ be their amounts in moles and $m_i\geq0$ their masses in a common mass unit, with positive total amount and mass. Each molar mass $M_i$ below is positive. Their amount fractions and mass fractions are, respectively, $x_i=n_i/\sum_jn_j$ and $w_i=m_i/\sum_jm_j$. Each set sums to one. If $M_i=m_i/n_i$ is the molar mass of constituent $i$, then $m_i=M_in_i$, and substitution gives the conversions</p>
 \[
  w_i=\frac{x_iM_i}{\sum_jx_jM_j},\qquad
  x_i=\frac{w_i/M_i}{\sum_jw_j/M_j}. \tag{1.3}
@@ -66,7 +66,7 @@
 \]
 <p>For the vessel, $(5/7-11/16)/(1-11/16)=3/35=0.08571429$. The liquid phase fraction is $32/35$. Multiplying these phase fractions by 350 g returns 30 g solid and 320 g liquid. Substitution in (1.4) returns the original 250 g of sugar. This reverse check tests the meaning of every denominator.</p>
 <p>The formula also states its boundary. Nonnegative phase fractions require $w_0$ between the endpoint phase compositions. If an input lies outside that interval, negative output is a signal that the assumed two-phase representation is inadmissible, rather than a physical negative mass. If both endpoints have the same composition, (1.4) cannot determine their amounts from composition alone. Ice and liquid water in a one-component system provide that possibility; an energy constraint can then provide information absent from a composition balance.</p>
-<p>Volume fraction is not generally interchangeable with mass fraction. If phase densities $\rho_L,\rho_S$ are uniform, $m_\alpha=\rho_\alpha f^V_\alpha V$. Dividing by total mass gives</p>
+<p>Volume fraction is not generally interchangeable with mass fraction. If phase densities $\rho_L,\rho_S$ are positive and uniform, with units kg/m³, $m_\alpha=\rho_\alpha f^V_\alpha V$. Dividing by total mass gives</p>
 \[
  f^m_\alpha=\frac{\rho_\alpha f^V_\alpha}
  {\sum_\beta\rho_\beta f^V_\beta}. \tag{1.6}
@@ -83,6 +83,7 @@
 <h2 id="code">1.8 Execute the bookkeeping</h2>
 <p>The standard-library program uses exact rational arithmetic for the mass fractions, checks both total-mass and sugar conservation, and counts internal A–B edges in the synthetic maps. Its inputs are explicit constants. It reads no files and makes no network requests. It prints counts and fractions; assertions reject an inconsistent construction. The program is available in <a href="code/ch01_microstructure.py">code/ch01_microstructure.py</a>.</p>
 <pre data-run="code/ch01_microstructure.py"><code class="language-python">"""Original phase-budget and section-geometry checks; standard library only."""
+
 from fractions import Fraction
 
 water, sugar, capacity = 100, 250, 220
@@ -106,26 +107,31 @@ def boundary_edges(points, size=6):
         for y in range(size):
             for dx, dy in [(1, 0), (0, 1)]:
                 if x + dx &lt; size and y + dy &lt; size:
-                    count += ((x, y) in points) != (
-                        (x + dx, y + dy) in points)
+                    count += ((x, y) in points) != ((x + dx, y + dy) in points)
     return count
 
 
 assert len(cluster) == len(islands) == 4
 assert boundary_edges(cluster) == 8
 assert boundary_edges(islands) == 16
-print(f'FCC atoms per conventional cell: {8/8 + 6/2:g}')
-print(f'BCC atoms per conventional cell: {8/8 + 1:g}')
-print('H atomic fraction in H2O:', Fraction(2, 3))
-print('H mass fraction for stipulated masses H=1, O=16:', Fraction(2, 18))
-print(f'overall sugar mass fraction: {float(w_overall):.8f}')
-print(f'liquid sugar mass fraction: {float(w_liquid):.8f}')
-print(f'solid sugar mass g: {solid}')
-print(f'solid phase mass fraction: {float(f_solid):.8f}')
-print('section B area fractions:', Fraction(len(cluster), 36),
-      Fraction(len(islands), 36))
-print('section interface lengths in cell-edge units:',
-      boundary_edges(cluster), boundary_edges(islands))
+print(f"FCC atoms per conventional cell: {8/8 + 6/2:g}")
+print(f"BCC atoms per conventional cell: {8/8 + 1:g}")
+print("H atomic fraction in H2O:", Fraction(2, 3))
+print("H mass fraction for stipulated masses H=1, O=16:", Fraction(2, 18))
+print(f"overall sugar mass fraction: {float(w_overall):.8f}")
+print(f"liquid sugar mass fraction: {float(w_liquid):.8f}")
+print(f"solid sugar mass g: {solid}")
+print(f"solid phase mass fraction: {float(f_solid):.8f}")
+print(
+    "section B area fractions:",
+    Fraction(len(cluster), 36),
+    Fraction(len(islands), 36),
+)
+print(
+    "section interface lengths in cell-edge units:",
+    boundary_edges(cluster),
+    boundary_edges(islands),
+)
 </code></pre>
 <pre class="output">FCC atoms per conventional cell: 4
 BCC atoms per conventional cell: 2

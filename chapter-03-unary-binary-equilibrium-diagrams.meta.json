@@ -2,8 +2,8 @@
   "chapter": 3,
   "title": "Reading unary and binary equilibrium diagrams",
   "file": "chapter-03-unary-binary-equilibrium-diagrams.html",
-  "status": "Accepted in two independent scientific reviews",
-  "authored_body_sha256": "ae63a2c757cbbdef3c842bc7619b04b6afccfeb23b8a20172cf095bb3f51b0b4",
+  "status": "Compliance repairs frozen; awaiting two independent focused reviews",
+  "authored_body_sha256": "31c483fe7d1cf4affd437beb958f39f3e9858a6f9bd719b3f55e2005c76e1437",
   "recordings": [
     {
       "official_lesson": 3,
@@ -105,6 +105,20 @@
     "Three-phase reaction extent as a free variable at invariant conditions"
   ],
   "independent_review": {
+    "status": "pending-focused-compliance-review",
+    "accepted": false,
+    "body_sha256": "31c483fe7d1cf4affd437beb958f39f3e9858a6f9bd719b3f55e2005c76e1437",
+    "scope": "Prior full scientific/source reviews apply to the separately bound accepted baseline; current definitions, derivation hinges, markup, code and figure amendments require focused independent closure."
+  },
+  "limitations": [
+    "No full audiovisual or board audit",
+    "Not a Cu–Ni or Al–Si experimental fit",
+    "Miscibility evidence uses explicitly identified published abstracts; not a bulk-database adjudication",
+    "Bulk two-phase ideal model neglects interfaces, vacancies, order, nonideal mixing and heat-capacity differences",
+    "Numerical support-line sampling checks implementation; analytical convexity supplies the global argument",
+    "Eutectic example uses stipulated mass-fraction endpoints at the eutectic limiting temperature"
+  ],
+  "historical_scientific_review": {
     "status": "accepted",
     "accepted": true,
     "body_sha256": "ae63a2c757cbbdef3c842bc7619b04b6afccfeb23b8a20172cf095bb3f51b0b4",
@@ -119,13 +133,5 @@
     "blocking": 0,
     "major": 0,
     "minor": 0
-  },
-  "limitations": [
-    "No full audiovisual or board audit",
-    "Not a Cu–Ni or Al–Si experimental fit",
-    "Miscibility evidence uses explicitly identified published abstracts; not a bulk-database adjudication",
-    "Bulk two-phase ideal model neglects interfaces, vacancies, order, nonideal mixing and heat-capacity differences",
-    "Numerical support-line sampling checks implementation; analytical convexity supplies the global argument",
-    "Eutectic example uses stipulated mass-fraction endpoints at the eutectic limiting temperature"
-  ]
+  }
 }

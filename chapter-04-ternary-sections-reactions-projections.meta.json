@@ -2,8 +2,8 @@
   "chapter": 4,
   "title": "Ternary geometry, reaction paths and liquidus projections",
   "file": "chapter-04-ternary-sections-reactions-projections.html",
-  "status": "Accepted in two independent scientific reviews",
-  "authored_body_sha256": "87135b8f136963346689c752e7cf4013ec6658cd5a5adc20ec89bd08f98f6cdd",
+  "status": "Compliance repairs frozen; awaiting two independent focused reviews",
+  "authored_body_sha256": "ccddd4d005565a41d6138d66c1463b3a814e095a4974649cde8d860ac9b89605",
   "recordings": [
     {
       "official_lesson": 6,
@@ -103,6 +103,20 @@
     "Complete reaction-product mass balance on identified NIST legacy table"
   ],
   "independent_review": {
+    "status": "pending-focused-compliance-review",
+    "accepted": false,
+    "body_sha256": "ccddd4d005565a41d6138d66c1463b3a814e095a4974649cde8d860ac9b89605",
+    "scope": "Prior full scientific/source reviews apply to the separately bound accepted baseline; current definitions, derivation hinges, markup, code and figure amendments require focused independent closure."
+  },
+  "limitations": [
+    "No comprehensive audiovisual or board audit",
+    "Synthetic endpoint geometry does not establish real-alloy phase stability",
+    "No reproduction of original animations or uninspected board numerical readings",
+    "Historical NIST table and paper are distinguished versions; arithmetic precision is not experimental precision",
+    "Four-phase invariant amounts need an additional reaction extent/enthalpy condition",
+    "Interactive explorer changes normalized amounts within stipulated endpoints; it is not an equilibrium solver"
+  ],
+  "historical_scientific_review": {
     "status": "accepted",
     "accepted": true,
     "body_sha256": "87135b8f136963346689c752e7cf4013ec6658cd5a5adc20ec89bd08f98f6cdd",
@@ -117,13 +131,5 @@
     "blocking": 0,
     "major": 0,
     "minor": 0
-  },
-  "limitations": [
-    "No comprehensive audiovisual or board audit",
-    "Synthetic endpoint geometry does not establish real-alloy phase stability",
-    "No reproduction of original animations or uninspected board numerical readings",
-    "Historical NIST table and paper are distinguished versions; arithmetic precision is not experimental precision",
-    "Four-phase invariant amounts need an additional reaction extent/enthalpy condition",
-    "Interactive explorer changes normalized amounts within stipulated endpoints; it is not an equilibrium solver"
-  ]
+  }
 }

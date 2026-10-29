@@ -1,13 +1,13 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="dark light"><meta name="book-content-sha256" content="e8312d8f0b9a414bedc763b1f8fdada0b49dd44437348b282d1b170c0f1f9381"><title>The first law, reversible paths and adiabatic processes · Computational Thermodynamics</title><link rel="stylesheet" href="assets/book.css"><script src="assets/math-config.js"></script><script defer src="assets/mathjax-tex-svg.js"></script><script defer src="assets/book.js"></script></head>
-<body><a class="skip" href="#main">Skip to content</a><header class="site-header"><a class="brand" href="index.html">Computational Thermodynamics and Kinetics of Materials</a><nav class="course-nav"><a href="index.html">Chapters</a><a href="source-map.html">Source map</a><a href="references.html">References</a><a href="numerical-lab.html">Numerical lab</a></nav></header><div class="layout"><aside class="toc" id="chapter-toc"><h2>On this page</h2></aside><main id="main"><div class="reading-tools"><button id="theme-toggle" aria-pressed="false">Light theme</button><button id="text-toggle" aria-pressed="false">Larger text</button><button id="solutions-toggle" aria-pressed="false">Expand solutions</button><button id="print-page">Print with solutions</button></div>
+<body><a class="skip" href="#main">Skip to content</a><header class="site-header"><a class="brand" href="index.html">Computational Thermodynamics and Kinetics of Materials</a><nav class="course-nav"><a href="index.html">Chapters</a><a href="source-map.html">Source map</a><a href="references.html">References</a><a href="numerical-lab.html">Numerical lab</a></nav></header><div class="layout"><aside class="toc" id="chapter-toc"><h2 id="on-this-page">On this page</h2></aside><main id="main"><div class="reading-tools"><button id="theme-toggle" aria-pressed="false">Light theme</button><button id="text-toggle" aria-pressed="false">Larger text</button><button id="solutions-toggle" aria-pressed="false">Expand solutions</button><button id="print-page">Print with solutions</button></div>
 <article id="chapter-content"><!-- BOOK-CONTENT-START -->
-<h1>7. The first law, reversible paths and adiabatic processes</h1>
+<h1 id="chapter-title">7. The first law, reversible paths and adiabatic processes</h1>
 <p class="lead">After a gas expands against a suddenly reduced load, replacing the original load need not restore its original state. Pressure can return while temperature and volume do not. That observation separates three ideas often compressed into a piston sketch: conservation of energy, the path-dependent work delivered to the surroundings, and the stronger requirement that a process can be reversed without leaving a trace.</p>
 <p class="source-note">The complete local transcripts of lessons 13–14 were read sequentially. They develop the first law, reversible versus finite-step piston motion, work areas, inexact differentials, isothermal and adiabatic paths, and the distinction between system and surroundings. The numerical paths here are original calculations with explicitly stated ideal-gas and boundary models. External-load rectangles are not presented as measured intermediate equilibrium pressures inside a rapidly moving gas. The harmonic-quench extension is separately derived from a primary nonequilibrium-work result.</p>
 
 <h2 id="first-law" data-video="5Ms2vab0HsQ" data-start="52" data-end="386">7.1 Conservation is necessary; it does not determine direction <a class="timestamp" href="https://www.youtube.com/watch?v=5Ms2vab0HsQ&amp;t=52s">L13 · 00:52</a></h2>
-<p>Choose a closed system and count heat into it as positive, $Q>0$. Count work delivered by it to its surroundings as positive, $W_{\rm by}>0$. Neglect changes in the kinetic and gravitational potential energy of the system as a whole. The first law then reads</p>
+<p>Let $U$ be internal energy in J. For a chosen closed system, let $Q$ be net heat transferred into it and $W_{\rm by}$ net work delivered by it, both in J. Count heat into it as positive, $Q\gt 0$. Count work delivered by it to its surroundings as positive, $W_{\rm by}\gt 0$. Neglect changes in the kinetic and gravitational potential energy of the system as a whole. The first law then reads</p>
 <div class="equation">$$\Delta U=Q-W_{\rm by},\qquad dU=\delta Q-\delta W_{\rm by}.\tag{7.1}$$</div>
 <p>Other sign conventions are possible, but they must be translated consistently. With work done <em>on</em> the system, $W_{\rm on}=-W_{\rm by}$, the same law is $\Delta U=Q+W_{\rm on}$. If the piston retains significant kinetic energy or the system changes altitude, those energy changes must be included rather than silently folded into $U$.</p>
 <p>For a complete reversal between the same two states, $\Delta U$ changes sign along with the exchanged energy quantities. One should not reverse the signs of $Q$ and $W$ while leaving the state-function change unchanged. The first law by itself cannot distinguish a spontaneous process from its mathematically energy-balanced reverse. It is a necessary accounting constraint, not a statement that every energy-conserving proposal is feasible.</p>
@@ -21,14 +21,14 @@
 <p>The lecture's falling-ball analogy illustrates conversion of organized mechanical energy into internal energy of the ball, floor and surroundings. Within an adiabatically closed larger system, such conversion does not constitute heat crossing its outer boundary. “Dissipation heats the system” can be a useful informal phrase, but adding a positive $Q$ to an adiabatic balance would count the wrong transfer channel. Energy is redistributed internally; it has not been created or destroyed.</p>
 
 <h2 id="pressure-work" data-video="5Ms2vab0HsQ" data-start="1053" data-end="1558">7.3 A work rectangle describes the imposed load <a class="timestamp" href="https://www.youtube.com/watch?v=5Ms2vab0HsQ&amp;t=1053s">L13 · 17:33</a></h2>
-<p>For the simple piston model, work delivered against an effective external pressure is $W_{\rm by}=\int p_{\rm ext}\,dV$. Suppose the resisting load is suddenly changed to a constant $p_2$ and the gas eventually reaches volume $V_2$ from $V_1$. If this is the only delivered work channel and the boundary model applies throughout the displacement, then</p>
+<p>Use pressure $p,p_{\rm ext}$ in Pa and volume $V$ in m³, with subscripts identifying endpoint states. For the simple piston model, work delivered against an effective external pressure is $W_{\rm by}=\int p_{\rm ext}\,dV$. Suppose the resisting load is suddenly changed to a constant $p_2$ and the gas eventually reaches volume $V_2$ from $V_1$. If this is the only delivered work channel and the boundary model applies throughout the displacement, then</p>
 <div class="equation">$$W_{{\rm by},1\mathrm{step}}=p_2(V_2-V_1).\tag{7.2}$$</div>
 <p>The area of this rectangle is the integral of the imposed external pressure. During the rapid transient, the gas may have pressure gradients, internal motion and a moving piston. A vertical line from initial system pressure $p_1$ to $p_2$ followed by a horizontal rectangle is therefore a bookkeeping representation of the changed load, not a claim that all intermediate gas states lie on that equilibrium path.</p>
 <p>For an internally equilibrated, frictionless, mechanically reversible path, the external pressure approaches the system pressure, giving $W_{{\rm by},\rm rev}=\int p\,dV$. The equation of state can then supply $p$ along the equilibrium path once the thermal condition is also specified. Knowing only the initial and final ideal-gas states does not identify the external load history or determine the work of an arbitrary irreversible route.</p>
 <p>We will use models with a gas that ultimately equilibrates under each specified load and with initial and final piston kinetic energies negligible. Any damping of transients and any associated energy return must be consistent with the chosen boundary. If appreciable energy is deposited in piston hardware outside the gas, a gas-only balance needs that extra exchange. The simple numerical examples below specify the conventional closed-gas pressure-work model; they are not a detailed mechanical simulation of a particular cylinder.</p>
 
 <h2 id="isothermal" data-video="5oXfprB7Jts" data-start="76" data-end="416">7.4 Compare two paths with identical isothermal endpoints <a class="timestamp" href="https://www.youtube.com/watch?v=5oXfprB7Jts&amp;t=76s">L14 · 01:16</a></h2>
-<p>Take one mole of a classical monatomic ideal gas, initially at $T_1=300$ K and $p_1=100$ kPa. Its initial volume is $V_1=RT_1/p_1$. Compare two expansions ending in a fully equilibrated state at the same temperature and twice the volume: $T_2=T_1$, $V_2=2V_1$, $p_2=p_1/2$. The caloric model is $U=3nRT/2$ plus a fixed reference, so both paths have $\Delta U=0$.</p>
+<p>Let $n$ be the gas amount in mol and $R=8.31446261815324$ J/(mol K) the molar gas constant. All gas temperatures $T$ are positive absolute temperatures in K. Take one mole of a classical monatomic ideal gas, initially at $T_1=300$ K and $p_1=100$ kPa. Its initial volume is $V_1=RT_1/p_1$. Compare two expansions ending in a fully equilibrated state at the same temperature and twice the volume: $T_2=T_1$, $V_2=2V_1$, $p_2=p_1/2$. The caloric model is $U=3nRT/2$ plus a fixed reference, so both paths have $\Delta U=0$.</p>
 <p>The reversible isothermal path follows $p=nRT_1/V$, giving</p>
 <div class="equation">$$W_{{\rm by},\rm rev}=\int_{V_1}^{2V_1}\frac{nRT_1}{V}\,dV=nRT_1\ln2=1728.943896\ \mathrm J.\tag{7.3}$$</div>
 <p>For the one-step route, change the external load to $p_2=p_1/2$ and allow equilibration with a 300 K reservoir. Equation (7.2) gives</p>
@@ -47,12 +47,12 @@
 <p>Reversing the reversible isothermal path instead gives exactly the negative of (7.3), with correspondingly reversed heat. That retracing leaves no net work or heat exchange over the out-and-back pair. This does not mean every reversible cycle has zero net work: a reversible engine cycle follows several distinct paths and can exchange heat with different reservoirs. “Retracing one path backward” is a specific cycle, not the definition of all cycles.</p>
 
 <h2 id="inexact" data-video="5oXfprB7Jts" data-start="416" data-end="493">7.6 Inexact differentials encode the path dependence <a class="timestamp" href="https://www.youtube.com/watch?v=5oXfprB7Jts&amp;t=416s">L14 · 06:56</a></h2>
-<p>For reversible pressure work in the fixed-amount ideal-gas state plane $(T,V)$, the heat form is</p>
+<p>Let $C_{V,m}$ denote molar constant-volume heat capacity in J/(mol K), and $C_{p,m}$ the corresponding constant-pressure capacity. For reversible pressure work in the fixed-amount ideal-gas state plane $(T,V)$, the heat form is</p>
 <div class="equation">$$\delta Q_{\rm rev}=nC_{V,m}\,dT+\frac{nRT}{V}\,dV.\tag{7.7}$$</div>
-<p>Here $C_{V,m}=3R/2$ is constant for our model. If this were $dF$ for a smooth state function $F(T,V)$, its coefficient derivatives would need to agree: $\partial_V(nC_{V,m})=\partial_T(nRT/V)$. The left side is zero and the right side is $nR/V$, so the test fails. In the domain $T,V>0$, it is not an exact state-function differential. A definite integral along a specified path is perfectly meaningful; it simply cannot be found by subtracting endpoint values of a universal “heat content.”</p>
-<p>Dividing by temperature changes the mathematical structure:</p>
+<p>Here $C_{V,m}=3R/2$ is constant for our model. If this were $dF$ for a smooth state function $F(T,V)$, its coefficient derivatives would need to agree: $\partial_V(nC_{V,m})=\partial_T(nRT/V)$. The left side is zero and the right side is $nR/V$, so the test fails. In the domain $T,V\gt 0$, it is not an exact state-function differential. A definite integral along a specified path is perfectly meaningful; it simply cannot be found by subtracting endpoint values of a universal “heat content.”</p>
+<p>Choose positive reference temperature $T_*$ in K and reference volume $V_*$ in m³. Dividing by temperature changes the mathematical structure:</p>
 <div class="equation">$$\frac{\delta Q_{\rm rev}}{T}=nC_{V,m}\frac{dT}{T}+nR\frac{dV}{V}=d\!\left[nC_{V,m}\ln\frac T{T_*}+nR\ln\frac V{V_*}\right].\tag{7.8}$$</div>
-<p>The reference $T_*,V_*>0$ makes logarithms dimensionless. For this gas, $1/T$ is an integrating factor for the reversible heat form. The bracket differs from entropy only by a constant, as the next chapter explains. This identity is not permission to integrate $\delta Q/T$ along an arbitrary irreversible process and call the result its entropy change. The reversible qualifier is part of the construction.</p>
+<p>The reference $T_*,V_*\gt 0$ makes logarithms dimensionless. For this gas, $1/T$ is an integrating factor: a multiplier that turns the reversible heat form into an exact differential. The bracket differs from entropy only by a constant, as the next chapter explains. This identity is not permission to integrate $\delta Q/T$ along an arbitrary irreversible process and call the result its entropy change. The reversible qualifier is part of the construction.</p>
 
 <h2 id="adiabatic" data-video="5oXfprB7Jts" data-start="645" data-end="834">7.7 An adiabatic boundary does not imply a constant temperature <a class="timestamp" href="https://www.youtube.com/watch?v=5oXfprB7Jts&amp;t=645s">L14 · 10:45</a></h2>
 <p>Adiabatic means no heat crosses the chosen boundary: $Q=0$. It does not mean that work is zero, temperature is constant, or the process is reversible. For a mechanically reversible closed ideal-gas expansion with constant $C_{V,m}$ and only pressure–volume work, (7.1) gives</p>
@@ -62,7 +62,7 @@
 <p>The last constant is dimensionful; ratios avoid taking logarithms of dimensionful quantities during the derivation. For a monatomic classical gas $\gamma=5/3$. If capacities vary with temperature, the integral of $C_{V,m}(T)/T$ replaces the constant-capacity logarithm, and one should not insert a universal constant $\gamma$.</p>
 <p>Work follows either from integrating the reversible pressure curve or directly from the first law:</p>
 <div class="equation">$$W_{{\rm by},\rm rev,ad}=nC_{V,m}(T_1-T_2)=\frac{p_1V_1-p_2V_2}{\gamma-1}.\tag{7.11}$$</div>
-<p>In expansion $T_2<T_1$ and the work is positive: it is supplied by a decrease in internal energy. In compression the signs reverse. An insulated rigid vessel with an electrical heater instead has $Q=0$ and positive work done on the gas; its internal energy and temperature can rise without any volume change. The reversible gas-expansion formula cannot describe that experiment.</p>
+<p>In expansion $T_2\lt T_1$ and the work is positive: it is supplied by a decrease in internal energy. In compression the signs reverse. An insulated rigid vessel with an electrical heater instead has $Q=0$ and positive work done on the gas; its internal energy and temperature can rise without any volume change. The reversible gas-expansion formula cannot describe that experiment.</p>
 
 <h2 id="adiabatic-endpoints" data-video="5oXfprB7Jts" data-start="729" data-end="1183">7.8 The same final load gives different adiabatic endpoints <a class="timestamp" href="https://www.youtube.com/watch?v=5oXfprB7Jts&amp;t=729s">L14 · 12:09</a></h2>
 <p>Use the same initial mole at 300 K and 100 kPa, but now insulate the gas. Reduce the final external pressure to $p_2=50$ kPa. In the reversible route, (7.10) gives $T_{2,\rm rev}=227.357485$ K, $V_{2,\rm rev}/V_1=1.515717$, and $W_{{\rm by},\rm rev}=905.975213$ J.</p>
@@ -72,15 +72,16 @@
 <div class="equation">$$\frac{T_{2,\rm irr}}{T_1}=\frac{C_{V,m}+bR}{C_{p,m}}.\tag{7.13}$$</div>
 <p>With $b=1/2$, the result is $T_{2,\rm irr}=240$ K, $V_{2,\rm irr}/V_1=1.6$, and $W_{{\rm by},\rm irr}=748.301636$ J. The irreversible endpoint is warmer and larger than the reversible endpoint at the same pressure. It is still colder than the initial 300 K gas. Saying that dissipation “makes it hotter” refers here to comparison with the reversible final state, not to heating above its own initial temperature.</p>
 <p>These paths do not have identical final states, so their work difference is not the common-endpoint isothermal comparison of §7.4. The difference follows from the two explicitly solved boundary problems. An arbitrary claim of a maximum over all other adiabatic routes would require specifying the admissible states, work channels and surroundings.</p>
-<figure><img src="assets/first-law-paths.svg" alt="Left: reversible isothermal pressure curve and the lower one-step external load share the same endpoints. Right: reversible adiabatic gas reaches half pressure at volume ratio 1.515717 and 227.36 kelvin, while one external-pressure step reaches volume ratio 1.6 and 240 kelvin."><figcaption>Original ideal-gas calculations. Dashed horizontal lines are the imposed external pressure used in the work integral. They do not claim an equilibrium internal gas pressure during the transient.</figcaption></figure>
+<p>Figure 7.1 distinguishes the common-endpoint isothermal work comparison from the different-endpoint adiabatic comparison.</p>
+<figure><img src="assets/first-law-paths.svg" alt="Left: reversible isothermal pressure curve and the lower one-step external load share the same endpoints. Right: reversible adiabatic gas reaches half pressure at volume ratio 1.515717 and 227.36 kelvin, while one external-pressure step reaches volume ratio 1.6 and 240 kelvin."><figcaption>Figure 7.1. Original ideal-gas calculations. Dashed horizontal lines are the imposed external pressure used in the work integral. They do not claim an equilibrium internal gas pressure during the transient.</figcaption></figure>
 <p>Apply the original 100 kPa load in one adiabatic compression step to the irreversible state. Solving the same first-law and final-state equations gives $T_3=336$ K and $V_3/V_1=1.12$. Pressure has returned to its original value, but the gas has not returned to its original state. The two steps are not a closed thermodynamic cycle. The net work done on the gas remains as an internal-energy increase.</p>
-<p>As a consistency preview, use the exact ideal-gas state function in (7.8). The first irreversible adiabatic step has $\Delta S=nC_{V,m}\ln(240/300)+nR\ln1.6=1.124849532\ \mathrm{J\,K^{-1}}>0$, although $Q=0$. This is why adiabatic is not synonymous with isentropic. The next chapter derives the entropy balance and gives this difference its general meaning.</p>
+<p>Let $S$ denote entropy in J/K. As a consistency preview, use the exact ideal-gas state function in (7.8). The first irreversible adiabatic step has $\Delta S=nC_{V,m}\ln(240/300)+nR\ln1.6=1.124849532\ \mathrm{J\,K^{-1}}\gt 0$, although $Q=0$. This is why adiabatic is not synonymous with isentropic (unchanged entropy). The next chapter derives the entropy balance and gives this difference its general meaning.</p>
 
 <h2 id="research">7.9 A research extension: fluctuating work still has a constrained average</h2>
-<p><a href="https://arxiv.org/abs/cond-mat/9610209">Jarzynski's original nonequilibrium-work paper</a> starts a classical system in canonical equilibrium and repeats the same external-parameter protocol. With its work-<em>on</em> convention and suitable Hamiltonian/reservoir assumptions, including the stated weak-coupling condition, it relates an ensemble exponential average to the equilibrium Helmholtz free-energy difference: $\langle e^{-\beta W_{\rm on}}\rangle=e^{-\beta\Delta F}$. The paper also discusses rare-event sampling limits. An exact ensemble identity is not a promise that a few irreversible measurements accurately estimate free energy.</p>
-<p>We can verify the sudden-switch limit in an original solvable example. A classical one-dimensional particle has potential $kx^2/2$. At fixed temperature its configurational partition integral is proportional to $k^{-1/2}$; the unchanged momentum factor cancels in a ratio. Suddenly change stiffness from $k_0$ to $k_1=4k_0$. Position does not change during the switch, so the parameter work is $W_{\rm on}=(k_1-k_0)x^2/2$. With $q=x\sqrt{k_0/(k_BT)}$, the initial density is the standard normal and $\beta W_{\rm on}=3q^2/2$.</p>
+<p>For this extension, let $k_B$ be the Boltzmann constant in J/K, $\beta=1/(k_BT)\gt0$ inverse thermal energy in J⁻¹, and $F=U-TS$ Helmholtz free energy in J. Angle brackets denote averages over repeated realizations prepared from the same equilibrium ensemble. <a href="https://arxiv.org/abs/cond-mat/9610209">Jarzynski's original nonequilibrium-work paper</a> starts a classical system in canonical equilibrium and repeats the same external-parameter protocol. With its work-<em>on</em> convention and suitable Hamiltonian/reservoir assumptions, including the stated weak-coupling condition, it relates an ensemble exponential average to the equilibrium Helmholtz free-energy difference: $\langle e^{-\beta W_{\rm on}}\rangle=e^{-\beta\Delta F}$. The paper also discusses rare-event sampling limits. An exact ensemble identity is not a promise that a few irreversible measurements accurately estimate free energy.</p>
+<p>We can verify the sudden-switch limit in an original solvable example. A classical one-dimensional particle has position $x\in\mathbb R$ in m and harmonic potential $kx^2/2$, with stiffness $k\gt0$ in J/m². At fixed positive temperature, $\int_{-\infty}^{\infty}e^{-\beta kx^2/2}dx=\sqrt{2\pi/(\beta k)}$, so its configurational partition integral is proportional to $k^{-1/2}$; the unchanged momentum factor cancels in a ratio. Suddenly change stiffness from $k_0$ to $k_1=4k_0$. Position does not change during the switch, so the parameter work is $W_{\rm on}=(k_1-k_0)x^2/2$. With $q=x\sqrt{k_0/(k_BT)}$, the initial density is the standard normal and $\beta W_{\rm on}=3q^2/2$.</p>
 <div class="equation">$$\left\langle e^{-\beta W_{\rm on}}\right\rangle=\frac1{\sqrt{2\pi}}\int_{-\infty}^\infty e^{-2q^2}\,dq=\frac12,\qquad \frac{\Delta F}{k_BT}=\ln2,\qquad \frac{\langle W_{\rm on}\rangle}{k_BT}=\frac32.\tag{7.14}$$</div>
-<p>The Gaussian integrals supply both results directly; the code checks them independently by quadrature. Convexity gives $e^{-\beta\langle W_{\rm on}\rangle}\leq\langle e^{-\beta W_{\rm on}}\rangle$, hence $\langle W_{\rm on}\rangle\geq\Delta F$. Work is path dependent, yet its statistics can encode a state-function difference. This example is an instantaneous smooth-potential quench with an equilibrium initial ensemble, not a hard-wall free expansion or a piston experiment. No finite-sample convergence claim or arbitrary strong-coupling extension is made.</p>
+<p>The equilibrium relation $\Delta F=-k_BT\ln(Z_1/Z_0)$ uses the dimensionless full partition-function ratio; unchanged momentum and normalization factors cancel. The Gaussian integrals supply both results directly; the code checks them independently by quadrature. The elementary inequality $e^z\geq1+z$, applied to $z=-\beta(W_{\rm on}-\langle W_{\rm on}\rangle)$ and averaged, gives $e^{-\beta\langle W_{\rm on}\rangle}\leq\langle e^{-\beta W_{\rm on}}\rangle$, hence $\langle W_{\rm on}\rangle\geq\Delta F$. Work is path dependent, yet its statistics can encode a state-function difference. This example is an instantaneous smooth-potential quench with an equilibrium initial ensemble, not a hard-wall free expansion or a piston experiment. No finite-sample convergence claim or arbitrary strong-coupling extension is made.</p>
 
 <h2 id="exercises">7.10 Problems with complete solutions</h2>
 <ol class="exercises">
@@ -92,68 +93,130 @@
 <li><p><strong>Adiabatic doubling at fixed final volume.</strong> Reversibly double the volume of the initial monatomic gas while insulating it. Find $T_2$, $p_2/p_1$ and work. Compare with an insulated ideal-gas free expansion into twice the volume.</p><details><summary>Solution</summary><p>The reversible formulas give $T_2=300\,2^{-2/3}\approx188.988157$ K and $p_2/p_1=2^{-5/3}\approx0.314980$. Its work is $C_{V,m}(300-188.988157)\approx1384.505722$ J. Free expansion has zero external resisting-pressure work and zero heat; $\Delta U=0$ makes the final temperature300K in this ideal model, and its final pressure ratio is1/2. The final volumes agree, but temperatures and pressures do not. The relation $pV^\gamma=\mathrm{constant}$ was never valid for the free expansion.</p></details></li>
 <li><p><strong>Return to a load is not a cycle.</strong> Reproduce the two one-step adiabatic states at half pressure and back to original pressure. Find the net change in internal energy after both steps.</p><details><summary>Solution</summary><p>At half pressure, (7.13) gives240K and $V_2=1.6V_1$. For the return, final pressure$p_1$ and the first law give $(C_{V,m}+R)T_3=C_{V,m}\times240+p_1(1.6V_1)$ per mole. Since $p_1V_1=300R$, $T_3=(1.5\times240+480)/2.5=336$ K and $V_3=1.12V_1$. The net internal-energy increase is $(3/2)R\times36\approx448.980981$ J, supplied by net work on the gas. The final state differs, so calling this an energy-balanced thermodynamic cycle would be incorrect.</p></details></li>
 <li><p><strong>Adiabatic with increasing temperature.</strong> A closed rigid gas receives 400 J of electrical work through insulated leads, and no heat crosses its boundary. Its total constant-volume heat capacity is20J/K. What is the temperature change, and does this contradict an adiabatic expansion cooling?</p><details><summary>Solution</summary><p>Electrical work on the system is400J, so $\Delta U=400$ J. With the stipulated constant capacity, $\Delta T=400/20=20$ K. There is no volume work and no boundary heat. It is a different adiabatic experiment from an expansion delivering work. The first law permits both because the direction and type of work determine whether internal energy rises or falls.</p></details></li>
-<li><p><strong>A smooth-potential work ensemble.</strong> Instead of multiplying harmonic stiffness by four, multiply it by a positive factor$r$. Derive $\Delta F/(k_BT)$, $\langle W_{\rm on}\rangle/(k_BT)$ and the exponential work average. Verify the mean-work inequality for every$r>0$.</p><details><summary>Solution</summary><p>The configurational partition ratio is $Z_1/Z_0=r^{-1/2}$, so $\Delta F/(k_BT)=\tfrac12\ln r$. With initial standard-normal$q$, the sudden parameter work is $\beta W_{\rm on}=(r-1)q^2/2$, giving mean$(r-1)/2$. The exponential average is $\int e^{-rq^2/2}dq/\sqrt{2\pi}=r^{-1/2}$, finite for every positive$r$. The inequality becomes $r-1\geq\ln r$. Set $g(r)=r-1-\ln r$; its derivative is $1-1/r$, its minimum is at$r=1$, and $g(1)=0$. Thus the inequality holds even when reducing stiffness gives negative work on average. The equilibrium initial ensemble and smooth positive final confinement are essential parts of this example.</p></details></li>
+<li><p><strong>A smooth-potential work ensemble.</strong> Instead of multiplying harmonic stiffness by four, multiply it by a positive factor$r$. Derive $\Delta F/(k_BT)$, $\langle W_{\rm on}\rangle/(k_BT)$ and the exponential work average. Verify the mean-work inequality for every$r\gt 0$.</p><details><summary>Solution</summary><p>The configurational partition ratio is $Z_1/Z_0=r^{-1/2}$, so $\Delta F/(k_BT)=\tfrac12\ln r$. With initial standard-normal$q$, the sudden parameter work is $\beta W_{\rm on}=(r-1)q^2/2$, giving mean$(r-1)/2$. The exponential average is $\int e^{-rq^2/2}dq/\sqrt{2\pi}=r^{-1/2}$, finite for every positive$r$. The inequality becomes $r-1\geq\ln r$. Set $g(r)=r-1-\ln r$; its derivative is $1-1/r$, its minimum is at$r=1$, and $g(1)=0$. Thus the inequality holds even when reducing stiffness gives negative work on average. The equilibrium initial ensemble and smooth positive final confinement are essential parts of this example.</p></details></li>
 </ol>
 <h2 id="code">7.11 Execute the path and ensemble checks</h2>
-<p>Run <code>python code/ch07_first_law_paths.py</code> from this project. The standard-library program checks exact model identities and independently quadratures the harmonic-quench integrals. The printed entropy change is the explicit ideal-gas endpoint formula previewed above, not an empirical entropy measurement. The original plotting script <code>tools/plot_first_law.py</code> additionally requires Matplotlib.</p>
+<p>Run <code>python code/ch07_first_law_paths.py</code> from this project. The standard-library program checks exact model identities and independently quadratures the harmonic-quench integrals. Inputs are the explicit gas and stiffness-ratio constants; the listing reads no files, makes no network requests and writes only standard output. Assertions reject inconsistent gas balances or ensemble integrals. Its variable <code>N</code> denotes molar amount $n$, <code>CV</code> and <code>CP</code> are molar capacities, and <code>beta</code> denotes pressure ratio $b$, not the inverse thermal energy in the research section. The printed entropy change is the explicit ideal-gas endpoint formula previewed above, not an empirical entropy measurement. The original plotting script <code>tools/plot_first_law.py</code> additionally requires Matplotlib.</p>
 <pre data-run="code/ch07_first_law_paths.py"><code class="language-python">"""Declared monatomic gas paths and an independent harmonic-quench integral."""
-from math import log,exp,sqrt,pi,isclose
-R=8.31446261815324
-N,T1,P1=1.,300.,100000.
-CV,CP=1.5*R,2.5*R
-GAMMA=CP/CV
-V1=N*R*T1/P1
 
-def stepped_isothermal(steps,ratio=2.):
-    # Increasing equilibrium volumes; each expansion acts against its final load.
-    volumes=[V1*(1+(ratio-1)*i/steps) for i in range(steps+1)]
-    return sum(N*R*T1/volumes[i]*(volumes[i]-volumes[i-1]) for i in range(1,steps+1))
+from math import log, exp, sqrt, pi, isclose
 
-def simpson(f,a,b,n=6000):
-    step=(b-a)/n
-    return step/3*(f(a)+f(b)+4*sum(f(a+i*step) for i in range(1,n,2))+2*sum(f(a+i*step) for i in range(2,n,2)))
+R = 8.31446261815324
+N, T1, P1 = 1.0, 300.0, 100000.0
+CV, CP = 1.5 * R, 2.5 * R
+GAMMA = CP / CV
+V1 = N * R * T1 / P1
+
+
+def stepped_isothermal(steps, ratio=2.0):
+    # Increasing equilibrium volumes; each expansion acts against its final
+    # load.
+    volumes = [V1 * (1 + (ratio - 1) * i / steps) for i in range(steps + 1)]
+    return sum(
+        N * R * T1 / volumes[i] * (volumes[i] - volumes[i - 1])
+        for i in range(1, steps + 1)
+    )
+
+
+def simpson(f, a, b, n=6000):
+    step = (b - a) / n
+    return (
+        step
+        / 3
+        * (
+            f(a)
+            + f(b)
+            + 4 * sum(f(a + i * step) for i in range(1, n, 2))
+            + 2 * sum(f(a + i * step) for i in range(2, n, 2))
+        )
+    )
+
 
 def main():
-    rev=N*R*T1*log(2)
-    one=N*R*T1/2
-    compression=-N*R*T1
-    assert one&lt;stepped_isothermal(2)&lt;stepped_isothermal(10)&lt;stepped_isothermal(100)&lt;rev
-    beta=.5
-    trev=T1*beta**((GAMMA-1)/GAMMA)
-    vrev=N*R*trev/(beta*P1)
-    wrev=N*CV*(T1-trev)
-    tirr=T1*(CV+beta*R)/CP
-    virr=N*R*tirr/(beta*P1)
-    wirr=beta*P1*(virr-V1)
-    assert isclose(N*CV*(tirr-T1),-wirr,abs_tol=1e-10)
-    assert isclose(P1*V1**GAMMA,beta*P1*vrev**GAMMA,rel_tol=1e-12)
-    assert tirr&gt;trev and virr&gt;vrev and wirr&lt;wrev
+    rev = N * R * T1 * log(2)
+    one = N * R * T1 / 2
+    compression = -N * R * T1
+    assert (
+        one
+        &lt; stepped_isothermal(2)
+        &lt; stepped_isothermal(10)
+        &lt; stepped_isothermal(100)
+        &lt; rev
+    )
+    beta = 0.5
+    trev = T1 * beta ** ((GAMMA - 1) / GAMMA)
+    vrev = N * R * trev / (beta * P1)
+    wrev = N * CV * (T1 - trev)
+    tirr = T1 * (CV + beta * R) / CP
+    virr = N * R * tirr / (beta * P1)
+    wirr = beta * P1 * (virr - V1)
+    assert isclose(N * CV * (tirr - T1), -wirr, abs_tol=1e-10)
+    assert isclose(P1 * V1**GAMMA, beta * P1 * vrev**GAMMA, rel_tol=1e-12)
+    assert tirr &gt; trev and virr &gt; vrev and wirr &lt; wrev
     # A subsequent one-step adiabatic compression against the original load.
-    treturn=(CV*tirr+P1*virr/N)/CP
-    vreturn=N*R*treturn/P1
-    wreturn=P1*(vreturn-virr)
-    assert isclose(N*CV*(treturn-tirr),-wreturn,abs_tol=1e-10)
-    assert treturn&gt;T1 and vreturn&gt;V1
-    entropy_irr=N*CV*log(tirr/T1)+N*R*log(virr/V1)
-    assert entropy_irr&gt;0
-    # x scaled by initial Gaussian width; trap stiffness suddenly multiplies by four.
-    gaussian=lambda q:exp(-q*q/2)/sqrt(2*pi)
-    mean_work=simpson(lambda q:1.5*q*q*gaussian(q),-10,10)
-    exponential=simpson(lambda q:exp(-1.5*q*q)*gaussian(q),-10,10)
-    assert isclose(mean_work,1.5,abs_tol=1e-11)
-    assert isclose(exponential,.5,abs_tol=1e-11)
-    assert mean_work&gt;-log(exponential)
-    print('Isothermal doubling: reversible %.6f J; one-step %.6f J.' % (rev,one))
-    print('Two / ten / hundred load steps: '+', '.join('%.6f' % stepped_isothermal(k) for k in [2,10,100])+' J.')
-    print('One-step isothermal compression W_by = %.6f J; full return cycle W_by = %.6f J.' % (compression,one+compression))
-    print('Adiabatic to 50 kPa: reversible T %.6f K, V/V1 %.6f, W_by %.6f J.' % (trev,vrev/V1,wrev))
-    print('Adiabatic to 50 kPa: one-step T %.6f K, V/V1 %.6f, W_by %.6f J.' % (tirr,virr/V1,wirr))
-    print('Adiabatic one-step return to 100 kPa: T %.6f K; V/V1 %.6f.' % (treturn,vreturn/V1))
-    print('Adiabatic one-step gas entropy change = %.9f J/K.' % entropy_irr)
-    print('Harmonic stiffness x4 quench: mean W_on/kBT %.9f; exp average %.9f; Delta F/kBT %.9f.' % (mean_work,exponential,-log(exponential)))
-    print('Checks: common isothermal endpoints, monotone load sums, both adiabatic balances and quench integrals PASS.')
+    treturn = (CV * tirr + P1 * virr / N) / CP
+    vreturn = N * R * treturn / P1
+    wreturn = P1 * (vreturn - virr)
+    assert isclose(N * CV * (treturn - tirr), -wreturn, abs_tol=1e-10)
+    assert treturn &gt; T1 and vreturn &gt; V1
+    entropy_irr = N * CV * log(tirr / T1) + N * R * log(virr / V1)
+    assert entropy_irr &gt; 0
 
-if __name__=='__main__':main()
+    # x scaled by initial Gaussian width; trap stiffness suddenly multiplies by
+    # four.
+    def gaussian(q):
+        return exp(-q * q / 2) / sqrt(2 * pi)
+
+    mean_work = simpson(lambda q: 1.5 * q * q * gaussian(q), -10, 10)
+    exponential = simpson(lambda q: exp(-1.5 * q * q) * gaussian(q), -10, 10)
+    assert isclose(mean_work, 1.5, abs_tol=1e-11)
+    assert isclose(exponential, 0.5, abs_tol=1e-11)
+    assert mean_work &gt; -log(exponential)
+    print(
+        "Isothermal doubling: reversible %.6f J; one-step %.6f J." % (rev, one)
+    )
+    print(
+        "Two / ten / hundred load steps: "
+        + ", ".join("%.6f" % stepped_isothermal(k) for k in [2, 10, 100])
+        + " J."
+    )
+    print(
+        (
+            "One-step isothermal compression W_by = %.6f J; full return cycle"
+            " W_by = %.6f J."
+        )
+        % (compression, one + compression)
+    )
+    print(
+        "Adiabatic to 50 kPa: reversible T %.6f K, V/V1 %.6f, W_by %.6f J."
+        % (trev, vrev / V1, wrev)
+    )
+    print(
+        "Adiabatic to 50 kPa: one-step T %.6f K, V/V1 %.6f, W_by %.6f J."
+        % (tirr, virr / V1, wirr)
+    )
+    print(
+        "Adiabatic one-step return to 100 kPa: T %.6f K; V/V1 %.6f."
+        % (treturn, vreturn / V1)
+    )
+    print("Adiabatic one-step gas entropy change = %.9f J/K." % entropy_irr)
+    print(
+        (
+            "Harmonic stiffness x4 quench: mean W_on/kBT %.9f; exp average %."
+            "9f; Delta F/kBT %.9f."
+        )
+        % (mean_work, exponential, -log(exponential))
+    )
+    print(
+        (
+            "Checks: common isothermal endpoints, monotone load sums, both ad"
+            "iabatic balances and quench integrals PASS."
+        )
+    )
+
+
+if __name__ == "__main__":
+    main()
 </code></pre>
 <pre class="output">Isothermal doubling: reversible 1728.943896 J; one-step 1247.169393 J.
 Two / ten / hundred load steps: 1455.030958, 1668.142450, 1722.723639 J.

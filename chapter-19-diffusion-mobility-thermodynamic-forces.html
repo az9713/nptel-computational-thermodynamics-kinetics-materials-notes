@@ -1,8 +1,8 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="dark light"><meta name="book-content-sha256" content="50b09f397003f5ac587b0a840c409446644d30d24212513df9f9458fbd2c1a97"><title>Diffusion, mobility and thermodynamic forces · Computational Thermodynamics</title><link rel="stylesheet" href="assets/book.css"><script src="assets/math-config.js"></script><script defer src="assets/mathjax-tex-svg.js"></script><script defer src="assets/book.js"></script></head>
-<body><a class="skip" href="#main">Skip to content</a><header class="site-header"><a class="brand" href="index.html">Computational Thermodynamics and Kinetics of Materials</a><nav class="course-nav"><a href="index.html">Chapters</a><a href="source-map.html">Source map</a><a href="references.html">References</a><a href="numerical-lab.html">Numerical lab</a></nav></header><div class="layout"><aside class="toc" id="chapter-toc"><h2>On this page</h2></aside><main id="main"><div class="reading-tools"><button id="theme-toggle" aria-pressed="false">Light theme</button><button id="text-toggle" aria-pressed="false">Larger text</button><button id="solutions-toggle" aria-pressed="false">Expand solutions</button><button id="print-page">Print with solutions</button></div>
+<body><a class="skip" href="#main">Skip to content</a><header class="site-header"><a class="brand" href="index.html">Computational Thermodynamics and Kinetics of Materials</a><nav class="course-nav"><a href="index.html">Chapters</a><a href="source-map.html">Source map</a><a href="references.html">References</a><a href="numerical-lab.html">Numerical lab</a></nav></header><div class="layout"><aside class="toc" id="chapter-toc"><h2 id="on-this-page">On this page</h2></aside><main id="main"><div class="reading-tools"><button id="theme-toggle" aria-pressed="false">Light theme</button><button id="text-toggle" aria-pressed="false">Larger text</button><button id="solutions-toggle" aria-pressed="false">Expand solutions</button><button id="print-page">Print with solutions</button></div>
 <article id="chapter-content"><!-- BOOK-CONTENT-START -->
-<h1>19. Diffusion, mobility and thermodynamic forces</h1>
+<h1 id="chapter-title">19. Diffusion, mobility and thermodynamic forces</h1>
 <p class="lead">Diffusion combines stochastic motion with a thermodynamic bias. Random jumps do not disappear when a chemical-potential gradient is present, and reverse jumps do not become forbidden merely because one direction is favored. The useful continuum description separates a positive kinetic response from the curvature of a phase's free energy, then conserves every transported component.</p>
 <div class="callout"><strong>Source and calculation scope.</strong> Entire local ASRs of lessons 46–48 were read sequentially. They introduce jump frequencies, Fick's laws, uphill diffusion, atomic mobility, kinetic databases and local-equilibrium moving interfaces. The derivations and synthetic numerical examples below are original reconstructions. No steel carburization, assessed Cu–Ni/Cu–Co database or commercial kinetic solver was reproduced. The supplied program checks analytic transport and a linearized spinodal mode; it is not a full nonlinear phase-field simulation.</div>
 <h2 id="walks">19.1 Random motion already has a thermodynamic interpretation</h2>
@@ -114,71 +114,214 @@ $$v(c_R-c_L)=J_R-J_L.$$
 <p>Local equilibrium at a moving boundary is an approximation that requires interfacial redistribution to be fast enough relative to migration. The mere contact of phases does not establish it. Curvature, coherency, solute trapping, interface mobility and heat flow can require additional terms. The next chapter turns these distinctions into numerical initial-boundary-value checks.</p>
 <h2 id="code">19.11 Execute the transport checks</h2>
 <p>Download <a href="code/ch19_diffusion_mobility.py">the complete standard-library program</a> and run <code>python code/ch19_diffusion_mobility.py</code> from the project directory. It verifies rate conventions, a synthetic Arrhenius inversion, detailed balance, half-space uptake, mobility/curvature separation, a linear spinodal mode, coupled matrix dissipation and the interface jump. Its fourteen actual output lines follow.</p>
-<pre data-run="code/ch19_diffusion_mobility.py"><code>&quot;&quot;&quot;Synthetic diffusion, mobility and linear-stability checks; standard library.&quot;&quot;&quot;
-from math import exp,log,sqrt,pi,erfc,isclose
-R=8.31446261815324
-a,gamma,d=2.5e-10,1e6,3
-diff=a*a*gamma/(2*d)
-assert isclose(diff,a*a*(gamma/6),rel_tol=1e-14)
-print(f&#x27;Uncorrelated 3D walk: total jump rate={gamma:.0f}/s, D={diff:.12e} m2/s&#x27;)
-d0,qact=1e-5,180000.
-def arrhenius(temp):return d0*exp(-qact/(R*temp))
-t1,t2=1000.,1200.;d1,d2=arrhenius(t1),arrhenius(t2)
-qfit=-R*(log(d2)-log(d1))/(1/t2-1/t1)
-assert isclose(qfit,qact,rel_tol=1e-12)
-print(f&#x27;Arrhenius synthetic data: D1000={d1:.12e}, D1200={d2:.12e}; recovered Q={qfit:.6f} J/mol&#x27;)
-print(f&#x27;1000 Celsius versus 1000 kelvin: diffusivity ratio={arrhenius(1273.15)/arrhenius(1000):.6f}&#x27;)
-temp=1000.;nu=1e13;e1,e2,barrier=0.,-5000.,50000.
-k12=nu*exp(-(barrier-e1)/(R*temp));k21=nu*exp(-(barrier-e2)/(R*temp))
-p2=exp(-(e2-e1)/(R*temp));p1=1.;normal=p1+p2;p1/=normal;p2/=normal
-assert isclose(p1*k12,p2*k21,rel_tol=1e-12)
-print(f&#x27;Detailed balance: forward/reverse rate ratio={k12/k21:.9f}; reverse rate positive, equilibrium net flux zero&#x27;)
+<pre data-run="code/ch19_diffusion_mobility.py"><code>"""Synthetic diffusion, mobility and linear-stability checks; standard \
+library."""
+
+from math import exp, log, sqrt, pi, erfc, isclose
+
+R = 8.31446261815324
+a, gamma, d = 2.5e-10, 1e6, 3
+diff = a * a * gamma / (2 * d)
+assert isclose(diff, a * a * (gamma / 6), rel_tol=1e-14)
+print(
+    f"Uncorrelated 3D walk: total jump rate={gamma:.0f}/s, D={diff:.12e} m2/s"
+)
+d0, qact = 1e-5, 180000.0
+
+
+def arrhenius(temp):
+    return d0 * exp(-qact / (R * temp))
+
+
+t1, t2 = 1000.0, 1200.0
+d1, d2 = arrhenius(t1), arrhenius(t2)
+qfit = -R * (log(d2) - log(d1)) / (1 / t2 - 1 / t1)
+assert isclose(qfit, qact, rel_tol=1e-12)
+print(
+    (
+        f"Arrhenius synthetic data: D1000="
+        f"{d1:.12e}"
+        f", D1200="
+        f"{d2:.12e}"
+        f"; recovered Q="
+        f"{qfit:.6f}"
+        f" J/mol"
+    )
+)
+print(
+    (
+        f"1000 Celsius versus 1000 kelvin: diffusivity ratio="
+        f"{arrhenius(1273.15) / arrhenius(1000):.6f}"
+    )
+)
+temp = 1000.0
+nu = 1e13
+e1, e2, barrier = 0.0, -5000.0, 50000.0
+k12 = nu * exp(-(barrier - e1) / (R * temp))
+k21 = nu * exp(-(barrier - e2) / (R * temp))
+p2 = exp(-(e2 - e1) / (R * temp))
+p1 = 1.0
+normal = p1 + p2
+p1 /= normal
+p2 /= normal
+assert isclose(p1 * k12, p2 * k21, rel_tol=1e-12)
+print(
+    (
+        f"Detailed balance: forward/reverse rate ratio="
+        f"{k12 / k21:.9f}"
+        f"; reverse rate positive, equilibrium net flux zero"
+    )
+)
 # Half-space with fixed surface concentration; concentration units mol/m3.
-c0,cs,ctarget,depth,dc=1000.,5000.,3000.,1e-3,1e-11
-target=(ctarget-c0)/(cs-c0);lo,hi=0.,8.
+c0, cs, ctarget, depth, dc = 1000.0, 5000.0, 3000.0, 1e-3, 1e-11
+target = (ctarget - c0) / (cs - c0)
+lo, hi = 0.0, 8.0
 for _ in range(100):
-    eta=(lo+hi)/2
-    if erfc(eta)&gt;target:lo=eta
-    else:hi=eta
-eta=(lo+hi)/2;time=depth**2/(4*dc*eta**2)
-def concentration(x,t):return c0+(cs-c0)*erfc(x/(2*sqrt(dc*t)))
-assert isclose(concentration(depth,time),ctarget,abs_tol=1e-9)
-uptake=2*(cs-c0)*sqrt(dc*time/pi)
-print(f&#x27;Half-space target: eta={eta:.9f}, time={time:.6f} s, concentration at1mm={concentration(depth,time):.6f} mol/m3&#x27;)
-print(f&#x27;Half-space excess solute per area={uptake:.9f} mol/m2; fixed surface boundary is a continuing reservoir&#x27;)
-# Constant tracer diffusivity, regular homogeneous phase, equal-species Darken approximation.
-temp,omega,dtracer=600.,12000.,1e-18
-def curvature(x):return R*temp/(x*(1-x))-2*omega
-for x in (.2,.5):
-    phi=x*(1-x)*curvature(x)/(R*temp)
-    chemical=dtracer*phi
-    assert dtracer/(R*temp)&gt;0
-    print(f&#x27;Regular-solution x={x:.1f}: curvature={curvature(x):.6f} J/mol, thermodynamic factor={phi:.9f}, Dchemical={chemical:.12e} m2/s&#x27;)
+    eta = (lo + hi) / 2
+    if erfc(eta) &gt; target:
+        lo = eta
+    else:
+        hi = eta
+eta = (lo + hi) / 2
+time = depth**2 / (4 * dc * eta**2)
+
+
+def concentration(x, t):
+    return c0 + (cs - c0) * erfc(x / (2 * sqrt(dc * t)))
+
+
+assert isclose(concentration(depth, time), ctarget, abs_tol=1e-9)
+uptake = 2 * (cs - c0) * sqrt(dc * time / pi)
+print(
+    (
+        f"Half-space target: eta="
+        f"{eta:.9f}"
+        f", time="
+        f"{time:.6f}"
+        f" s, concentration at1mm="
+        f"{concentration(depth, time):.6f}"
+        f" mol/m3"
+    )
+)
+print(
+    (
+        f"Half-space excess solute per area="
+        f"{uptake:.9f}"
+        f" mol/m2; fixed surface boundary is a continuing reservoir"
+    )
+)
+# Constant tracer diffusivity, regular homogeneous phase, equal-species Darken
+# approximation.
+temp, omega, dtracer = 600.0, 12000.0, 1e-18
+
+
+def curvature(x):
+    return R * temp / (x * (1 - x)) - 2 * omega
+
+
+for x in (0.2, 0.5):
+    phi = x * (1 - x) * curvature(x) / (R * temp)
+    chemical = dtracer * phi
+    assert dtracer / (R * temp) &gt; 0
+    print(
+        (
+            f"Regular-solution x="
+            f"{x:.1f}"
+            f": curvature="
+            f"{curvature(x):.6f}"
+            f" J/mol, thermodynamic factor="
+            f"{phi:.9f}"
+            f", Dchemical="
+            f"{chemical:.12e}"
+            f" m2/s"
+        )
+    )
 # Gradient-regularized, linearized conserved dynamics around x=0.5.
-h=curvature(.5);kap=1e-12;mob=.25*dtracer/(R*temp)
-kstar=sqrt(-h/(2*kap));wavelength=2*pi/kstar;sigma=mob*h*h/(4*kap)
-amplitude=1e-3;later=amplitude*exp(sigma*3600.)
-e0=(h+kap*kstar*kstar)*amplitude**2/4
-e1=(h+kap*kstar*kstar)*later**2/4
-assert e1&lt;e0 and later&lt;.01
-print(f&#x27;Linear spinodal toy: fastest wavelength={wavelength*1e9:.6f} nm, growth rate={sigma:.12e}/s&#x27;)
-print(f&#x27;One-hour linear amplitude={later:.9f}; quadratic excess energy {e0:.9f} -&gt; {e1:.9f} J/mol, mean x remains0.5&#x27;)
-# Independent exchange-potential basis, dimensionless illustrative Onsager matrix.
-kinetic=((2.,1.),(1.,2.));force=(1.,-3.)
-flux=tuple(-sum(kinetic[i][j]*force[j] for j in range(2)) for i in range(2))
-diss=-sum(flux[i]*force[i] for i in range(2))
-assert flux==(1.,5.) and diss==14.
-hessian=((1.,-2.),(-2.,5.))
-matrix=tuple(tuple(sum(kinetic[i][k]*hessian[k][j] for k in range(2)) for j in range(2)) for i in range(2))
-assert matrix==((0.,1.),(-3.,8.))
-print(f&#x27;Coupled flux toy: J={flux}, total dissipation={diss:.6f}; component1 can move along its own potential gradient&#x27;)
-print(f&#x27;D=L*H={matrix}; nonsymmetric with a negative cross entry, eigenvalues={4-sqrt(13):.9f},{4+sqrt(13):.9f}&#x27;)
+h = curvature(0.5)
+kap = 1e-12
+mob = 0.25 * dtracer / (R * temp)
+kstar = sqrt(-h / (2 * kap))
+wavelength = 2 * pi / kstar
+sigma = mob * h * h / (4 * kap)
+amplitude = 1e-3
+later = amplitude * exp(sigma * 3600.0)
+e0 = (h + kap * kstar * kstar) * amplitude**2 / 4
+e1 = (h + kap * kstar * kstar) * later**2 / 4
+assert e1 &lt; e0 and later &lt; 0.01
+print(
+    (
+        f"Linear spinodal toy: fastest wavelength="
+        f"{wavelength * 1000000000.0:.6f}"
+        f" nm, growth rate="
+        f"{sigma:.12e}"
+        f"/s"
+    )
+)
+print(
+    (
+        f"One-hour linear amplitude="
+        f"{later:.9f}"
+        f"; quadratic excess energy "
+        f"{e0:.9f}"
+        f" -&gt; "
+        f"{e1:.9f}"
+        f" J/mol, mean x remains0.5"
+    )
+)
+# Independent exchange-potential basis, dimensionless illustrative Onsager
+# matrix.
+kinetic = ((2.0, 1.0), (1.0, 2.0))
+force = (1.0, -3.0)
+flux = tuple(
+    -sum(kinetic[i][j] * force[j] for j in range(2)) for i in range(2)
+)
+diss = -sum(flux[i] * force[i] for i in range(2))
+assert flux == (1.0, 5.0) and diss == 14.0
+hessian = ((1.0, -2.0), (-2.0, 5.0))
+matrix = tuple(
+    tuple(
+        sum(kinetic[i][k] * hessian[k][j] for k in range(2)) for j in range(2)
+    )
+    for i in range(2)
+)
+assert matrix == ((0.0, 1.0), (-3.0, 8.0))
+print(
+    (
+        f"Coupled flux toy: J="
+        f"{flux}"
+        f", total dissipation="
+        f"{diss:.6f}"
+        f"; component1 can move along its own potential gradient"
+    )
+)
+print(
+    (
+        f"D=L*H="
+        f"{matrix}"
+        f"; nonsymmetric with a negative cross entry, eigenvalues="
+        f"{4 - sqrt(13):.9f}"
+        f","
+        f"{4 + sqrt(13):.9f}"
+    )
+)
 # Both fluxes use same laboratory x direction and physical molar concentration.
-cleft,cright=1000.,4000.;jleft,jright=-1e-7,2e-7
-speed=(jright-jleft)/(cright-cleft)
-assert isclose(speed*(cright-cleft),jright-jleft,abs_tol=1e-22)
-print(f&#x27;Conservative moving interface: speed={speed:.12e} m/s; flux jump matched to concentration jump&#x27;)
-print(&#x27;All checks PASS; linearized spinodal mode is not a full nonlinear phase-field simulation&#x27;)
+cleft, cright = 1000.0, 4000.0
+jleft, jright = -1e-7, 2e-7
+speed = (jright - jleft) / (cright - cleft)
+assert isclose(speed * (cright - cleft), jright - jleft, abs_tol=1e-22)
+print(
+    (
+        f"Conservative moving interface: speed="
+        f"{speed:.12e}"
+        f" m/s; flux jump matched to concentration jump"
+    )
+)
+print(
+    (
+        "All checks PASS; linearized spinodal mode is not a full nonlinear ph"
+        "ase-field simulation"
+    )
+)
 </code></pre><pre class="output">Uncorrelated 3D walk: total jump rate=1000000/s, D=1.041666666667e-14 m2/s
 Arrhenius synthetic data: D1000=3.962309341158e-15, D1200=1.462032348885e-13; recovered Q=180000.000000 J/mol
 1000 Celsius versus 1000 kelvin: diffusivity ratio=104.034691
@@ -195,14 +338,14 @@ Conservative moving interface: speed=1.000000000000e-10 m/s; flux jump matched t
 All checks PASS; linearized spinodal mode is not a full nonlinear phase-field simulation
 </pre>
 <h2 id="exercises">19.12 Problems with complete solutions</h2>
-<div class="exercise"><h3>1. Where does the factor six belong?</h3><p>Derive D from a total successful rate and from a one-direction rate in a cubic random walk.</p><details class="solution"><summary>Solution</summary><p>Each uncorrelated step contributes squared displacement a², so the mean-square displacement after time t is total rate times t times a². In three dimensions it equals 6Dt, giving $D=\Gamma a^2/6$. For six equally probable directions with rate w into each, total rate is 6w and therefore $D=wa^2$. Using the one-direction w inside the total-rate formula would underestimate D by six. The result changes with anisotropic geometry and correlated successive steps; the stated derivation does not cover those automatically.</p></details></div>
-<div class="exercise"><h3>2. A favorable jump can still reverse</h3><p>Use the two-state example to calculate the rate and population ratios and verify equilibrium net flux.</p><details class="solution"><summary>Solution</summary><p>The forward barrier is 50000 J/mol and the reverse barrier 55000 J/mol. With equal attempts, $k_{12}/k_{21}=\exp(5000/RT)=1.824601807$ at 1000 K. Boltzmann populations have $p_2/p_1=\exp(5000/RT)$, so $p_1k_{12}=p_2k_{21}$ after normalization. Both rates remain positive. An energy bias changes the relative probabilities; equilibrium cancels ensemble crossing counts rather than stopping atomic motion.</p></details></div>
-<div class="exercise"><h3>3. A nonlinear profile does not invalidate Fick's first law</h3><p>Explain how it produces the evolution law, including a concentration-dependent coefficient.</p><details class="solution"><summary>Solution</summary><p>The local law is $J=-D(c)c_x$, and conservation is $c_t=-J_x$. Combining gives $c_t=[D(c)c_x]_x=D(c)c_{xx}+D'(c)c_x^2$. No linear or steady profile was assumed. At steady state the flux is constant; a linear profile follows only when D is constant and no source is present. Dropping the D-prime term for a variable coefficient changes the conservation law. A numerical method should therefore discretize face fluxes consistently rather than silently apply a constant-D stencil to a variable-D problem.</p></details></div>
-<div class="exercise"><h3>4. Invert the half-space profile</h3><p>Compute the time for the stipulated target and check its uptake interpretation.</p><details class="solution"><summary>Solution</summary><p>The normalized target is $(3000-1000)/(5000-1000)=0.5$. Its complementary-error-function inverse is 0.476936276, so $t=(10^{-3})^2/[4(10^{-11})(0.476936276)^2]=109905.466916$ s. The excess uptake is $2(4000)\sqrt{Dt/\pi}=4.731781680$ mol/m². It increases with square root of time because the surface is a continuing reservoir. A sealed finite initial dose or a finite-thickness specimen requires different boundary conditions and does not share this solution.</p></details></div>
-<div class="exercise"><h3>5. Positive tracer diffusion, negative chemical diffusion</h3><p>Explain the sign difference at the center of the regular solution without violating mean-square displacement.</p><details class="solution"><summary>Solution</summary><p>At x=0.5, $g''=4RT-2\Omega=-4045.289716$ J/mol, so $\Phi=0.25g''/(RT)=-0.202723550$. With D*=10⁻¹⁸ m²/s the simplified chemical coefficient is -2.027235504273×10⁻¹⁹ m²/s. Tracer D* and mobility $D^*/RT$ remain positive. The negative sign comes from the unstable homogeneous thermodynamic curvature and indicates growing composition fluctuations. It is not a negative random-walk variance. A second-order negative-D evolution alone must be regularized before predicting a well-posed wavelength-dependent process.</p></details></div>
-<div class="exercise"><h3>6. Derive the fastest spinodal wavelength</h3><p>Maximize the linear growth rate and explain why small scales are stabilized.</p><details class="solution"><summary>Solution</summary><p>Write $u=k^2$ and $\sigma=-L_0(g''u+\kappa u^2)$. For negative g-double-prime and positive kappa this is a concave parabola in u. Its maximum is at $u=-g''/(2\kappa)$ and value $L_0(g'')^2/(4\kappa)$. The unstable interval ends at $u=-g''/\kappa$; beyond it the gradient penalty produces decay. The synthetic values give wavelength 139.707606 nm and rate 2.050188734555×10⁻⁴/s. This is an early linear instability result, not a prediction of the final precipitate size or nonlinear coarsening law.</p></details></div>
-<div class="exercise"><h3>7. A cross flux can climb its own potential</h3><p>Verify dissipation and the diffusion-matrix eigenvalues in the two-component reduced example.</p><details class="solution"><summary>Solution</summary><p>Multiplying the kinetic matrix by (1,−3) gives (−1,−5); reversing sign gives J=(1,5). Thus the first flux follows its own positive potential gradient, but $-J\cdot\nabla\mu=-[1-15]=14$. The Hessian product has trace eight and determinant three, so eigenvalues solve $\lambda^2-8\lambda+3=0$, giving $4\pm\sqrt{13}=0.394448725,7.605551275$. Both are positive although a cross entry is negative and the matrix is not symmetric. Total quadratic dissipation and the constrained thermodynamic Hessian, rather than each entry's sign, control the interpretation.</p></details></div>
-<div class="exercise"><h3>8. Derive the interface speed with units</h3><p>Use the concentration and flux jumps, then state why this is not a complete moving-boundary solution.</p><details class="solution"><summary>Solution</summary><p>The flux jump is $2\times10^{-7}-(-10^{-7})=3\times10^{-7}$ mol/(m² s); the concentration jump is 3000 mol/m³. Their ratio is $10^{-10}$ m/s. This gives the speed compatible with those supplied limiting values. A real solution still needs the bulk diffusion fields, initial/boundary conditions and an interface thermodynamic or kinetic condition. In multiple components, every jump balance must share this speed. Conservation cannot be substituted for chemical-potential equality or an interface-mobility law.</p></details></div>
-<div class="exercise"><h3>9. Can a mobility database stand alone?</h3><p>Identify the inputs missing from a positive atomic-mobility description when predicting a transformation profile.</p><details class="solution"><summary>Solution</summary><p>It lacks the phase Gibbs-energy functions and their constrained derivatives, the selected phases and references, initial concentration fields, specimen geometry, boundary reservoirs or fluxes and any interface conditions. Correlation and reference-frame conventions are also needed when connecting tracer, intrinsic and interdiffusion data. A positive mobility supplies a kinetic response to a specified force; it does not supply the force or determine which phases are stable. Matching thermodynamic and kinetic database versions therefore matters even if each database is internally consistent.</p></details></div>
+<div class="exercise"><h3 id="1-where-does-the-factor-six-belong">1. Where does the factor six belong?</h3><p>Derive D from a total successful rate and from a one-direction rate in a cubic random walk.</p><details class="solution"><summary>Solution</summary><p>Each uncorrelated step contributes squared displacement a², so the mean-square displacement after time t is total rate times t times a². In three dimensions it equals 6Dt, giving $D=\Gamma a^2/6$. For six equally probable directions with rate w into each, total rate is 6w and therefore $D=wa^2$. Using the one-direction w inside the total-rate formula would underestimate D by six. The result changes with anisotropic geometry and correlated successive steps; the stated derivation does not cover those automatically.</p></details></div>
+<div class="exercise"><h3 id="2-a-favorable-jump-can-still-reverse">2. A favorable jump can still reverse</h3><p>Use the two-state example to calculate the rate and population ratios and verify equilibrium net flux.</p><details class="solution"><summary>Solution</summary><p>The forward barrier is 50000 J/mol and the reverse barrier 55000 J/mol. With equal attempts, $k_{12}/k_{21}=\exp(5000/RT)=1.824601807$ at 1000 K. Boltzmann populations have $p_2/p_1=\exp(5000/RT)$, so $p_1k_{12}=p_2k_{21}$ after normalization. Both rates remain positive. An energy bias changes the relative probabilities; equilibrium cancels ensemble crossing counts rather than stopping atomic motion.</p></details></div>
+<div class="exercise"><h3 id="3-a-nonlinear-profile-does-not-invalidate-fick-s-first-law">3. A nonlinear profile does not invalidate Fick's first law</h3><p>Explain how it produces the evolution law, including a concentration-dependent coefficient.</p><details class="solution"><summary>Solution</summary><p>The local law is $J=-D(c)c_x$, and conservation is $c_t=-J_x$. Combining gives $c_t=[D(c)c_x]_x=D(c)c_{xx}+D'(c)c_x^2$. No linear or steady profile was assumed. At steady state the flux is constant; a linear profile follows only when D is constant and no source is present. Dropping the D-prime term for a variable coefficient changes the conservation law. A numerical method should therefore discretize face fluxes consistently rather than silently apply a constant-D stencil to a variable-D problem.</p></details></div>
+<div class="exercise"><h3 id="4-invert-the-half-space-profile">4. Invert the half-space profile</h3><p>Compute the time for the stipulated target and check its uptake interpretation.</p><details class="solution"><summary>Solution</summary><p>The normalized target is $(3000-1000)/(5000-1000)=0.5$. Its complementary-error-function inverse is 0.476936276, so $t=(10^{-3})^2/[4(10^{-11})(0.476936276)^2]=109905.466916$ s. The excess uptake is $2(4000)\sqrt{Dt/\pi}=4.731781680$ mol/m². It increases with square root of time because the surface is a continuing reservoir. A sealed finite initial dose or a finite-thickness specimen requires different boundary conditions and does not share this solution.</p></details></div>
+<div class="exercise"><h3 id="5-positive-tracer-diffusion-negative-chemical-diffusion">5. Positive tracer diffusion, negative chemical diffusion</h3><p>Explain the sign difference at the center of the regular solution without violating mean-square displacement.</p><details class="solution"><summary>Solution</summary><p>At x=0.5, $g''=4RT-2\Omega=-4045.289716$ J/mol, so $\Phi=0.25g''/(RT)=-0.202723550$. With D*=10⁻¹⁸ m²/s the simplified chemical coefficient is -2.027235504273×10⁻¹⁹ m²/s. Tracer D* and mobility $D^*/RT$ remain positive. The negative sign comes from the unstable homogeneous thermodynamic curvature and indicates growing composition fluctuations. It is not a negative random-walk variance. A second-order negative-D evolution alone must be regularized before predicting a well-posed wavelength-dependent process.</p></details></div>
+<div class="exercise"><h3 id="6-derive-the-fastest-spinodal-wavelength">6. Derive the fastest spinodal wavelength</h3><p>Maximize the linear growth rate and explain why small scales are stabilized.</p><details class="solution"><summary>Solution</summary><p>Write $u=k^2$ and $\sigma=-L_0(g''u+\kappa u^2)$. For negative g-double-prime and positive kappa this is a concave parabola in u. Its maximum is at $u=-g''/(2\kappa)$ and value $L_0(g'')^2/(4\kappa)$. The unstable interval ends at $u=-g''/\kappa$; beyond it the gradient penalty produces decay. The synthetic values give wavelength 139.707606 nm and rate 2.050188734555×10⁻⁴/s. This is an early linear instability result, not a prediction of the final precipitate size or nonlinear coarsening law.</p></details></div>
+<div class="exercise"><h3 id="7-a-cross-flux-can-climb-its-own-potential">7. A cross flux can climb its own potential</h3><p>Verify dissipation and the diffusion-matrix eigenvalues in the two-component reduced example.</p><details class="solution"><summary>Solution</summary><p>Multiplying the kinetic matrix by (1,−3) gives (−1,−5); reversing sign gives J=(1,5). Thus the first flux follows its own positive potential gradient, but $-J\cdot\nabla\mu=-[1-15]=14$. The Hessian product has trace eight and determinant three, so eigenvalues solve $\lambda^2-8\lambda+3=0$, giving $4\pm\sqrt{13}=0.394448725,7.605551275$. Both are positive although a cross entry is negative and the matrix is not symmetric. Total quadratic dissipation and the constrained thermodynamic Hessian, rather than each entry's sign, control the interpretation.</p></details></div>
+<div class="exercise"><h3 id="8-derive-the-interface-speed-with-units">8. Derive the interface speed with units</h3><p>Use the concentration and flux jumps, then state why this is not a complete moving-boundary solution.</p><details class="solution"><summary>Solution</summary><p>The flux jump is $2\times10^{-7}-(-10^{-7})=3\times10^{-7}$ mol/(m² s); the concentration jump is 3000 mol/m³. Their ratio is $10^{-10}$ m/s. This gives the speed compatible with those supplied limiting values. A real solution still needs the bulk diffusion fields, initial/boundary conditions and an interface thermodynamic or kinetic condition. In multiple components, every jump balance must share this speed. Conservation cannot be substituted for chemical-potential equality or an interface-mobility law.</p></details></div>
+<div class="exercise"><h3 id="9-can-a-mobility-database-stand-alone">9. Can a mobility database stand alone?</h3><p>Identify the inputs missing from a positive atomic-mobility description when predicting a transformation profile.</p><details class="solution"><summary>Solution</summary><p>It lacks the phase Gibbs-energy functions and their constrained derivatives, the selected phases and references, initial concentration fields, specimen geometry, boundary reservoirs or fluxes and any interface conditions. Correlation and reference-frame conventions are also needed when connecting tracer, intrinsic and interdiffusion data. A positive mobility supplies a kinetic response to a specified force; it does not supply the force or determine which phases are stable. Matching thermodynamic and kinetic database versions therefore matters even if each database is internally consistent.</p></details></div>
 <p class="chapter-nav"><a href="chapter-18-sublattice-models-assessment-databases.html">Previous: sublattice models and assessment</a> · <a href="index.html">All chapters</a></p>
 <!-- BOOK-CONTENT-END --></article><nav class="page-turn"><a href="index.html">Chapter index</a></nav></main></div><footer class="site-footer">Independent study edition. Prof. K. Guruvidyathri, University of Hyderabad; NPTEL coordinating institution IIT Madras. Original exposition and teaching constructions; attribution does not imply endorsement.</footer></body></html>

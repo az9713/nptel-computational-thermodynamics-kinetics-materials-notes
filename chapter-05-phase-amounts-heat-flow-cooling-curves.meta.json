@@ -2,8 +2,8 @@
   "chapter": 5,
   "title": "Phase amounts, heat flow and the interpretation of cooling curves",
   "file": "chapter-05-phase-amounts-heat-flow-cooling-curves.html",
-  "status": "Accepted in two independent scientific reviews",
-  "authored_body_sha256": "acdc265dcfe2c732651440b9b3237d39ca775312e258a91d8b402360c0174288",
+  "status": "Compliance repairs frozen; awaiting two independent focused reviews",
+  "authored_body_sha256": "e0db4e8805989c1e3b857344fa8e20749c2b070acd96b9d140302c3706a933cd",
   "recordings": [
     {
       "official_lesson": 9,
@@ -84,6 +84,18 @@
     "Relaxation law and dimensional diffusion estimates"
   ],
   "independent_review": {
+    "status": "pending-focused-compliance-review",
+    "accepted": false,
+    "body_sha256": "e0db4e8805989c1e3b857344fa8e20749c2b070acd96b9d140302c3706a933cd",
+    "scope": "Prior full scientific/source reviews apply to the separately bound accepted baseline; current definitions, derivation hinges, markup, code and figure amendments require focused independent closure."
+  },
+  "limitations": [
+    "No comprehensive audiovisual or lecture-board audit",
+    "Caloric examples and relaxation law are stipulated teaching models, not real-alloy assessments",
+    "Cambridge instrument bias is not reproduced by the one-body sensor model",
+    "Primary calibration experiment and uncertainty analysis are not reproduced"
+  ],
+  "historical_scientific_review": {
     "status": "accepted",
     "accepted": true,
     "body_sha256": "acdc265dcfe2c732651440b9b3237d39ca775312e258a91d8b402360c0174288",
@@ -98,11 +110,5 @@
     "blocking": 0,
     "major": 0,
     "minor": 0
-  },
-  "limitations": [
-    "No comprehensive audiovisual or lecture-board audit",
-    "Caloric examples and relaxation law are stipulated teaching models, not real-alloy assessments",
-    "Cambridge instrument bias is not reproduced by the one-body sensor model",
-    "Primary calibration experiment and uncertainty analysis are not reproduced"
-  ]
+  }
 }

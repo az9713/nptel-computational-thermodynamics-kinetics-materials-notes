@@ -1,20 +1,20 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="dark light"><meta name="book-content-sha256" content="87135b8f136963346689c752e7cf4013ec6658cd5a5adc20ec89bd08f98f6cdd"><title>Ternary geometry, reaction paths and liquidus projections · Computational Thermodynamics</title><link rel="stylesheet" href="assets/book.css"><script src="assets/math-config.js"></script><script defer src="assets/mathjax-tex-svg.js"></script><script defer src="assets/book.js"></script><script defer src="assets/ternary-lab.js"></script></head>
-<body><a class="skip" href="#main">Skip to content</a><header class="site-header"><a class="brand" href="index.html">Computational Thermodynamics and Kinetics of Materials</a><nav class="course-nav"><a href="index.html">Chapters</a><a href="source-map.html">Source map</a><a href="references.html">References</a><a href="numerical-lab.html">Numerical lab</a></nav></header><div class="layout"><aside class="toc" id="chapter-toc"><h2>On this page</h2></aside><main id="main"><div class="reading-tools"><button id="theme-toggle" aria-pressed="false">Light theme</button><button id="text-toggle" aria-pressed="false">Larger text</button><button id="solutions-toggle" aria-pressed="false">Expand solutions</button><button id="print-page">Print with solutions</button></div>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="dark light"><meta name="book-content-sha256" content="ccddd4d005565a41d6138d66c1463b3a814e095a4974649cde8d860ac9b89605"><title>Ternary geometry, reaction paths and liquidus projections · Computational Thermodynamics</title><link rel="stylesheet" href="assets/book.css"><script src="assets/math-config.js"></script><script defer src="assets/mathjax-tex-svg.js"></script><script defer src="assets/book.js"></script><script defer src="assets/ternary-lab.js"></script></head>
+<body><a class="skip" href="#main">Skip to content</a><header class="site-header"><a class="brand" href="index.html">Computational Thermodynamics and Kinetics of Materials</a><nav class="course-nav"><a href="index.html">Chapters</a><a href="source-map.html">Source map</a><a href="references.html">References</a><a href="numerical-lab.html">Numerical lab</a></nav></header><div class="layout"><aside class="toc" id="chapter-toc"><h2 id="on-this-page">On this page</h2></aside><main id="main"><div class="reading-tools"><button id="theme-toggle" aria-pressed="false">Light theme</button><button id="text-toggle" aria-pressed="false">Larger text</button><button id="solutions-toggle" aria-pressed="false">Expand solutions</button><button id="print-page">Print with solutions</button></div>
 <article id="chapter-content"><!-- BOOK-CONTENT-START -->
-<h1>4. Ternary geometry, reaction paths and liquidus projections</h1>
+<h1 id="chapter-title">4. Ternary geometry, reaction paths and liquidus projections</h1>
 <p class="lead">An overall alloy can lie on a vertical section while neither of its equilibrium phase compositions lies on that section. Drawing a horizontal line across the displayed two-phase field then connects the wrong points. The extra component has not merely made the picture more crowded: it has changed which geometric constructions contain the information needed for a conservation calculation.</p>
 <p class="source-note">Complete local transcripts of substantive lessons 6–8 were read sequentially. They develop ternary composition coordinates, isothermal sections, extended and emergent phases, tie triangles, vertical sections, reaction classes and liquidus projections, ending with Sn–Ag–Cu solidification. The exact fractions, synthetic diagrams and interactive mixture explorer below are original constructions. The solder balance uses a separately identified NIST calculated table. Uninspected board formulas and the recording's numerical solder-path readings are not presented as independently verified measurements.</p>
 
 <h2 id="simplex" data-video="hE4-f_QtVlw" data-start="47" data-end="519">4.1 Three components need two independent composition coordinates <a class="timestamp" href="https://www.youtube.com/watch?v=hE4-f_QtVlw&amp;t=47s">L6 · 00:47</a></h2>
 <p>At fixed temperature and pressure, a ternary composition can be written as a vector $\mathbf x=(x_A,x_B,x_C)^T$, with each entry nonnegative and $x_A+x_B+x_C=1$. Unless stated otherwise, $x$ denotes atomic fraction and the corresponding phase amounts count moles of atoms. Only two entries are independent; the third is their complement. Geometrically, admissible compositions form a two-dimensional simplex, a triangle.</p>
-<p>Choose equilateral-triangle vertices A at $(0,0)$, B at $(1,0)$ and C at $(1/2,\sqrt3/2)$. Coordinates here are dimensionless plotting coordinates, not spatial positions of atoms. A composition is represented by their weighted mean:</p>
+<p>Choose equilateral-triangle vertices A at $(0,0)$, B at $(1,0)$ and C at $(1/2,\sqrt3/2)$. Coordinates here are dimensionless plotting coordinates, not spatial positions of atoms. Write $(u,v)$ for the dimensionless Cartesian plotting coordinates. A composition is represented by the vertices' weighted mean:</p>
 <div class="equation">$$u=x_B+\frac{x_C}{2},\qquad v=\frac{\sqrt3}{2}x_C;\qquad
 x_C=\frac{2v}{\sqrt3},\quad x_B=u-\frac{v}{\sqrt3},\quad x_A=1-u-\frac{v}{\sqrt3}.\tag{4.1}$$</div>
 <p>The vertices are pure components. An edge has one absent component: BC means $x_A=0$, for example. Lines of constant $x_A$ are parallel to BC, because fixing the weight of vertex A leaves only the relative weights of B and C to vary. The analogous statement holds cyclically. This derives the lecture's parallel-line reading rule without relying on where an illustrator happens to place the tick labels.</p>
 <p>At $(x_A,x_B,x_C)=(0.40,0.30,0.30)$, equation (4.1) gives $u=0.45$ and $v=0.15\sqrt3$. Inverting recovers the same three fractions. A different orientation of the triangle changes the Cartesian formulas but does not change its composition. Always identify the labelled pure-component vertices and check that the three readings sum to one.</p>
 <p>A rectangular plot of $x_A$ against $x_B$ is also possible, but only its region $x_A\geq0$, $x_B\geq0$, $x_A+x_B\leq1$ is admissible. The equilateral representation treats all three constituents symmetrically and makes their complements easy to see. It has not created a third independent composition variable.</p>
-<p>Mass fractions form another composition simplex, but atomic-to-mass conversion generally changes a point's location. For molar masses $M_i$, $w_i=x_iM_i/\sum_jx_jM_j$. The map is not generally the same affine map as (4.1). Area ratios calculated in an atomic-fraction triangle yield phase atomic-amount fractions; they cannot simply be relabelled as phase mass fractions.</p>
+<p>Mass fractions form another composition simplex, but atomic-to-mass conversion generally changes a point's location. For positive atomic molar masses $M_i$ in a common unit such as g/mol and dimensionless mass fractions $w_i$, $w_i=x_iM_i/\sum_jx_jM_j$. The map is not generally the same affine map as (4.1). Area ratios calculated in an atomic-fraction triangle yield phase atomic-amount fractions; they cannot simply be relabelled as phase mass fractions.</p>
 
 <h2 id="sections" data-video="hE4-f_QtVlw" data-start="519" data-end="1007">4.2 A section and a projection retain different information <a class="timestamp" href="https://www.youtube.com/watch?v=hE4-f_QtVlw&amp;t=519s">L6 · 08:39</a></h2>
 <p>Restore temperature as a vertical coordinate above the composition triangle while holding pressure fixed. The resulting state space is a triangular prism: two independent composition coordinates plus temperature. The three side faces are the three binary temperature–composition diagrams. Knowing those sides does not specify the interior uniquely.</p>
@@ -32,18 +32,18 @@ x_C=\frac{2v}{\sqrt3},\quad x_B=u-\frac{v}{\sqrt3},\quad x_A=1-u-\frac{v}{\sqrt3
 <p>A ternary compound ABC can lie near the triangle centre without being predictable from any stable binary compound. Conversely, several phases can coexist near that centre without any new ternary compound. Phase count, chemical formula, crystal structure and component count must remain distinct. The next construction shows why even complete information about all three binary boundaries cannot fix a ternary interior.</p>
 
 <h2 id="interior-model">4.4 An exact counterexample to reconstructing the interior from the edges</h2>
-<p>Consider an original hypothetical molar-energy branch at one fixed temperature and pressure, with</p>
+<p>Consider an original hypothetical molar-energy branch at one fixed temperature and pressure, with molar Gibbs energy $g_\lambda$ in J/mol and an arbitrary real coefficient $\lambda$ in J/mol:</p>
 <div class="equation">$$g_\lambda(\mathbf x)=\lambda x_Ax_Bx_C,\qquad [\lambda]=\mathrm{J/mol}.\tag{4.3}$$</div>
 <p>This deliberately sparse model is not an assessed alloy. On every binary edge, one component fraction vanishes, so $g_\lambda=0$ for every value of $\lambda$. Every model in the family therefore gives exactly the same branch on all three edges. At the equimolar centre, however, $g_\lambda=\lambda/27$. Taking $\lambda=+2700$ or $-2700$ J/mol gives $+100$ or $-100$ J/mol there while preserving identical binary data.</p>
 <p>The stability difference can be proved without plotting. For positive $\lambda$, the homogeneous central composition has positive energy, whereas an equal-amount mixture of pure A, B and C has the same overall composition and zero energy. The homogeneous centre cannot be globally stable within those admitted states. For negative $\lambda$, the arithmetic–geometric mean inequality gives $x_Ax_Bx_C\leq1/27$, so $g_\lambda\geq\lambda/27$. The homogeneous centre attains this global minimum. Any phase mixture averages energies no smaller than it and cannot lower the central energy further. Thus these edge-identical models make different stability predictions at the centre.</p>
 <p>This is an information argument: a term that vanishes on all measured boundaries is unidentifiable from those boundaries alone. It does not say that every real ternary needs the same term, or that extrapolation is useless. It explains why interior ternary data and model assumptions can matter even after the constituent binaries have been carefully assessed.</p>
 
 <h2 id="tie-lines" data-video="Id1L8ZyZ03Y" data-start="649" data-end="685">4.5 A ternary two-phase field needs a family of tie lines <a class="timestamp" href="https://www.youtube.com/watch?v=Id1L8ZyZ03Y&amp;t=649s">L7 · 10:49</a></h2>
-<p>Let two equilibrium phase compositions at fixed temperature and pressure be $\mathbf x^\alpha$ and $\mathbf x^\beta$. If the overall composition lies on their tie line, component conservation reads</p>
+<p>Let two equilibrium phase compositions at fixed temperature and pressure be $\mathbf x^\alpha$ and $\mathbf x^\beta$. Let $f_\alpha^{(n)}\in[0,1]$ be phase $\alpha$'s share of total atomic amount and $\bar{\mathbf x}$ the overall atomic-composition vector. If the overall composition lies on their tie line, component conservation reads</p>
 <div class="equation">$$\bar{\mathbf x}=f_\alpha^{(n)}\mathbf x^\alpha+(1-f_\alpha^{(n)})\mathbf x^\beta.\tag{4.4}$$</div>
 <p>The same fraction must satisfy all three component balances. Only two concentration coordinates are independent, but the unused balance remains a valuable check. If A gives a fraction different from B beyond the stated uncertainty, the selected endpoints, overall composition or fraction basis is inconsistent.</p>
 <p>The affine map (4.1) preserves straight-line interpolation. Therefore the amount fractions are the opposite length ratios along this particular tie line. The line can point in any direction in the triangle. Unlike the ordinary binary two-phase branch at fixed temperature, a ternary two-phase field generally contains a family of tie lines with differing endpoint pairs. Moving the overall composition across the field can change both phase compositions as well as amounts.</p>
-<p>The phase boundaries alone do not specify which endpoint on one branch pairs with which endpoint on another. <a href="https://trc.nist.gov/TDE/Help/TDE103b/The_Navigation_Tree/Navigation_Tree_(Mixtures)/LLEDataSummary_View-Ternary.htm">NIST's ternary equilibrium-data documentation</a> distinguishes binodal boundary data from paired tie-line compositions. That distinction is operationally important: digitizing the outline of a two-phase field does not recover its complete coexistence pairing.</p>
+<p>The phase boundaries alone do not specify which endpoint on one branch pairs with which endpoint on another. <a href="https://trc.nist.gov/TDE/Help/TDE103b/The_Navigation_Tree/Navigation_Tree_(Mixtures)/LLEDataSummary_View-Ternary.htm">NIST's ternary equilibrium-data documentation</a> distinguishes binodal boundary data (the envelope of coexistence compositions) from paired tie-line compositions. That distinction is operationally important: digitizing the outline of a two-phase field does not recover its complete coexistence pairing.</p>
 
 <h2 id="tie-triangles" data-video="Id1L8ZyZ03Y" data-start="685" data-end="920">4.6 A tie triangle is a three-component conservation problem <a class="timestamp" href="https://www.youtube.com/watch?v=Id1L8ZyZ03Y&amp;t=685s">L7 · 11:25</a></h2>
 <p>At a fixed-temperature ternary three-phase equilibrium, the three phase compositions form the vertices of a tie triangle, provided they are noncollinear. An overall composition inside it is a nonnegative weighted mean of these fixed endpoints. Write the endpoint vectors as columns of a matrix $X$:</p>
@@ -59,21 +59,22 @@ f_\beta^{(n)}=\frac{[\alpha Q\gamma]}{[\alpha\beta\gamma]},\qquad
 f_\gamma^{(n)}=\frac{[\alpha\beta Q]}{[\alpha\beta\gamma]}.\tag{4.6}$$</div>
 <p>To derive the first identity, hold the base $\beta\gamma$ fixed. Area is proportional to the perpendicular distance from the remaining vertex to that base. Along the line from $\alpha$ through Q to its intersection D with $\beta\gamma$, this height ratio is $QD/\alpha D$. The affine balance gives exactly that opposite-length ratio for the $\alpha$ amount. The other two follow cyclically. Equivalently, Cramer's rule replaces a vertex column by Q in the oriented area determinant. All three ratios are nonnegative inside the triangle and sum to one.</p>
 <p>This is a composition-space area ratio. It is unrelated to the area fraction of a polished specimen micrograph. The triangle represents conserved chemical proportions, not the physical spatial arrangement of its phases.</p>
+<p>Figure 4.1 compares the tie-triangle area construction with a section that crosses a tie line while missing its endpoints.</p>
 <figure><img src="assets/ternary-balances.svg" alt="Left: stipulated three-phase tie triangle with overall point Q and phase atomic-amount fractions 0.2,0.3,0.5. Right: the section of constant B fraction 0.4 crosses one tie line at Q while missing both phase endpoints."><figcaption>Figure 4.1. Original conservation geometry generated by <a href="tools/plot_ternary.py">this program</a>. Endpoints are declared teaching inputs; their equilibrium stability is assumed for the geometry, not established by an alloy free-energy calculation. The right-hand counterexample is worked below.</figcaption></figure>
 <h3 id="interactive">Move the amounts while keeping the phases fixed</h3>
-<div id="ternary-lab" class="interactive" style="padding:1rem;border:1px solid #52627a;border-radius:.5rem"><p>Move the relative atomic amounts of the three stipulated phases. The controls are normalized to sum to one. This changes the overall composition, not the phase endpoints. It does not calculate which phases are stable.</p><p><label>Relative alpha amount <input type="range" min="0" max="100" value="20" aria-label="Relative alpha amount"></label> Normalized alpha: <output data-amount>20%</output></p><p><label>Relative beta amount <input type="range" min="0" max="100" value="30" aria-label="Relative beta amount"></label> Normalized beta: <output data-amount>30%</output></p><p><label>Relative gamma amount <input type="range" min="0" max="100" value="50" aria-label="Relative gamma amount"></label> Normalized gamma: <output data-amount>50%</output></p><svg viewBox="0 0 800 650" style="width:100%;max-width:650px;height:auto;display:block;margin:auto;background:#101827" role="img" aria-label="Interactive ternary mixture point inside the fixed three-phase triangle"></svg><p data-result aria-live="polite">Overall atomic composition: A 26.5%, B 34.5%, C 39%.</p><noscript><p>The static Figure 4.1 and worked balances contain the same initial mixture when JavaScript is unavailable.</p></noscript></div>
+<div id="ternary-lab" class="interactive" style="padding:1rem;border:1px solid #52627a;border-radius:.5rem"><p>In Figure 4.2, move the relative atomic amounts of the three stipulated phases. The controls are normalized to sum to one. This changes the overall composition, not the phase endpoints. It does not calculate which phases are stable.</p><p><label>Relative alpha amount <input type="range" min="0" max="100" value="20" aria-label="Relative alpha amount"></label> Normalized alpha: <output data-amount>20%</output></p><p><label>Relative beta amount <input type="range" min="0" max="100" value="30" aria-label="Relative beta amount"></label> Normalized beta: <output data-amount>30%</output></p><p><label>Relative gamma amount <input type="range" min="0" max="100" value="50" aria-label="Relative gamma amount"></label> Normalized gamma: <output data-amount>50%</output></p><figure id="interactive-mixture-figure"><svg viewBox="0 0 800 650" style="width:100%;max-width:650px;height:auto;display:block;margin:auto;background:#101827" role="img" aria-label="Interactive ternary mixture point inside the fixed three-phase triangle"></svg><figcaption>Figure 4.2. Interactive conservation construction with the same fixed endpoints as Figure 4.1. Moving a control changes a normalized phase amount and the resulting overall point, without recalculating phase stability.</figcaption></figure><p data-result aria-live="polite">Overall atomic composition: A 26.5%, B 34.5%, C 39%.</p><noscript><p>The static Figure 4.1 and worked balances contain the same initial mixture when JavaScript is unavailable.</p></noscript></div>
 
 <h2 id="vertical-sections" data-video="Id1L8ZyZ03Y" data-start="920" data-end="1097">4.7 A vertical slice generally cuts across tie lines <a class="timestamp" href="https://www.youtube.com/watch?v=Id1L8ZyZ03Y&amp;t=920s">L7 · 15:20</a></h2>
 <p>Take another stipulated equilibrium pair, $\mathbf x^\alpha=(0.70,0.10,0.20)$ and $\mathbf x^\beta=(0.10,0.60,0.30)$. A mixture containing 0.40 of its atomic amount in $\alpha$ and 0.60 in $\beta$ has overall $\bar{\mathbf x}=(0.34,0.40,0.26)$. The fixed-$x_B=0.40$ section contains this overall point. Neither endpoint satisfies that condition: their B fractions are 0.10 and 0.60.</p>
 <p>Thus the actual tie line crosses the section at Q while leaving the section in both directions. A horizontal line drawn across a temperature–composition display of that section cannot recover these two off-section endpoints. The display may correctly label a two-phase region without furnishing either phase composition. This is a geometric loss of information, not a failure of the lever rule.</p>
-<p>For a more general section defined by an affine condition $\mathbf a^T\mathbf x=d$, the overall composition satisfies that condition if the weighted deviations cancel. It does not follow that each phase separately obeys it. To use the displayed section as a true binary-style balance diagram, all relevant coexistence endpoints must lie within the same section over the range being used. One tie line that accidentally lies in the plane is not sufficient evidence for every other temperature.</p>
+<p>For a more general section, let $\mathbf a$ be a fixed dimensionless coefficient vector and $d$ a fixed scalar defining the affine condition $\mathbf a^T\mathbf x=d$. The overall composition satisfies that condition if the weighted deviations cancel. It does not follow that each phase separately obeys it. To use the displayed section as a true binary-style balance diagram, all relevant coexistence endpoints must lie within the same section over the range being used. One tie line that accidentally lies in the plane is not sufficient evidence for every other temperature.</p>
 <p>Terminology needs an explicit convention. The recording distinguishes ordinary off-tie-line “pseudo-binary” sections from tie-line-containing “quasi-binary” sections. In contrast, the <a href="https://www.computherm.com/docs/software/panphasediagram/index.html">CompuTherm manual, §3.3.4</a>, calls the special tie-line-containing isopleth a pseudo-binary section. State which condition actually holds rather than decide applicability from the prefix. The tests are endpoint containment, a consistent composition coordinate, and a conserved fraction basis.</p>
 
 <h2 id="reactions" data-video="mzFz8_AqMJc" data-start="38" data-end="1002">4.8 Classify a reaction by its phases and balance, not the shape alone <a class="timestamp" href="https://www.youtube.com/watch?v=mzFz8_AqMJc&amp;t=38s">L8 · 00:38</a></h2>
 <p>The lecture returns to binary diagrams to build a vocabulary for invariant reactions. A horizontal feature in an ordinary fixed-pressure binary diagram is a useful clue, but the labels and neighbouring fields decide what it represents. Different axis orientation, a narrow phase field, or a line-compound approximation can make a familiar pattern look skewed. A schematic V shape is not an independent definition.</p>
 <table><thead><tr><th>Reaction type on cooling</th><th>Phase pattern</th><th>Distinction to retain</th></tr></thead><tbody><tr><td>Eutectic</td><td>$L\to\alpha+\beta$</td><td>One liquid gives two solids.</td></tr><tr><td>Peritectic</td><td>$L+\alpha\to\beta$</td><td>Liquid and one solid contribute to a different solid.</td></tr><tr><td>Monotectic</td><td>$L_1\to L_2+\alpha$</td><td>The two liquids have distinct equilibrium compositions.</td></tr><tr><td>Eutectoid</td><td>$\alpha\to\beta+\gamma$</td><td>Solid-state analogue of one phase giving two products.</td></tr><tr><td>Peritectoid</td><td>$\alpha+\beta\to\gamma$</td><td>Two solids contribute to a third solid.</td></tr><tr><td>Monotectoid</td><td>$\alpha_1\to\alpha_2+\beta$</td><td>The parent and one product are composition branches of the same underlying solid structure.</td></tr><tr><td>Syntectic</td><td>$L_1+L_2\to\alpha$</td><td>Two liquids contribute to one solid.</td></tr></tbody></table>
 <p>The arrows describe the cooling direction and the reverse transformation can occur on heating. The coefficients needed for an amount balance are not shown in this phase-pattern notation. A peritectic product composition must be a nonnegative weighted mean of the two reactant compositions on a consistent conserved basis. If a proposed reaction fails that check, its arrows or endpoint assignments are wrong regardless of how convincing the sketch looks.</p>
-<p>For example, let a binary liquid have B amount fraction 0.20 and a solid $\alpha$ have 0.80. Forming a product $\beta$ at 0.50 requires equal atomic amounts of these reactants: $0.50=r(0.20)+(1-r)(0.80)$ gives $r=1/2$. A proposed product at 0.90 cannot be made solely from these two compositions because it lies outside their convex interval. This does not determine the reaction temperature or its stability; it is a necessary chemical-conservation test.</p>
+<p>For example, let a binary liquid have B amount fraction 0.20 and a solid $\alpha$ have 0.80. Let $r$ denote the liquid's share of total reactant atomic amount. Forming a product $\beta$ at 0.50 requires equal atomic amounts of these reactants: $0.50=r(0.20)+(1-r)(0.80)$ gives $r=1/2$. A proposed product at 0.90 cannot be made solely from these two compositions because it lies outside their convex interval. This does not determine the reaction temperature or its stability; it is a necessary chemical-conservation test.</p>
 <p><dfn>Congruent melting</dfn> converts a solid to liquid of the same composition at the relevant equilibrium point. It is not a three-phase eutectic or peritectic merely because it happens at a definite temperature. An order–disorder transformation changes chemical occupations over a parent site structure and likewise needs its own phase-model description. Whether it is continuous or first order is a physical property to establish, not something determined solely by adding a prime to a phase label.</p>
 <p>The recording's Al–Ni and Al–Zr examples train recognition of these patterns in crowded diagrams. Their spoken formula recognition is imperfect, so no uninspected list of board reaction formulas is reproduced here. The transferable procedure is to identify each labelled phase, establish the coexistence temperature and compositions from the actual diagram, then check which phases appear and disappear under the specified path and whether the conserved constituents balance.</p>
 
@@ -96,89 +97,114 @@ f_{\mathrm{(Sn)}}^{(m)}=0.928154944.\tag{4.7}$$</div>
 <p>“(Sn)” denotes the phase, whereas Sn denotes a chemical component. Ag$_3$Sn and Cu$_6$Sn$_5$ can be present alongside (Sn) without making the system a six-component problem. Their formulae are combinations of the same three conserved elements. Keeping phase names and component names separate is just as necessary here as in the first sugar–water balance.</p>
 
 <h2 id="computation">4.11 Exact geometry and an independently identified data balance</h2>
-<p>The following standard-library program solves three-component balances by rational Gaussian elimination. It recovers the declared amounts on all 231 points of a twentieth-step fraction grid, verifies the area ratios, and checks the vertical-section counterexample. It then calculates the three-solid mass balance from the cited historical NIST table and checks the boundary-invisible ternary energy term. It assumes the supplied endpoints are the relevant ones; it does not determine phase stability from geometry.</p>
+<p>The following standard-library program solves three-component balances by rational Gaussian elimination. It recovers the declared amounts on all 231 points of a twentieth-step fraction grid, verifies the area ratios, and checks the vertical-section counterexample. It then calculates the three-solid mass balance from the cited historical NIST table and checks the boundary-invisible ternary energy term. It assumes the supplied endpoints are the relevant ones; it does not determine phase stability from geometry. Inputs are the explicit endpoint arrays and rounded table fractions in the listing. It reads no files, makes no network requests and writes only standard output. A singular endpoint matrix raises <code>ValueError</code>; assertions reject failed balance and geometry checks. A negative solved amount is reported as an infeasible choice of endpoints, rather than a physically allowed phase fraction.</p>
 <pre data-run="code/ch04_ternary_balances.py"><code class="language-python">"""Exact barycentric balances on declared atom or mass bases."""
+
 from fractions import Fraction as F
 from math import sqrt
 
 
 def solve3(columns, rhs):
-    rows=[[F(columns[j][i]) for j in range(3)]+[F(rhs[i])] for i in range(3)]
+    rows = [
+        [F(columns[j][i]) for j in range(3)] + [F(rhs[i])] for i in range(3)
+    ]
     for j in range(3):
-        pivot=next((i for i in range(j,3) if rows[i][j]),None)
+        pivot = next((i for i in range(j, 3) if rows[i][j]), None)
         if pivot is None:
-            raise ValueError('Degenerate tie triangle: amounts not uniquely determined')
-        rows[j],rows[pivot]=rows[pivot],rows[j]
-        scale=rows[j][j]
-        rows[j]=[v/scale for v in rows[j]]
+            raise ValueError(
+                "Degenerate tie triangle: amounts not uniquely determined"
+            )
+        rows[j], rows[pivot] = rows[pivot], rows[j]
+        scale = rows[j][j]
+        rows[j] = [v / scale for v in rows[j]]
         for i in range(3):
-            if i!=j:
-                scale=rows[i][j]
-                rows[i]=[a-scale*b for a,b in zip(rows[i],rows[j])]
+            if i != j:
+                scale = rows[i][j]
+                rows[i] = [a - scale * b for a, b in zip(rows[i], rows[j])]
     return tuple(rows[i][3] for i in range(3))
 
 
 def weighted(columns, fractions):
-    return tuple(sum(f*v[i] for v,f in zip(columns,fractions)) for i in range(3))
+    return tuple(
+        sum(f * v[i] for v, f in zip(columns, fractions)) for i in range(3)
+    )
 
 
 def cartesian(x):
-    return float(x[1]+x[2]/2),sqrt(3)*float(x[2])/2
+    return float(x[1] + x[2] / 2), sqrt(3) * float(x[2]) / 2
 
 
-def twice_area(p,q,r):
-    return (q[0]-p[0])*(r[1]-p[1])-(q[1]-p[1])*(r[0]-p[0])
+def twice_area(p, q, r):
+    return (q[0] - p[0]) * (r[1] - p[1]) - (q[1] - p[1]) * (r[0] - p[0])
 
 
-if __name__=='__main__':
-    phases=[(F(4,5),F(3,20),F(1,20)),
-            (F(1,10),F(4,5),F(1,10)),
-            (F(3,20),F(3,20),F(7,10))]
-    amounts=(F(1,5),F(3,10),F(1,2))
-    overall=weighted(phases,amounts)
-    assert overall==(F(53,200),F(69,200),F(39,100))
-    assert solve3(phases,overall)==amounts
-    p,q,r=map(cartesian,phases);x=cartesian(overall)
-    total=twice_area(p,q,r)
-    area_amounts=[twice_area(x,q,r)/total,twice_area(p,x,r)/total,
-                  twice_area(p,q,x)/total]
-    assert all(abs(a-float(f))&lt;1e-14 for a,f in zip(area_amounts,amounts))
-    checks=0
+if __name__ == "__main__":
+    phases = [
+        (F(4, 5), F(3, 20), F(1, 20)),
+        (F(1, 10), F(4, 5), F(1, 10)),
+        (F(3, 20), F(3, 20), F(7, 10)),
+    ]
+    amounts = (F(1, 5), F(3, 10), F(1, 2))
+    overall = weighted(phases, amounts)
+    assert overall == (F(53, 200), F(69, 200), F(39, 100))
+    assert solve3(phases, overall) == amounts
+    p, q, r = map(cartesian, phases)
+    x = cartesian(overall)
+    total = twice_area(p, q, r)
+    area_amounts = [
+        twice_area(x, q, r) / total,
+        twice_area(p, x, r) / total,
+        twice_area(p, q, x) / total,
+    ]
+    assert all(
+        abs(a - float(f)) &lt; 1e-14 for a, f in zip(area_amounts, amounts)
+    )
+    checks = 0
     for i in range(21):
-        for j in range(21-i):
-            f=(F(i,20),F(j,20),F(20-i-j,20))
-            assert solve3(phases,weighted(phases,f))==f
-            checks+=1
-    outside=solve3(phases,(1,0,0))
-    assert min(outside)&lt;0
-    print('Synthetic overall (A,B,C):',*[str(v) for v in overall])
-    print('Recovered phase atomic-amount fractions:',*[str(v) for v in amounts])
-    print('Area ratios:',*[f'{v:.6f}' for v in area_amounts])
-    print('Exact grid reconstructions:',checks)
+        for j in range(21 - i):
+            f = (F(i, 20), F(j, 20), F(20 - i - j, 20))
+            assert solve3(phases, weighted(phases, f)) == f
+            checks += 1
+    outside = solve3(phases, (1, 0, 0))
+    assert min(outside) &lt; 0
+    print("Synthetic overall (A,B,C):", *[str(v) for v in overall])
+    print(
+        "Recovered phase atomic-amount fractions:", *[str(v) for v in amounts]
+    )
+    print("Area ratios:", *[f"{v:.6f}" for v in area_amounts])
+    print("Exact grid reconstructions:", checks)
     # A vertical section x_B=.4 contains the bulk but neither tie endpoint.
-    ends=[(F(7,10),F(1,10),F(1,5)),(F(1,10),F(3,5),F(3,10))]
-    bulk=weighted(ends,(F(2,5),F(3,5)))
-    assert bulk==(F(17,50),F(2,5),F(13,50))
-    assert all(v[1]!=bulk[1] for v in ends)
-    print('Off-section tie-line bulk:',*[str(v) for v in bulk])
+    ends = [(F(7, 10), F(1, 10), F(1, 5)), (F(1, 10), F(3, 5), F(3, 10))]
+    bulk = weighted(ends, (F(2, 5), F(3, 5)))
+    assert bulk == (F(17, 50), F(2, 5), F(13, 50))
+    assert all(v[1] != bulk[1] for v in ends)
+    print("Off-section tie-line bulk:", *[str(v) for v in bulk])
     # NIST legacy calculated eutectic table, Ag/Cu/Sn MASS fractions.
-    solids=[(F(7317,10000),F(0),F(2683,10000)),
-            (F(0),F(3907,10000),F(6093,10000)),
-            (F(7,10000),F(0),F(9993,10000))]
-    liquid=(F(373,10000),F(85,10000),F(9542,10000))
-    products=solve3(solids,liquid)
-    assert all(f&gt;0 for f in products) and sum(products)==1
-    assert weighted(solids,products)==liquid
-    print('NIST table all-solid product MASS fractions (Ag3Sn,Cu6Sn5,Sn):',
-          *[f'{float(v):.9f}' for v in products])
+    solids = [
+        (F(7317, 10000), F(0), F(2683, 10000)),
+        (F(0), F(3907, 10000), F(6093, 10000)),
+        (F(7, 10000), F(0), F(9993, 10000)),
+    ]
+    liquid = (F(373, 10000), F(85, 10000), F(9542, 10000))
+    products = solve3(solids, liquid)
+    assert all(f &gt; 0 for f in products) and sum(products) == 1
+    assert weighted(solids, products) == liquid
+    print(
+        "NIST table all-solid product MASS fractions (Ag3Sn,Cu6Sn5,Sn):",
+        *[f"{float(v):.9f}" for v in products],
+    )
     # Ternary term invisible on every binary boundary.
-    center=(F(1,3),)*3
-    for edge in [(F(1,4),F(3,4),F(0)),(F(0),F(1,4),F(3,4)),
-                 (F(3,4),F(0),F(1,4))]:
-        assert F(2700)*edge[0]*edge[1]*edge[2]==0
-    assert F(2700)*center[0]*center[1]*center[2]==100
-    print('Center ternary energy for lambda=+/-2700 J/mol: +/-100 J/mol')
-    print('All conservation, area, section and boundary checks passed.')</code></pre>
+    center = (F(1, 3),) * 3
+    for edge in [
+        (F(1, 4), F(3, 4), F(0)),
+        (F(0), F(1, 4), F(3, 4)),
+        (F(3, 4), F(0), F(1, 4)),
+    ]:
+        assert F(2700) * edge[0] * edge[1] * edge[2] == 0
+    assert F(2700) * center[0] * center[1] * center[2] == 100
+    print("Center ternary energy for lambda=+/-2700 J/mol: +/-100 J/mol")
+    print("All conservation, area, section and boundary checks passed.")
+</code></pre>
 <pre class="output">Synthetic overall (A,B,C): 53/200 69/200 39/100
 Recovered phase atomic-amount fractions: 1/5 3/10 1/2
 Area ratios: 0.200000 0.300000 0.500000
@@ -193,9 +219,9 @@ All conservation, area, section and boundary checks passed.</pre>
 <details><summary>Solution</summary><p>$x_C=1-0.28-0.18=0.54$. Then $u=0.18+0.27=0.45$ and $v=0.27\sqrt3$. Inversion gives $x_A=1-0.45-0.27=0.28$ and $x_B=0.45-0.27=0.18$. On BC, $x_A=0$ while B and C can vary with their sum fixed at one. A line parallel to BC at nonzero height towards A has a constant positive A fraction; it is not another binary BC system.</p></details>
 <p><strong>2. Change the basis before interpreting an area.</strong> A phase has atomic fractions $(1/2,1/4,1/4)$ and stipulated atomic molar masses $(10,20,40)$ g/mol. Find its mass fractions. Does the same plotted triangle point represent both?</p>
 <details><summary>Solution</summary><p>The unnormalized masses per mole of atoms are $(5,5,10)$ g, totaling 20 g. The mass fractions are $(1/4,1/4,1/2)$. In the atomic triangle the point has $u=3/8$, $v=\sqrt3/8$; in the mass triangle it has $u=1/2$, $v=\sqrt3/4$. Their locations differ because unequal molar masses change the normalization. An atomic-fraction area construction cannot simply be labelled a mass-fraction result.</p></details>
-<p><strong>3. Check a tie line with all components.</strong> Use the two endpoints in Section 4.7. At overall $(0.34,0.40,0.26)$, recover $f_\alpha^{(n)}$ separately from A, B and C. Is the tie line contained in the section $x_B=0.40$?</p>
+<p><strong>3. Check a tie line with all components.</strong> Use the two endpoints in <a class="secref" href="#vertical-sections">Section 4.7</a>. At overall $(0.34,0.40,0.26)$, recover $f_\alpha^{(n)}$ separately from A, B and C. Is the tie line contained in the section $x_B=0.40$?</p>
 <details><summary>Solution</summary><p>A gives $(0.34-0.10)/(0.70-0.10)=0.40$. B gives $(0.40-0.60)/(0.10-0.60)=0.40$. C gives $(0.26-0.30)/(0.20-0.30)=0.40$. All three agree. Neither endpoint has B fraction 0.40, so the tie line crosses the section at the overall point without lying in it. This example meets the chemical balances while disproving the attempted horizontal-section endpoint construction.</p></details>
-<p><strong>4. Interpret a tie-triangle edge.</strong> For the phase compositions in Section 4.6, choose amounts $(0,1/4,3/4)$. Find the overall atomic composition and state what a zero $\alpha$ amount means geometrically. Does it invalidate the other endpoint compositions?</p>
+<p><strong>4. Interpret a tie-triangle edge.</strong> For the phase compositions in <a class="secref" href="#tie-triangles">Section 4.6</a>, choose amounts $(0,1/4,3/4)$. Find the overall atomic composition and state what a zero $\alpha$ amount means geometrically. Does it invalidate the other endpoint compositions?</p>
 <details><summary>Solution</summary><p>The weighted composition is $(0.025+0.1125,0.20+0.1125,0.025+0.525)=(0.1375,0.3125,0.55)$. It lies on the $\beta\gamma$ edge of the tie triangle. The subtriangle opposite $\alpha$ has zero area, so its amount is zero. The other two endpoints remain the specified coexistence compositions. The $\alpha$ endpoint can describe an incipient phase on the boundary even when that phase is absent in finite amount.</p></details>
 <p><strong>5. Preserve sites, not an elemental ratio.</strong> In model $(A,B)_1(C)_2$, take first-sublattice B occupancy $y=0.30$. Find all atomic fractions and the A:C ratio. Does it remain $1:2$?</p>
 <details><summary>Solution</summary><p>Equation (4.2) gives $x_A=0.70/3=7/30$, $x_B=0.30/3=1/10$ and $x_C=2/3$. They sum to one. The elemental A:C ratio is $(7/30):(20/30)=7:20$, whereas the site multiplicity ratio remains $1:2$. The total first-sublattice species A+B still has ratio $1:2$ to C. Substituting B has replaced A atoms; retaining the original elemental ratio would violate that stated model.</p></details>

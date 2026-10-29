@@ -1,8 +1,8 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="dark light"><meta name="book-content-sha256" content="ae63a2c757cbbdef3c842bc7619b04b6afccfeb23b8a20172cf095bb3f51b0b4"><title>Reading unary and binary equilibrium diagrams · Computational Thermodynamics</title><link rel="stylesheet" href="assets/book.css"><script src="assets/math-config.js"></script><script defer src="assets/mathjax-tex-svg.js"></script><script defer src="assets/book.js"></script></head>
-<body><a class="skip" href="#main">Skip to content</a><header class="site-header"><a class="brand" href="index.html">Computational Thermodynamics and Kinetics of Materials</a><nav class="course-nav"><a href="index.html">Chapters</a><a href="source-map.html">Source map</a><a href="references.html">References</a><a href="numerical-lab.html">Numerical lab</a></nav></header><div class="layout"><aside class="toc" id="chapter-toc"><h2>On this page</h2></aside><main id="main"><div class="reading-tools"><button id="theme-toggle" aria-pressed="false">Light theme</button><button id="text-toggle" aria-pressed="false">Larger text</button><button id="solutions-toggle" aria-pressed="false">Expand solutions</button><button id="print-page">Print with solutions</button></div>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="dark light"><meta name="book-content-sha256" content="31c483fe7d1cf4affd437beb958f39f3e9858a6f9bd719b3f55e2005c76e1437"><title>Reading unary and binary equilibrium diagrams · Computational Thermodynamics</title><link rel="stylesheet" href="assets/book.css"><script src="assets/math-config.js"></script><script defer src="assets/mathjax-tex-svg.js"></script><script defer src="assets/book.js"></script></head>
+<body><a class="skip" href="#main">Skip to content</a><header class="site-header"><a class="brand" href="index.html">Computational Thermodynamics and Kinetics of Materials</a><nav class="course-nav"><a href="index.html">Chapters</a><a href="source-map.html">Source map</a><a href="references.html">References</a><a href="numerical-lab.html">Numerical lab</a></nav></header><div class="layout"><aside class="toc" id="chapter-toc"><h2 id="on-this-page">On this page</h2></aside><main id="main"><div class="reading-tools"><button id="theme-toggle" aria-pressed="false">Light theme</button><button id="text-toggle" aria-pressed="false">Larger text</button><button id="solutions-toggle" aria-pressed="false">Expand solutions</button><button id="print-page">Print with solutions</button></div>
 <article id="chapter-content"><!-- BOOK-CONTENT-START -->
-<h1>3. Reading unary and binary equilibrium diagrams</h1>
+<h1 id="chapter-title">3. Reading unary and binary equilibrium diagrams</h1>
 <p class="lead">A point marked “liquid + solid” does not mean that both phases have the composition written directly beneath the point. That coordinate belongs to the whole specimen. At the same temperature the liquid and solid usually occupy different compositions, read from the ends of a tie line. Their amounts adjust so that their weighted average recovers the specimen composition. This chapter turns that geometric instruction into a sequence of conserved-quantity checks, then shows exactly where a two-phase lever rule stops being sufficient.</p>
 <p class="source-note">The complete local transcripts of substantive lessons 3–5 supply the progression: state variables and unary maps; binary axes, liquidus and solidus; phase compositions and lever balances; miscibility gaps; gradual solidification and eutectic reactions; terminal solutions and phase names. All three were read sequentially. The computed ideal-solution diagram and the rational eutectic example are original, explicitly synthetic constructions. They are not digitized Cu–Ni or Al–Si data. Machine recognition and uninspected board details remain possible sources of uncertainty.</p>
 
@@ -10,10 +10,10 @@
 <p>An equilibrium phase diagram records which phases can minimize the appropriate thermodynamic potential under specified conditions and constraints. Temperature, pressure and composition are common coordinates. The diagram is a statement about equilibrium; it is not a trajectory through time, a complete picture of the microstructure, or a claim that every specimen reaches its minimum energy quickly.</p>
 <p>The lecture first compares nickel and iron at the same temperature, then changes the temperature of each. The point is that changing the chemical system can change the stable structure, and changing temperature within one chemical system can do the same. A crystal prototype alone cannot choose stability. Its thermodynamic competition with other admissible phases matters.</p>
 <p>A diagram must also state what it holds fixed. A usual binary temperature–composition diagram is a section at a specified pressure. Omitting pressure from the plotted axes does not make its physical effect zero. Other relevant conditions can include an imposed magnetic field, hydrostatic versus nonhydrostatic stress, or whether a calculation permits metastable phases. Unless stated otherwise here, consider macroscopic bulk phases at fixed hydrostatic pressure, with interface contributions neglected and no external fields.</p>
-<p>Coordinates are intensive variables: doubling a homogeneous specimen does not double its temperature or composition fraction. Phase amounts are extensive before normalization. An equilibrium map may select the intensive coexistence conditions while leaving some extensive amounts undetermined. That distinction will reappear at a unary melting point and at a binary eutectic temperature.</p>
+<p>An intensive variable is unchanged when the amount of an otherwise identical homogeneous specimen is scaled. An extensive variable scales with that amount. Coordinates are intensive variables: doubling a homogeneous specimen does not double its temperature or composition fraction. Phase amounts are extensive before normalization. An equilibrium map may select the intensive coexistence conditions while leaving some extensive amounts undetermined. That distinction will reappear at a unary melting point and at a binary eutectic temperature.</p>
 
 <h2 id="unary" data-video="955OEvtMoUg" data-start="284" data-end="610">3.2 A unary diagram has no independent composition axis <a class="timestamp" href="https://www.youtube.com/watch?v=955OEvtMoUg&amp;t=284s">L3 · 04:44</a></h2>
-<p>A unary system has one independent component. For a pure element its normalized composition is already fixed, so pressure and temperature can serve as the two plotted coordinates. Within a single-phase region, small changes of those coordinates can retain the same phase. On a coexistence curve, two phases have equal appropriate chemical potential and may coexist. A boundary thus relates pressure to a transition temperature rather than listing an arbitrary set of labels.</p>
+<p>A unary system has one independent component. For a pure element its normalized composition is already fixed, so pressure and temperature can serve as the two plotted coordinates. Within a single-phase region, small changes of those coordinates can retain the same phase. On a coexistence curve, two phases have equal chemical potential and may coexist. Here chemical potential means the change of Gibbs energy per infinitesimal mole added at fixed temperature, pressure and other component amounts; it has units J/mol. <a class="secref" href="#computed-diagram">Section 3.7</a> constructs that derivative explicitly for a binary model. A boundary thus relates pressure to a transition temperature rather than listing an arbitrary set of labels.</p>
 <p>Pure iron provides the recording's structural example. At roughly ambient pressure, heating traverses BCC, FCC, BCC and liquid stability fields. The low- and high-temperature BCC regions are conventionally labelled $\alpha$ and $\delta$, with FCC labelled $\gamma$. The <a href="https://srd.nist.gov/jpcrdreprint/1.555761.pdf">NIST-hosted Desai iron assessment, §2.1</a>, documents the structural sequence and specifies the historical temperature scale used for its numbers. We use the sequence rather than promote an approximately spoken transition temperature to an exact constant. At higher pressure additional fields can occur, so the ambient-pressure sequence must not be extrapolated across the entire pressure axis.</p>
 <p>A change between crystal forms of the same element is an <dfn>allotropic transformation</dfn>. Melting changes solid to liquid; solidification is the reverse. A first-order equilibrium transformation between a given pair of bulk phases occurs at a definite temperature on a specified pressure slice of an ordinary unary coexistence curve. This statement does not assert that every transition is first order, nor that observed freezing must occur without undercooling or thermal gradients.</p>
 <p>At that fixed pressure and coexistence temperature, both phases have the same one-component composition. If $f_s$ is the solid amount fraction, the compositional balance reads $1=f_s+(1-f_s)$ for every $f_s\in[0,1]$. Composition cannot determine how much has melted. Heat supplied or removed, or another appropriate extensive constraint, determines the transformation extent. Trying to use a binary composition lever rule would produce a zero endpoint difference; the failure is a missing independent constraint, not a numerical problem to repair by division.</p>
@@ -32,37 +32,38 @@
 <p>Grains of solid suspended in liquid are one possible morphology, but the diagram itself does not specify their size, shape, number or orientation. It does not determine dendrite spacing or a cooling rate. The recording explicitly closes this lesson by separating equilibrium states from an arbitrary cooling process. Slow cooling can help a specimen approach equilibrium, but “slow” must be assessed against the relevant transport and transformation times, not chosen as a universal adjective.</p>
 
 <h2 id="tie-lines" data-video="AXcxrGV96Ys" data-start="59" data-end="523">3.5 Read the endpoints before calculating the amounts <a class="timestamp" href="https://www.youtube.com/watch?v=AXcxrGV96Ys&amp;t=59s">L4 · 00:59</a></h2>
-<p>For a point in a binary liquid–solid field at fixed pressure, draw a horizontal line at its temperature through the two-phase field. Its intersections with the adjacent single-phase boundaries give $x_B^l(T)$ and $x_B^s(T)$ when the axis is atomic fraction. This is a <dfn>tie line</dfn>: it connects the compositions of phases that coexist at that temperature. The specimen's coordinate $\bar x_B$ lies between those endpoints.</p>
+<p>Write $T$ for absolute temperature in kelvin. For a point in a binary liquid–solid field at fixed pressure, draw a horizontal line at its temperature through the two-phase field. Its intersections with the adjacent single-phase boundaries give $x_B^l(T)$ and $x_B^s(T)$ when the axis is atomic fraction. This is a <dfn>tie line</dfn>: it connects the compositions of phases that coexist at that temperature. The specimen's coordinate $\bar x_B$ lies between those endpoints.</p>
 <p>For an ordinary two-phase branch of a binary diagram, changing $\bar x_B$ within that interval at fixed temperature and pressure changes the amounts, while the selected coexistence endpoints stay fixed. It does not slide each endpoint towards the new overall composition. Changing temperature generally changes the endpoints. The converse claim that a specified endpoint pair always determines a unique temperature would require additional assumptions about the diagram; it is not a universal inverse rule.</p>
 <p>Inside a single-phase field, the phase composition equals the overall composition. Extending a horizontal construction across unrelated regions to invent a second phase would be a misuse of the diagram. On a boundary, a phase with vanishing amount can be treated as incipient. Its limiting composition may be defined even while its amount is zero.</p>
 <p>Three pieces of information should now be distinct: which phases are present, the composition of each, and the amount of each. “Liquid + solid at overall $\bar x_B=0.45$” answers only the first question and the specimen composition. It does not assign either individual phase composition or either amount. The next step uses conservation to obtain the latter.</p>
 
 <h2 id="lever-rule" data-video="AXcxrGV96Ys" data-start="523" data-end="791">3.6 Derive the lever rule on the stated basis <a class="timestamp" href="https://www.youtube.com/watch?v=AXcxrGV96Ys&amp;t=523s">L4 · 08:43</a></h2>
-<p>Let $n_s$ and $n_l$ be the amounts of atoms in solid and liquid, measured in mol of atoms. Define $f_s^{(n)}=n_s/(n_s+n_l)$ and $f_l^{(n)}=1-f_s^{(n)}$. Conservation of B atoms gives $(n_s+n_l)\bar x_B=n_sx_B^s+n_lx_B^l$. Divide by total amount and solve:</p>
+<p>Let $n_s,n_l\geq0$ be the amounts of atoms in solid and liquid, measured in mol of atoms, with $n_s+n_l\gt0$. Define $f_s^{(n)}=n_s/(n_s+n_l)$ and $f_l^{(n)}=1-f_s^{(n)}$. Conservation of B atoms gives $(n_s+n_l)\bar x_B=n_sx_B^s+n_lx_B^l$. Divide by total amount and solve:</p>
 <div class="equation">$$\bar x_B=f_s^{(n)}x_B^s+(1-f_s^{(n)})x_B^l,\qquad
 f_s^{(n)}=\frac{\bar x_B-x_B^l}{x_B^s-x_B^l},\quad
 f_l^{(n)}=\frac{x_B^s-\bar x_B}{x_B^s-x_B^l}.\tag{3.1}$$</div>
 <p>The formulas here assume $x_B^l&lt;x_B^s$ for ease of reading; the balance itself is independent of ordering. Each amount is proportional to the opposite segment of the tie line. At $\bar x_B=x_B^l$, the solid amount is zero; at $\bar x_B=x_B^s$, it is one. Their sum is one, and nonnegative fractions require the overall composition to lie within the endpoint interval. These endpoint checks are more reliable than memorizing which numerator looks familiar.</p>
 <p>A mass-percent diagram instead supplies mass concentrations, and its lever rule yields phase <em>mass</em> fractions. The same linear algebra applies, but $n$ is replaced by mass throughout. Neither version directly gives a volume fraction. Matching bases is the physical reason the lever rule works; the geometric resemblance to a mechanical lever is an aid to memory.</p>
 <p>The lecture's illustrative hand-read Cu–Ni example gives overall nickel amount fraction 0.40 and approximate liquid/solid endpoints 0.33 and 0.47. Taking those numbers as stipulated readings gives $(0.40-0.33)/(0.47-0.33)=0.5$ solid by atomic amount and 0.5 liquid. The arithmetic is exact for the rounded inputs. We do not treat those readings as an independently validated Cu–Ni assessment at the spoken temperature.</p>
-<p>Small errors in closely spaced endpoints can cause a large fraction error. Write $\Delta=x_B^s-x_B^l&gt;0$ and differentiate (3.1):</p>
+<p>Small errors in closely spaced endpoints can cause a large fraction error. Write $\Delta=x_B^s-x_B^l&gt;0$ for the dimensionless endpoint gap, and let $\delta$ mark small changes of the indicated dimensionless input or result. Differentiating (3.1) gives</p>
 <div class="equation">$$\delta f_s^{(n)}\approx\frac{\delta\bar x_B-(1-f_s^{(n)})\delta x_B^l-f_s^{(n)}\delta x_B^s}{\Delta}.\tag{3.2}$$</div>
 <p>The first-order formula holds for sufficiently small perturbations that the branch and phase assignment stay valid. If the overall composition is exact and each endpoint uncertainty is bounded by $\epsilon$, a worst-case first-order bound is $|\delta f_s^{(n)}|\lesssim\epsilon/\Delta$. A thin two-phase field is therefore intrinsically sensitive to digitization. Extra displayed decimal places do not remove that uncertainty. Near a critical point or a congruent endpoint where the gap vanishes, this parameterization requires particular care.</p>
 
 <h2 id="computed-diagram">3.7 Build a diagram whose endpoints have an independent energy check</h2>
-<p>A drawn lens could illustrate the geometry without establishing thermodynamic consistency. For an original computed example, specify an entire simple energy model. Fix pressure; allow only one ideal solid and one ideal liquid, each containing A and B atoms with no vacancies or chemical ordering. Let $x$ be atomic fraction B and $g$ the Gibbs energy per mole of atoms, in J/mol. Choose</p>
+<p>A drawn lens could illustrate the geometry without establishing thermodynamic consistency. For an original computed example, specify an entire simple energy model. Fix pressure; allow only one ideal solid and one ideal liquid, each containing A and B atoms with no vacancies or chemical ordering. Let $x\in[0,1]$ be atomic fraction B and $g$ the Gibbs energy per mole of atoms, in J/mol. Subscripts $s,l$ denote solid and liquid. Let $\Delta g_i$ be pure-component liquid energy minus solid energy for component $i\in\{A,B\}$. The positive parameter $H_i$ is a stipulated fusion enthalpy in J/mol, and $T_{mi}$ is its stipulated melting temperature in kelvin. The molar gas constant is $R$, used numerically below as $8.314462618$ J/(mol K). Choose</p>
 <div class="equation">$$\begin{aligned}
  g_s(x,T)&=RT[(1-x)\ln(1-x)+x\ln x],\\
  g_l(x,T)&=(1-x)\Delta g_A(T)+x\Delta g_B(T)+RT[(1-x)\ln(1-x)+x\ln x],\\
  \Delta g_i(T)&=H_i(1-T/T_{mi}).
 \end{aligned}\tag{3.3}$$</div>
 <p>Use the limit $z\ln z\to0$ at zero. Parameters are deliberately chosen: $T_{mA}=1000$ K, $T_{mB}=1500$ K, $H_A=10000$ J/mol, $H_B=12000$ J/mol and numerical $R=8.314462618$ J/(mol K). Each pure liquid–solid energy difference vanishes at its assigned melting temperature. Taking both pure solid references as zero is part of this toy model, not a measured temperature dependence. The linear fusion-energy form neglects heat-capacity differences and all nonideal mixing.</p>
-<p>The next thermodynamics chapters will derive chemical potentials and the common-tangent criterion generally. Here one can verify this particular construction directly by differentiation. Write $G=(n_A+n_B)g(x)$ with $x=n_B/(n_A+n_B)$ at fixed temperature and pressure. Differentiating with respect to $n_A$ at fixed $n_B$ gives $\mu_A=g-xg'$; differentiating with respect to $n_B$ at fixed $n_A$ gives $\mu_B=g+(1-x)g'$. Transferring a small amount of either component between coexisting phases must have zero first-order Gibbs-energy change at equilibrium, so its two chemical potentials agree. For a binary molar energy, the tangent intercept $g-xg'$ and its value at $x=1$, $g+(1-x)g'$, are the component chemical potentials. In the ideal solid these are $RT\ln(1-x_s)$ and $RT\ln x_s$; in the ideal liquid they acquire the respective additions $\Delta g_A$ and $\Delta g_B$. Equal component values therefore require</p>
+<p>The next thermodynamics chapters will derive chemical potentials and the common-tangent criterion generally. Here one can verify this particular construction directly by differentiation. Write $G=(n_A+n_B)g(x)$ for total Gibbs energy in joules, with component amounts $n_A,n_B$ in mol atoms and $x=n_B/(n_A+n_B)$ at fixed temperature and pressure. A prime denotes differentiation of molar energy with respect to dimensionless $x$. Differentiating with respect to $n_A$ at fixed $n_B$ gives $\mu_A=g-xg'$; differentiating with respect to $n_B$ at fixed $n_A$ gives $\mu_B=g+(1-x)g'$. Transferring a small amount of either component between coexisting phases must have zero first-order Gibbs-energy change at equilibrium, so its two chemical potentials agree. For a binary molar energy, the tangent intercept $g-xg'$ and its value at $x=1$, $g+(1-x)g'$, are the component chemical potentials. In the ideal solid these are $RT\ln(1-x_s)$ and $RT\ln x_s$; in the ideal liquid they acquire the respective additions $\Delta g_A$ and $\Delta g_B$. Equal component values therefore require</p>
 <div class="equation">$$1-x_s=K_A(1-x_l),\qquad x_s=K_Bx_l,\qquad
 K_i=\exp\!\left[\frac{H_i}{R}\left(\frac1T-\frac1{T_{mi}}\right)\right].\tag{3.4}$$</div>
 <p>Eliminating $x_s$ gives the liquid and solid endpoints:</p>
 <div class="equation">$$x_l(T)=\frac{1-K_A}{K_B-K_A},\qquad x_s(T)=K_Bx_l(T),\quad 1000&lt;T&lt;1500\ \mathrm K.\tag{3.5}$$</div>
 <p>Both energies have second derivative $RT/[x(1-x)]&gt;0$ for $0&lt;x&lt;1$ and $T&gt;0$. Each tangent is consequently a global supporting line for its own convex curve. Equations (3.4) make their slopes and intercepts equal, so the common line lies below both allowed phase energies. A mixture of the two endpoint phases attains that line. Thus for an overall composition between them, no mixture of the two admitted phases can have lower energy: averaging points lying above the same line cannot go below it. This proves global equilibrium within the declared two-phase model, rather than merely finding stationary coexistence equations.</p>
+<p>Figure 3.1 displays these computed coexistence endpoints and the corresponding fraction along one fixed-overall-composition path.</p>
 <figure><img src="assets/isomorphous-model.svg" alt="Computed synthetic ideal solid/liquid diagram with a tie line at 1200 K. For overall B atomic fraction 0.45, solid fraction changes continuously between the liquidus at 1224.416841 K and solidus at 1172.060463 K."><figcaption>Figure 3.1. Original model (3.3), generated by <a href="tools/plot_phase_diagrams.py">this plotting program</a>. Left: endpoint curves and the 1200 K tie line. Right: equilibrium solid amount at fixed overall $x_B=0.45$. Temperature is not time. The figure represents neither measured Cu–Ni data nor a predicted cooling rate.</figcaption></figure>
 <p>The computed 1200 K tie line has $x_l=0.400458048$ and $x_s=0.509359331$. For $\bar x_B=0.45$, equation (3.1) gives $f_s^{(n)}=0.454925331$, so liquid is the remaining 0.545074669. With a total amount of 10 mol atoms, the solid contains 4.54925331 mol atoms and the liquid 5.45074669 mol atoms. Their B amounts sum to 4.5 mol. A midpoint-looking point in a narrow lens need not represent exactly half solid.</p>
 <p>For the same overall composition, solving $x_l(T)=0.45$ gives the liquidus 1224.416841 K; solving $x_s(T)=0.45$ gives the solidus 1172.060463 K. The 52.356378 K interval is a range of equilibrium coexistence temperatures, not a solidification duration. Endpoint uncertainties of 0.005 each would give a first-order worst-case amount uncertainty of approximately $0.005/0.108901283\approx0.0459$, over four percentage points, even if the overall composition were exact.</p>
@@ -80,11 +81,11 @@ K_i=\exp\!\left[\frac{H_i}{R}\left(\frac1T-\frac1{T_{mi}}\right)\right].\tag{3.4
 
 <h2 id="eutectic" data-video="eQU3Qs_GHJw" data-start="371" data-end="745">3.10 A eutectic fixes three phase compositions, not three phase amounts <a class="timestamp" href="https://www.youtube.com/watch?v=eQU3Qs_GHJw&amp;t=371s">L5 · 06:11</a></h2>
 <p>A binary eutectic reaction has the equilibrium form $L\rightleftharpoons\alpha+\beta$, with one liquid and two solid phases coexisting at a particular eutectic temperature $T_E$ at fixed pressure. The liquid has a particular composition $c_E$ and the solids have compositions $c_\alpha$ and $c_\beta$. Here $c$ denotes B mass fraction for the next construction; assume $c_\alpha&lt;c_E&lt;c_\beta$. The plus sign identifies coexisting phases. It is not a claim that arbitrary equal masses of the solids replace an arbitrary mass of liquid.</p>
-<p>For one unit mass of eutectic liquid to become solids at those endpoint compositions, the product mass fractions follow from the two-solid lever balance:</p>
+<p>For one unit mass of eutectic liquid to become solids at those endpoint compositions, define dimensionless product mass fractions $q_\alpha,q_\beta$. They follow from the two-solid lever balance:</p>
 <div class="equation">$$q_\beta=\frac{c_E-c_\alpha}{c_\beta-c_\alpha},\qquad
 q_\alpha=\frac{c_\beta-c_E}{c_\beta-c_\alpha}.\tag{3.6}$$</div>
 <p>Thus $q_\alpha+q_\beta=1$ and $q_\alpha c_\alpha+q_\beta c_\beta=c_E$. These are mass-balanced product proportions for this chosen basis, not chemical formula coefficients. If the composition axis were atomic fraction, the corresponding conserved amounts would instead be moles of atoms.</p>
-<p>At exactly $T_E$, knowing only the overall composition and three phase compositions generally does not determine all three amounts. Let their mass fractions be $f_\alpha,f_\beta,f_l$. Conservation supplies only</p>
+<p>At exactly $T_E$, knowing only the overall composition and three phase compositions generally does not determine all three amounts. Let their mass fractions be $f_\alpha,f_\beta,f_l$, and write $c_0$ for the overall B mass fraction. Conservation supplies only</p>
 <div class="equation">$$f_\alpha+f_\beta+f_l=1,\qquad
 f_\alpha c_\alpha+f_\beta c_\beta+f_l c_E=c_0.\tag{3.7}$$</div>
 <p>There are three unknown amounts and two independent linear equations. Put $f_l=\lambda$ and solve:</p>
@@ -110,8 +111,9 @@ f_\alpha=1-\lambda-f_\beta.\tag{3.8}$$</div>
 <p>Software identifiers also need their phase-model context: the same crystal prototype can have separate composition sets inside a miscibility gap, and a selected database can restrict which constituents or sublattices are admitted. A printed identifier is a pointer to a model description, not a replacement for it. Later computational chapters will make that distinction concrete.</p>
 
 <h2 id="computation">3.13 Execute both the model and the conservation checks</h2>
-<p>This standard-library listing computes (3.5), inverts the endpoints by bounded bisection, checks equality of tangent slopes and intercepts, and checks 101 phase balances. It also samples 5001 compositions for each of the two energies to test the supporting-line inequality numerically. Those sampled inequalities are implementation checks; convexity and the common supporting line establish the general argument. Finally, exact rational arithmetic independently reproduces (3.9)–(3.10). The ideal model and stipulated eutectic endpoints are separate teaching constructions.</p>
+<p>This standard-library listing computes (3.5), inverts the endpoints by bounded bisection, checks equality of tangent slopes and intercepts, and checks 101 phase balances. It also samples 5001 compositions for each of the two energies to test the supporting-line inequality numerically. Those sampled inequalities are implementation checks; convexity and the common supporting line establish the general argument. Finally, exact rational arithmetic independently reproduces (3.9)–(3.10). The ideal model and stipulated eutectic endpoints are separate teaching constructions. Inputs are the explicit constants and endpoint compositions in the listing; no input files or network access are used. The program writes only standard output. Assertions reject failed conservation, tangent agreement or sampled support checks. Bisection is used only for the bracketed endpoint branches of this chosen model, not as a general inverse phase-diagram solver.</p>
 <pre data-run="code/ch03_phase_diagrams.py"><code class="language-python">"""Synthetic ideal solid/liquid equilibrium and exact eutectic balances."""
+
 from math import exp, expm1, log, isclose
 from fractions import Fraction as F
 
@@ -120,70 +122,93 @@ R, TMA, TMB, HA, HB = 8.314462618, 1000.0, 1500.0, 10000.0, 12000.0
 
 def endpoints(T):
     # Delta g_i = H_i*(1-T/T_mi), K_i = x_i^s/x_i^l.
-    a, b = HA/R*(1/T-1/TMA), HB/R*(1/T-1/TMB)
+    a, b = HA / R * (1 / T - 1 / TMA), HB / R * (1 / T - 1 / TMB)
     ka, kb = exp(a), exp(b)
-    xl = -expm1(a)/(kb-ka)
-    return xl, kb*xl
+    xl = -expm1(a) / (kb - ka)
+    return xl, kb * xl
 
 
 def invert_endpoint(x0, which):
     lo, hi = TMA, TMB
     for _ in range(70):
-        mid = (lo+hi)/2
+        mid = (lo + hi) / 2
         if endpoints(mid)[which] &lt; x0:
             lo = mid
         else:
             hi = mid
-    return (lo+hi)/2
+    return (lo + hi) / 2
 
 
 def mix(x):
-    return sum(z*log(z) for z in (x, 1-x) if z)
+    return sum(z * log(z) for z in (x, 1 - x) if z)
 
 
 def free_energy(x, T, liquid=False):
-    base = ((1-x)*HA*(1-T/TMA)+x*HB*(1-T/TMB)) if liquid else 0
-    return base+R*T*mix(x)
+    base = (
+        ((1 - x) * HA * (1 - T / TMA) + x * HB * (1 - T / TMB))
+        if liquid
+        else 0
+    )
+    return base + R * T * mix(x)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     T, x0 = 1200.0, 0.45
     xl, xs = endpoints(T)
     assert 0 &lt; xl &lt; x0 &lt; xs &lt; 1
-    fs = (x0-xl)/(xs-xl)
-    assert isclose((1-fs)*xl+fs*xs, x0, abs_tol=1e-14)
+    fs = (x0 - xl) / (xs - xl)
+    assert isclose((1 - fs) * xl + fs * xs, x0, abs_tol=1e-14)
     # Equal tangent slope and intercept in J/mol and J/mol per atomic fraction.
-    slope = R*T*log(xs/(1-xs))
-    liquid_slope = HB*(1-T/TMB)-HA*(1-T/TMA)+R*T*log(xl/(1-xl))
-    intercept = free_energy(xs,T)-xs*slope
-    liquid_intercept = free_energy(xl,T,True)-xl*liquid_slope
-    assert abs(slope-liquid_slope) &lt; 1e-9
-    assert abs(intercept-liquid_intercept) &lt; 1e-9
-    minimum_gap = min(free_energy(i/5000,T,p)-(intercept+i/5000*slope)
-                      for i in range(5001) for p in (False,True))
+    slope = R * T * log(xs / (1 - xs))
+    liquid_slope = (
+        HB * (1 - T / TMB) - HA * (1 - T / TMA) + R * T * log(xl / (1 - xl))
+    )
+    intercept = free_energy(xs, T) - xs * slope
+    liquid_intercept = free_energy(xl, T, True) - xl * liquid_slope
+    assert abs(slope - liquid_slope) &lt; 1e-9
+    assert abs(intercept - liquid_intercept) &lt; 1e-9
+    minimum_gap = min(
+        free_energy(i / 5000, T, p) - (intercept + i / 5000 * slope)
+        for i in range(5001)
+        for p in (False, True)
+    )
     assert minimum_gap &gt;= -1e-9
     for i in range(101):
-        z=xl+(xs-xl)*i/100
-        f=(z-xl)/(xs-xl)
-        assert -1e-12 &lt;= f &lt;= 1+1e-12
-        assert abs((1-f)*xl+f*xs-z) &lt; 1e-12
-    ts, tl = invert_endpoint(x0,1), invert_endpoint(x0,0)
+        z = xl + (xs - xl) * i / 100
+        f = (z - xl) / (xs - xl)
+        assert -1e-12 &lt;= f &lt;= 1 + 1e-12
+        assert abs((1 - f) * xl + f * xs - z) &lt; 1e-12
+    ts, tl = invert_endpoint(x0, 1), invert_endpoint(x0, 0)
     assert ts &lt; T &lt; tl
-    print(f'At T={T:.1f} K: x_B(liquid)={xl:.9f}, x_B(solid)={xs:.9f}')
-    print(f'At overall x_B={x0:.2f}: solid atomic-amount fraction={fs:.9f}')
-    print(f'Solidus={ts:.6f} K; liquidus={tl:.6f} K')
-    print('101 lever balances and 10002 sampled support-line inequalities passed.')
-    print(f'Minimum sampled tangent gap={minimum_gap:.9g} J/mol')
+    print(f"At T={T:.1f} K: x_B(liquid)={xl:.9f}, x_B(solid)={xs:.9f}")
+    print(f"At overall x_B={x0:.2f}: solid atomic-amount fraction={fs:.9f}")
+    print(f"Solidus={ts:.6f} K; liquidus={tl:.6f} K")
+    print(
+        (
+            "101 lever balances and 10002 sampled support-line inequalities p"
+            "assed."
+        )
+    )
+    print(f"Minimum sampled tangent gap={minimum_gap:.9g} J/mol")
     # Stipulated eutectic mass-fraction endpoints, independent of ideal model.
-    ca, ce, cb, overall = F(1,10), F(2,5), F(9,10), F(1,4)
-    liquid = (overall-ca)/(ce-ca)
-    eut_beta = (ce-ca)/(cb-ca)
-    beta_total = liquid*eut_beta
-    assert liquid == F(1,2) and eut_beta == F(3,8)
-    assert beta_total == (overall-ca)/(cb-ca) == F(3,16)
-    print('Hypoeutectic construction: remaining liquid=',liquid,
-          '; beta inside eutectic=',eut_beta,'; total beta=',beta_total)
-    print('All numbers are synthetic teaching models, not assessed alloy data.')</code></pre>
+    ca, ce, cb, overall = F(1, 10), F(2, 5), F(9, 10), F(1, 4)
+    liquid = (overall - ca) / (ce - ca)
+    eut_beta = (ce - ca) / (cb - ca)
+    beta_total = liquid * eut_beta
+    assert liquid == F(1, 2) and eut_beta == F(3, 8)
+    assert beta_total == (overall - ca) / (cb - ca) == F(3, 16)
+    print(
+        "Hypoeutectic construction: remaining liquid=",
+        liquid,
+        "; beta inside eutectic=",
+        eut_beta,
+        "; total beta=",
+        beta_total,
+    )
+    print(
+        "All numbers are synthetic teaching models, not assessed alloy data."
+    )
+</code></pre>
 <pre class="output">At T=1200.0 K: x_B(liquid)=0.400458048, x_B(solid)=0.509359331
 At overall x_B=0.45: solid atomic-amount fraction=0.454925331
 Solidus=1172.060463 K; liquidus=1224.416841 K
@@ -203,7 +228,7 @@ All numbers are synthetic teaching models, not assessed alloy data.</pre>
 <details><summary>Solution</summary><p>Since $T&gt;T_{mA}$, $1/T-1/T_{mA}&lt;0$, hence $K_A&lt;1$. Since $T&lt;T_{mB}$, the B exponent is positive, hence $K_B&gt;1$. Thus $x_s&gt;x_l$: the solid endpoint is richer in B in this synthetic ideal model. Reversing the sign of the fusion-energy difference would reverse these partition relations and fail the stated pure-phase energy convention. This is a model-dependent result, not a general rule for every multicomponent alloy.</p></details>
 <p><strong>5. Diagnose a thin-field uncertainty.</strong> A hand-read tie line has endpoints 0.490 and 0.510, and exact overall composition 0.500. Each endpoint has uncertainty at most 0.002. Give the nominal solid amount and first-order worst-case uncertainty. Why should the result not be printed as a highly precise measured amount?</p>
 <details><summary>Solution</summary><p>The nominal fraction is $(0.500-0.490)/0.020=0.5$. Equation (3.2) gives a first-order bound $0.002/0.020=0.1$, or ten percentage points. The bound assumes small perturbations and unchanged phase assignment; it is not a probabilistic confidence interval. The narrow gap amplifies readout errors, so digits in the nominal arithmetic do not measure knowledge of the actual amount. Improved endpoint data or an uncertainty-aware result is required.</p></details>
-<p><strong>6. Count the eutectic constituent separately.</strong> In the synthetic eutectic of Section 3.11, use overall $c_0=0.70$ instead of 0.25. Find the primary solid, remaining liquid just above $T_E$, eutectic-constituent fraction, and final total $\beta$ fraction just below it.</p>
+<p><strong>6. Count the eutectic constituent separately.</strong> In the synthetic eutectic of <a class="secref" href="#eutectic-balance">Section 3.11</a>, use overall $c_0=0.70$ instead of 0.25. Find the primary solid, remaining liquid just above $T_E$, eutectic-constituent fraction, and final total $\beta$ fraction just below it.</p>
 <details><summary>Solution</summary><p>This composition lies to the B-rich side of $c_E=0.40$, so primary $\beta$ forms. The remaining liquid mass fraction is $(c_\beta-c_0)/(c_\beta-c_E)=(0.90-0.70)/(0.90-0.40)=0.4$. Primary $\beta$ is 0.6. The eutectic constituent is the converted 0.4 liquid; its internal $\beta$ fraction remains $3/8$. Total $\beta$ is $0.6+0.4(3/8)=0.75$. The direct two-solid balance gives $(0.70-0.10)/(0.90-0.10)=0.75$. The constituent fraction 0.4 and phase fraction 0.75 answer different questions.</p></details>
 <p><strong>7. Find an invariant reaction's freedom.</strong> For overall $c_0=0.25$ at exactly $T_E$, take liquid fraction $\lambda=1/4$. Find $f_\alpha,f_\beta$, verify the B balance, and identify what additional kind of information would select this particular extent.</p>
 <details><summary>Solution</summary><p>Equation (3.8) gives $f_\beta=3/16-(3/8)(1/4)=3/32$ and $f_\alpha=13/16-(5/8)(1/4)=21/32$. Their sum with $\lambda=8/32$ is one. The B mass fraction is $(21/32)(1/10)+(3/32)(9/10)+(1/4)(2/5)=21/320+27/320+32/320=80/320=1/4$. An appropriate total enthalpy or specified heat removal together with the phase enthalpies can constrain the extent. Temperature and composition alone have not selected $\lambda=1/4$.</p></details>

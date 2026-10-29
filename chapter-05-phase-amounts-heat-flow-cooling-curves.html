@@ -1,14 +1,14 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="dark light"><meta name="book-content-sha256" content="acdc265dcfe2c732651440b9b3237d39ca775312e258a91d8b402360c0174288"><title>Phase amounts, heat flow and cooling curves · Computational Thermodynamics</title><link rel="stylesheet" href="assets/book.css"><script src="assets/math-config.js"></script><script defer src="assets/mathjax-tex-svg.js"></script><script defer src="assets/book.js"></script></head>
-<body><a class="skip" href="#main">Skip to content</a><header class="site-header"><a class="brand" href="index.html">Computational Thermodynamics and Kinetics of Materials</a><nav class="course-nav"><a href="index.html">Chapters</a><a href="source-map.html">Source map</a><a href="references.html">References</a><a href="numerical-lab.html">Numerical lab</a></nav></header><div class="layout"><aside class="toc" id="chapter-toc"><h2>On this page</h2></aside><main id="main"><div class="reading-tools"><button id="theme-toggle" aria-pressed="false">Light theme</button><button id="text-toggle" aria-pressed="false">Larger text</button><button id="solutions-toggle" aria-pressed="false">Expand solutions</button><button id="print-page">Print with solutions</button></div>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="dark light"><meta name="book-content-sha256" content="e0db4e8805989c1e3b857344fa8e20749c2b070acd96b9d140302c3706a933cd"><title>Phase amounts, heat flow and cooling curves · Computational Thermodynamics</title><link rel="stylesheet" href="assets/book.css"><script src="assets/math-config.js"></script><script defer src="assets/mathjax-tex-svg.js"></script><script defer src="assets/book.js"></script></head>
+<body><a class="skip" href="#main">Skip to content</a><header class="site-header"><a class="brand" href="index.html">Computational Thermodynamics and Kinetics of Materials</a><nav class="course-nav"><a href="index.html">Chapters</a><a href="source-map.html">Source map</a><a href="references.html">References</a><a href="numerical-lab.html">Numerical lab</a></nav></header><div class="layout"><aside class="toc" id="chapter-toc"><h2 id="on-this-page">On this page</h2></aside><main id="main"><div class="reading-tools"><button id="theme-toggle" aria-pressed="false">Light theme</button><button id="text-toggle" aria-pressed="false">Larger text</button><button id="solutions-toggle" aria-pressed="false">Expand solutions</button><button id="print-page">Print with solutions</button></div>
 <article id="chapter-content"><!-- BOOK-CONTENT-START -->
-<h1>5. Phase amounts, heat flow and the interpretation of cooling curves</h1>
-<p class="lead">A horizontal segment on a cooling curve does not mean that cooling has stopped. Energy can continue leaving a sample while its temperature stays constant because liquid is being converted into solid. Conversely, a smoothly falling temperature does not mean that no transformation is occurring: latent heat can be released over a freezing range. Reading the curve requires an energy balance, a phase model and a description of what the thermometer actually measures.</p>
-<p class="source-note">The complete local transcripts of substantive lessons 9–10 were read sequentially. Lesson 9 links phase-amount plots to heat treatment and contrasts solidification with solid-state interdiffusion; lesson 10 reconstructs phase diagrams from cooling curves. The calculations below are original, explicitly stipulated models. No real Fe–Cr phase-fraction axis or numerical boundary from an uninspected lecture image is treated as measured evidence. A separately accessed original Cambridge experiment supplies the instrumentation correction discussed in §5.7.</p>
+<h1 id="chapter-title">5. Phase amounts, heat flow and the interpretation of cooling curves</h1>
+<p class="lead">A horizontal segment on a cooling curve does not mean that cooling has stopped. Energy can continue leaving a sample while its temperature stays constant because liquid is being converted into solid. Conversely, a smoothly falling temperature does not mean that no transformation is occurring: energy associated with the phase change, called latent heat, can be released over a freezing range. Reading the curve requires an energy balance, a phase model and a description of what the thermometer actually measures.</p>
+<p class="source-note">The complete local transcripts of substantive lessons 9–10 were read sequentially. Lesson 9 links phase-amount plots to heat treatment and contrasts solidification with solid-state interdiffusion; lesson 10 reconstructs phase diagrams from cooling curves. The calculations below are original, explicitly stipulated models. No real Fe–Cr phase-fraction axis or numerical boundary from an uninspected lecture image is treated as measured evidence. A separately accessed original Cambridge experiment supplies the instrumentation correction discussed in <a class="secref" href="#thermometry">§5.7</a>.</p>
 
 <h2 id="amount-path" data-video="m-RUuHye-tc" data-start="65" data-end="591">5.1 A phase-amount curve is a path through equilibrium states <a class="timestamp" href="https://www.youtube.com/watch?v=m-RUuHye-tc&amp;t=65s">L9 · 01:05</a></h2>
 <p>Fix pressure and the overall composition of a closed alloy. At each temperature, an equilibrium calculation can provide the stable phases, their compositions and their amounts. Plotting each amount against temperature gives a useful one-dimensional summary of that chosen composition path. In a multicomponent alloy this can be much easier to use than a succession of high-dimensional sections.</p>
-<p>Write $f_\alpha^{\mathrm{eq}}(T;\mathbf x_0,p)$ for the equilibrium amount fraction of phase $\alpha$, with its basis explicitly specified. If it counts moles of atoms, conservation gives</p>
+<p>Let $T$ be absolute temperature in K, $p$ fixed pressure in Pa and $\mathbf x_0$ the fixed normalized overall atomic-composition vector. Write $f_\alpha^{\mathrm{eq}}(T;\mathbf x_0,p)\in[0,1]$ for the equilibrium amount fraction of phase $\alpha$, with its basis explicitly specified, and $\mathbf x_\alpha^{\mathrm{eq}}$ for that phase's normalized atomic-composition vector. If it counts moles of atoms, conservation gives</p>
 <div class="equation">$$\sum_\alpha f_\alpha^{\mathrm{eq}}=1,\qquad \mathbf x_0=\sum_\alpha f_\alpha^{\mathrm{eq}}\mathbf x_\alpha^{\mathrm{eq}}.\tag{5.1}$$</div>
 <p>A mass-fraction calculation instead uses mass compositions and phase mass fractions. A volume fraction requires phase volumes or densities. Even when a software curve is labelled simply “fraction,” these three meanings cannot be interchanged without a conversion. For example, two phases of equal mass and densities $4000$ and $8000\ \mathrm{kg\,m^{-3}}$ occupy volume fractions $2/3$ and $1/3$, respectively. Their mass fractions are both $1/2$.</p>
 <p>The amount curve answers “how much of this phase belongs to this equilibrium state?” It does not, by itself, answer “what is the composition inside that phase?” Equation (5.1) contains both kinds of unknown. In a binary two-phase region, the overall composition and both amounts supply one independent balance for the two phase compositions. Additional phase-equilibrium information remains necessary. In still higher dimensions the missing endpoint information is larger.</p>
@@ -16,13 +16,13 @@
 <p>At an invariant temperature, phase amounts may also depend on transformation extent. The earlier eutectic balance illustrated that fixed temperature, pressure and bulk composition do not automatically determine every phase amount while latent heat is being removed. A plotted jump or endpoint can therefore encode a particular limiting convention. Inspect how the software treats the invariant, rather than reading it as an instantaneous kinetic trajectory.</p>
 
 <h2 id="time" data-video="m-RUuHye-tc" data-start="498" data-end="717">5.2 Equilibrium amount is a target, not a transformation clock <a class="timestamp" href="https://www.youtube.com/watch?v=m-RUuHye-tc&amp;t=498s">L9 · 08:18</a></h2>
-<p>A material following an imposed temperature history $T(t)$ need not have the amount $f^{\mathrm{eq}}[T(t)]$ at every instant. Nucleation may be delayed; diffusion can be slow; interfaces have finite mobility. A simple model makes the missing information explicit. At one fixed temperature, prescribe a constant equilibrium solid fraction $f_* =0.8$ and let the actual fraction obey</p>
+<p>A material following an imposed temperature history $T(t)$ need not have the amount $f^{\mathrm{eq}}[T(t)]$ at every instant. Nucleation may be delayed; diffusion can be slow; interfaces have finite mobility. A simple model makes the missing information explicit. At one fixed temperature, prescribe a constant equilibrium solid fraction $f_* =0.8$. Let $f\in[0,1]$ denote the actual solid fraction, $t\geq0$ elapsed time in seconds and $\tau\gt0$ the relaxation time in seconds. Stipulate</p>
 <div class="equation">$$\frac{df}{dt}=\frac{f_*-f}{\tau},\qquad f(0)=0,\qquad \tau=100\ \mathrm{s}.\tag{5.2}$$</div>
 <p>This is a stipulated relaxation law, not an identified mechanism for a particular alloy. Separate variables, or multiply the equation by $e^{t/\tau}$, to obtain</p>
 <div class="equation">$$f(t)=f_*\left(1-e^{-t/\tau}\right).\tag{5.3}$$</div>
 <p>After $10$, $100$ and $300$ s, the actual fractions are $0.076130$, $0.505696$ and $0.760170$. All correspond to the same equilibrium target $0.8$. Reaching $95\%$ of the target takes $\tau\ln20=299.573227$ s. The equilibrium plot supplies $f_*$ but contains no value of $\tau$.</p>
 <p>For a varying temperature, even this elementary law becomes a nonautonomous problem: both the target and the relaxation time can change along the path. Crossing a temperature interval quickly can limit a transformation, but the result depends on the whole time–temperature history. Equilibrium avoidance and kinetic suppression are distinct design questions. A phase absent at equilibrium may persist metastably; a phase strongly favored at equilibrium may fail to appear during the available time.</p>
-<p>A diffusion scale illustrates the importance of geometry. For diffusion over length $\ell$, dimensional comparison of $\partial c/\partial t$ and $D\nabla^2c$ gives $t_D\sim\ell^2/D$. With stipulated $\ell=100\ \mathrm{\mu m}=10^{-4}$ m, $D=10^{-14}\ \mathrm{m^2\,s^{-1}}$ gives $10^6$ s, about $11.574$ days, while $D=10^{-9}\ \mathrm{m^2\,s^{-1}}$ gives $10$ s. These are scale estimates using invented input values, without geometry-dependent eigenvalue factors or a real-alloy diffusivity claim. Halving the required distance reduces the scale by four.</p>
+<p>A diffusion scale illustrates the importance of geometry. For diffusion over length $\ell$ in metres, let $c$ be a dimensionless composition field, $D\gt0$ a constant scalar diffusivity in m²/s and $\nabla^2$ the sum of spatial second derivatives. Comparing the time derivative $\partial c/\partial t$ with the diffusion term $D\nabla^2c$ gives the characteristic time $t_D\sim\ell^2/D$. With stipulated $\ell=100\ \mathrm{\mu m}=10^{-4}$ m, $D=10^{-14}\ \mathrm{m^2\,s^{-1}}$ gives $10^6$ s, about $11.574$ days, while $D=10^{-9}\ \mathrm{m^2\,s^{-1}}$ gives $10$ s. These are scale estimates using invented input values, without geometry-dependent eigenvalue factors or a real-alloy diffusivity claim. Halving the required distance reduces the scale by four.</p>
 
 <h2 id="history" data-video="m-RUuHye-tc" data-start="718" data-end="1268">5.3 The same phase assemblage can have different microstructures <a class="timestamp" href="https://www.youtube.com/watch?v=m-RUuHye-tc&amp;t=718s">L9 · 11:58</a></h2>
 <p>The lecture contrasts two routes to a binary two-solid state. One starts from a homogeneous liquid and crosses a eutectic region. The other brings initially separate A-rich and B-rich solids into contact below the melting range and allows interdiffusion. Both can eventually have the same stable phases and bulk composition. Their spatial arrangements, particle sizes, gradients and interface densities can be very different.</p>
@@ -31,17 +31,17 @@
 <p>Solidification often permits faster long-range chemical redistribution than substitutional diffusion in a solid, but no universal inequality between processing times follows from the labels alone. A thin solid diffusion couple can equilibrate sooner than a large casting cools. Transport distances, temperature-dependent diffusivities, fluid flow and interface motion must be specified. The lesson's qualitative comparison motivates the later kinetic theory; it does not replace it.</p>
 
 <h2 id="energy" data-video="bQOEhmJcmAU" data-start="65" data-end="383">5.4 Derive the arrest from a closed-system energy balance <a class="timestamp" href="https://www.youtube.com/watch?v=bQOEhmJcmAU&amp;t=65s">L10 · 01:05</a></h2>
-<p>Consider a spatially uniform sample of constant mass $m$ at constant pressure. Neglect kinetic and gravitational energy changes, chemical exchange and all work except pressure–volume work. With heat loss $\dot Q_{\mathrm{out}}>0$, the first law $dU/dt=-\dot Q_{\mathrm{out}}-p\,dV/dt$ becomes</p>
+<p>Consider a spatially uniform sample of constant mass $m$ in kg at constant pressure $p$ in Pa. Let $U$ be internal energy in J, $V$ volume in m³ and $H=U+pV$ enthalpy in J; write $\dot Q_{\mathrm{out}}$ for the rate of heat leaving the sample in W. Neglect kinetic and gravitational energy changes, chemical exchange and all work except pressure–volume work. With heat loss $\dot Q_{\mathrm{out}}\gt 0$, the first law $dU/dt=-\dot Q_{\mathrm{out}}-p\,dV/dt$ becomes</p>
 <div class="equation">$$\frac{dH}{dt}=-\dot Q_{\mathrm{out}},\qquad m\frac{dh}{dt}=-\dot Q_{\mathrm{out}}.\tag{5.4}$$</div>
 <p>Here $h=H/m$ is specific enthalpy in J/kg. This form follows because $dH=dU+p\,dV$ at constant pressure. A rigid vessel would instead call for the corresponding internal-energy balance; using enthalpy without specifying mechanical conditions would hide that assumption.</p>
 <p>Now stipulate a pure substance with melting temperature $T_m=1000$ K, latent heat $L=100000\ \mathrm{J\,kg^{-1}}$ and equal, constant solid and liquid heat capacities $c_p=500\ \mathrm{J\,kg^{-1}K^{-1}}$. Set solid enthalpy to zero at $T_m$. Then</p>
 <div class="equation">$$h_s(T)=c_p(T-T_m),\qquad h_l(T)=L+c_p(T-T_m).\tag{5.5}$$</div>
 <p>At coexistence, the temperature stays at $T_m$ while the solid mass fraction $f_s$ changes, and the mixture enthalpy is $h=(1-f_s)L$. Consequently $mL\,df_s/dt=\dot Q_{\mathrm{out}}$. The energy leaving has a positive sign in the rate of solid production. A sign error here would predict melting while extracting heat.</p>
 <p>Take $m=1$ kg, constant heat extraction $100$ W and an initially all-liquid temperature $1300$ K. The initial enthalpy is $250000$ J/kg, so $h(t)=250000-100t$. Cooling liquid to $T_m$ removes $150000$ J and takes $1500$ s. Freezing then removes another $100000$ J and takes $1000$ s. The sample finishes freezing at $2500$ s. At $2000$ s its temperature is still $1000$ K but $f_s=1/2$.</p>
-<p>The plateau duration measures a latent-heat integral under this controlled constant-power condition:</p>
+<p>Let $t_a,t_b$ bound a coexistence interval in seconds, and let $\Delta f_s=f_s(t_b)-f_s(t_a)$ be its increase in solid fraction. The plateau duration measures a latent-heat integral under this controlled constant-power condition:</p>
 <div class="equation">$$\int_{t_a}^{t_b}\dot Q_{\mathrm{out}}(t)\,dt=mL\,\Delta f_s.\tag{5.6}$$</div>
 <p>For a whole initially liquid pure sample, $\Delta f_s=1$. For a eutectic arrest after some primary solid has already formed, only the transforming residual amount belongs in the latent contribution, and the relevant reaction enthalpy must be used. A longer arrest does not automatically imply a larger intrinsic latent heat if mass, residual-liquid amount or heat extraction also changed.</p>
-<p>Constant power is a convenient declared boundary condition. A freely cooling sample often loses heat approximately through temperature-dependent convection, conduction and radiation. In a simple Newton model, $\dot Q_{\mathrm{out}}=K(T-T_\infty)$, where $K$ is a thermal conductance. A single-phase segment then satisfies $mc_p\dot T=-K(T-T_\infty)$ and decays exponentially toward ambient. Its slope is not constant. The lecture's straight-line sketches are therefore explanatory idealizations, not a universal form of an experimental cooling curve.</p>
+<p>Constant power is a convenient declared boundary condition. A freely cooling sample often loses heat approximately through temperature-dependent convection, conduction and radiation. In a simple Newton model, $\dot Q_{\mathrm{out}}=K(T-T_\infty)$, where $K\gt0$ is a thermal conductance in W/K and $T_\infty$ is the ambient temperature in K. A single-phase segment then satisfies $mc_p\dot T=-K(T-T_\infty)$ and decays exponentially toward ambient. Its slope is not constant. The lecture's straight-line sketches are therefore explanatory idealizations, not a universal form of an experimental cooling curve.</p>
 
 <h2 id="range" data-video="bQOEhmJcmAU" data-start="170" data-end="501">5.5 A freezing range produces an increased effective heat capacity <a class="timestamp" href="https://www.youtube.com/watch?v=bQOEhmJcmAU&amp;t=170s">L10 · 02:50</a></h2>
 <p>In an alloy, phase compositions and amounts can evolve over a temperature interval. For a transparent caloric example, prescribe a liquid mass fraction that decreases linearly from one at $T_l=1100$ K to zero at $T_s=900$ K:</p>
@@ -50,23 +50,24 @@
 <p>Inside the range, differentiation gives $dh/dT=c_p+L/(T_l-T_s)=1000\ \mathrm{J\,kg^{-1}K^{-1}}$. Outside, $dh/dT=c_p=500\ \mathrm{J\,kg^{-1}K^{-1}}$. Under the same 100 W extraction from one kilogram, the cooling slopes are therefore</p>
 <div class="equation">$$\dot T=-\frac{\dot Q_{\mathrm{out}}}{m\,dh/dT}=\begin{cases}-0.2\ \mathrm{K\,s^{-1}}&\text{single phase},\\-0.1\ \mathrm{K\,s^{-1}}&\text{prescribed two-phase range}.\end{cases}\tag{5.8}$$</div>
 <p>Starting at $1300$ K gives initial enthalpy $300000$ J/kg. The first solid appears at $1100$ K after $1000$ s; the last liquid disappears at $900$ K after $3000$ s. During the range, latent heat is continuously released, slowing the temperature decline without generating a flat plateau. The extra enthalpy carried across the range is $L=100000$ J/kg, in addition to $c_p\times200=100000$ J/kg of sensible cooling.</p>
-<figure><img src="assets/cooling-models.svg" alt="Calculated constant-power cooling curves: the pure model has a 1000 K arrest from 1500 to 2500 seconds; the prescribed alloy model cools through 1100 to 900 K from 1000 to 3000 seconds. Companion curves show the changing solid mass fractions."><figcaption>Original exact caloric models. Similar slope changes can identify transformation intervals, but these smooth synthetic curves contain no sensor noise, spatial gradients or nucleation delay.</figcaption></figure>
-<p>More generally, $h=\sum_\alpha w_\alpha h_\alpha$ contains temperature-dependent phase mass fractions and phase enthalpies. Along a fixed-composition equilibrium path, differentiating includes both sensible terms and redistribution terms. If phase compositions change, their effect on each $h_\alpha$ also belongs in the total derivative. Treating every alloy with a single universal constant latent heat times a linear fraction is an approximation that must be declared.</p>
+<p>Figure 5.1 compares the computed temperature traces with their solid-fraction histories: the arrest and the sloping interval both carry continuing solidification.</p>
+<figure><img src="assets/cooling-models.svg" alt="Calculated constant-power cooling curves: the pure model has a 1000 K arrest from 1500 to 2500 seconds; the prescribed alloy model cools through 1100 to 900 K from 1000 to 3000 seconds. Companion curves show the changing solid mass fractions."><figcaption>Figure 5.1. Original exact caloric models. Similar slope changes can identify transformation intervals, but these smooth synthetic curves contain no sensor noise, spatial gradients or nucleation delay.</figcaption></figure>
+<p>More generally, let $w_\alpha$ denote phase mass fraction and $h_\alpha$ phase-specific enthalpy in J/kg. The mixture $h=\sum_\alpha w_\alpha h_\alpha$ contains temperature-dependent phase mass fractions and phase enthalpies. Along a fixed-composition equilibrium path, differentiating includes both sensible terms and redistribution terms. If phase compositions change, their effect on each $h_\alpha$ also belongs in the total derivative. Treating every alloy with a single universal constant latent heat times a linear fraction is an approximation that must be declared.</p>
 <p>A eutectic-containing alloy can combine both signatures: a sloping primary-solidification interval followed by an invariant arrest. An alloy at the eutectic composition can have an ideal arrest without an earlier primary interval. Thus the presence or absence of a plateau depends on the phase path, as well as on measurement resolution and kinetics. “Pure substances arrest; all alloys freeze over a range” is too broad.</p>
 
 <h2 id="undercooling" data-video="bQOEhmJcmAU" data-start="501" data-end="576">5.6 Undercooling can be followed by recalescence <a class="timestamp" href="https://www.youtube.com/watch?v=bQOEhmJcmAU&amp;t=501s">L10 · 08:21</a></h2>
 <p>A liquid can remain metastable below its equilibrium freezing temperature if suitable solid nuclei have not yet grown. Once rapid crystallization starts, latent heat can raise the temperature: <dfn>recalescence</dfn>. This rise does not violate overall energy conservation. It transfers part of the sample's phase-change enthalpy into sensible heating, while external heat loss may continue.</p>
-<p>Use the pure model above, but let the liquid first reach $T_n=T_m-\Delta T$ without solidifying. If the initial crystallization burst is so short that external heat loss is negligible, compare initial and final enthalpies. Initially $h_i=L-c_p\Delta T$. If the burst returns the mixture to $T_m$, its final enthalpy is $(1-f_s)L$. Equating them yields</p>
+<p>Use the pure model above, but let the liquid first reach $T_n=T_m-\Delta T$ without solidifying, where $\Delta T\geq0$ is its undercooling in kelvin. If the initial crystallization burst is so short that external heat loss is negligible, compare initial and final enthalpies. Initially $h_i=L-c_p\Delta T$. If the burst returns the mixture to $T_m$, its final enthalpy is $(1-f_s)L$. Equating them yields</p>
 <div class="equation">$$f_s=\frac{c_p\Delta T}{L}.\tag{5.9}$$</div>
 <p>For $\Delta T=20$ K, only $f_s=0.1$ must freeze to reheat the remaining sample to $T_m$. Most of the liquid still needs to solidify afterward, with its latent heat removed externally. The approximation requires $0\leq c_p\Delta T/L\leq1$ and neglects heat loss during the burst. If the ratio exceeds one, even freezing the entire sample cannot restore $T_m$ under these assumptions. Equation (5.9) is an energy constraint, not a prediction of nucleation temperature, burst time or growth speed.</p>
 <p>Slower cooling can reduce some kinetic deviations but is not, by itself, proof of full equilibrium. The required diffusion length, sample history, temperature uniformity and detection threshold still matter. Measurements at multiple rates, checks after annealing, and independent phase identification help distinguish an equilibrium boundary from a reproducible nonequilibrium event.</p>
 
 <h2 id="thermometry" data-video="bQOEhmJcmAU" data-start="576" data-end="695">5.7 Thermometer temperature and sample temperature are different variables <a class="timestamp" href="https://www.youtube.com/watch?v=bQOEhmJcmAU&amp;t=576s">L10 · 09:36</a></h2>
-<p>Consider an intentionally simple thermometer model with response time $\tau_T$:</p>
+<p>Let $T$ be the true uniform sample temperature and $T_{\mathrm{obs}}$ the thermometer reading, both in K. An intentionally simple thermometer model with positive response time $\tau_T$ in seconds is</p>
 <div class="equation">$$\tau_T\frac{dT_{\mathrm{obs}}}{dt}=T-T_{\mathrm{obs}}.\tag{5.10}$$</div>
-<p>If the true sample temperature is $T(t)=T_0-rt$, with $r>0$, and the thermometer initially agrees with it, solve the linear equation to obtain</p>
+<p>If the true sample temperature is $T(t)=T_0-rt$, with initial temperature $T_0$ in K and constant cooling rate $r\gt 0$ in K/s, assume the thermometer initially agrees with it. For the error $e=T_{\mathrm{obs}}-T$ in K, subtraction gives $\dot e+e/\tau_T=r$ and $e(0)=0$. Multiplication by $e^{t/\tau_T}$ and integration gives</p>
 <div class="equation">$$T_{\mathrm{obs}}(t)=T(t)+r\tau_T\left(1-e^{-t/\tau_T}\right).\tag{5.11}$$</div>
-<p>The observed temperature is higher than the sample temperature during this cooling ramp. At $r=0.2\ \mathrm{K\,s^{-1}}$, $\tau_T=10$ s and $t=100$ s, the true temperature is $1280$ K and the model reading is $1281.999909$ K. A statement that “thermal lag shifts temperature” is incomplete until the measured body, heat-flow geometry and sign of the shift are specified.</p>
+<p>The observed temperature is higher than the sample temperature during this cooling ramp. At $T_0=1300$ K, $r=0.2\ \mathrm{K\,s^{-1}}$, $\tau_T=10$ s and $t=100$ s, the true temperature is $1280$ K and the model reading is $1281.999909$ K. A statement that “thermal lag shifts temperature” is incomplete until the measured body, heat-flow geometry and sign of the shift are specified.</p>
 <p>The <a href="https://www.doitpoms.ac.uk/tlplib/phase-diagrams/experiment.php">original Cambridge DoITPoMS Sn–Bi experiment</a> reconstructs a diagram from eleven mass-percent compositions. Its interpretation attributes a roughly $15\ ^\circ\mathrm C$ downward displacement to a thermocouple enclosed in glass rather than contacting the alloy. It also identifies composition uncertainty and a missing experimental solidus segment. This is an instrumentation warning, not evidence that every shifted cooling diagram measures kinetic undercooling. The lecture's generic discussion of nonequilibrium deviations should be read with that distinction. The one-body time-lag model above does not reproduce that apparatus or its negative bias.</p>
 <p>In <a href="https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication960-15.pdf">NIST SP 960–15</a>, §§2.4.3–2.5 and 3.2.3–3.3, the authors distinguish sample, reference and thermocouple temperatures, discuss rate and contact effects, and warn that some apparent thermal-signal features arise from heat transfer rather than phase boundaries. Their recommended onset interpretation is tied to calibration and instrument conditions. A cooling-curve temperature arrest and a peak in a differential thermal signal are different observables; neither can be renamed a liquidus without an interpretation model.</p>
 <p>The connection remains active research. <a href="https://link.springer.com/article/10.1007/s10973-025-15191-8">Moon and collaborators' 2026 calibration study</a> uses repeated heating measurements at several rates and extrapolation toward zero rate to estimate equilibrium melting temperatures of candidate reference alloys. It separates the first detectable onset from an extrapolated onset and a peak, and it identifies oxidation of nickel standards as a calibration concern. The relevant lesson is methodological: chemistry of a reference material and the signal-picking rule can alter an inferred temperature before any thermodynamic database is fitted. These notes do not reproduce their instrument, onset algorithm or uncertainty analysis.</p>
@@ -90,68 +91,110 @@
 </ol>
 
 <h2 id="code">5.10 Reproducible calculation</h2>
-<p>The program below uses only the Python standard library. It checks 4001 points on the prescribed caloric path, pure-phase transition boundaries, the sign of a thermometer's ramp error and the enthalpy balance for recalescence. Run <code>python code/ch05_cooling_curves.py</code> from the project directory. The independent plot generator <code>tools/plot_cooling.py</code> needs Matplotlib; its curves contain stipulated parameters rather than experimental data.</p>
+<p>The program below uses only the Python standard library. It checks 4001 points on the prescribed caloric path, pure-phase transition boundaries, the sign of a thermometer's ramp error and the enthalpy balance for recalescence. Run <code>python code/ch05_cooling_curves.py</code> from the project directory. The listing uses fixed explicit constants, reads no files, makes no network requests and writes only standard output; assertions reject failed model checks. It is not an input-validating calorimetry service. The independent plot generator <code>tools/plot_cooling.py</code> needs Matplotlib; its curves contain stipulated parameters rather than experimental data.</p>
 <pre data-run="code/ch05_cooling_curves.py"><code class="language-python">"""Declared caloric and sensor models, not a real-alloy assessment."""
+
 from math import exp, log, isclose
+
 CP, LATENT, MASS, POWER = 500.0, 100000.0, 1.0, 100.0
 
+
 def pure(t):
-    h = 250000.0 - POWER*t/MASS
+    h = 250000.0 - POWER * t / MASS
     if h &gt; LATENT:
-        return 1000.0 + (h-LATENT)/CP, 0.0, h
+        return 1000.0 + (h - LATENT) / CP, 0.0, h
     if h &gt;= 0:
-        return 1000.0, 1-h/LATENT, h
-    return 1000.0 + h/CP, 1.0, h
+        return 1000.0, 1 - h / LATENT, h
+    return 1000.0 + h / CP, 1.0, h
+
 
 def mushy(t):
-    h = 300000.0 - POWER*t/MASS
+    h = 300000.0 - POWER * t / MASS
     if h &gt; 200000:
-        return 900.0 + (h-LATENT)/CP, 0.0, h
+        return 900.0 + (h - LATENT) / CP, 0.0, h
     if h &gt;= 0:
-        temperature = 900.0 + h/1000.0
-        return temperature, (1100-temperature)/200, h
-    return 900.0 + h/CP, 1.0, h
+        temperature = 900.0 + h / 1000.0
+        return temperature, (1100 - temperature) / 200, h
+    return 900.0 + h / CP, 1.0, h
+
 
 def sensor_step(start, slope, duration, observed, tau):
     """Exact response to a linear true-temperature segment."""
-    end = start + slope*duration
-    return end-slope*tau+(observed-start+slope*tau)*exp(-duration/tau)
+    end = start + slope * duration
+    return (
+        end
+        - slope * tau
+        + (observed - start + slope * tau) * exp(-duration / tau)
+    )
+
 
 def relaxation(t, equilibrium=0.8, tau=100.0):
-    return equilibrium*(1-exp(-t/tau))
+    return equilibrium * (1 - exp(-t / tau))
+
 
 def main():
-    for t in [0,1500,2000,2500,3500]:
+    for t in [0, 1500, 2000, 2500, 3500]:
         temperature, solid, h = pure(t)
-        assert isclose(h,CP*(temperature-1000)+LATENT*(1-solid),abs_tol=1e-8)
-    for t in range(0,4001):
+        assert isclose(
+            h, CP * (temperature - 1000) + LATENT * (1 - solid), abs_tol=1e-8
+        )
+    for t in range(0, 4001):
         temperature, solid, h = mushy(t)
-        assert isclose(h,CP*(temperature-900)+LATENT*(1-solid),abs_tol=1e-8)
+        assert isclose(
+            h, CP * (temperature - 900) + LATENT * (1 - solid), abs_tol=1e-8
+        )
         assert 0 &lt;= solid &lt;= 1
     assert pure(1500)[0] == pure(2500)[0] == 1000
-    assert isclose(pure(2000)[1],0.5)
+    assert isclose(pure(2000)[1], 0.5)
     assert mushy(1000)[0] == 1100 and mushy(3000)[0] == 900
-    assert isclose((mushy(2001)[0]-mushy(2000)[0]),-0.1,abs_tol=1e-10)
-    # On a ramp cooling at 0.2 K/s, the initially equilibrated sensor reads high.
-    observed=sensor_step(1300,-0.2,100,1300,10)
-    offset=observed-1280
-    assert isclose(offset,2*(1-exp(-10)),abs_tol=1e-10)
+    assert isclose((mushy(2001)[0] - mushy(2000)[0]), -0.1, abs_tol=1e-10)
+    # On a ramp cooling at 0.2 K/s, the initially equilibrated sensor reads
+    # high.
+    observed = sensor_step(1300, -0.2, 100, 1300, 10)
+    offset = observed - 1280
+    assert isclose(offset, 2 * (1 - exp(-10)), abs_tol=1e-10)
     # Equal final enthalpy in an approximately adiabatic recalescence burst.
-    undercool=20.0
-    burst_fraction=CP*undercool/LATENT
-    assert isclose(LATENT-CP*undercool,LATENT*(1-burst_fraction))
-    assert isclose(relaxation(100*log(20))/0.8,0.95)
-    print('Pure: liquidus arrival 1500 s; arrest 1000 s; completion 2500 s.')
-    print('Pure at 2000 s: T = %.1f K; solid mass fraction = %.3f.' % pure(2000)[:2])
-    print('Range model: first solid 1000 s; last liquid 3000 s; slope -0.100 K/s.')
-    print('Sensor at 100 s: true 1280.000 K; observed %.6f K; offset +%.6f K.' % (observed,offset))
-    print('Recalescence: 20 K undercooling -&gt; %.3f solid mass fraction.' % burst_fraction)
-    print('Relaxation at 10, 100, 300 s: ' + ', '.join('%.6f' % relaxation(t) for t in [10,100,300]))
-    print('95%% of equilibrium amount: %.6f s.' % (100*log(20)))
-    print('Diffusion estimates: %.0f s (%.6f days); %.0f s.' % (1e-8/1e-14,1e-8/1e-14/86400,1e-8/1e-9))
-    print('Checks: 4001 caloric identities, pure-phase boundaries, sensor sign and burst enthalpy PASS.')
+    undercool = 20.0
+    burst_fraction = CP * undercool / LATENT
+    assert isclose(LATENT - CP * undercool, LATENT * (1 - burst_fraction))
+    assert isclose(relaxation(100 * log(20)) / 0.8, 0.95)
+    print("Pure: liquidus arrival 1500 s; arrest 1000 s; completion 2500 s.")
+    print(
+        "Pure at 2000 s: T = %.1f K; solid mass fraction = %.3f."
+        % pure(2000)[:2]
+    )
+    print(
+        (
+            "Range model: first solid 1000 s; last liquid 3000 s; slope -0.10"
+            "0 K/s."
+        )
+    )
+    print(
+        "Sensor at 100 s: true 1280.000 K; observed %.6f K; offset +%.6f K."
+        % (observed, offset)
+    )
+    print(
+        "Recalescence: 20 K undercooling -&gt; %.3f solid mass fraction."
+        % burst_fraction
+    )
+    print(
+        "Relaxation at 10, 100, 300 s: "
+        + ", ".join("%.6f" % relaxation(t) for t in [10, 100, 300])
+    )
+    print("95%% of equilibrium amount: %.6f s." % (100 * log(20)))
+    print(
+        "Diffusion estimates: %.0f s (%.6f days); %.0f s."
+        % (1e-8 / 1e-14, 1e-8 / 1e-14 / 86400, 1e-8 / 1e-9)
+    )
+    print(
+        (
+            "Checks: 4001 caloric identities, pure-phase boundaries, sensor s"
+            "ign and burst enthalpy PASS."
+        )
+    )
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()
 </code></pre>
 <pre class="output">Pure: liquidus arrival 1500 s; arrest 1000 s; completion 2500 s.

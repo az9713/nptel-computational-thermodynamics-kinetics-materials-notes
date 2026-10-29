@@ -1,8 +1,8 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="dark light"><meta name="book-content-sha256" content="f081244ad1ec7b41949bcaa32106c7376e4a36f3c2af7d776f2b94f272394836"><title>Conservative transport, interfaces and rapid solidification · Computational Thermodynamics</title><link rel="stylesheet" href="assets/book.css"><script src="assets/math-config.js"></script><script defer src="assets/mathjax-tex-svg.js"></script><script defer src="assets/book.js"></script></head>
-<body><a class="skip" href="#main">Skip to content</a><header class="site-header"><a class="brand" href="index.html">Computational Thermodynamics and Kinetics of Materials</a><nav class="course-nav"><a href="index.html">Chapters</a><a href="source-map.html">Source map</a><a href="references.html">References</a><a href="numerical-lab.html">Numerical lab</a></nav></header><div class="layout"><aside class="toc" id="chapter-toc"><h2>On this page</h2></aside><main id="main"><div class="reading-tools"><button id="theme-toggle" aria-pressed="false">Light theme</button><button id="text-toggle" aria-pressed="false">Larger text</button><button id="solutions-toggle" aria-pressed="false">Expand solutions</button><button id="print-page">Print with solutions</button></div>
+<body><a class="skip" href="#main">Skip to content</a><header class="site-header"><a class="brand" href="index.html">Computational Thermodynamics and Kinetics of Materials</a><nav class="course-nav"><a href="index.html">Chapters</a><a href="source-map.html">Source map</a><a href="references.html">References</a><a href="numerical-lab.html">Numerical lab</a></nav></header><div class="layout"><aside class="toc" id="chapter-toc"><h2 id="on-this-page">On this page</h2></aside><main id="main"><div class="reading-tools"><button id="theme-toggle" aria-pressed="false">Light theme</button><button id="text-toggle" aria-pressed="false">Larger text</button><button id="solutions-toggle" aria-pressed="false">Expand solutions</button><button id="print-page">Print with solutions</button></div>
 <article id="chapter-content"><!-- BOOK-CONTENT-START -->
-<h1>20. Conservative transport, interfaces and rapid solidification</h1>
+<h1 id="chapter-title">20. Conservative transport, interfaces and rapid solidification</h1>
 <p class="lead">A smooth simulation curve is evidence only after its balances, boundary conditions and limiting cases have survived checks. The hands-on lectures move from homogenization to migrating interfaces, ternary diffusion paths and modified solidification. This chapter reconstructs the governing problems and supplies open, synthetic benchmarks that can be inspected without commercial databases.</p>
 <div class="callout"><strong>Scope.</strong> Entire local ASRs of lessons 49–52 were read sequentially. Reported Fe–Ni, Fe–C, Fe–Cr–Ni and Al–Cu demonstrations remain descriptions of the recordings: their proprietary thermodynamic and mobility databases, graphical project files and experimental overlays were not reproduced. The program below instead solves an original conservative diffusion benchmark, checks a one-sided moving interface, integrates a prescribed thermal history and tests bounded kinetic models. It does not implement DICTRA or a complete modified-Scheil solver.</div>
 <h2 id="setup">20.1 Translate the graphical setup into an initial-boundary-value problem</h2>
@@ -100,127 +100,288 @@ $$p=\frac{d\ln s}{d\ln t}
 <p>Define the equilibrium partition coefficient consistently as $k_e=c_s/c_l$. A sentence in lesson 52 reverses that ratio before subsequent discussion uses solid over liquid; using one convention throughout avoids reversing the predicted trend. For a dilute continuous-growth partition model with prescribed nonnegative interface speed v and positive diffusive speed $v_D$, take</p>
 $$k(v)=\frac{k_e+v/v_D}{1+v/v_D}.$$
 <p>The selected actual <a href="https://arxiv.org/abs/1809.05148">Pinomaa–Provatas (2018) preprint, pp.1–4, especially Eq.(1)</a> was read. Its rapid-solidification study treats a controlled phase-field/sharp-interface mapping; those simulations and asymptotic proofs are not reproduced here. Its discussion also makes clear why numerical interface width can contaminate apparent trapping unless the model is appropriately mapped. The original 1982 Aziz PDF was located but local full-PDF acquisition was blocked, so these notes do not claim to have read that original paper.</p>
-<p>For $0<k_e<1$, differentiation gives $dk/dv=(1-k_e)/[v_D(1+v/v_D)^2]>0$. The equilibrium limit is ke at zero speed, and the model approaches one as speed tends to infinity. Complete trapping is only an asymptotic limit of this particular law; other kinetic models can have different limiting behavior. If ke exceeds one, the trend is toward one from above rather than an increase. Neither direction is universal without the convention and model.</p>
+<p>For $0\lt k_e\lt 1$, differentiation gives $dk/dv=(1-k_e)/[v_D(1+v/v_D)^2]\gt 0$. The equilibrium limit is ke at zero speed, and the model approaches one as speed tends to infinity. Complete trapping is only an asymptotic limit of this particular law; other kinetic models can have different limiting behavior. If ke exceeds one, the trend is toward one from above rather than an increase. Neither direction is universal without the convention and model.</p>
 <p>With ke=0.2 and vD=1 m/s, speeds 0, 0.1, 1 and 10 m/s give k=0.2, 0.272727273, 0.6 and 0.927272727. For a deliberately frozen constant speed, inserting that constant k into the simple mixed-liquid/no-solid-diffusion solute balance gives $c_l=c_{\rm initial}(1-f_s)^{k-1}$. At fs=0.9 and initial fraction 0.04, the resulting liquid fractions are 0.252382938, 0.213467969, 0.100475457 and 0.047291955. The associated mean solid fraction composition is calculated by exact total-solute conservation.</p>
 <p>This hybrid toy demonstrates reduced enrichment when partitioning approaches unity. It does not predict a liquidus, eutectic amount, heat flow, velocity history or final equilibrium state. Similar-looking solidification curves can arise from different physical assumptions; reduced segregation from trapping does not restore global equilibrium. A high cooling rate does not alone determine v: in a steady translating thermal field one may use $\dot T=Gv$ with a specified gradient G, but different gradients give different interface speeds at the same cooling rate.</p>
 <p>Likewise a projected scan-speed relation needs a specified interface normal and angle; the official API documents a scan-speed cosine projection for its model setup. It is not an identity that every laser scan speed equals the local solidification velocity. The absence of a bulk mobility database in one trapping template also does not imply the microscopic redistribution kinetics contain no diffusivity scale: vD is precisely additional kinetic input.</p>
 <h2 id="code">20.11 Run the benchmarks</h2>
 <p><a href="code/ch20_conservative_transport.py">Download the exact standard-library program</a>. It performs mesh refinement, checks conservation and bounds at every diffusion step, evaluates the thermal integral twice, tests local and integrated moving-boundary balances and checks the bounded partitioning examples. Reported agreement is with these specified mathematical problems.</p>
-<pre data-run="code/ch20_conservative_transport.py"><code>&quot;&quot;&quot;Original conservative transport benchmarks; no commercial solver or alloy fit.&quot;&quot;&quot;
-from math import exp,log,sqrt,pi,erf,erfc,sin,cos,ceil,isclose
-R=8.31446261815324
-length,diff,mean=2e-4,1e-13,.25
-def exact_average(i,n,tau):
-    a,b=i/n,(i+1)/n
-    return mean+sum(-2/(m*pi)**2*exp(-(m*pi)**2*tau)*
-        (sin(m*pi*b)-sin(m*pi*a))/(m*pi*(b-a))
-        for m in range(1,301,2))
-def tridiagonal(lower,diag,upper,rhs):
-    n=len(diag);c=upper[:];d=rhs[:];pivot=diag[0]
-    if n&gt;1:c[0]/=pivot
-    d[0]/=pivot
-    for i in range(1,n):
-        pivot=diag[i]-lower[i-1]*c[i-1]
-        assert pivot&gt;0
-        if i&lt;n-1:c[i]/=pivot
-        d[i]=(d[i]-lower[i-1]*d[i-1])/pivot
-    for i in range(n-2,-1,-1):d[i]-=c[i]*d[i+1]
+<pre data-run="code/ch20_conservative_transport.py"><code>"""Original conservative transport benchmarks; no commercial solver or \
+alloy fit."""
+
+from math import exp, log, sqrt, pi, erf, erfc, sin, cos, ceil, isclose
+
+R = 8.31446261815324
+length, diff, mean = 2e-4, 1e-13, 0.25
+
+
+def exact_average(i, n, tau):
+    a, b = i / n, (i + 1) / n
+    return mean + sum(
+        -2
+        / (m * pi) ** 2
+        * exp(-((m * pi) ** 2) * tau)
+        * (sin(m * pi * b) - sin(m * pi * a))
+        / (m * pi * (b - a))
+        for m in range(1, 301, 2)
+    )
+
+
+def tridiagonal(lower, diag, upper, rhs):
+    n = len(diag)
+    c = upper[:]
+    d = rhs[:]
+    pivot = diag[0]
+    if n &gt; 1:
+        c[0] /= pivot
+    d[0] /= pivot
+    for i in range(1, n):
+        pivot = diag[i] - lower[i - 1] * c[i - 1]
+        assert pivot &gt; 0
+        if i &lt; n - 1:
+            c[i] /= pivot
+        d[i] = (d[i] - lower[i - 1] * d[i - 1]) / pivot
+    for i in range(n - 2, -1, -1):
+        d[i] -= c[i] * d[i + 1]
     return d
-def evolve(n,tau,variable=False):
-    u=[.5*(i+.5)/n for i in range(n)]
-    cell_d=[1. if not variable or i&lt;n//2 else 4. for i in range(n)]
-    face=[2*a*b/(a+b) for a,b in zip(cell_d,cell_d[1:])]
-    steps=ceil(tau*n*n/.5);step=tau/steps;r=step*n*n
-    lower=[-r*d for d in face];upper=lower[:]
-    diag=[1+r*((face[i-1] if i else 0)+(face[i] if i&lt;n-1 else 0)) for i in range(n)]
-    mass0=sum(u)/n;var0=sum((x-mass0)**2 for x in u)/n
-    max_drift=0.;largest_variance_rise=0.;oldvar=var0
+
+
+def evolve(n, tau, variable=False):
+    u = [0.5 * (i + 0.5) / n for i in range(n)]
+    cell_d = [1.0 if not variable or i &lt; n // 2 else 4.0 for i in range(n)]
+    face = [2 * a * b / (a + b) for a, b in zip(cell_d, cell_d[1:])]
+    steps = ceil(tau * n * n / 0.5)
+    step = tau / steps
+    r = step * n * n
+    lower = [-r * d for d in face]
+    upper = lower[:]
+    diag = [
+        1 + r * ((face[i - 1] if i else 0) + (face[i] if i &lt; n - 1 else 0))
+        for i in range(n)
+    ]
+    mass0 = sum(u) / n
+    var0 = sum((x - mass0) ** 2 for x in u) / n
+    max_drift = 0.0
+    largest_variance_rise = 0.0
+    oldvar = var0
     for _ in range(steps):
-        u=tridiagonal(lower,diag,upper,u)
-        mass=sum(u)/n;var=sum((x-mass0)**2 for x in u)/n
-        max_drift=max(max_drift,abs(mass-mass0))
-        largest_variance_rise=max(largest_variance_rise,var-oldvar)
-        assert min(u)&gt;-1e-12 and max(u)&lt;.5+1e-12
-        oldvar=var
-    assert max_drift&lt;1e-12 and largest_variance_rise&lt;1e-14
-    return u,steps,max_drift,oldvar
-errors=[]
-for n in (40,80,160):
-    u,steps,drift,var=evolve(n,.1)
-    err=max(abs(u[i]-exact_average(i,n,.1)) for i in range(n))
+        u = tridiagonal(lower, diag, upper, u)
+        mass = sum(u) / n
+        var = sum((x - mass0) ** 2 for x in u) / n
+        max_drift = max(max_drift, abs(mass - mass0))
+        largest_variance_rise = max(largest_variance_rise, var - oldvar)
+        assert min(u) &gt; -1e-12 and max(u) &lt; 0.5 + 1e-12
+        oldvar = var
+    assert max_drift &lt; 1e-12 and largest_variance_rise &lt; 1e-14
+    return u, steps, max_drift, oldvar
+
+
+errors = []
+for n in (40, 80, 160):
+    u, steps, drift, var = evolve(n, 0.1)
+    err = max(abs(u[i] - exact_average(i, n, 0.1)) for i in range(n))
     errors.append(err)
-    print(f&#x27;Closed diffusion N={n}: steps={steps}, max error={err:.9e}, mean drift={drift:.3e}, variance={var:.9e}&#x27;)
-assert errors[0]/errors[1]&gt;3.8 and errors[1]/errors[2]&gt;3.8
-print(f&#x27;Convergence ratios={errors[0]/errors[1]:.6f},{errors[1]/errors[2]:.6f}; second-order combined refinement&#x27;)
-u,steps,drift,var=evolve(80,.1,True)
-print(f&#x27;Variable-D closed specimen: mean={sum(u)/80:.12f}, range={min(u):.9f}..{max(u):.9f}; every-step conservation, positivity and variance checks PASS&#x27;)
-tol=.001
-tau_est=log((2/pi**2)/tol)/pi**2
-time_est=tau_est*length**2/diff
-remainder=sum(2/(m*pi)**2*exp(-m*m*pi*pi*tau_est) for m in range(3,301,2))
-assert remainder&lt;1e-19
-print(f&#x27;First-mode homogenization threshold {tol}: time={time_est/3600:.6f} h; higher-mode bound={remainder:.3e}&#x27;)
+    print(
+        (
+            f"Closed diffusion N="
+            f"{n}"
+            f": steps="
+            f"{steps}"
+            f", max error="
+            f"{err:.9e}"
+            f", mean drift="
+            f"{drift:.3e}"
+            f", variance="
+            f"{var:.9e}"
+        )
+    )
+assert errors[0] / errors[1] &gt; 3.8 and errors[1] / errors[2] &gt; 3.8
+print(
+    (
+        f"Convergence ratios="
+        f"{errors[0] / errors[1]:.6f}"
+        f","
+        f"{errors[1] / errors[2]:.6f}"
+        f"; second-order combined refinement"
+    )
+)
+u, steps, drift, var = evolve(80, 0.1, True)
+print(
+    (
+        f"Variable-D closed specimen: mean="
+        f"{sum(u) / 80:.12f}"
+        f", range="
+        f"{min(u):.9f}"
+        f".."
+        f"{max(u):.9f}"
+        f"; every-step conservation, positivity and variance checks PASS"
+    )
+)
+tol = 0.001
+tau_est = log((2 / pi**2) / tol) / pi**2
+time_est = tau_est * length**2 / diff
+remainder = sum(
+    2 / (m * pi) ** 2 * exp(-m * m * pi * pi * tau_est)
+    for m in range(3, 301, 2)
+)
+assert remainder &lt; 1e-19
+print(
+    (
+        f"First-mode homogenization threshold "
+        f"{tol}"
+        f": time="
+        f"{time_est / 3600:.6f}"
+        f" h; higher-mode bound="
+        f"{remainder:.3e}"
+    )
+)
 # Spatially uniform prescribed temperature; no thermodiffusion term.
-d0,q=1e-5,180000.
-def diffusivity(t):return d0*exp(-q/(R*t))
-def simpson(f,a,b,n):
-    assert n%2==0
-    h=(b-a)/n
-    return h/3*(f(a)+f(b)+sum((4 if i%2 else 2)*f(a+i*h) for i in range(1,n)))
-def temperature(t):return 1173+(1050-1173)*t/773 if t&lt;=773 else 1050.
-def clock(n):return simpson(lambda t:diffusivity(temperature(t)),0,773,n)+227*diffusivity(1050)
-theta=clock(2000);coarse=clock(1000)
-assert abs(theta-coarse)/theta&lt;1e-9
-print(f&#x27;Thermal diffusion clock={theta:.12e} m2; equivalent1050K time={theta/diffusivity(1050):.6f} s; quadrature relative difference={abs(theta-coarse)/theta:.3e}&#x27;)
+d0, q = 1e-5, 180000.0
+
+
+def diffusivity(t):
+    return d0 * exp(-q / (R * t))
+
+
+def simpson(f, a, b, n):
+    assert n % 2 == 0
+    h = (b - a) / n
+    return (
+        h
+        / 3
+        * (
+            f(a)
+            + f(b)
+            + sum((4 if i % 2 else 2) * f(a + i * h) for i in range(1, n))
+        )
+    )
+
+
+def temperature(t):
+    return 1173 + (1050 - 1173) * t / 773 if t &lt;= 773 else 1050.0
+
+
+def clock(n):
+    return simpson(
+        lambda t: diffusivity(temperature(t)), 0, 773, n
+    ) + 227 * diffusivity(1050)
+
+
+theta = clock(2000)
+coarse = clock(1000)
+assert abs(theta - coarse) / theta &lt; 1e-9
+print(
+    (
+        f"Thermal diffusion clock="
+        f"{theta:.12e}"
+        f" m2; equivalent1050K time="
+        f"{theta / diffusivity(1050):.6f}"
+        f" s; quadrature relative difference="
+        f"{abs(theta - coarse) / theta:.3e}"
+    )
+)
 # One-sided planar local-equilibrium growth into a semi-infinite parent.
-cs,ci,c0,di=.02,.4,.15,1e-12
-ratio=(ci-c0)/(sqrt(pi)*(ci-cs))
-lo,hi=0.,3.
+cs, ci, c0, di = 0.02, 0.4, 0.15, 1e-12
+ratio = (ci - c0) / (sqrt(pi) * (ci - cs))
+lo, hi = 0.0, 3.0
 for _ in range(100):
-    lam=(lo+hi)/2
-    if lam*exp(lam*lam)*erfc(lam)&lt;ratio:lo=lam
-    else:hi=lam
-lam=(lo+hi)/2;t=1000.;position=2*lam*sqrt(di*t)
-velocity=lam*sqrt(di/t)
-flux=di*(ci-c0)*exp(-lam*lam)/(sqrt(pi*di*t)*erfc(lam))
-assert isclose(velocity*(ci-cs),flux,rel_tol=1e-13)
-excess=2*sqrt(di*t)*(ci-c0)*(exp(-lam*lam)/sqrt(pi)-lam*erfc(lam))/erfc(lam)
-assert isclose(excess,(c0-cs)*position,rel_tol=1e-13)
-print(f&#x27;One-sided interface: lambda={lam:.9f}, s1000={position*1e6:.6f} um, v={velocity:.12e} m/s; local jump and integrated solute PASS&#x27;)
-fraction=(ci-c0)/(ci-cs)
-print(f&#x27;Finite closed equal-density equilibrium: solid fraction={fraction:.9f}; semi-infinite growth is not valid through finite saturation&#x27;)
-# Two coupled constant coefficients, stable single phase, independent mole fractions.
-z=2*sqrt(1e-13*1000.)
-eplus=erf(z/(2*sqrt(3e-13*1000.)));eminus=erf(z/(2*sqrt(1e-13*1000.)))
-xa=.2+(.3*eplus+.1*eminus)/4
-xb=.15+(.3*eplus-.1*eminus)/4
-offset=xb-(.1+.5*(xa-.1))
-assert 0&lt;xa&lt;1 and 0&lt;xb&lt;1 and xa+xb&lt;1 and abs(offset)&gt;.005
-print(f&#x27;Coupled diffusion path at20um: xA={xa:.9f}, xB={xb:.9f}, deviation from end-member straight line={offset:.9f}&#x27;)
+    lam = (lo + hi) / 2
+    if lam * exp(lam * lam) * erfc(lam) &lt; ratio:
+        lo = lam
+    else:
+        hi = lam
+lam = (lo + hi) / 2
+t = 1000.0
+position = 2 * lam * sqrt(di * t)
+velocity = lam * sqrt(di / t)
+flux = di * (ci - c0) * exp(-lam * lam) / (sqrt(pi * di * t) * erfc(lam))
+assert isclose(velocity * (ci - cs), flux, rel_tol=1e-13)
+excess = (
+    2
+    * sqrt(di * t)
+    * (ci - c0)
+    * (exp(-lam * lam) / sqrt(pi) - lam * erfc(lam))
+    / erfc(lam)
+)
+assert isclose(excess, (c0 - cs) * position, rel_tol=1e-13)
+print(
+    (
+        f"One-sided interface: lambda="
+        f"{lam:.9f}"
+        f", s1000="
+        f"{position * 1000000.0:.6f}"
+        f" um, v="
+        f"{velocity:.12e}"
+        f" m/s; local jump and integrated solute PASS"
+    )
+)
+fraction = (ci - c0) / (ci - cs)
+print(
+    (
+        f"Finite closed equal-density equilibrium: solid fraction="
+        f"{fraction:.9f}"
+        f"; semi-infinite growth is not valid through finite saturation"
+    )
+)
+# Two coupled constant coefficients, stable single phase, independent mole
+# fractions.
+z = 2 * sqrt(1e-13 * 1000.0)
+eplus = erf(z / (2 * sqrt(3e-13 * 1000.0)))
+eminus = erf(z / (2 * sqrt(1e-13 * 1000.0)))
+xa = 0.2 + (0.3 * eplus + 0.1 * eminus) / 4
+xb = 0.15 + (0.3 * eplus - 0.1 * eminus) / 4
+offset = xb - (0.1 + 0.5 * (xa - 0.1))
+assert 0 &lt; xa &lt; 1 and 0 &lt; xb &lt; 1 and xa + xb &lt; 1 and abs(offset) &gt; 0.005
+print(
+    (
+        f"Coupled diffusion path at20um: xA="
+        f"{xa:.9f}"
+        f", xB="
+        f"{xb:.9f}"
+        f", deviation from end-member straight line="
+        f"{offset:.9f}"
+    )
+)
 # Additive interface and diffusion resistances, an explicitly defined toy law.
-aa,ell=1e-14,1e-6
-mixed=[]
-for t in (1.,100.,10000.):
-    s=2*aa*t/(sqrt(ell*ell+2*aa*t)+ell)
-    exponent=(ell+s/2)/(ell+s)
-    assert isclose(s*s/2+ell*s,aa*t,rel_tol=1e-13)
-    mixed.append((t,s*1e6,exponent))
-print(&#x27;Mixed-control (time_s,position_um,local exponent): &#x27;+str([(t,round(s,9),round(p,9)) for t,s,p in mixed]))
-rates=(10.,1.,.1,.001)
-fourier=[4*1e-13*(100/r)/(50e-6*r**(-1/3))**2 for r in rates]
-print(&#x27;Back-diffusion scale (K/s, integratedD/halfspacing2): &#x27;+str([(r,round(f,9)) for r,f in zip(rates,fourier)]))
+aa, ell = 1e-14, 1e-6
+mixed = []
+for t in (1.0, 100.0, 10000.0):
+    s = 2 * aa * t / (sqrt(ell * ell + 2 * aa * t) + ell)
+    exponent = (ell + s / 2) / (ell + s)
+    assert isclose(s * s / 2 + ell * s, aa * t, rel_tol=1e-13)
+    mixed.append((t, s * 1e6, exponent))
+print(
+    "Mixed-control (time_s,position_um,local exponent): "
+    + str([(t, round(s, 9), round(p, 9)) for t, s, p in mixed])
+)
+rates = (10.0, 1.0, 0.1, 0.001)
+fourier = [4 * 1e-13 * (100 / r) / (50e-6 * r ** (-1 / 3)) ** 2 for r in rates]
+print(
+    "Back-diffusion scale (K/s, integratedD/halfspacing2): "
+    + str([(r, round(f, 9)) for r, f in zip(rates, fourier)])
+)
 # Dilute continuous-growth partition law at prescribed fixed velocity.
-ke,vd,initial,fs=.2,1.,.04,.9
-partitions=[]
-for speed in (0.,.1,1.,10.):
-    k=(ke+speed/vd)/(1+speed/vd)
-    liquid=initial*(1-fs)**(k-1)
-    average_solid=(initial-(1-fs)*liquid)/fs
-    assert isclose(fs*average_solid+(1-fs)*liquid,initial,abs_tol=1e-14)
-    partitions.append((speed,k,liquid))
-print(&#x27;Fixed-speed trapping toy (v_m/s,k,remaining liquid x): &#x27;+str([(v,round(k,9),round(c,9)) for v,k,c in partitions]))
-assert isclose((.9-ke)/(1-.9),7.)
-print(&#x27;All checks PASS; no commercial demo or multicomponent solidification history was reproduced&#x27;)
+ke, vd, initial, fs = 0.2, 1.0, 0.04, 0.9
+partitions = []
+for speed in (0.0, 0.1, 1.0, 10.0):
+    k = (ke + speed / vd) / (1 + speed / vd)
+    liquid = initial * (1 - fs) ** (k - 1)
+    average_solid = (initial - (1 - fs) * liquid) / fs
+    assert isclose(
+        fs * average_solid + (1 - fs) * liquid, initial, abs_tol=1e-14
+    )
+    partitions.append((speed, k, liquid))
+print(
+    "Fixed-speed trapping toy (v_m/s,k,remaining liquid x): "
+    + str([(v, round(k, 9), round(c, 9)) for v, k, c in partitions])
+)
+assert isclose((0.9 - ke) / (1 - 0.9), 7.0)
+print(
+    (
+        "All checks PASS; no commercial demo or multicomponent solidification"
+        " history was reproduced"
+    )
+)
 </code></pre><pre class="output">Closed diffusion N=40: steps=320, max error=1.534346948e-04, mean drift=2.109e-15, variance=2.862217841e-03
 Closed diffusion N=80: steps=1280, max error=3.842403998e-05, mean drift=7.550e-15, variance=2.854645264e-03
 Closed diffusion N=160: steps=5120, max error=9.610107172e-06, mean drift=2.870e-14, variance=2.852750284e-03
@@ -237,14 +398,14 @@ Fixed-speed trapping toy (v_m/s,k,remaining liquid x): [(0.0, 0.2, 0.252382938),
 All checks PASS; no commercial demo or multicomponent solidification history was reproduced
 </pre>
 <h2 id="exercises">20.12 Problems with complete solutions</h2>
-<div class="exercise"><h3>1. What does a factor-four convergence ratio establish?</h3><p>Interpret the three mesh errors when the time step scales as h².</p><details class="solution"><summary>Solution</summary><p>The ratios are 3.993195 and 3.998295, consistent with an error proportional to h² in this combined refinement. The temporal method is backward Euler, with error proportional to delta-t; choosing delta-t proportional to h² makes that error scale the same way as second-order spatial error. The experiment therefore supports second-order combined convergence, not second-order time integration. Comparing exact cell averages also avoids confusing a finite-volume unknown with a point sample.</p></details></div>
-<div class="exercise"><h3>2. Prove conservation without invoking the tridiagonal solver</h3><p>Why does the scheme retain its mean even for spatially varying positive face coefficients?</p><details class="solution"><summary>Solution</summary><p>Sum the cell equations. Each internal face enters the left cell as outflow and the right cell as inflow with equal magnitude. Only the two external fluxes remain, and they are zero. Hence the new sum equals the old sum regardless of the face coefficient values. Positivity is a different property supplied by the matrix/maximum-principle argument; conservation alone would not prevent an unstable scheme from producing negative concentrations.</p></details></div>
-<div class="exercise"><h3>3. How long does homogenization take?</h3><p>Use the first mode and explain the meaning of its tolerance.</p><details class="solution"><summary>Solution</summary><p>Set $(2/\pi^2)\exp(-\pi^2Dt/L^2)=0.001$. With L=0.2 mm and stipulated D=10⁻¹³ m²/s, this gives 59.795740 hours. The fraction tolerance is 0.001, or 0.1 percentage point. Higher odd modes add at most 3.908×10⁻²³ at this time, so the first-mode estimate has a negligible stated remainder at displayed precision. Doubling L multiplies the time by four. This result is not the recorded assessed Fe–Ni value and does not require exact uniformity at finite time.</p></details></div>
-<div class="exercise"><h3>4. When can temperature history be replaced by one number?</h3><p>Derive the diffusion clock and identify a moving-boundary obstruction.</p><details class="solution"><summary>Solution</summary><p>If $u_t=D(t)u_{zz}$ with spatially uniform positive D(t), then $\Theta' =D$ and $u_t=D u_\Theta$ imply $u_\Theta=u_{zz}$. The synthetic ramp/hold gives clock 3.420519444474×10⁻¹¹ m², equivalent to 3079.122317 s at 1050 K. A moving boundary whose equilibrium phase compositions change with temperature does not retain the same transformed boundary conditions, so this substitution alone does not solve its full problem. Thermodiffusion from spatial temperature gradients is also excluded from the derivation.</p></details></div>
-<div class="exercise"><h3>5. Verify rejected-solute conservation at a moving interface</h3><p>Explain why both the local jump and the integrated parent excess are necessary checks.</p><details class="solution"><summary>Solution</summary><p>The similarity profile gives a gradient proportional to $-(c_I-c_0)e^{-\lambda^2}/[\sqrt{\pi D_It}\operatorname{erfc}\lambda]$. Multiplying by minus DI and equating to $s'(c_I-c_s)$ gives the scalar root equation and lambda 0.712159358. Integrating the parent excess then gives $(c_0-c_s)s$: every converted length rejects exactly this excess into the parent. At 1000 s, s=45.040913 µm and v=2.252045627298×10⁻⁸ m/s satisfy the local jump. A finite closed specimen eventually approaches fraction 0.657894737 and needs a finite-domain solution instead of unlimited similarity growth.</p></details></div>
-<div class="exercise"><h3>6. Must a diffusion path be straight?</h3><p>Derive the two-mode explanation and check the supplied point.</p><details class="solution"><summary>Solution</summary><p>The symmetric matrix has eigenvectors (1,1) and (1,−1), with eigenvalues 3Dref and Dref. The endpoint jumps in sum and difference are 0.3 and 0.1. Each mode spreads with its own error-function width, so their ratio varies with z. Recombination at 20 µm yields A=0.265001306 and B=0.172866267; the endpoint straight line would give 0.182500653. Their difference is −0.009634386. Curvature therefore occurs in this stable single-phase toy without invoking a two-phase tie line.</p></details></div>
-<div class="exercise"><h3>7. Why does the growth exponent change?</h3><p>Derive the local exponent of the mixed-resistance toy and qualify its interpretation.</p><details class="solution"><summary>Solution</summary><p>Integrating ds/dt=A/(s+ell) gives At=s²/2+ell s. Hence $p=(t/s)(ds/dt)=(s/2+\ell)/(s+\ell)$. It tends to one when the constant interface resistance dominates and to one half when the growing diffusion resistance dominates. The example gives 0.788675135 at 100 s, so it is in a crossover. This does not establish that every measured nonparabolic curve is interface controlled; finite reservoirs, evolving temperature and changing thermodynamic endpoints can also change the exponent.</p></details></div>
-<div class="exercise"><h3>8. Is slower cooling always a simple inverse-rate gain in back diffusion?</h3><p>Include the change in secondary spacing.</p><details class="solution"><summary>Solution</summary><p>At fixed freezing interval the available time scales as 1/rate. If spacing scales as rate⁻ⁿ, its square scales as rate⁻²ⁿ. Therefore alpha scales as rate²ⁿ⁻¹. For n=1/3, a ten-thousand-fold reduction in rate increases alpha by $10000^{1/3}=21.544347$, not10000. The values 0.007426542 and 0.16 exhibit that ratio. This is a scaling result with constant stipulated Ds and a chosen empirical spacing form, not a quantitative prediction for an assessed dendritic alloy.</p></details></div>
-<div class="exercise"><h3>9. How fast is nearly complete trapping in this model?</h3><p>Solve for k=0.9 when ke=0.2, then distinguish it from back diffusion.</p><details class="solution"><summary>Solution</summary><p>Rearrange $k(1+v/v_D)=k_e+v/v_D$ to get $v/v_D=(k-k_e)/(1-k)$. The target gives 7, hence 7 m/s for the stipulated vD. Reaching exactly one would require an unbounded ratio in this particular continuous-growth law. Back diffusion redistributes solute within formed solid while retaining the chosen interface rule; trapping changes partitioning during interface advance. Either may reduce segregation under some conditions, but they are physically distinct and neither proves final thermodynamic equilibrium.</p></details></div>
+<div class="exercise"><h3 id="1-what-does-a-factor-four-convergence-ratio-establish">1. What does a factor-four convergence ratio establish?</h3><p>Interpret the three mesh errors when the time step scales as h².</p><details class="solution"><summary>Solution</summary><p>The ratios are 3.993195 and 3.998295, consistent with an error proportional to h² in this combined refinement. The temporal method is backward Euler, with error proportional to delta-t; choosing delta-t proportional to h² makes that error scale the same way as second-order spatial error. The experiment therefore supports second-order combined convergence, not second-order time integration. Comparing exact cell averages also avoids confusing a finite-volume unknown with a point sample.</p></details></div>
+<div class="exercise"><h3 id="2-prove-conservation-without-invoking-the-tridiagonal-solver">2. Prove conservation without invoking the tridiagonal solver</h3><p>Why does the scheme retain its mean even for spatially varying positive face coefficients?</p><details class="solution"><summary>Solution</summary><p>Sum the cell equations. Each internal face enters the left cell as outflow and the right cell as inflow with equal magnitude. Only the two external fluxes remain, and they are zero. Hence the new sum equals the old sum regardless of the face coefficient values. Positivity is a different property supplied by the matrix/maximum-principle argument; conservation alone would not prevent an unstable scheme from producing negative concentrations.</p></details></div>
+<div class="exercise"><h3 id="3-how-long-does-homogenization-take">3. How long does homogenization take?</h3><p>Use the first mode and explain the meaning of its tolerance.</p><details class="solution"><summary>Solution</summary><p>Set $(2/\pi^2)\exp(-\pi^2Dt/L^2)=0.001$. With L=0.2 mm and stipulated D=10⁻¹³ m²/s, this gives 59.795740 hours. The fraction tolerance is 0.001, or 0.1 percentage point. Higher odd modes add at most 3.908×10⁻²³ at this time, so the first-mode estimate has a negligible stated remainder at displayed precision. Doubling L multiplies the time by four. This result is not the recorded assessed Fe–Ni value and does not require exact uniformity at finite time.</p></details></div>
+<div class="exercise"><h3 id="4-when-can-temperature-history-be-replaced-by-one-number">4. When can temperature history be replaced by one number?</h3><p>Derive the diffusion clock and identify a moving-boundary obstruction.</p><details class="solution"><summary>Solution</summary><p>If $u_t=D(t)u_{zz}$ with spatially uniform positive D(t), then $\Theta' =D$ and $u_t=D u_\Theta$ imply $u_\Theta=u_{zz}$. The synthetic ramp/hold gives clock 3.420519444474×10⁻¹¹ m², equivalent to 3079.122317 s at 1050 K. A moving boundary whose equilibrium phase compositions change with temperature does not retain the same transformed boundary conditions, so this substitution alone does not solve its full problem. Thermodiffusion from spatial temperature gradients is also excluded from the derivation.</p></details></div>
+<div class="exercise"><h3 id="5-verify-rejected-solute-conservation-at-a-moving-interface">5. Verify rejected-solute conservation at a moving interface</h3><p>Explain why both the local jump and the integrated parent excess are necessary checks.</p><details class="solution"><summary>Solution</summary><p>The similarity profile gives a gradient proportional to $-(c_I-c_0)e^{-\lambda^2}/[\sqrt{\pi D_It}\operatorname{erfc}\lambda]$. Multiplying by minus DI and equating to $s'(c_I-c_s)$ gives the scalar root equation and lambda 0.712159358. Integrating the parent excess then gives $(c_0-c_s)s$: every converted length rejects exactly this excess into the parent. At 1000 s, s=45.040913 µm and v=2.252045627298×10⁻⁸ m/s satisfy the local jump. A finite closed specimen eventually approaches fraction 0.657894737 and needs a finite-domain solution instead of unlimited similarity growth.</p></details></div>
+<div class="exercise"><h3 id="6-must-a-diffusion-path-be-straight">6. Must a diffusion path be straight?</h3><p>Derive the two-mode explanation and check the supplied point.</p><details class="solution"><summary>Solution</summary><p>The symmetric matrix has eigenvectors (1,1) and (1,−1), with eigenvalues 3Dref and Dref. The endpoint jumps in sum and difference are 0.3 and 0.1. Each mode spreads with its own error-function width, so their ratio varies with z. Recombination at 20 µm yields A=0.265001306 and B=0.172866267; the endpoint straight line would give 0.182500653. Their difference is −0.009634386. Curvature therefore occurs in this stable single-phase toy without invoking a two-phase tie line.</p></details></div>
+<div class="exercise"><h3 id="7-why-does-the-growth-exponent-change">7. Why does the growth exponent change?</h3><p>Derive the local exponent of the mixed-resistance toy and qualify its interpretation.</p><details class="solution"><summary>Solution</summary><p>Integrating ds/dt=A/(s+ell) gives At=s²/2+ell s. Hence $p=(t/s)(ds/dt)=(s/2+\ell)/(s+\ell)$. It tends to one when the constant interface resistance dominates and to one half when the growing diffusion resistance dominates. The example gives 0.788675135 at 100 s, so it is in a crossover. This does not establish that every measured nonparabolic curve is interface controlled; finite reservoirs, evolving temperature and changing thermodynamic endpoints can also change the exponent.</p></details></div>
+<div class="exercise"><h3 id="8-is-slower-cooling-always-a-simple-inverse-rate-gain-in-back-diffusion">8. Is slower cooling always a simple inverse-rate gain in back diffusion?</h3><p>Include the change in secondary spacing.</p><details class="solution"><summary>Solution</summary><p>At fixed freezing interval the available time scales as 1/rate. If spacing scales as rate⁻ⁿ, its square scales as rate⁻²ⁿ. Therefore alpha scales as rate²ⁿ⁻¹. For n=1/3, a ten-thousand-fold reduction in rate increases alpha by $10000^{1/3}=21.544347$, not10000. The values 0.007426542 and 0.16 exhibit that ratio. This is a scaling result with constant stipulated Ds and a chosen empirical spacing form, not a quantitative prediction for an assessed dendritic alloy.</p></details></div>
+<div class="exercise"><h3 id="9-how-fast-is-nearly-complete-trapping-in-this-model">9. How fast is nearly complete trapping in this model?</h3><p>Solve for k=0.9 when ke=0.2, then distinguish it from back diffusion.</p><details class="solution"><summary>Solution</summary><p>Rearrange $k(1+v/v_D)=k_e+v/v_D$ to get $v/v_D=(k-k_e)/(1-k)$. The target gives 7, hence 7 m/s for the stipulated vD. Reaching exactly one would require an unbounded ratio in this particular continuous-growth law. Back diffusion redistributes solute within formed solid while retaining the chosen interface rule; trapping changes partitioning during interface advance. Either may reduce segregation under some conditions, but they are physically distinct and neither proves final thermodynamic equilibrium.</p></details></div>
 <p class="chapter-nav"><a href="chapter-19-diffusion-mobility-thermodynamic-forces.html">Previous: diffusion and mobility</a> · <a href="index.html">All chapters</a></p>
 <!-- BOOK-CONTENT-END --></article><nav class="page-turn"><a href="index.html">Chapter index</a></nav></main></div><footer class="site-footer">Independent study edition. Prof. K. Guruvidyathri, University of Hyderabad; NPTEL coordinating institution IIT Madras. Original exposition and teaching constructions; attribution does not imply endorsement.</footer></body></html>

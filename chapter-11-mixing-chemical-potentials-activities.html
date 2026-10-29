@@ -1,8 +1,8 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="dark light"><meta name="book-content-sha256" content="c12bda2a41c816ffc28f484236a6bd7e3bef0aa43d5f9ee0a688e8bb9186ff13"><title>Mixing, chemical potentials, activities and transfer equilibrium · Computational Thermodynamics</title><link rel="stylesheet" href="assets/book.css"><script src="assets/math-config.js"></script><script defer src="assets/mathjax-tex-svg.js"></script><script defer src="assets/book.js"></script></head>
-<body><a class="skip" href="#main">Skip to content</a><header class="site-header"><a class="brand" href="index.html">Computational Thermodynamics and Kinetics of Materials</a><nav class="course-nav"><a href="index.html">Chapters</a><a href="source-map.html">Source map</a><a href="references.html">References</a><a href="numerical-lab.html">Numerical lab</a></nav></header><div class="layout"><aside class="toc" id="chapter-toc"><h2>On this page</h2></aside><main id="main"><div class="reading-tools"><button id="theme-toggle" aria-pressed="false">Light theme</button><button id="text-toggle" aria-pressed="false">Larger text</button><button id="solutions-toggle" aria-pressed="false">Expand solutions</button><button id="print-page">Print with solutions</button></div>
+<body><a class="skip" href="#main">Skip to content</a><header class="site-header"><a class="brand" href="index.html">Computational Thermodynamics and Kinetics of Materials</a><nav class="course-nav"><a href="index.html">Chapters</a><a href="source-map.html">Source map</a><a href="references.html">References</a><a href="numerical-lab.html">Numerical lab</a></nav></header><div class="layout"><aside class="toc" id="chapter-toc"><h2 id="on-this-page">On this page</h2></aside><main id="main"><div class="reading-tools"><button id="theme-toggle" aria-pressed="false">Light theme</button><button id="text-toggle" aria-pressed="false">Larger text</button><button id="solutions-toggle" aria-pressed="false">Expand solutions</button><button id="print-page">Print with solutions</button></div>
 <article id="chapter-content"><!-- BOOK-CONTENT-START -->
-<h1>11. Mixing, chemical potentials, activities and transfer equilibrium</h1>
+<h1 id="chapter-title">11. Mixing, chemical potentials, activities and transfer equilibrium</h1>
 <p class="lead">A solution's molar Gibbs energy is a function of composition. Its chemical potentials are derivatives of the <em>total</em> extensive energy, not arbitrary shares assigned to particular atoms. Once these derivatives are obtained consistently, the weighted-average identity, Gibbs–Duhem relation, activities and material-transfer conditions follow together. The same framework explains why favorable mixing relative to pure components does not necessarily mean stability against a partially separated state.</p>
 <p class="source-note">Both complete local transcripts of lessons 19–20 were read sequentially. They develop the interaction parameter, configurational mixing entropy, partial molar quantities, vapor-pressure intuition and chemical-potential equilibrium. This chapter derives the skipped Stirling, chain-rule and extensivity steps and qualifies the standard-state assumptions behind activity equality. The regular-solution calculations are original declared models. Primary oxide papers supply a bounded research discussion; no experimental phase diagram is reproduced.</p>
 
@@ -19,7 +19,7 @@
 <div class="equation">$$\ln\Omega_c=N\ln N-N_A\ln N_A-N_B\ln N_B+O(\ln N)=-N[(1-x)\ln(1-x)+x\ln x]+O(\ln N).$$</div>
 <p>Divide by the amount of mixing sites $N/N_{\!A}^{\rm Av}$ to obtain the thermodynamic-limit molar entropy</p>
 <div class="equation">$$\Delta s_{\rm id}=-R[(1-x)\ln(1-x)+x\ln x].$$</div>
-<p>The minus sign is essential: the logarithms are negative for interior fractions, so mixing entropy is positive. Interpret $x\ln x$ as zero at an endpoint by its limit. Differentiation gives $d\Delta s_{\rm id}/dx=R\ln[(1-x)/x]$ and $d^2\Delta s_{\rm id}/dx^2=-R/[x(1-x)]<0$. The maximum is $R\ln2$ at $x=1/2$. For $m$ species on one equivalent sublattice, the multinomial argument gives $-R\sum_i x_i\ln x_i$, maximized at $x_i=1/m$ with value $R\ln m$.</p>
+<p>The minus sign is essential: the logarithms are negative for interior fractions, so mixing entropy is positive. Interpret $x\ln x$ as zero at an endpoint by its limit. Differentiation gives $d\Delta s_{\rm id}/dx=R\ln[(1-x)/x]$ and $d^2\Delta s_{\rm id}/dx^2=-R/[x(1-x)]\lt 0$. The maximum is $R\ln2$ at $x=1/2$. For $m$ species on one equivalent sublattice, the multinomial argument gives $-R\sum_i x_i\ln x_i$, maximized at $x_i=1/m$ with value $R\ln m$.</p>
 <p>A finite system retains a correction. For exactly 30 $B$ atoms on 100 sites, direct logarithms of factorials give $S_c/k_B=58.642095641$, whereas the extensive Stirling term gives 61.086430205. Dividing their difference by 100 makes the finite-size nature explicit. The macroscopic formula is not an exact replacement for small-system combinatorics.</p>
 <p>Random-label entropy is also not a universal entropy of every arrangement with a specified number of unlike bonds. If pair energies matter, arrangements with different bond counts have different energies and probabilities. A short-range-order model retains such correlations; a sublattice model can describe long-range chemical order. The regular-solution approximation deliberately retains random configurational entropy despite its nonzero mean-field energy. It should not be advertised as an exact prediction of pair correlations. Defects, vibrations, electrons, magnetism and structural basins may contribute other entropy terms.</p>
 <p>On a compound's sublattice, the amount basis matters. Five equimolar cations on one fully occupied cation sublattice contribute $R\ln5=13.381611359$ J/(mol of cation sites K). In an ideal stoichiometric monoxide there is one oxygen for every cation; per mole of all atoms the same contribution is half that value. Counting chemically uniform oxygen sites as five-way mixing sites would double-count degrees of freedom that are absent from the stated model.</p>
@@ -45,7 +45,7 @@
 <p>For $m$ species in a homogeneous bulk phase, differentiate the scaling equation $G(T,p,\{\lambda n_i\})=\lambda G(T,p,\{n_i\})$ with respect to $\lambda$ at one. This proves Euler's identity $G=\sum_i n_i\mu_i$. Its differential is $dG=\sum_i\mu_i\,dn_i+\sum_i n_i\,d\mu_i$. Compare with the general state identity</p>
 <div class="equation">$$dG=-S\,dT+V\,dp+\sum_i\mu_i\,dn_i.$$</div>
 <p>Subtracting gives $\sum_i n_i\,d\mu_i=-S\,dT+V\,dp$. At fixed temperature and pressure, divide by $n$ to obtain the Gibbs–Duhem relation $\sum_i x_i\,d\mu_i=0$. Hence the chemical potentials cannot be chosen independently as arbitrary composition functions. The relation acquires the temperature and pressure terms when those variables change; omitting that condition gives a false general identity.</p>
-<p>For the binary chain-rule formulas, differentiation at fixed $T,p$ gives $d\mu_A/dx=-xg''$ and $d\mu_B/dx=(1-x)g''$. Their weighted sum vanishes. If $g''>0$, increasing $x_B$ raises $\mu_B$ and lowers $\mu_A$. In a concave constrained branch the signs reverse, so the recording's intuitive seesaw direction is not a universal monotonicity assertion independent of stability.</p>
+<p>For the binary chain-rule formulas, differentiation at fixed $T,p$ gives $d\mu_A/dx=-xg''$ and $d\mu_B/dx=(1-x)g''$. Their weighted sum vanishes. If $g''\gt 0$, increasing $x_B$ raises $\mu_B$ and lowers $\mu_A$. In a concave constrained branch the signs reverse, so the recording's intuitive seesaw direction is not a universal monotonicity assertion independent of stability.</p>
 <p>For constant $\Omega$, differentiating the declared regular model gives</p>
 <div class="equation">$$\mu_A=g_A^\phi+RT\ln(1-x)+\Omega x^2,\qquad\mu_B=g_B^\phi+RT\ln x+\Omega(1-x)^2.$$</div>
 <p>The excess chemical potentials contain squared fractions of the <em>other</em> component. They are not both equal to the integral molar excess energy $\Omega x(1-x)$. At 800 K, $x_B=0.3$, $g_A^\phi=-10000$ and $g_B^\phi=-20000$ J/mol, the model gives $g=-14543.206723360$, $\mu_A=-11292.448390568$ and $\mu_B=-22128.309499873$ J/mol. Euler's identity and independent finite differences of total $G$ agree.</p>
@@ -64,7 +64,7 @@
 <p>Finally, define a dimensionless composition-response factor for component $B$, $\Gamma_B=(x/RT)(d\mu_B/dx)$ at fixed $T,p$. The binary chain-rule identity gives $\Gamma_B=x(1-x)g''/(RT)$. For the regular model this becomes $1-2\Omega x(1-x)/(RT)$. The factor is positive on locally convex branches, vanishes at the local stability limit, and is negative on a concave branch. This thermodynamic derivative will later enter transport models, but it is not itself a diffusion coefficient: a kinetic mobility and the appropriate conservation law are still needed. The separation prevents an equilibrium energy model from silently acquiring an unmeasured transport rate.</p>
 
 <h2 id="activity" data-video="Jy9Vlk0tUZ4" data-start="898" data-end="1518">11.7 Activity is a dimensionless representation of chemical potential <a class="timestamp" href="https://www.youtube.com/watch?v=Jy9Vlk0tUZ4&amp;t=898s">L 20 · 14:58</a></h2>
-<p>Specify a standard chemical potential $\mu_i^\circ(T,p)$ and define $a_i>0$ through $\mu_i=\mu_i^\circ+RT\ln a_i$. This is a thermodynamic definition, not a count of the fraction of atoms that are moving or “active.” The activity coefficient $\gamma_i=a_i/x_i$ represents departure from the chosen mole-fraction ideal model. Its numerical value depends on the standard convention; activity is not generally a probability bounded by one.</p>
+<p>Specify a standard chemical potential $\mu_i^\circ(T,p)$ and define $a_i\gt 0$ through $\mu_i=\mu_i^\circ+RT\ln a_i$. This is a thermodynamic definition, not a count of the fraction of atoms that are moving or “active.” The activity coefficient $\gamma_i=a_i/x_i$ represents departure from the chosen mole-fraction ideal model. Its numerical value depends on the standard convention; activity is not generally a probability bounded by one.</p>
 <p>For pure-endmember standards within phase $\phi$, take $\mu_i^\circ=g_i^\phi$. The ideal solution has $a_i=x_i$ and $\gamma_i=1$. In the declared regular model,</p>
 <div class="equation">$$\ln\gamma_A=\frac{\Omega x^2}{RT},\qquad\ln\gamma_B=\frac{\Omega(1-x)^2}{RT}.$$</div>
 <p>At the 800 K example, $a_A=0.823404862$, $a_B=0.726170100$, $\gamma_A=1.176292660$ and $\gamma_B=2.420566998$. Both activities exceed their respective mole fractions but remain below one at this state. Negative constant $\Omega$ would give negative deviations in this model. In a general real solution, the sign of total mixing enthalpy alone does not fix each component's activity coefficient at every composition; activity depends on partial excess Gibbs energy, including entropy.</p>
@@ -90,68 +90,176 @@
 
 <h2 id="lab">11.10 Reproducible numerical checks</h2>
 <p>The following standard-library program checks amount derivatives independently, Euler and Gibbs–Duhem consistency, finite addition by chemical-potential integration, activity conversion, a negative-mixing unstable state and ideal sublattice counting. It contains no fitted oxide parameters. Its displayed output was generated by executing the exact listing.</p>
-<pre data-run="code/ch11_mixtures_activity.py"><code class="language-python">"""Declared bulk regular-solution and activity models; no fitted material data."""
+<pre data-run="code/ch11_mixtures_activity.py"><code class="language-python">"""Declared bulk regular-solution and activity models; no fitted materi\
+al data."""
+
 from math import log, exp, lgamma, isclose
-R=8.31446261815324
-GA,GB,OMEGA=-10000.0,-20000.0,12000.0
 
-def molar_g(x,t,omega=OMEGA):
-    return (1-x)*GA+x*GB+R*t*((1-x)*log(1-x)+x*log(x))+omega*x*(1-x)
+R = 8.31446261815324
+GA, GB, OMEGA = -10000.0, -20000.0, 12000.0
 
-def chemical(x,t,omega=OMEGA):
-    return GA+R*t*log(1-x)+omega*x*x,GB+R*t*log(x)+omega*(1-x)**2
 
-def total_g(na,nb,t):
-    n=na+nb
-    return n*molar_g(nb/n,t)
+def molar_g(x, t, omega=OMEGA):
+    return (
+        (1 - x) * GA
+        + x * GB
+        + R * t * ((1 - x) * log(1 - x) + x * log(x))
+        + omega * x * (1 - x)
+    )
 
-def simpson(fn,a,b,n=1000):
-    h=(b-a)/n
-    return h*(fn(a)+fn(b)+sum((4 if j%2 else 2)*fn(a+j*h) for j in range(1,n)))/3
+
+def chemical(x, t, omega=OMEGA):
+    return (
+        GA + R * t * log(1 - x) + omega * x * x,
+        GB + R * t * log(x) + omega * (1 - x) ** 2,
+    )
+
+
+def total_g(na, nb, t):
+    n = na + nb
+    return n * molar_g(nb / n, t)
+
+
+def simpson(fn, a, b, n=1000):
+    h = (b - a) / n
+    return (
+        h
+        * (
+            fn(a)
+            + fn(b)
+            + sum((4 if j % 2 else 2) * fn(a + j * h) for j in range(1, n))
+        )
+        / 3
+    )
+
 
 def main():
-    t,x=800.0,0.3
-    ma,mb=chemical(x,t)
-    g=molar_g(x,t)
-    assert isclose(g,(1-x)*ma+x*mb,abs_tol=1e-9)
-    h=1e-5;na,nb=.7,.3
-    da=(total_g(na+h,nb,t)-total_g(na-h,nb,t))/(2*h)
-    db=(total_g(na,nb+h,t)-total_g(na,nb-h,t))/(2*h)
-    assert isclose(da,ma,rel_tol=1e-9) and isclose(db,mb,rel_tol=1e-9)
-    gd=(1-x)*(-R*t/(1-x)+2*OMEGA*x)+x*(R*t/x-2*OMEGA*(1-x))
-    assert abs(gd)&lt;1e-10
-    print(f'800K xB0.3: g={g:.9f}; muA={ma:.9f}; muB={mb:.9f} J/mol; Euler and amount derivatives passed')
-    aa=exp((ma-GA)/(R*t));ab=exp((mb-GB)/(R*t))
-    gamma_a=aa/(1-x);gamma_b=ab/x
-    print(f'Activities: aA={aa:.9f}; aB={ab:.9f}; gammaA={gamma_a:.9f}; gammaB={gamma_b:.9f}')
-    pa,pb=100*aa,20*ab
-    print(f'Matched-reference ideal vapor: pA={pa:.9f}; pB={pb:.9f} Pa')
-    finite=total_g(.9,.3,t)-total_g(.7,.3,t)
-    differential=ma*.2
-    integral=simpson(lambda a:chemical(.3/(a+.3),t)[0],.7,.9)
-    assert isclose(finite,integral,abs_tol=1e-8)
-    print(f'Adding0.2molA: exact dG={finite:.9f}; initial-mu approximation={differential:.9f}; integrated mu={integral:.9f} J')
-    tm=600.0;xmid=.5
-    mix=molar_g(xmid,tm)-((1-xmid)*GA+xmid*GB)
-    curvature=R*tm/(xmid*(1-xmid))-2*OMEGA
-    # A symmetric split preserves mean composition and cancels the linear baseline.
-    split=.5*(molar_g(.49,tm)+molar_g(.51,tm))-molar_g(.5,tm)
-    assert mix&lt;0 and curvature&lt;0 and split&lt;0
-    print(f'600K midcomposition: mixing_g={mix:.9f} J/mol; curvature={curvature:.9f}; symmetric split minus homogeneous={split:.9f} J/mol')
-    # Phase-specific standard potentials differ: equal physical mu does not require equal activity.
-    ap=.4;standard_delta=3000.0;teq=1000.0
-    aq=ap*exp(-standard_delta/(R*teq))
-    assert isclose(R*teq*log(ap),standard_delta+R*teq*log(aq),abs_tol=1e-9)
-    print(f'Equal-mu with3000J/mol standard offset at1000K: a_alpha={ap:.9f}; a_beta={aq:.9f}')
-    sexact=lgamma(101)-lgamma(31)-lgamma(71)
-    sasym=-100*(.3*log(.3)+.7*log(.7))
-    print(f'100site30B count: exact S/k={sexact:.9f}; extensive Stirling term={sasym:.9f}')
-    five=R*log(5)
-    other=-R*(.4*log(.4)+4*.15*log(.15))
-    print(f'Five-cation ideal entropy: equimolar={five:.9f}; fractions0.4,0.15x4={other:.9f} J/(mol_sites K); ideal T*S at1148.15K={1148.15*five:.9f} J/mol_sites')
-    print('All Euler, Gibbs-Duhem, derivative, activity and finite-addition checks passed.')
+    t, x = 800.0, 0.3
+    ma, mb = chemical(x, t)
+    g = molar_g(x, t)
+    assert isclose(g, (1 - x) * ma + x * mb, abs_tol=1e-9)
+    h = 1e-5
+    na, nb = 0.7, 0.3
+    da = (total_g(na + h, nb, t) - total_g(na - h, nb, t)) / (2 * h)
+    db = (total_g(na, nb + h, t) - total_g(na, nb - h, t)) / (2 * h)
+    assert isclose(da, ma, rel_tol=1e-9) and isclose(db, mb, rel_tol=1e-9)
+    gd = (1 - x) * (-R * t / (1 - x) + 2 * OMEGA * x) + x * (
+        R * t / x - 2 * OMEGA * (1 - x)
+    )
+    assert abs(gd) &lt; 1e-10
+    print(
+        (
+            f"800K xB0.3: g="
+            f"{g:.9f}"
+            f"; muA="
+            f"{ma:.9f}"
+            f"; muB="
+            f"{mb:.9f}"
+            f" J/mol; Euler and amount derivatives passed"
+        )
+    )
+    aa = exp((ma - GA) / (R * t))
+    ab = exp((mb - GB) / (R * t))
+    gamma_a = aa / (1 - x)
+    gamma_b = ab / x
+    print(
+        (
+            f"Activities: aA="
+            f"{aa:.9f}"
+            f"; aB="
+            f"{ab:.9f}"
+            f"; gammaA="
+            f"{gamma_a:.9f}"
+            f"; gammaB="
+            f"{gamma_b:.9f}"
+        )
+    )
+    pa, pb = 100 * aa, 20 * ab
+    print(f"Matched-reference ideal vapor: pA={pa:.9f}; pB={pb:.9f} Pa")
+    finite = total_g(0.9, 0.3, t) - total_g(0.7, 0.3, t)
+    differential = ma * 0.2
+    integral = simpson(lambda a: chemical(0.3 / (a + 0.3), t)[0], 0.7, 0.9)
+    assert isclose(finite, integral, abs_tol=1e-8)
+    print(
+        (
+            f"Adding0.2molA: exact dG="
+            f"{finite:.9f}"
+            f"; initial-mu approximation="
+            f"{differential:.9f}"
+            f"; integrated mu="
+            f"{integral:.9f}"
+            f" J"
+        )
+    )
+    tm = 600.0
+    xmid = 0.5
+    mix = molar_g(xmid, tm) - ((1 - xmid) * GA + xmid * GB)
+    curvature = R * tm / (xmid * (1 - xmid)) - 2 * OMEGA
+    # A symmetric split preserves mean composition and cancels the linear
+    # baseline.
+    split = 0.5 * (molar_g(0.49, tm) + molar_g(0.51, tm)) - molar_g(0.5, tm)
+    assert mix &lt; 0 and curvature &lt; 0 and split &lt; 0
+    print(
+        (
+            f"600K midcomposition: mixing_g="
+            f"{mix:.9f}"
+            f" J/mol; curvature="
+            f"{curvature:.9f}"
+            f"; symmetric split minus homogeneous="
+            f"{split:.9f}"
+            f" J/mol"
+        )
+    )
+    # Phase-specific standard potentials differ: equal physical mu does not
+    # require equal activity.
+    ap = 0.4
+    standard_delta = 3000.0
+    teq = 1000.0
+    aq = ap * exp(-standard_delta / (R * teq))
+    assert isclose(
+        R * teq * log(ap), standard_delta + R * teq * log(aq), abs_tol=1e-9
+    )
+    print(
+        (
+            f"Equal-mu with3000J/mol standard offset at1000K: a_alpha="
+            f"{ap:.9f}"
+            f"; a_beta="
+            f"{aq:.9f}"
+        )
+    )
+    sexact = lgamma(101) - lgamma(31) - lgamma(71)
+    sasym = -100 * (0.3 * log(0.3) + 0.7 * log(0.7))
+    print(
+        (
+            f"100site30B count: exact S/k="
+            f"{sexact:.9f}"
+            f"; extensive Stirling term="
+            f"{sasym:.9f}"
+        )
+    )
+    five = R * log(5)
+    other = -R * (0.4 * log(0.4) + 4 * 0.15 * log(0.15))
+    print(
+        (
+            f"Five-cation ideal entropy: equimolar="
+            f"{five:.9f}"
+            f"; fractions0.4,0.15x4="
+            f"{other:.9f}"
+            f" J/(mol_sites K); ideal T*S at1148.15K="
+            f"{1148.15 * five:.9f}"
+            f" J/mol_sites"
+        )
+    )
+    print(
+        (
+            "All Euler, Gibbs-Duhem, derivative, activity and finite-addition"
+            " checks passed."
+        )
+    )
 
-if __name__=='__main__':main()
+
+if __name__ == "__main__":
+    main()
 </code></pre>
 <pre class="output">800K xB0.3: g=-14543.206723360; muA=-11292.448390568; muB=-22128.309499873 J/mol; Euler and amount derivatives passed
 Activities: aA=0.823404862; aB=0.726170100; gammaA=1.176292660; gammaB=2.420566998

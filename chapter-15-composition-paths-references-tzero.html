@@ -1,8 +1,8 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="dark light"><meta name="book-content-sha256" content="23c1e3e09cf4a1009554c7e731aff9e89c4c72758c9bdbaa1dc686261765ff80"><title>Composition paths, property references and T-zero curves · Computational Thermodynamics</title><link rel="stylesheet" href="assets/book.css"><script src="assets/math-config.js"></script><script defer src="assets/mathjax-tex-svg.js"></script><script defer src="assets/book.js"></script></head>
-<body><a class="skip" href="#main">Skip to content</a><header class="site-header"><a class="brand" href="index.html">Computational Thermodynamics and Kinetics of Materials</a><nav class="course-nav"><a href="index.html">Chapters</a><a href="source-map.html">Source map</a><a href="references.html">References</a><a href="numerical-lab.html">Numerical lab</a></nav></header><div class="layout"><aside class="toc" id="chapter-toc"><h2>On this page</h2></aside><main id="main"><div class="reading-tools"><button id="theme-toggle" aria-pressed="false">Light theme</button><button id="text-toggle" aria-pressed="false">Larger text</button><button id="solutions-toggle" aria-pressed="false">Expand solutions</button><button id="print-page">Print with solutions</button></div>
+<body><a class="skip" href="#main">Skip to content</a><header class="site-header"><a class="brand" href="index.html">Computational Thermodynamics and Kinetics of Materials</a><nav class="course-nav"><a href="index.html">Chapters</a><a href="source-map.html">Source map</a><a href="references.html">References</a><a href="numerical-lab.html">Numerical lab</a></nav></header><div class="layout"><aside class="toc" id="chapter-toc"><h2 id="on-this-page">On this page</h2></aside><main id="main"><div class="reading-tools"><button id="theme-toggle" aria-pressed="false">Light theme</button><button id="text-toggle" aria-pressed="false">Larger text</button><button id="solutions-toggle" aria-pressed="false">Expand solutions</button><button id="print-page">Print with solutions</button></div>
 <article id="chapter-content"><!-- BOOK-CONTENT-START -->
-<h1>15. Composition paths, property references and T₀ curves</h1>
+<h1 id="chapter-title">15. Composition paths, property references and T₀ curves</h1>
 <p class="lead">A multicomponent section is a constraint manifold, a mixing-energy plot depends on its reference, and a T₀ crossing compares two phases at the same composition. None is a substitute for the full equilibrium envelope. The useful calculations begin by keeping those three constructions separate and then checking how they transform under a change of coordinates.</p>
 <div class="callout"><strong>Source and execution scope.</strong> Lessons 31–34 develop console sections, quaternary and five-component paths, property plots, reference-state changes and a Fe–Ni T₀ example. Their commercial-database results are recording descriptions. Here the new numerical checks actually execute pycalphad 0.11.1 using <a href="data/ch15_tzero.tdb">an original synthetic TDB</a>, alongside exact linear algebra and analytic supporting lines. No FEDEMO, TCNI or measured Cu–Ni assessment is reproduced.</div>
 <h2 id="constraints">1. A ratio path is a set of independent linear conditions</h2>
@@ -75,84 +75,185 @@
 <h2 id="laboratory">9. Reproduce the constraint, coordinate and T₀ audits</h2>
 <p>Run <a href="code/ch15_sections_references_tzero.py">the exact downloadable program</a> from the book root using <a href="requirements.txt">the pinned environment</a> and <a href="data/ch15_tzero.tdb">the public teaching TDB</a>. It uses the executed engine’s rounded \(R=8.3145\) J/(mol K) for analytic comparisons, retains phase identities and compositions, and checks both balances and the analytic support-line value. The coarse displayed energies are not uncertainty bars.</p>
 <pre data-run="code/ch15_sections_references_tzero.py"><code class="language-python">"""Original path/reference/T-zero audits with executed pycalphad0.11.1."""
+
 from pathlib import Path
-from math import exp,log,isclose
+from math import exp, log, isclose
 import numpy as np
 import pycalphad
-from pycalphad import Database,calculate,equilibrium,variables as v
-assert pycalphad.__version__=='0.11.1'
-R=float(v.R);db=Database(str(Path('data/ch15_tzero.tdb')))
+from pycalphad import Database, calculate, equilibrium, variables as v
+
+assert pycalphad.__version__ == "0.11.1"
+R = float(v.R)
+db = Database(str(Path("data/ch15_tzero.tdb")))
 # Independent linear conditions in Co,Cr,Fe,Ni,V order.
-A=np.array([[1,1,1,1,1],[0,0,0,0,1],[1,-2,0,0,0],
-            [0,1,-1,0,0],[0,0,1,-1,0]],dtype=float)
-x=np.linalg.solve(A,np.array([1,.2,0,0,0]))
-assert np.linalg.matrix_rank(A)==5 and np.allclose(x,[.32,.16,.16,.16,.2])
-print('Five-component path: rank 5, fractions (.32,.16,.16,.16,.20) at xV=.20')
+A = np.array(
+    [
+        [1, 1, 1, 1, 1],
+        [0, 0, 0, 0, 1],
+        [1, -2, 0, 0, 0],
+        [0, 1, -1, 0, 0],
+        [0, 0, 1, -1, 0],
+    ],
+    dtype=float,
+)
+x = np.linalg.solve(A, np.array([1, 0.2, 0, 0, 0]))
+assert np.linalg.matrix_rank(A) == 5 and np.allclose(
+    x, [0.32, 0.16, 0.16, 0.16, 0.2]
+)
+print("Five-component path: rank 5, fractions (.32,.16,.16,.16,.20) at xV=.20")
 
 # Tangent geometry requires matching the ordinate and composition measure.
-MA,MB=50.,100.;slope=2000.;intercept=-1000.
-for xx in [.2,.8]:
-    w=xx*MB/((1-xx)*MA+xx*MB)
-    dxdw=2/(2-w)**2
-    gm=slope*xx+intercept
-    gmass=gm/((1-xx)*MA+xx*MB)
-    assert isclose(gmass,-20+30*w,abs_tol=1e-12)
-    print(f'Tangent contact x={xx:.1f}: w={w:.9f}, molar-plot slope={slope*dxdw:.6f}, specific g={gmass:.9f} J/g')
-print('Correct mass-specific supporting line: -20 + 30w J/g')
+MA, MB = 50.0, 100.0
+slope = 2000.0
+intercept = -1000.0
+for xx in [0.2, 0.8]:
+    w = xx * MB / ((1 - xx) * MA + xx * MB)
+    dxdw = 2 / (2 - w) ** 2
+    gm = slope * xx + intercept
+    gmass = gm / ((1 - xx) * MA + xx * MB)
+    assert isclose(gmass, -20 + 30 * w, abs_tol=1e-12)
+    print(
+        (
+            f"Tangent contact x="
+            f"{xx:.1f}"
+            f": w="
+            f"{w:.9f}"
+            f", molar-plot slope="
+            f"{slope * dxdw:.6f}"
+            f", specific g="
+            f"{gmass:.9f}"
+            f" J/g"
+        )
+    )
+print("Correct mass-specific supporting line: -20 + 30w J/g")
 
-def energy(phase,T,xx,output='GM'):
-    res=calculate(db,['CU','NI'],[phase],T=T,P=100000,N=1,
-                  points=np.array([[1-xx,xx]]),output=output)
+
+def energy(phase, T, xx, output="GM"):
+    res = calculate(
+        db,
+        ["CU", "NI"],
+        [phase],
+        T=T,
+        P=100000,
+        N=1,
+        points=np.array([[1 - xx, xx]]),
+        output=output,
+    )
     return float(res[output].values.squeeze())
 
-z=.4;T0=1400-800*z
-p=energy('PSOL',T0,z);q=energy('QSOL',T0,z)
-assert abs(p-q)&lt;1e-6
-print(f'T0 at xNi=.4: {T0:.6f} K; equal homogeneous GM={p:.4f} J/mol')
-D=4000.;delta=10*(1000-T0)
-u=exp((D+delta)/(R*T0));vv=exp((delta-D)/(R*T0))
-b=(u-1)/(u-vv);a=vv*b
-muA=R*T0*log(1-a);m=D+R*T0*log(a/(1-a))
-f=(z-a)/(b-a)
-res=equilibrium(db,['CU','NI'],['PSOL','QSOL'],
-                {v.T:T0,v.P:100000,v.N:1,v.X('NI'):z},calc_opts={'pdens':1000})
-records=sorted((str(n),float(xx),float(ff)) for n,xx,ff in zip(
-    res.Phase.values.reshape(-1),res.X.sel(component='NI').values.reshape(-1),res.NP.values.reshape(-1))
-    if n and np.isfinite(ff) and ff&gt;1e-9)
-assert [r[0] for r in records]==['PSOL','QSOL']
-assert abs(records[0][1]-a)&lt;1e-7 and abs(records[1][1]-b)&lt;1e-7
-assert abs(records[1][2]-f)&lt;1e-7
-assert abs(sum(xx*ff for _,xx,ff in records)-z)&lt;1e-9
-assert abs(float(res.GM.values.squeeze())-(muA+m*z))&lt;1e-6
-print(f'Coexistence at T0: xP={a:.6f}, xQ={b:.6f}, fQ={f:.6f}, GM={float(res.GM.values.squeeze()):.4f}')
-print(f'Homogeneous equality lies {p-float(res.GM.values.squeeze()):.4f} J/mol above global equilibrium')
-# Positive curvature makes these common tangents global for the two branches.
-assert a&lt;z&lt;b and p&gt;float(res.GM.values.squeeze())
 
-T=1000.
-raw=energy('QSOL',T,z)-energy('PSOL',T,z)
-wrong=energy('QSOL',T,z,'GM_MIX')-energy('PSOL',T,z,'GM_MIX')
-assert abs(raw-800)&lt;1e-6 and abs(wrong)&lt;1e-6
-wrong=0.0 if abs(wrong)&lt;1e-6 else wrong
-print(f'Common reference raw gQ-gP={raw:.4f}; independent phase mixing references difference={wrong:.4f}')
+z = 0.4
+T0 = 1400 - 800 * z
+p = energy("PSOL", T0, z)
+q = energy("QSOL", T0, z)
+assert abs(p - q) &lt; 1e-6
+print(f"T0 at xNi=.4: {T0:.6f} K; equal homogeneous GM={p:.4f} J/mol")
+D = 4000.0
+delta = 10 * (1000 - T0)
+u = exp((D + delta) / (R * T0))
+vv = exp((delta - D) / (R * T0))
+b = (u - 1) / (u - vv)
+a = vv * b
+muA = R * T0 * log(1 - a)
+m = D + R * T0 * log(a / (1 - a))
+f = (z - a) / (b - a)
+res = equilibrium(
+    db,
+    ["CU", "NI"],
+    ["PSOL", "QSOL"],
+    {v.T: T0, v.P: 100000, v.N: 1, v.X("NI"): z},
+    calc_opts={"pdens": 1000},
+)
+records = sorted(
+    (str(n), float(xx), float(ff))
+    for n, xx, ff in zip(
+        res.Phase.values.reshape(-1),
+        res.X.sel(component="NI").values.reshape(-1),
+        res.NP.values.reshape(-1),
+    )
+    if n and np.isfinite(ff) and ff &gt; 1e-9
+)
+assert [r[0] for r in records] == ["PSOL", "QSOL"]
+assert abs(records[0][1] - a) &lt; 1e-7 and abs(records[1][1] - b) &lt; 1e-7
+assert abs(records[1][2] - f) &lt; 1e-7
+assert abs(sum(xx * ff for _, xx, ff in records) - z) &lt; 1e-9
+assert abs(float(res.GM.values.squeeze()) - (muA + m * z)) &lt; 1e-6
+print(
+    (
+        f"Coexistence at T0: xP="
+        f"{a:.6f}"
+        f", xQ="
+        f"{b:.6f}"
+        f", fQ="
+        f"{f:.6f}"
+        f", GM="
+        f"{float(res.GM.values.squeeze()):.4f}"
+    )
+)
+print(
+    (
+        f"Homogeneous equality lies "
+        f"{p - float(res.GM.values.squeeze()):.4f}"
+        f" J/mol above global equilibrium"
+    )
+)
+# Positive curvature makes these common tangents global for the two branches.
+assert a &lt; z &lt; b and p &gt; float(res.GM.values.squeeze())
+
+T = 1000.0
+raw = energy("QSOL", T, z) - energy("PSOL", T, z)
+wrong = energy("QSOL", T, z, "GM_MIX") - energy("PSOL", T, z, "GM_MIX")
+assert abs(raw - 800) &lt; 1e-6 and abs(wrong) &lt; 1e-6
+wrong = 0.0 if abs(wrong) &lt; 1e-6 else wrong
+print(
+    (
+        f"Common reference raw gQ-gP="
+        f"{raw:.4f}"
+        f"; independent phase mixing references difference="
+        f"{wrong:.4f}"
+    )
+)
 # A common P-endmember subtraction preserves the phase difference.
-assert isclose((energy('QSOL',T,z)-4000*z)-(energy('PSOL',T,z)-4000*z),raw,abs_tol=1e-8)
-print('Common elemental reference subtraction preserves phase competition: PASS')
-# Parent Q to product P at the same z; below T0, the bulk chemical change favors P.
-for T in [1000.,1080.,1160.]:
-    dg=energy('PSOL',T,z)-energy('QSOL',T,z)
-    assert abs(dg-10*(T-T0))&lt;1e-6
-    dg=0.0 if abs(dg)&lt;1e-6 else dg
-    print(f'Partitionless Q to P, T={T:.0f}: delta g={dg:.4f} J/mol')
+assert isclose(
+    (energy("QSOL", T, z) - 4000 * z) - (energy("PSOL", T, z) - 4000 * z),
+    raw,
+    abs_tol=1e-8,
+)
+print(
+    "Common elemental reference subtraction preserves phase competition: PASS"
+)
+# Parent Q to product P at the same z; below T0, the bulk chemical change
+# favors P.
+for T in [1000.0, 1080.0, 1160.0]:
+    dg = energy("PSOL", T, z) - energy("QSOL", T, z)
+    assert abs(dg - 10 * (T - T0)) &lt; 1e-6
+    dg = 0.0 if abs(dg) &lt; 1e-6 else dg
+    print(f"Partitionless Q to P, T={T:.0f}: delta g={dg:.4f} J/mol")
+
 
 # Root localization needs more than one sign test over a wide interval.
-rootfn=lambda T:(T-800)*(T-1200)/1000
-assert rootfn(600)&gt;0 and rootfn(1400)&gt;0
-assert rootfn(1000)&lt;0 and rootfn(800)==rootfn(1200)==0
-print('Two-root counterexample: endpoints600/1400 positive; roots800 and1200; interior1000 negative')
-touch=lambda T:(T-1000)**2/1000
-assert touch(900)&gt;0 and touch(1100)&gt;0 and touch(1000)==0
-print('Tangential root: 1000 K, no sign change and no stability-order reversal')
+def rootfn(T):
+    return (T - 800) * (T - 1200) / 1000
+
+
+assert rootfn(600) &gt; 0 and rootfn(1400) &gt; 0
+assert rootfn(1000) &lt; 0 and rootfn(800) == rootfn(1200) == 0
+print(
+    (
+        "Two-root counterexample: endpoints600/1400 positive; roots800 and120"
+        "0; interior1000 negative"
+    )
+)
+
+
+def touch(T):
+    return (T - 1000) ** 2 / 1000
+
+
+assert touch(900) &gt; 0 and touch(1100) &gt; 0 and touch(1000) == 0
+print(
+    "Tangential root: 1000 K, no sign change and no stability-order reversal"
+)
 </code></pre><pre class="output">Five-component path: rank 5, fractions (.32,.16,.16,.16,.20) at xV=.20
 Tangent contact x=0.2: w=0.333333333, molar-plot slope=1440.000000, specific g=-10.000000000 J/g
 Tangent contact x=0.8: w=0.888888889, molar-plot slope=3240.000000, specific g=6.666666667 J/g
@@ -169,14 +270,14 @@ Two-root counterexample: endpoints600/1400 positive; roots800 and1200; interior1
 Tangential root: 1000 K, no sign change and no stability-order reversal
 </pre>
 <h2 id="exercises">10. Exercises with complete solutions</h2>
-<div class="exercise"><h3>1. Construct a constrained five-component section</h3><p>Parameterize a Co:Cr:Fe:Ni ratio 2:1:1:1 background with variable V fraction s. What happens to the literal ratios at s=1?</p><details class="solution"><summary>Solution</summary><p>The four background coefficients sum to 5. Their fractions are 2(1−s)/5,(1−s)/5,(1−s)/5,(1−s)/5, with V=s. At s=.2 they are(.32,.16,.16,.16,.20), summing to 1. The three independent cross-multiplied ratio equations, the V condition and normalization form a full-rank five-by-five system. At s=1, each background fraction is 0 and its ratios are undefined; the endpoint is the continuous limit satisfying the linear equations. It is not a state in which finite background atoms have an experimentally measurable 2:1 ratio.</p></details></div>
-<div class="exercise"><h3>2. Why can a plotted molar tangent fail after an axis change?</h3><p>For the molar support 2000x−1000 and masses 50,100g/mol, derive the transformed contact slopes and the correct specific support.</p><details class="solution"><summary>Solution</summary><p>The relation is x=w/(2−w), with derivative 2/(2−w)². At x=.2,w=1/3, this derivative is .72; at x=.8,w=8/9, it is 1.62. Therefore the slopes of molar energy against w are 1440 and 3240, not a common tangent. Meanwhile 1/Mbar=(2−w)/100, so dividing the support by Mbar gives[2000w−1000(2−w)]/100=−20+30w J/g. Its slope 30 is shared at both physical contacts. The positive division also preserves the global supporting inequality.</p></details></div>
-<div class="exercise"><h3>3. Transform caloric quantities with a temperature-dependent reference</h3><p>Let a common elemental reference subtraction give gR=g−q(T,x). Derive sR,hR and cpR, and specialize to q=A+BT.</p><details class="solution"><summary>Solution</summary><p>At fixed composition and pressure, sR=−∂T(g−q)=s+qT. Then hR=gR+TsR=h−q+TqT, and cpR=−T∂TT(g−q)=cp+TqTT. For q=A+BT this becomes sR=s+B,hR=h−A,cpR=cp. Even though an affine common reference preserves equilibrium, reported relative entropy and enthalpy can change. These derivative relations do not identify a physical transport coefficient.</p></details></div>
-<div class="exercise"><h3>4. Can separately referenced mixing energies rank phases?</h3><p>At 1000 K and x=.4, compare the raw P/Q energy difference with the difference of their own endmember-referenced mixing energies.</p><details class="solution"><summary>Solution</summary><p>Here δ=0, so gQ−gP=D(1−2x)=4000(.2)=800 J/mol. P has the lower homogeneous energy. Removing each phase’s own linear endmember function leaves exactly RTq(x) in both, so their mixing-energy difference is 0. That equality has erased their relative lattice stability. Subtracting the same P-endmember reference 4000x from both instead leaves the raw difference 800 unchanged. A common comparison reference and separate within-phase mixing decompositions answer different questions.</p></details></div>
-<div class="exercise"><h3>5. Derive the T₀ curve and its slope</h3><p>Find T₀(x) for the synthetic database and check the implicit derivative formula.</p><details class="solution"><summary>Solution</summary><p>Subtracting gives Δg=14000−10T−8000x. SolvingΔg=0 gives T₀=1400−800x K, so x=.4 gives 1080 K and the slope is−800 K. Also ΔgT=−10 J/(mol K), Δgx=−8000 J/mol, and Δs=−ΔgT=10 J/(mol K). Thus−Δgx/ΔgT=Δgx/Δs=−800 K. Both ideal mixing terms cancel because these particular phases use the same ideal configurational contribution. That cancellation is a feature of this teaching model, not a property of every pair of phases.</p></details></div>
-<div class="exercise"><h3>6. Exhibit equilibrium below a homogeneous T₀ crossing</h3><p>Derive the P/Q contact formulas and show why their mixture can lie below the equal-composition crossing at 1080 K.</p><details class="solution"><summary>Solution</summary><p>For P, μA=RTln(1−a), μB=D+RTln a. For Q, μA=D+δ+RTln(1−b), μB=δ+RTln b. Equality gives(1−a)=u(1−b) and a=vb. Eliminating a yields b=(u−1)/(u−v). At 1080 K, δ=−800 J/mol; these give a≈.297860,b≈.508348. The Q fraction at bulk .4 is(.4−a)/(b−a)≈.485253. Convexity of each branch proves its tangent globally underlies it; equal chemical potentials make the two tangent lines identical. Their mixture energy−4655.4648 J/mol is below−4443.4159 by 212.0489. Equal homogeneous energies do not saturate that lower bound.</p></details></div>
-<div class="exercise"><h3>7. Add an opposing product energy</h3><p>The composition-preserving Q→P bulk chemical change is 10(T−1080)J/mol. Add 500 J/mol of stored product energy. What threshold follows, and what does it fail to predict?</p><details class="solution"><summary>Solution</summary><p>The stipulated total bulk change becomes 10(T−1080)+500. Setting it to 0 gives T=1030 K; below that it is negative. This is a conditional bulk energy comparison. It does not determine an activation barrier, interface mobility, nucleation rate, cooling-rate threshold or observed martensite-start temperature. Interfacial energy would also depend on nucleus size and geometry, so it cannot generally be folded into the same fixed 500 J/mol across all microstructures.</p></details></div>
-<div class="exercise"><h3>8. Diagnose a root-search failure</h3><p>Explain why a wide endpoint-sign test fails for the two displayed root polynomials. Does a root always imply a change of phase preference?</p><details class="solution"><summary>Solution</summary><p>For F=(T−800)(T−1200)/1000, both 600 K and 1400 K give 120 J/mol, while 1000 K gives−40 J/mol. There are roots 800 K and 1200 K despite equal positive endpoint signs. The function(T−1000)²/1000 is positive on both sides and 0 at 1000 K, so even arbitrarily close endpoint signs need not bracket its touching root. That root does not reverse the sign and hence does not by itself switch the energy ranking. A declared search resolution and residual check must be accompanied by attention to multiplicity and branch assumptions.</p></details></div>
-<div class="exercise"><h3>9. Why can a free-energy landscape not determine its relaxation time?</h3><p>Compare two positive mobilities in the gradient dynamics example and identify what information a property database must add.</p><details class="solution"><summary>Solution</summary><p>Both dynamics satisfy dG/dt=−M(G′)²≤0 and have the same stationary points G′=0. If M is multiplied by 100, a constant-mobility trajectory traverses the same state-space path 100 times faster, with the time coordinate rescaled. The equilibrium free energy and its minima are unchanged. A mobility, diffusivity or transport model therefore needs additional kinetic evidence and definitions. A menu providing viscosity or conductivity can use such added descriptions; its existence does not make them unique derivatives of the thermodynamic G function.</p></details></div>
+<div class="exercise"><h3 id="1-construct-a-constrained-five-component-section">1. Construct a constrained five-component section</h3><p>Parameterize a Co:Cr:Fe:Ni ratio 2:1:1:1 background with variable V fraction s. What happens to the literal ratios at s=1?</p><details class="solution"><summary>Solution</summary><p>The four background coefficients sum to 5. Their fractions are 2(1−s)/5,(1−s)/5,(1−s)/5,(1−s)/5, with V=s. At s=.2 they are(.32,.16,.16,.16,.20), summing to 1. The three independent cross-multiplied ratio equations, the V condition and normalization form a full-rank five-by-five system. At s=1, each background fraction is 0 and its ratios are undefined; the endpoint is the continuous limit satisfying the linear equations. It is not a state in which finite background atoms have an experimentally measurable 2:1 ratio.</p></details></div>
+<div class="exercise"><h3 id="2-why-can-a-plotted-molar-tangent-fail-after-an-axis-change">2. Why can a plotted molar tangent fail after an axis change?</h3><p>For the molar support 2000x−1000 and masses 50,100g/mol, derive the transformed contact slopes and the correct specific support.</p><details class="solution"><summary>Solution</summary><p>The relation is x=w/(2−w), with derivative 2/(2−w)². At x=.2,w=1/3, this derivative is .72; at x=.8,w=8/9, it is 1.62. Therefore the slopes of molar energy against w are 1440 and 3240, not a common tangent. Meanwhile 1/Mbar=(2−w)/100, so dividing the support by Mbar gives[2000w−1000(2−w)]/100=−20+30w J/g. Its slope 30 is shared at both physical contacts. The positive division also preserves the global supporting inequality.</p></details></div>
+<div class="exercise"><h3 id="3-transform-caloric-quantities-with-a-temperature-dependent-reference">3. Transform caloric quantities with a temperature-dependent reference</h3><p>Let a common elemental reference subtraction give gR=g−q(T,x). Derive sR,hR and cpR, and specialize to q=A+BT.</p><details class="solution"><summary>Solution</summary><p>At fixed composition and pressure, sR=−∂T(g−q)=s+qT. Then hR=gR+TsR=h−q+TqT, and cpR=−T∂TT(g−q)=cp+TqTT. For q=A+BT this becomes sR=s+B,hR=h−A,cpR=cp. Even though an affine common reference preserves equilibrium, reported relative entropy and enthalpy can change. These derivative relations do not identify a physical transport coefficient.</p></details></div>
+<div class="exercise"><h3 id="4-can-separately-referenced-mixing-energies-rank-phases">4. Can separately referenced mixing energies rank phases?</h3><p>At 1000 K and x=.4, compare the raw P/Q energy difference with the difference of their own endmember-referenced mixing energies.</p><details class="solution"><summary>Solution</summary><p>Here δ=0, so gQ−gP=D(1−2x)=4000(.2)=800 J/mol. P has the lower homogeneous energy. Removing each phase’s own linear endmember function leaves exactly RTq(x) in both, so their mixing-energy difference is 0. That equality has erased their relative lattice stability. Subtracting the same P-endmember reference 4000x from both instead leaves the raw difference 800 unchanged. A common comparison reference and separate within-phase mixing decompositions answer different questions.</p></details></div>
+<div class="exercise"><h3 id="5-derive-the-t-curve-and-its-slope">5. Derive the T₀ curve and its slope</h3><p>Find T₀(x) for the synthetic database and check the implicit derivative formula.</p><details class="solution"><summary>Solution</summary><p>Subtracting gives Δg=14000−10T−8000x. SolvingΔg=0 gives T₀=1400−800x K, so x=.4 gives 1080 K and the slope is−800 K. Also ΔgT=−10 J/(mol K), Δgx=−8000 J/mol, and Δs=−ΔgT=10 J/(mol K). Thus−Δgx/ΔgT=Δgx/Δs=−800 K. Both ideal mixing terms cancel because these particular phases use the same ideal configurational contribution. That cancellation is a feature of this teaching model, not a property of every pair of phases.</p></details></div>
+<div class="exercise"><h3 id="6-exhibit-equilibrium-below-a-homogeneous-t-crossing">6. Exhibit equilibrium below a homogeneous T₀ crossing</h3><p>Derive the P/Q contact formulas and show why their mixture can lie below the equal-composition crossing at 1080 K.</p><details class="solution"><summary>Solution</summary><p>For P, μA=RTln(1−a), μB=D+RTln a. For Q, μA=D+δ+RTln(1−b), μB=δ+RTln b. Equality gives(1−a)=u(1−b) and a=vb. Eliminating a yields b=(u−1)/(u−v). At 1080 K, δ=−800 J/mol; these give a≈.297860,b≈.508348. The Q fraction at bulk .4 is(.4−a)/(b−a)≈.485253. Convexity of each branch proves its tangent globally underlies it; equal chemical potentials make the two tangent lines identical. Their mixture energy−4655.4648 J/mol is below−4443.4159 by 212.0489. Equal homogeneous energies do not saturate that lower bound.</p></details></div>
+<div class="exercise"><h3 id="7-add-an-opposing-product-energy">7. Add an opposing product energy</h3><p>The composition-preserving Q→P bulk chemical change is 10(T−1080)J/mol. Add 500 J/mol of stored product energy. What threshold follows, and what does it fail to predict?</p><details class="solution"><summary>Solution</summary><p>The stipulated total bulk change becomes 10(T−1080)+500. Setting it to 0 gives T=1030 K; below that it is negative. This is a conditional bulk energy comparison. It does not determine an activation barrier, interface mobility, nucleation rate, cooling-rate threshold or observed martensite-start temperature. Interfacial energy would also depend on nucleus size and geometry, so it cannot generally be folded into the same fixed 500 J/mol across all microstructures.</p></details></div>
+<div class="exercise"><h3 id="8-diagnose-a-root-search-failure">8. Diagnose a root-search failure</h3><p>Explain why a wide endpoint-sign test fails for the two displayed root polynomials. Does a root always imply a change of phase preference?</p><details class="solution"><summary>Solution</summary><p>For F=(T−800)(T−1200)/1000, both 600 K and 1400 K give 120 J/mol, while 1000 K gives−40 J/mol. There are roots 800 K and 1200 K despite equal positive endpoint signs. The function(T−1000)²/1000 is positive on both sides and 0 at 1000 K, so even arbitrarily close endpoint signs need not bracket its touching root. That root does not reverse the sign and hence does not by itself switch the energy ranking. A declared search resolution and residual check must be accompanied by attention to multiplicity and branch assumptions.</p></details></div>
+<div class="exercise"><h3 id="9-why-can-a-free-energy-landscape-not-determine-its-relaxation-time">9. Why can a free-energy landscape not determine its relaxation time?</h3><p>Compare two positive mobilities in the gradient dynamics example and identify what information a property database must add.</p><details class="solution"><summary>Solution</summary><p>Both dynamics satisfy dG/dt=−M(G′)²≤0 and have the same stationary points G′=0. If M is multiplied by 100, a constant-mobility trajectory traverses the same state-space path 100 times faster, with the time coordinate rescaled. The equilibrium free energy and its minima are unchanged. A mobility, diffusivity or transport model therefore needs additional kinetic evidence and definitions. A menu providing viscosity or conductivity can use such added descriptions; its existence does not make them unique derivatives of the thermodynamic G function.</p></details></div>
 <p class="chapter-nav"><a href="chapter-14-reproducible-equilibrium-calculations.html">Previous: reproducible equilibrium calculations</a> · <a href="index.html">All chapters</a></p>
 <!-- BOOK-CONTENT-END --></article><nav class="page-turn"><a href="index.html">Chapter index</a></nav></main></div><footer class="site-footer">Independent study edition. Prof. K. Guruvidyathri, University of Hyderabad; NPTEL coordinating institution IIT Madras. Original exposition and teaching constructions; attribution does not imply endorsement.</footer></body></html>

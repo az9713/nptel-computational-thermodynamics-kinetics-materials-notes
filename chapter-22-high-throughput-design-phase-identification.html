@@ -1,8 +1,8 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="dark light"><meta name="book-content-sha256" content="be3771499520b00e6780c0ed68adfc0a0f2ee858d90a9c28b092525dd27e6e3b"><title>High-throughput design and phase identification · Computational Thermodynamics</title><link rel="stylesheet" href="assets/book.css"><script src="assets/math-config.js"></script><script defer src="assets/mathjax-tex-svg.js"></script><script defer src="assets/book.js"></script></head>
-<body><a class="skip" href="#main">Skip to content</a><header class="site-header"><a class="brand" href="index.html">Computational Thermodynamics and Kinetics of Materials</a><nav class="course-nav"><a href="index.html">Chapters</a><a href="source-map.html">Source map</a><a href="references.html">References</a><a href="numerical-lab.html">Numerical lab</a></nav></header><div class="layout"><aside class="toc" id="chapter-toc"><h2>On this page</h2></aside><main id="main"><div class="reading-tools"><button id="theme-toggle" aria-pressed="false">Light theme</button><button id="text-toggle" aria-pressed="false">Larger text</button><button id="solutions-toggle" aria-pressed="false">Expand solutions</button><button id="print-page">Print with solutions</button></div>
+<body><a class="skip" href="#main">Skip to content</a><header class="site-header"><a class="brand" href="index.html">Computational Thermodynamics and Kinetics of Materials</a><nav class="course-nav"><a href="index.html">Chapters</a><a href="source-map.html">Source map</a><a href="references.html">References</a><a href="numerical-lab.html">Numerical lab</a></nav></header><div class="layout"><aside class="toc" id="chapter-toc"><h2 id="on-this-page">On this page</h2></aside><main id="main"><div class="reading-tools"><button id="theme-toggle" aria-pressed="false">Light theme</button><button id="text-toggle" aria-pressed="false">Larger text</button><button id="solutions-toggle" aria-pressed="false">Expand solutions</button><button id="print-page">Print with solutions</button></div>
 <article id="chapter-content"><!-- BOOK-CONTENT-START -->
-<h1>22. High-throughput design, driving forces and phase identification</h1>
+<h1 id="chapter-title">22. High-throughput design, driving forces and phase identification</h1>
 <p class="lead">A screening calculation does not discover a material merely by returning a short list. It creates a conditional prediction: these compositions, evaluated with these phases and this database, satisfy these numerical tests. The useful next step is to ask which parts of that statement survive a change of temperature, a model discrepancy, or an independent measurement. The same discipline makes CALPHAD useful for characterization: a predicted phase is a candidate to test, rather than a replacement for diffraction and chemical evidence.</p>
 <div class="source-note"><p><strong>Source and execution scope.</strong> Both complete local machine transcripts of lessons 56–57 were read. They develop higher-order sections, high-throughput alloy selection, binary and Gibbs-energy heuristics, transformation driving forces and CALPHAD-assisted diffraction interpretation. The published screening cases are identified below with bounded primary-source reading. Their commercial databases, complete input archives and experimental results were not rerun. Our downloadable program actually executes pycalphad 0.11.1 on an <a href="data/ch22_screening.tdb">original synthetic two-branch database</a>, plus independent combinatorial, variational and diffraction checks. The CU/NI identifiers are bookkeeping species in that teaching model, not an assessed Cu–Ni alloy.</p></div>
 
@@ -80,7 +80,9 @@ d(2\theta)=-2\tan\theta\,\frac{da}{a}.
 
 <h2 id="laboratory">22.8 Run the exact program</h2>
 <p>Use <a href="code/ch22_screening_characterization.py">the exact downloadable listing</a>, <a href="data/ch22_screening.tdb">its original teaching TDB</a> and the book's <a href="requirements.txt">pinned pycalphad 0.11.1 environment</a>, with the project directory as the working directory. The displayed output was obtained by execution. The fitting residual is reported as a verified bound to avoid giving platform-dependent roundoff a physical interpretation.</p>
-<pre data-run="code/ch22_screening_characterization.py"><code class="language-python">"""Original screening and diffraction audits; synthetic phases, not an assessed alloy."""
+<pre data-run="code/ch22_screening_characterization.py"><code class="language-python">"""Original screening and diffraction audits; synthetic phases, not an \
+assessed alloy."""
+
 from pathlib import Path
 from itertools import product
 from math import comb, exp, log, sin, cos, asin, sqrt, pi
@@ -88,103 +90,243 @@ import numpy as np
 import pycalphad
 from pycalphad import Database, equilibrium, variables as v
 
-assert pycalphad.__version__ == '0.11.1'
+assert pycalphad.__version__ == "0.11.1"
 R = float(v.R)
 # Integer atomic-fraction grid: all five components present, 5 through 50 at.%.
 grid = [q for q in product(range(1, 11), repeat=5) if sum(q) == 20]
 with_zero = sum(sum(q) == 20 for q in product(range(11), repeat=5))
-assert len(grid) == comb(19, 4)-5*comb(9, 4) == 3246
-assert with_zero == comb(24, 4)-5*comb(13, 4) == 7051
-print(f'Five-component 5%-grid, positive / zero-allowed: {len(grid)}, {with_zero}')
-print(f'Unrestricted 26-element equimolar subsets of sizes3--6: {sum(comb(26,k) for k in range(3,7))}')
-tm_c = 1250.
-print(f'0.8 times 1250 Celsius: operational={.8*tm_c:.3f} C; absolute-ratio={.8*(tm_c+273.15)-273.15:.3f} C')
-print(f'Endpoint-only fraction test: endpoints=.100,.100; interior={.1+.6*sin(pi/2)**2:.3f}')
+assert len(grid) == comb(19, 4) - 5 * comb(9, 4) == 3246
+assert with_zero == comb(24, 4) - 5 * comb(13, 4) == 7051
+print(
+    (
+        f"Five-component 5%-grid, positive / zero-allowed: "
+        f"{len(grid)}"
+        f", "
+        f"{with_zero}"
+    )
+)
+print(
+    (
+        f"Unrestricted 26-element equimolar subsets of sizes3--6: "
+        f"{sum((comb(26, k) for k in range(3, 7)))}"
+    )
+)
+tm_c = 1250.0
+print(
+    (
+        f"0.8 times 1250 Celsius: operational="
+        f"{0.8 * tm_c:.3f}"
+        f" C; absolute-ratio="
+        f"{0.8 * (tm_c + 273.15) - 273.15:.3f}"
+        f" C"
+    )
+)
+print(
+    (
+        f"Endpoint-only fraction test: endpoints=.100,.100; interior="
+        f"{0.1 + 0.6 * sin(pi / 2) ** 2:.3f}"
+    )
+)
 
-# An infinitesimal product can partition while the remaining matrix conserves composition.
-A, z, xp, advantage = 10000., .3, .7, 300.
-same_composition = A*(z-xp)**2-advantage
-print(f'Parent tangent-plane advantage={advantage:.6f}; same-composition product penalty={same_composition:.6f} J/mol')
-for amount in (.1, .2):
-    xm = (z-amount*xp)/(1-amount)
-    energy = (1-amount)*A*(xm-z)**2-amount*advantage
-    assert abs((1-amount)*xm+amount*xp-z) &lt; 1e-14
-    print(f'Partitioned product amount={amount:.1f}: matrix x={xm:.9f}, total change={energy:.9f} J/mol')
+# An infinitesimal product can partition while the remaining matrix conserves
+# composition.
+A, z, xp, advantage = 10000.0, 0.3, 0.7, 300.0
+same_composition = A * (z - xp) ** 2 - advantage
+print(
+    (
+        f"Parent tangent-plane advantage="
+        f"{advantage:.6f}"
+        f"; same-composition product penalty="
+        f"{same_composition:.6f}"
+        f" J/mol"
+    )
+)
+for amount in (0.1, 0.2):
+    xm = (z - amount * xp) / (1 - amount)
+    energy = (1 - amount) * A * (xm - z) ** 2 - amount * advantage
+    assert abs((1 - amount) * xm + amount * xp - z) &lt; 1e-14
+    print(
+        (
+            f"Partitioned product amount="
+            f"{amount:.1f}"
+            f": matrix x="
+            f"{xm:.9f}"
+            f", total change="
+            f"{energy:.9f}"
+            f" J/mol"
+        )
+    )
 
 # Execute a small batch with two ideal substitutional solution branches.
-db = Database(str(Path('data/ch22_screening.tdb')))
-D = 6000.
-temperatures = (900., 1000.)
-compositions = [j/20 for j in range(7,14)]
+db = Database(str(Path("data/ch22_screening.tdb")))
+D = 6000.0
+temperatures = (900.0, 1000.0)
+compositions = [j / 20 for j in range(7, 14)]
 rows = {x: [] for x in compositions}
 for T in temperatures:
-    delta = 8*(1100-T)
-    u, w = exp((D+delta)/(R*T)), exp((delta-D)/(R*T))
-    b = (u-1)/(u-w); a = w*b
-    mu_a = R*T*log(1-a)
-    slope = D+R*T*log(a/(1-a))
-    print(f'Synthetic common-line contacts T={T:.0f} K: MATRIX={a:.9f}, PRECIP={b:.9f}')
+    delta = 8 * (1100 - T)
+    u, w = exp((D + delta) / (R * T)), exp((delta - D) / (R * T))
+    b = (u - 1) / (u - w)
+    a = w * b
+    mu_a = R * T * log(1 - a)
+    slope = D + R * T * log(a / (1 - a))
+    print(
+        (
+            f"Synthetic common-line contacts T="
+            f"{T:.0f}"
+            f" K: MATRIX="
+            f"{a:.9f}"
+            f", PRECIP="
+            f"{b:.9f}"
+        )
+    )
     for x in compositions:
-        result = equilibrium(db, ['CU','NI'], ['MATRIX','PRECIP'],
-            {v.T:T, v.P:100000, v.N:1, v.X('NI'):x},
-            calc_opts={'pdens':200})
-        records = [(str(p), float(c), float(n)) for p,c,n in zip(
-            result.Phase.values.reshape(-1),
-            result.X.sel(component='NI').values.reshape(-1),
-            result.NP.values.reshape(-1))
-            if p and np.isfinite(n) and n &gt; 1e-9]
-        assert abs(sum(n for _,_,n in records)-1) &lt; 1e-9
-        assert abs(sum(c*n for _,c,n in records)-x) &lt; 1e-9
-        fraction = sum(n for p,_,n in records if p == 'PRECIP')
-        analytic = max(0.,min(1.,(x-a)/(b-a)))
-        assert abs(fraction-analytic) &lt; 1e-7
+        result = equilibrium(
+            db,
+            ["CU", "NI"],
+            ["MATRIX", "PRECIP"],
+            {v.T: T, v.P: 100000, v.N: 1, v.X("NI"): x},
+            calc_opts={"pdens": 200},
+        )
+        records = [
+            (str(p), float(c), float(n))
+            for p, c, n in zip(
+                result.Phase.values.reshape(-1),
+                result.X.sel(component="NI").values.reshape(-1),
+                result.NP.values.reshape(-1),
+            )
+            if p and np.isfinite(n) and n &gt; 1e-9
+        ]
+        assert abs(sum(n for _, _, n in records) - 1) &lt; 1e-9
+        assert abs(sum(c * n for _, c, n in records) - x) &lt; 1e-9
+        fraction = sum(n for p, _, n in records if p == "PRECIP")
+        analytic = max(0.0, min(1.0, (x - a) / (b - a)))
+        assert abs(fraction - analytic) &lt; 1e-7
         if a &lt; x &lt; b:
-            assert abs(float(result.GM.values.squeeze())-(mu_a+slope*x)) &lt; 1e-6
-            assert all(abs(c-({'MATRIX':a,'PRECIP':b}[p])) &lt; 1e-7 for p,c,_ in records)
+            assert (
+                abs(float(result.GM.values.squeeze()) - (mu_a + slope * x))
+                &lt; 1e-6
+            )
+            assert all(
+                abs(c - ({"MATRIX": a, "PRECIP": b}[p])) &lt; 1e-7
+                for p, c, _ in records
+            )
         rows[x].append(fraction)
-nominal = [x for x,fs in rows.items() if all(.05 &lt; f &lt; .5 for f in fs)]
+nominal = [x for x, fs in rows.items() if all(0.05 &lt; f &lt; 0.5 for f in fs)]
 # A stipulated +/-0.04 bound on each fraction; NOT an inferred uncertainty.
-robust = [x for x,fs in rows.items() if all(.05 &lt; f-.04 and f+.04 &lt; .5 for f in fs)]
-for x,fs in rows.items():
-    print(f'Synthetic xNi={x:.2f}: fPRECIP900/1000={fs[0]:.6f},{fs[1]:.6f}; nominal={x in nominal}; robust={x in robust}')
-assert nominal == [.5,.55] and robust == [.5]
-print('Executed equilibrium batch:14 cases, every mass/composition balance and analytic fraction PASS')
-# Classifier behavior for an absent calculation, not a claim of an actual solver failure.
+robust = [
+    x
+    for x, fs in rows.items()
+    if all(0.05 &lt; f - 0.04 and f + 0.04 &lt; 0.5 for f in fs)
+]
+for x, fs in rows.items():
+    print(
+        (
+            f"Synthetic xNi="
+            f"{x:.2f}"
+            f": fPRECIP900/1000="
+            f"{fs[0]:.6f}"
+            f","
+            f"{fs[1]:.6f}"
+            f"; nominal="
+            f"{x in nominal}"
+            f"; robust="
+            f"{x in robust}"
+        )
+    )
+assert nominal == [0.5, 0.55] and robust == [0.5]
+print(
+    (
+        "Executed equilibrium batch:14 cases, every mass/composition balance "
+        "and analytic fraction PASS"
+    )
+)
+
+
+# Classifier behavior for an absent calculation, not a claim of an actual
+# solver failure.
 def classify(values):
-    if values is None: return 'unknown'
-    return 'pass' if all(.05 &lt; f &lt; .5 for f in values) else 'reject'
-assert classify(None) == 'unknown'
-print('Deliberately absent result classified as unknown, not reject or pass')
+    if values is None:
+        return "unknown"
+    return "pass" if all(0.05 &lt; f &lt; 0.5 for f in values) else "reject"
+
+
+assert classify(None) == "unknown"
+print("Deliberately absent result classified as unknown, not reject or pass")
 
 # Synthetic angular diffraction data; known cubic indexing and wavelength.
-wavelength, a0, true_a, zero = .15406, .36, .3618, .04  # nm, nm, nm, degrees
-squares = (3,4,8,11,12)
+wavelength, a0, true_a, zero = (
+    0.15406,
+    0.36,
+    0.3618,
+    0.04,
+)  # nm, nm, nm, degrees
+squares = (3, 4, 8, 11, 12)
+
+
 def angles(a):
-    return [2*asin(wavelength*sqrt(q)/(2*a))*180/pi for q in squares]
+    return [
+        2 * asin(wavelength * sqrt(q) / (2 * a)) * 180 / pi for q in squares
+    ]
+
+
 old = angles(a0)
-observed = [t+zero for t in angles(true_a)]
-for q,old_t,new_t in zip(squares[:3],old[:3],angles(true_a)[:3]):
-    linear = -2*sin(old_t*pi/360)/cos(old_t*pi/360)*(.005)*180/pi
-    print(f'Cubic h2+k2+l2={q}: exact 2theta shift={new_t-old_t:.6f} deg; first-order={linear:.6f} deg')
-# For each candidate a, the best common zero offset is the mean angular residual.
+observed = [t + zero for t in angles(true_a)]
+for q, old_t, new_t in zip(squares[:3], old[:3], angles(true_a)[:3]):
+    linear = (
+        -2 * sin(old_t * pi / 360) / cos(old_t * pi / 360) * (0.005) * 180 / pi
+    )
+    print(
+        (
+            f"Cubic h2+k2+l2="
+            f"{q}"
+            f": exact 2theta shift="
+            f"{new_t - old_t:.6f}"
+            f" deg; first-order="
+            f"{linear:.6f}"
+            f" deg"
+        )
+    )
+
+
+# For each candidate a, the best common zero offset is the mean angular
+# residual.
 def fit_at(a):
-    residual = [o-t for o,t in zip(observed,angles(a))]
-    shift = sum(residual)/len(residual)
-    return sum((r-shift)**2 for r in residual),shift
-left,right=.355,.367
-gold=(sqrt(5)-1)/2
-c=right-gold*(right-left);d=left+gold*(right-left)
+    residual = [o - t for o, t in zip(observed, angles(a))]
+    shift = sum(residual) / len(residual)
+    return sum((r - shift) ** 2 for r in residual), shift
+
+
+left, right = 0.355, 0.367
+gold = (sqrt(5) - 1) / 2
+c = right - gold * (right - left)
+d = left + gold * (right - left)
 for _ in range(100):
     if fit_at(c)[0] &lt; fit_at(d)[0]:
-        right,d=d,c;c=right-gold*(right-left)
+        right, d = d, c
+        c = right - gold * (right - left)
     else:
-        left,c=c,d;d=left+gold*(right-left)
-fitted=(left+right)/2
-sse,fitted_zero=fit_at(fitted)
-assert abs(fitted-true_a)&lt;1e-11 and abs(fitted_zero-zero)&lt;1e-8
+        left, c = c, d
+        d = left + gold * (right - left)
+fitted = (left + right) / 2
+sse, fitted_zero = fit_at(fitted)
+assert abs(fitted - true_a) &lt; 1e-11 and abs(fitted_zero - zero) &lt; 1e-8
 assert sse &lt; 1e-20
-print(f'Synthetic five-peak joint fit: a={fitted:.9f} nm; zero={fitted_zero:.9f} deg; SSE&lt;1e-20 deg^2')
-print('Scope: no measured pattern, real-alloy screening, mechanical-property prediction or thermal-history simulation')
+print(
+    (
+        f"Synthetic five-peak joint fit: a="
+        f"{fitted:.9f}"
+        f" nm; zero="
+        f"{fitted_zero:.9f}"
+        f" deg; SSE&lt;1e-20 deg^2"
+    )
+)
+print(
+    (
+        "Scope: no measured pattern, real-alloy screening, mechanical-propert"
+        "y prediction or thermal-history simulation"
+    )
+)
 </code></pre>
 <pre class="output">Five-component 5%-grid, positive / zero-allowed: 3246, 7051
 Unrestricted 26-element equimolar subsets of sizes3--6: 313560
@@ -211,15 +353,15 @@ Synthetic five-peak joint fit: a=0.361800000 nm; zero=0.040000000 deg; SSE&lt;1e
 Scope: no measured pattern, real-alloy screening, mechanical-property prediction or thermal-history simulation</pre>
 
 <h2 id="exercises">22.9 Exercises with complete solutions</h2>
-<div class="exercise"><h3>1. Count a genuine five-component grid</h3><p>Derive the count for 5–50 atomic percent in 5-percent steps, and explain the change if absent components are admitted.</p><details class="solution"><summary>Solution</summary><p>Write fractions as \(q_i/20\). For all components present, \(1\le q_i\le10\) and their sum is twenty. After subtracting one from each, the sum is fifteen and the upper bound is nine. Stars and bars gives \(\binom{19}{4}=3876\); each of five disjoint violations leaves sum five and contributes \(\binom94=126\). Hence \(3876-630=3246\). With zeros admitted, start with \(\binom{24}{4}=10626\); each violation \(q_i\ge11\) contributes \(\binom{13}{4}=715\), and simultaneous violations are impossible. The count becomes \(10626-3575=7051\). Those extra points include lower-component faces. They are not additional genuine five-component alloys.</p></details></div>
-<div class="exercise"><h3>2. Audit a temperature fraction and a window claim</h3><p>For a melting value of 1250 °C, compare the two 0.8 operations. Then explain why two acceptable endpoint fractions do not prove an acceptable service interval.</p><details class="solution"><summary>Solution</summary><p>The Celsius operation gives 1000 °C. An absolute ratio gives \(0.8(1523.15)=1218.52\) K, or 945.37 °C. A reproduction must state which convention it follows; only the latter is invariant as an absolute-temperature ratio. The example \(f=0.1+0.6\sin^2[\pi(T-T_a)/(T_b-T_a)]\) gives 0.1 at both ends but 0.7 at their midpoint. A 0.05–0.5 criterion therefore fails inside. The claim can be strengthened by checking intermediate equilibria, tracking boundaries, or proving a derivative bound with a sufficiently fine grid and safety margin. Continuity alone is insufficient.</p></details></div>
-<div class="exercise"><h3>3. Turn a sampled inequality into a sufficient certificate</h3><p>Suppose the maximum temperature gap is h and \(|f'|\le L\). If numerical and stipulated model errors are bounded by \(\epsilon\) and \(\delta\), how far must each sampled estimate stay from each threshold?</p><details class="solution"><summary>Solution</summary><p>Because the endpoints are included, choose a nearest sample no more than h/2 away. The derivative bound contributes at most Lh/2 to the difference. The triangle inequality adds numerical and model terms, giving \(|f_{\rm physical}(T)-\widehat f(T_j)|\le Lh/2+\epsilon+\delta\), assuming each stated bound really applies throughout the domain. Every sampled estimate must lie inside the allowed interval by more than that sum for strict thresholds. If L or the discrepancy bound is unknown, the formula is conditional rather than a certificate inferred from the grid itself.</p></details></div>
-<div class="exercise"><h3>4. Derive the tangent-plane driving force</h3><p>Differentiate the balanced parent/product mixture and evaluate the quadratic example at product amounts 0.1 and 0.2.</p><details class="solution"><summary>Solution</summary><p>Balance requires \(x_M=(z-\lambda x)/(1-\lambda)\), so \(x_M'(0)=z-x\). Differentiating the mixture gives \(G'(0)=-g_M(z)+g_M'(z)(z-x)+g_P(x)=g_P(x)-\ell_z(x)\). At z=0.3 and x=0.7, the parent tangent is zero and the product minimum is −300, giving derivative −300 J/mol. At \(\lambda=0.1\), \(x_M=0.23/0.9=0.255555556\), and \(G=0.9(10000)(-0.044444444)^2-30=-12.222222222\). At \(\lambda=0.2\), \(x_M=0.16/0.8=0.2\), and \(G=80-60=20\). The first-order direction favors some small amount, while finite curvature can oppose a larger stipulated amount. No nucleation rate follows.</p></details></div>
-<div class="exercise"><h3>5. Check reference invariance of the driving comparison</h3><p>Why does a common elemental affine subtraction preserve D, and why can separate phase-mixing references invalidate the comparison?</p><details class="solution"><summary>Solution</summary><p>Let \(q(x)=a+bx\). The transformed parent tangent is \(g_M(z)-q(z)+[g_M'(z)-b](x-z)=\ell_z(x)-q(x)\). The transformed product is \(g_P(x)-q(x)\), so their difference equals the old \(\ell_z(x)-g_P(x)\) for every x; its maximum is unchanged. If different phases subtract different functions \(q_M,q_P\), the difference gains \(q_P(x)-q_M(x)\), changing the inferred driving force. Deeper separately referenced mixing energies can therefore be useful descriptions of mixing within each phase without being a valid ranking of the competing phases.</p></details></div>
-<div class="exercise"><h3>6. Certify the synthetic equilibrium and distinguish two passes</h3><p>Derive the contact formula and use the actual 1000 K result to explain why x=0.55 is nominally acceptable but not robustly certified under the stipulated bound.</p><details class="solution"><summary>Solution</summary><p>For MATRIX, \(\mu_A=RT\ln(1-a)\), \(\mu_B=D+RT\ln a\). For PRECIP, \(\mu_A=D+\delta+RT\ln(1-b)\), \(\mu_B=\delta+RT\ln b\). Equalities give \(1-a=u(1-b)\), \(a=wb\), hence \(b=(u-1)/(u-w)\). Positive branch curvature proves that the shared tangent lies below each entire branch, establishing global support. At 1000 K the actual contacts give \(f_P=(0.55-0.391289385)/(0.731327105-0.391289385)\approx0.466744\). It is below 0.5, but adding 0.04 reaches 0.506744. A nominal pass is not a pass for every value in that uncertainty interval. It is not proof of actual physical failure either. The lower and upper margins must be checked at every declared condition.</p></details></div>
-<div class="exercise"><h3>7. Derive the angular shift and keep its units</h3><p>Differentiate Bragg's law for isotropic cubic expansion. Why does an identical fractional expansion produce different shifts for different reflections?</p><details class="solution"><summary>Solution</summary><p>At fixed wavelength, \(d\sin\theta\) is constant, so \(dd/d+\cot\theta\,d\theta=0\). Since the same indexed cubic spacing is proportional to a, \(dd/d=da/a\), yielding \(d(2\theta)=-2\tan\theta\,da/a\) in radians. Larger diffraction angles have larger tangent and therefore larger angular shifts. For a 0.5-percent expansion the code's first-order shifts are −0.228625°, −0.271291° and −0.435586° for 111,200,220; exact finite shifts are slightly smaller in magnitude. Multiplying the radian derivative by 180/π is essential before comparing with degrees. A single arbitrary common angular translation is not the same model as uniform lattice expansion.</p></details></div>
-<div class="exercise"><h3>8. Explain the zero-offset identifiability problem</h3><p>Can one indexed peak determine both a lattice parameter and a constant angular offset? What do five exact peaks establish in the constructed fit?</p><details class="solution"><summary>Solution</summary><p>One equation \(t=F_h(a)+z_0\) leaves a free parameter: choose any admissible a and set \(z_0=t-F_h(a)\). With several distinct angles, the rows \((F_h'(a),1)\) are not proportional because \(F_h'=-2\tan\theta_h/a\) differs across reflections. The Jacobian has rank two, giving local identifiability under known indexing. The constructed five-peak fit recovers 0.3618 nm and 0.04° with an actual residual bound. It does not certify an unknown structure or phase mixture, absence of strain, a correct instrument model or experimental uncertainty. Those require independent tests; the fit is conditional on the stated synthetic model.</p></details></div>
-<div class="exercise"><h3>9. Design a characterization test that can reject the calculation</h3><p>A calculation proposes two FCC composition sets. What comparisons would be more informative than accepting the best-matching single powder pattern?</p><details class="solution"><summary>Solution</summary><p>Retain both predicted phase compositions and amounts and verify the bulk elemental balance first. Compare measured chemical populations at an appropriate spatial resolution, stating whether their sampling averages more than one region. Test multiple indexed diffraction positions, relative intensities, absences and coherent lattice shifts, while accounting for instrumental offset and possible strain/broadening. Convert phase fractions to the same mole, mass or volume basis before comparison. Check whether the processing time and temperature could plausibly approach the calculated state. Search for unexplained peaks or chemistry that could indicate a missing candidate phase. None of these tests is guaranteed to settle an under-resolved sample, but they provide ways for the observations to contradict the proposed equilibrium rather than merely illustrate it.</p></details></div>
+<div class="exercise"><h3 id="1-count-a-genuine-five-component-grid">1. Count a genuine five-component grid</h3><p>Derive the count for 5–50 atomic percent in 5-percent steps, and explain the change if absent components are admitted.</p><details class="solution"><summary>Solution</summary><p>Write fractions as \(q_i/20\). For all components present, \(1\le q_i\le10\) and their sum is twenty. After subtracting one from each, the sum is fifteen and the upper bound is nine. Stars and bars gives \(\binom{19}{4}=3876\); each of five disjoint violations leaves sum five and contributes \(\binom94=126\). Hence \(3876-630=3246\). With zeros admitted, start with \(\binom{24}{4}=10626\); each violation \(q_i\ge11\) contributes \(\binom{13}{4}=715\), and simultaneous violations are impossible. The count becomes \(10626-3575=7051\). Those extra points include lower-component faces. They are not additional genuine five-component alloys.</p></details></div>
+<div class="exercise"><h3 id="2-audit-a-temperature-fraction-and-a-window-claim">2. Audit a temperature fraction and a window claim</h3><p>For a melting value of 1250 °C, compare the two 0.8 operations. Then explain why two acceptable endpoint fractions do not prove an acceptable service interval.</p><details class="solution"><summary>Solution</summary><p>The Celsius operation gives 1000 °C. An absolute ratio gives \(0.8(1523.15)=1218.52\) K, or 945.37 °C. A reproduction must state which convention it follows; only the latter is invariant as an absolute-temperature ratio. The example \(f=0.1+0.6\sin^2[\pi(T-T_a)/(T_b-T_a)]\) gives 0.1 at both ends but 0.7 at their midpoint. A 0.05–0.5 criterion therefore fails inside. The claim can be strengthened by checking intermediate equilibria, tracking boundaries, or proving a derivative bound with a sufficiently fine grid and safety margin. Continuity alone is insufficient.</p></details></div>
+<div class="exercise"><h3 id="3-turn-a-sampled-inequality-into-a-sufficient-certificate">3. Turn a sampled inequality into a sufficient certificate</h3><p>Suppose the maximum temperature gap is h and \(|f'|\le L\). If numerical and stipulated model errors are bounded by \(\epsilon\) and \(\delta\), how far must each sampled estimate stay from each threshold?</p><details class="solution"><summary>Solution</summary><p>Because the endpoints are included, choose a nearest sample no more than h/2 away. The derivative bound contributes at most Lh/2 to the difference. The triangle inequality adds numerical and model terms, giving \(|f_{\rm physical}(T)-\widehat f(T_j)|\le Lh/2+\epsilon+\delta\), assuming each stated bound really applies throughout the domain. Every sampled estimate must lie inside the allowed interval by more than that sum for strict thresholds. If L or the discrepancy bound is unknown, the formula is conditional rather than a certificate inferred from the grid itself.</p></details></div>
+<div class="exercise"><h3 id="4-derive-the-tangent-plane-driving-force">4. Derive the tangent-plane driving force</h3><p>Differentiate the balanced parent/product mixture and evaluate the quadratic example at product amounts 0.1 and 0.2.</p><details class="solution"><summary>Solution</summary><p>Balance requires \(x_M=(z-\lambda x)/(1-\lambda)\), so \(x_M'(0)=z-x\). Differentiating the mixture gives \(G'(0)=-g_M(z)+g_M'(z)(z-x)+g_P(x)=g_P(x)-\ell_z(x)\). At z=0.3 and x=0.7, the parent tangent is zero and the product minimum is −300, giving derivative −300 J/mol. At \(\lambda=0.1\), \(x_M=0.23/0.9=0.255555556\), and \(G=0.9(10000)(-0.044444444)^2-30=-12.222222222\). At \(\lambda=0.2\), \(x_M=0.16/0.8=0.2\), and \(G=80-60=20\). The first-order direction favors some small amount, while finite curvature can oppose a larger stipulated amount. No nucleation rate follows.</p></details></div>
+<div class="exercise"><h3 id="5-check-reference-invariance-of-the-driving-comparison">5. Check reference invariance of the driving comparison</h3><p>Why does a common elemental affine subtraction preserve D, and why can separate phase-mixing references invalidate the comparison?</p><details class="solution"><summary>Solution</summary><p>Let \(q(x)=a+bx\). The transformed parent tangent is \(g_M(z)-q(z)+[g_M'(z)-b](x-z)=\ell_z(x)-q(x)\). The transformed product is \(g_P(x)-q(x)\), so their difference equals the old \(\ell_z(x)-g_P(x)\) for every x; its maximum is unchanged. If different phases subtract different functions \(q_M,q_P\), the difference gains \(q_P(x)-q_M(x)\), changing the inferred driving force. Deeper separately referenced mixing energies can therefore be useful descriptions of mixing within each phase without being a valid ranking of the competing phases.</p></details></div>
+<div class="exercise"><h3 id="6-certify-the-synthetic-equilibrium-and-distinguish-two-passes">6. Certify the synthetic equilibrium and distinguish two passes</h3><p>Derive the contact formula and use the actual 1000 K result to explain why x=0.55 is nominally acceptable but not robustly certified under the stipulated bound.</p><details class="solution"><summary>Solution</summary><p>For MATRIX, \(\mu_A=RT\ln(1-a)\), \(\mu_B=D+RT\ln a\). For PRECIP, \(\mu_A=D+\delta+RT\ln(1-b)\), \(\mu_B=\delta+RT\ln b\). Equalities give \(1-a=u(1-b)\), \(a=wb\), hence \(b=(u-1)/(u-w)\). Positive branch curvature proves that the shared tangent lies below each entire branch, establishing global support. At 1000 K the actual contacts give \(f_P=(0.55-0.391289385)/(0.731327105-0.391289385)\approx0.466744\). It is below 0.5, but adding 0.04 reaches 0.506744. A nominal pass is not a pass for every value in that uncertainty interval. It is not proof of actual physical failure either. The lower and upper margins must be checked at every declared condition.</p></details></div>
+<div class="exercise"><h3 id="7-derive-the-angular-shift-and-keep-its-units">7. Derive the angular shift and keep its units</h3><p>Differentiate Bragg's law for isotropic cubic expansion. Why does an identical fractional expansion produce different shifts for different reflections?</p><details class="solution"><summary>Solution</summary><p>At fixed wavelength, \(d\sin\theta\) is constant, so \(dd/d+\cot\theta\,d\theta=0\). Since the same indexed cubic spacing is proportional to a, \(dd/d=da/a\), yielding \(d(2\theta)=-2\tan\theta\,da/a\) in radians. Larger diffraction angles have larger tangent and therefore larger angular shifts. For a 0.5-percent expansion the code's first-order shifts are −0.228625°, −0.271291° and −0.435586° for 111,200,220; exact finite shifts are slightly smaller in magnitude. Multiplying the radian derivative by 180/π is essential before comparing with degrees. A single arbitrary common angular translation is not the same model as uniform lattice expansion.</p></details></div>
+<div class="exercise"><h3 id="8-explain-the-zero-offset-identifiability-problem">8. Explain the zero-offset identifiability problem</h3><p>Can one indexed peak determine both a lattice parameter and a constant angular offset? What do five exact peaks establish in the constructed fit?</p><details class="solution"><summary>Solution</summary><p>One equation \(t=F_h(a)+z_0\) leaves a free parameter: choose any admissible a and set \(z_0=t-F_h(a)\). With several distinct angles, the rows \((F_h'(a),1)\) are not proportional because \(F_h'=-2\tan\theta_h/a\) differs across reflections. The Jacobian has rank two, giving local identifiability under known indexing. The constructed five-peak fit recovers 0.3618 nm and 0.04° with an actual residual bound. It does not certify an unknown structure or phase mixture, absence of strain, a correct instrument model or experimental uncertainty. Those require independent tests; the fit is conditional on the stated synthetic model.</p></details></div>
+<div class="exercise"><h3 id="9-design-a-characterization-test-that-can-reject-the-calculation">9. Design a characterization test that can reject the calculation</h3><p>A calculation proposes two FCC composition sets. What comparisons would be more informative than accepting the best-matching single powder pattern?</p><details class="solution"><summary>Solution</summary><p>Retain both predicted phase compositions and amounts and verify the bulk elemental balance first. Compare measured chemical populations at an appropriate spatial resolution, stating whether their sampling averages more than one region. Test multiple indexed diffraction positions, relative intensities, absences and coherent lattice shifts, while accounting for instrumental offset and possible strain/broadening. Convert phase fractions to the same mole, mass or volume basis before comparison. Check whether the processing time and temperature could plausibly approach the calculated state. Search for unexplained peaks or chemistry that could indicate a missing candidate phase. None of these tests is guaranteed to settle an under-resolved sample, but they provide ways for the observations to contradict the proposed equilibrium rather than merely illustrate it.</p></details></div>
 <p class="closing">High throughput is most powerful when it accelerates an explicit question. The result is a reproducible set of conditional predictions, together with enough thermodynamic and measurement reasoning to choose the next experiment and recognize when the model must change.</p>
 <p class="chapter-nav"><a href="index.html">All chapters</a></p>
 <!-- BOOK-CONTENT-END --></article><nav class="page-turn"><a href="index.html">Chapter index</a></nav></main></div><footer class="site-footer">Independent study edition. Prof. K. Guruvidyathri, University of Hyderabad; NPTEL coordinating institution IIT Madras. Original exposition and teaching constructions; attribution does not imply endorsement.</footer></body></html>

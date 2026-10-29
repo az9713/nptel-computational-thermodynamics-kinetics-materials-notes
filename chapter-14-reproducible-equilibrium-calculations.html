@@ -1,8 +1,8 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="dark light"><meta name="book-content-sha256" content="d9950d0ffd018ee5bd1b6778311684b2b74ddcaa8c034c6e93a9bc0d3403e348"><title>Reproducible equilibrium calculations · Computational Thermodynamics</title><link rel="stylesheet" href="assets/book.css"><script src="assets/math-config.js"></script><script defer src="assets/mathjax-tex-svg.js"></script><script defer src="assets/book.js"></script></head>
-<body><a class="skip" href="#main">Skip to content</a><header class="site-header"><a class="brand" href="index.html">Computational Thermodynamics and Kinetics of Materials</a><nav class="course-nav"><a href="index.html">Chapters</a><a href="source-map.html">Source map</a><a href="references.html">References</a><a href="numerical-lab.html">Numerical lab</a></nav></header><div class="layout"><aside class="toc" id="chapter-toc"><h2>On this page</h2></aside><main id="main"><div class="reading-tools"><button id="theme-toggle" aria-pressed="false">Light theme</button><button id="text-toggle" aria-pressed="false">Larger text</button><button id="solutions-toggle" aria-pressed="false">Expand solutions</button><button id="print-page">Print with solutions</button></div>
+<body><a class="skip" href="#main">Skip to content</a><header class="site-header"><a class="brand" href="index.html">Computational Thermodynamics and Kinetics of Materials</a><nav class="course-nav"><a href="index.html">Chapters</a><a href="source-map.html">Source map</a><a href="references.html">References</a><a href="numerical-lab.html">Numerical lab</a></nav></header><div class="layout"><aside class="toc" id="chapter-toc"><h2 id="on-this-page">On this page</h2></aside><main id="main"><div class="reading-tools"><button id="theme-toggle" aria-pressed="false">Light theme</button><button id="text-toggle" aria-pressed="false">Larger text</button><button id="solutions-toggle" aria-pressed="false">Expand solutions</button><button id="print-page">Print with solutions</button></div>
 <article id="chapter-content"><!-- BOOK-CONTENT-START -->
-<h1>14. Reproducible calculations: phase status, paths and result audits</h1>
+<h1 id="chapter-title">14. Reproducible calculations: phase status, paths and result audits</h1>
 <p class="lead">A software template specifies which thermodynamic problem is solved. Changing the axes, phase set or composition basis can change that problem even when the screen looks similar. We translate the four recorded hands-on sessions into explicit inputs and checks, then execute an open-source equilibrium engine on a small database whose answers can also be derived analytically.</p>
 <div class="callout"><strong>Evidence boundary.</strong> Lessons 27–30 demonstrate Thermo-Calc graphical and console workflows with demonstration databases. Their reported Fe-based examples are described as recording results; this edition did not rerun FEDEMO or install the commercial program. The executable laboratory below actually ran pycalphad 0.11.1 on an original teaching TDB. Its CU/NI component names identify variables only: its parameters are not an assessment of the Cu–Ni system.</div>
 <h2 id="problem">1. Write the calculation before choosing a template</h2>
@@ -85,104 +85,187 @@ LIST-EQUILIBRIUM</code></pre>
 <h2 id="lab">9. Execute and audit the complete open laboratory</h2>
 <p>Use a project-local Python environment and install <a href="requirements.txt">the pinned numerical requirements</a>; run the following program from the book root with <a href="data/ch14_synthetic.tdb">the public teaching TDB</a> present. No private captions, downloaded commercial data or external service are needed for the calculation. The source below is exactly the downloadable <a href="code/ch14_equilibrium_workflow.py">program</a>. Runtime packages are third-party dependencies, distinct from the offline HTML reader.</p>
 <p>The code repeats the restricted equilibrium at a higher sampling density and compares against the analytic supporting-line certificate. That is stronger evidence for this specific construction than agreement of two sampled grids alone. The DELTA case separately tests multiple composition sets. All parameters are synthetic; none of these checks validates an actual Cu–Ni phase diagram or reconstructs the Fe-based lecture database.</p>
-<pre data-run="code/ch14_equilibrium_workflow.py"><code class="language-python">"""Actually executed pycalphad teaching model; NOT assessed Cu-Ni data.
-Run from the book root after installing requirements.txt in a project environment.
-"""
+<pre data-run="code/ch14_equilibrium_workflow.py"><code class="language-python">"""Actually executed pycalphad teaching model; NOT assessed Cu-Ni data.\
+\nRun from the book root after installing requirements.txt in a proj\
+ect environment.\n"""
+
 from pathlib import Path
 from math import exp, log, isclose
 import numpy as np
 import pycalphad
 from pycalphad import Database, calculate, equilibrium, variables as v
 
-DB_PATH=Path('data/ch14_synthetic.tdb')
-db=Database(str(DB_PATH))
-R=float(v.R)  # Match this engine's rounded constant for the analytic audit.
-assert pycalphad.__version__ == '0.11.1'
-print(f'Engine: pycalphad {pycalphad.__version__}; R={R:.4f} J/(mol K)')
+DB_PATH = Path("data/ch14_synthetic.tdb")
+db = Database(str(DB_PATH))
+R = float(v.R)  # Match this engine's rounded constant for the analytic audit.
+assert pycalphad.__version__ == "0.11.1"
+print(f"Engine: pycalphad {pycalphad.__version__}; R={R:.4f} J/(mol K)")
 
 # CIAAW tabulated central values used as fixed illustrative molar masses.
-Mfe,Mcr=55.845,51.9961
-wcr=.45
-xcr=(wcr/Mcr)/((1-wcr)/Mfe+wcr/Mcr)
-Mbar=1/((1-wcr)/Mfe+wcr/Mcr)
-print(f'Fe-45 mass percent Cr: xCr={xcr:.9f}, mean molar mass={Mbar:.9f} g/mol')
-fmol=[.75,.25];Mphase=[60.,90.];Vphase=[1e-5,2e-5]
-mass_beta=fmol[1]*Mphase[1]/sum(f*m for f,m in zip(fmol,Mphase))
-volume_beta=fmol[1]*Vphase[1]/sum(f*vv for f,vv in zip(fmol,Vphase))
-print(f'Teaching fractions: beta mole={fmol[1]:.6f}, mass={mass_beta:.6f}, volume={volume_beta:.6f}')
+Mfe, Mcr = 55.845, 51.9961
+wcr = 0.45
+xcr = (wcr / Mcr) / ((1 - wcr) / Mfe + wcr / Mcr)
+Mbar = 1 / ((1 - wcr) / Mfe + wcr / Mcr)
+print(
+    f"Fe-45 mass percent Cr: xCr={xcr:.9f}, mean molar mass={Mbar:.9f} g/mol"
+)
+fmol = [0.75, 0.25]
+Mphase = [60.0, 90.0]
+Vphase = [1e-5, 2e-5]
+mass_beta = fmol[1] * Mphase[1] / sum(f * m for f, m in zip(fmol, Mphase))
+volume_beta = fmol[1] * Vphase[1] / sum(f * vv for f, vv in zip(fmol, Vphase))
+print(
+    (
+        f"Teaching fractions: beta mole="
+        f"{fmol[1]:.6f}"
+        f", mass="
+        f"{mass_beta:.6f}"
+        f", volume="
+        f"{volume_beta:.6f}"
+    )
+)
 
-def solve(phases,T=600.0,z=.4,pdens=1000):
-    return equilibrium(db,['CU','NI'],phases,
-        {v.T:T,v.P:100000,v.N:1,v.X('NI'):z},calc_opts={'pdens':pdens})
+
+def solve(phases, T=600.0, z=0.4, pdens=1000):
+    return equilibrium(
+        db,
+        ["CU", "NI"],
+        phases,
+        {v.T: T, v.P: 100000, v.N: 1, v.X("NI"): z},
+        calc_opts={"pdens": pdens},
+    )
+
 
 def occupied(eq):
-    names=eq.Phase.values.reshape(-1)
-    amounts=eq.NP.values.reshape(-1)
-    xs=eq.X.sel(component='NI').values.reshape(-1)
-    return sorted((str(p),float(x),float(f)) for p,x,f in zip(names,xs,amounts)
-                  if p and np.isfinite(f) and f&gt;1e-9)
+    names = eq.Phase.values.reshape(-1)
+    amounts = eq.NP.values.reshape(-1)
+    xs = eq.X.sel(component="NI").values.reshape(-1)
+    return sorted(
+        (str(p), float(x), float(f))
+        for p, x, f in zip(names, xs, amounts)
+        if p and np.isfinite(f) and f &gt; 1e-9
+    )
 
-T,z=600.0,.4
-eq=solve(['ALPHA','BETA'],T,z)
-rows=occupied(eq)
-a=1/(1+exp(6000/(R*T)))
-b=1-a
-fb=(z-a)/(b-a)
-assert [r[0] for r in rows]==['ALPHA','BETA']
-assert abs(rows[0][1]-a)&lt;1e-7 and abs(rows[1][1]-b)&lt;1e-7
-assert abs(rows[1][2]-fb)&lt;1e-7
-assert abs(sum(f for _,_,f in rows)-1)&lt;1e-9
-assert abs(sum(x*f for _,x,f in rows)-z)&lt;1e-9
-print(f'Restricted 600 K: xAlpha={rows[0][1]:.6f}, xBeta={rows[1][1]:.6f}, fBeta={rows[1][2]:.6f}, GM={float(eq.GM.values.squeeze()):.4f}')
-assert abs(float(eq.GM.values.squeeze())-R*T*log(1-a))&lt;1e-6
-print('Analytic coexistence and elemental/amount balances: PASS')
+
+T, z = 600.0, 0.4
+eq = solve(["ALPHA", "BETA"], T, z)
+rows = occupied(eq)
+a = 1 / (1 + exp(6000 / (R * T)))
+b = 1 - a
+fb = (z - a) / (b - a)
+assert [r[0] for r in rows] == ["ALPHA", "BETA"]
+assert abs(rows[0][1] - a) &lt; 1e-7 and abs(rows[1][1] - b) &lt; 1e-7
+assert abs(rows[1][2] - fb) &lt; 1e-7
+assert abs(sum(f for _, _, f in rows) - 1) &lt; 1e-9
+assert abs(sum(x * f for _, x, f in rows) - z) &lt; 1e-9
+print(
+    (
+        f"Restricted 600 K: xAlpha="
+        f"{rows[0][1]:.6f}"
+        f", xBeta="
+        f"{rows[1][1]:.6f}"
+        f", fBeta="
+        f"{rows[1][2]:.6f}"
+        f", GM="
+        f"{float(eq.GM.values.squeeze()):.4f}"
+    )
+)
+assert abs(float(eq.GM.values.squeeze()) - R * T * log(1 - a)) &lt; 1e-6
+print("Analytic coexistence and elemental/amount balances: PASS")
 
 # calculate() samples phase states; it does not perform global equilibrium.
-calc=calculate(db,['CU','NI'],['ALPHA'],T=T,P=100000,
-               points=np.array([[.6,.4]]))
-g_alpha=float(calc.GM.values.squeeze())
-assert abs(g_alpha-(6000*z+R*T*((1-z)*log(1-z)+z*log(z))))&lt;1e-6
-print(f'Homogeneous ALPHA at xNi=.4: GM={g_alpha:.4f}; excess above restricted equilibrium={g_alpha-float(eq.GM.values.squeeze()):.4f}')
+calc = calculate(
+    db, ["CU", "NI"], ["ALPHA"], T=T, P=100000, points=np.array([[0.6, 0.4]])
+)
+g_alpha = float(calc.GM.values.squeeze())
+assert (
+    abs(g_alpha - (6000 * z + R * T * ((1 - z) * log(1 - z) + z * log(z))))
+    &lt; 1e-6
+)
+print(
+    (
+        f"Homogeneous ALPHA at xNi=.4: GM="
+        f"{g_alpha:.4f}"
+        f"; excess above restricted equilibrium="
+        f"{g_alpha - float(eq.GM.values.squeeze()):.4f}"
+    )
+)
 
-all_eq=solve(['ALPHA','BETA','GAMMA'])
-all_rows=occupied(all_eq)
-assert len(all_rows)==1 and all_rows[0][0]=='GAMMA'
-assert abs(float(all_eq.GM.values.squeeze())-(-5000+R*T*((1-z)*log(1-z)+z*log(z))))&lt;1e-6
-assert float(all_eq.GM.values.squeeze())&lt;=float(eq.GM.values.squeeze())
-print(f'GAMMA entered: fraction={all_rows[0][2]:.6f}, GM={float(all_eq.GM.values.squeeze()):.4f}')
+all_eq = solve(["ALPHA", "BETA", "GAMMA"])
+all_rows = occupied(all_eq)
+assert len(all_rows) == 1 and all_rows[0][0] == "GAMMA"
+assert (
+    abs(
+        float(all_eq.GM.values.squeeze())
+        - (-5000 + R * T * ((1 - z) * log(1 - z) + z * log(z)))
+    )
+    &lt; 1e-6
+)
+assert float(all_eq.GM.values.squeeze()) &lt;= float(eq.GM.values.squeeze())
+print(
+    (
+        f"GAMMA entered: fraction="
+        f"{all_rows[0][2]:.6f}"
+        f", GM="
+        f"{float(all_eq.GM.values.squeeze()):.4f}"
+    )
+)
 
-for temperature in [400.,600.,1000.]:
-    sweep=occupied(solve(['ALPHA','BETA'],temperature))
-    fraction=sum(f for p,_,f in sweep if p=='BETA')
-    print(f'Fixed bulk sweep T={temperature:.0f} K: fBeta={fraction:.6f}')
+for temperature in [400.0, 600.0, 1000.0]:
+    sweep = occupied(solve(["ALPHA", "BETA"], temperature))
+    fraction = sum(f for p, _, f in sweep if p == "BETA")
+    print(f"Fixed bulk sweep T={temperature:.0f} K: fBeta={fraction:.6f}")
 
 # One model, two composition sets: stable DELTA demixing below its critical T.
-delta=solve(['DELTA'])
-dr=occupied(delta)
-assert len(dr)==2 and all(p=='DELTA' for p,_,_ in dr)
-assert abs(sum(x*f for _,x,f in dr)-z)&lt;1e-8
+delta = solve(["DELTA"])
+dr = occupied(delta)
+assert len(dr) == 2 and all(p == "DELTA" for p, _, _ in dr)
+assert abs(sum(x * f for _, x, f in dr) - z) &lt; 1e-8
 # Independent bracketed analytic binodal with the same R.
-lo,hi=.01,.3
+lo, hi = 0.01, 0.3
 for _ in range(80):
-    mid=(lo+hi)/2
-    value=R*T*log(mid/(1-mid))+12000*(1-2*mid)
-    if value&gt;0:hi=mid
-    else:lo=mid
-binodal=(lo+hi)/2
-assert abs(dr[0][1]-binodal)&lt;1e-6
-print(f'DELTA composition sets: xLow={dr[0][1]:.6f}, xHigh={dr[1][1]:.6f}, fHigh={dr[1][2]:.6f}')
+    mid = (lo + hi) / 2
+    value = R * T * log(mid / (1 - mid)) + 12000 * (1 - 2 * mid)
+    if value &gt; 0:
+        hi = mid
+    else:
+        lo = mid
+binodal = (lo + hi) / 2
+assert abs(dr[0][1] - binodal) &lt; 1e-6
+print(
+    (
+        f"DELTA composition sets: xLow="
+        f"{dr[0][1]:.6f}"
+        f", xHigh="
+        f"{dr[1][1]:.6f}"
+        f", fHigh="
+        f"{dr[1][2]:.6f}"
+    )
+)
 
-# Refinement is a numerical check; the analytic lower bound supplies certification.
-refined=solve(['ALPHA','BETA'],pdens=2000)
-assert abs(float(refined.GM.values.squeeze())-float(eq.GM.values.squeeze()))&lt;1e-6
-print('Sampling-density repeat against analytic certificate: PASS')
+# Refinement is a numerical check; the analytic lower bound supplies
+# certification.
+refined = solve(["ALPHA", "BETA"], pdens=2000)
+assert (
+    abs(float(refined.GM.values.squeeze()) - float(eq.GM.values.squeeze()))
+    &lt; 1e-6
+)
+print("Sampling-density repeat against analytic certificate: PASS")
 
-# Off-section tie line: constant bulk composition is not a per-phase constraint.
-alpha=np.array([.7,.2,.1]);beta=np.array([.1,.5,.4]);f=.4
-bulk=(1-f)*alpha+f*beta
-assert np.allclose(bulk,[.46,.32,.22])
-assert alpha[2]!=bulk[2] and beta[2]!=bulk[2]
-print('Ternary off-section balance: bulk=(.46,.32,.22), phase C fractions=.10 and .40')
+# Off-section tie line: constant bulk composition is not a per-phase
+# constraint.
+alpha = np.array([0.7, 0.2, 0.1])
+beta = np.array([0.1, 0.5, 0.4])
+f = 0.4
+bulk = (1 - f) * alpha + f * beta
+assert np.allclose(bulk, [0.46, 0.32, 0.22])
+assert alpha[2] != bulk[2] and beta[2] != bulk[2]
+print(
+    (
+        "Ternary off-section balance: bulk=(.46,.32,.22), phase C fractions=."
+        "10 and .40"
+    )
+)
 </code></pre><pre class="output">Engine: pycalphad 0.11.1; R=8.3145 J/(mol K)
 Fe-45 mass percent Cr: xCr=0.467730064, mean molar mass=54.044753756 g/mol
 Teaching fractions: beta mole=0.250000, mass=0.333333, volume=0.400000
@@ -198,14 +281,14 @@ Sampling-density repeat against analytic certificate: PASS
 Ternary off-section balance: bulk=(.46,.32,.22), phase C fractions=.10 and .40
 </pre>
 <h2 id="exercises">10. Exercises with complete solutions</h2>
-<div class="exercise"><h3>1. Translate the composition condition</h3><p>How should the recorded 45 mass-percent chromium be entered in a fractional console condition? Derive its mole fraction and explain the correct mean-molar-mass average.</p><details class="solution"><summary>Solution</summary><p>Enter W(CR)=0.45 and take wFe=0.55. For unit total mass, nCr=.45/51.9961 and nFe=.55/55.845. Their ratio gives xCr=0.467730064. Total mass divided by total moles gives 1/(.45/51.9961+.55/55.845)=54.044753756g/mol. A direct mass-fraction average of the molar masses uses the wrong weighting; mole fractions provide the arithmetic average Mbar=sum(xiMi). The table values are treated as fixed central numbers for this calculation.</p></details></div>
-<div class="exercise"><h3>2. Convert phase fractions</h3><p>Use the laboratory’s toy phase masses and volumes to show why a25% beta mole fraction need not mean25% mass or volume fraction.</p><details class="solution"><summary>Solution</summary><p>One mole of atoms contains 0.75 mol alpha and 0.25 mol beta. Their masses are 45 g and 22.5 g, totaling 67.5 g, so beta mass fraction is 22.5/67.5=1/3. Their volumes are 7.5e−6 and 5e−6 m³, giving beta volume fraction 5/12.5=0.4. The mole, mass and volume quantities all conserve their respective totals, but correspond to different normalized measures. Only the mole basis matches the atomic composition lever rule used here.</p></details></div>
-<div class="exercise"><h3>3. Derive the restricted solver’s answer</h3><p>Obtain the ALPHA/BETA contacts and phase amount without using an equilibrium program.</p><details class="solution"><summary>Solution</summary><p>Both branches have positive curvature RT/[x(1−x)]. Setting the ALPHA slope6000+RTln[x/(1−x)] to zero gives a=1/(1+exp[6000/(RT)]). Symmetry gives the BETA contact1−a, also with zero slope and the same height. Convexity proves this horizontal line underlies each branch globally. At600 K with R=8.3145, a≈.23099203 and b≈.76900797. Conservation gives fBeta=(.4−a)/(b−a)≈.31413190; fAlpha≈.68586810. The common energy is RTln(1−a)≈−1310.3017J/mol. Thus a primal assemblage reaches an analytic dual lower bound.</p></details></div>
-<div class="exercise"><h3>4. Explain a property-calculation discrepancy</h3><p>Why does homogeneous ALPHA at z=.4 have a higher energy than the restricted equilibrium even though it is an allowed phase?</p><details class="solution"><summary>Solution</summary><p>Its fixed homogeneous energy is6000(.4)+RT[.6ln.6+.4ln.4]≈−957.4533J/mol. The permitted minimization can instead separate into ALPHA at a and BETA at b while preserving bulk z. Their mixture costs−1310.3017, a reduction352.8484J/mol. A homogeneous property calculation constrains every atom to one composition state; allowing separation enlarges the feasible set. Evaluating a phase at the bulk composition is not equivalent to evaluating its equilibrium composition in a multiphase assemblage.</p></details></div>
-<div class="exercise"><h3>5. Prove the effect of entering GAMMA</h3><p>Show analytically that GAMMA is the full equilibrium of the three-phase teaching model at every interior bulk composition.</p><details class="solution"><summary>Solution</summary><p>At each x, gAlpha−gGamma=5000+6000x&gt;0 and gBeta−gGamma=11000−6000x&gt;0. GAMMA is strictly convex, so its tangent at any given z underlies GAMMA everywhere. It therefore also underlies both other branches everywhere. The single homogeneous GAMMA state at z attains this bound. Its equilibrium amount is1, and at600 K,z=.4 its energy is−5000+RTq(.4)≈−8357.4533J/mol. Removing GAMMA yields a higher restricted optimum but supplies no kinetic persistence time for that state.</p></details></div>
-<div class="exercise"><h3>6. Audit the DELTA output</h3><p>The result contains two positive entries both named DELTA. Why is this meaningful, and what independent check can distinguish it from a duplicate-array error?</p><details class="solution"><summary>Solution</summary><p>The model permits separation into different compositions of the same phase function. At600 K, the symmetric nontrivial root of RTln[a/(1−a)]+12000(1−2a)=0 gives a≈.16914401 and1−a≈.83085599. The high-composition fraction is(.4−a)/(1−2a)≈.34887685, and the low fraction≈.65112315. The code brackets that root independently and checks reconstructed bulk composition. A parser should retain each occupied composition set rather than identifying a state solely by phase-name text. This test does not classify crystal structures beyond the stipulated model.</p></details></div>
-<div class="exercise"><h3>7. Distinguish a vertical section from a binary tie line</h3><p>For the two manufactured ternary phases, recover the bulk composition at beta fraction .4. Can a lever rule along xC=.22 use the phase endpoints as points on that section?</p><details class="solution"><summary>Solution</summary><p>The balance is .6(.7,.2,.1)+.4(.1,.5,.4)=(.46,.32,.22). Neither endpoint has C fraction.22, so neither lies on the selected constant-C section. That section intersects the tie line at the overall point only. Treating boundaries of an isopleth as endpoints of this tie line would discard partitioning of C. One must use the full phase compositions and matched phase-amount basis. If the section used mass fractions instead, the balances and amount fractions would require the corresponding conversion.</p></details></div>
-<div class="exercise"><h3>8. Locate the end of the restricted two-phase thermal path</h3><p>For fixed z=.4, find the temperature at which the ALPHA contact reaches the bulk composition, and state what happens to the lever formula above it.</p><details class="solution"><summary>Solution</summary><p>Set a=z in the analytic expression: exp[6000/(RT)]=(1−z)/z=1.5, so \(T_s=6000/[R\ln(1.5)]\), approximately1780 K with the stated rounded R. Below this temperature the bulk lies between the contacts and fBeta is positive. At Ts it reaches zero. Above Ts the algebraic lever expression becomes negative and must be replaced by the single-phase ALPHA minimum at bulk z. This threshold is an equilibrium boundary of the specified restricted model, not an onset time or a calibrated solution-treatment temperature for an actual alloy.</p></details></div>
-<div class="exercise"><h3>9. Repair a condition list and a saved calculation</h3><p>A binary console list contains p,T,W(CR), but no N, and reports one free condition. What should be checked before comparing it with a saved GUI result? What if a cloned tree still suppresses a phase?</p><details class="solution"><summary>Solution</summary><p>Specify the intended total amount, for example N=1, and relist conditions to confirm the missing normalization is supplied. Check that W(CR)=.45 represents45 mass percent, not45fraction or.45molefraction; confirm the actual database/version, phase set, p and T. Adding W(FE)=.55 does not supply an independent binary composition condition because normalization already fixes it. A retained phase exclusion changes the permitted minimization; it must be restored for a full-equilibrium comparison or explicitly stated as a restricted calculation. A zero condition counter and a plausible plot do not replace these checks.</p></details></div>
+<div class="exercise"><h3 id="1-translate-the-composition-condition">1. Translate the composition condition</h3><p>How should the recorded 45 mass-percent chromium be entered in a fractional console condition? Derive its mole fraction and explain the correct mean-molar-mass average.</p><details class="solution"><summary>Solution</summary><p>Enter W(CR)=0.45 and take wFe=0.55. For unit total mass, nCr=.45/51.9961 and nFe=.55/55.845. Their ratio gives xCr=0.467730064. Total mass divided by total moles gives 1/(.45/51.9961+.55/55.845)=54.044753756g/mol. A direct mass-fraction average of the molar masses uses the wrong weighting; mole fractions provide the arithmetic average Mbar=sum(xiMi). The table values are treated as fixed central numbers for this calculation.</p></details></div>
+<div class="exercise"><h3 id="2-convert-phase-fractions">2. Convert phase fractions</h3><p>Use the laboratory’s toy phase masses and volumes to show why a25% beta mole fraction need not mean25% mass or volume fraction.</p><details class="solution"><summary>Solution</summary><p>One mole of atoms contains 0.75 mol alpha and 0.25 mol beta. Their masses are 45 g and 22.5 g, totaling 67.5 g, so beta mass fraction is 22.5/67.5=1/3. Their volumes are 7.5e−6 and 5e−6 m³, giving beta volume fraction 5/12.5=0.4. The mole, mass and volume quantities all conserve their respective totals, but correspond to different normalized measures. Only the mole basis matches the atomic composition lever rule used here.</p></details></div>
+<div class="exercise"><h3 id="3-derive-the-restricted-solver-s-answer">3. Derive the restricted solver’s answer</h3><p>Obtain the ALPHA/BETA contacts and phase amount without using an equilibrium program.</p><details class="solution"><summary>Solution</summary><p>Both branches have positive curvature RT/[x(1−x)]. Setting the ALPHA slope6000+RTln[x/(1−x)] to zero gives a=1/(1+exp[6000/(RT)]). Symmetry gives the BETA contact1−a, also with zero slope and the same height. Convexity proves this horizontal line underlies each branch globally. At600 K with R=8.3145, a≈.23099203 and b≈.76900797. Conservation gives fBeta=(.4−a)/(b−a)≈.31413190; fAlpha≈.68586810. The common energy is RTln(1−a)≈−1310.3017J/mol. Thus a primal assemblage reaches an analytic dual lower bound.</p></details></div>
+<div class="exercise"><h3 id="4-explain-a-property-calculation-discrepancy">4. Explain a property-calculation discrepancy</h3><p>Why does homogeneous ALPHA at z=.4 have a higher energy than the restricted equilibrium even though it is an allowed phase?</p><details class="solution"><summary>Solution</summary><p>Its fixed homogeneous energy is6000(.4)+RT[.6ln.6+.4ln.4]≈−957.4533J/mol. The permitted minimization can instead separate into ALPHA at a and BETA at b while preserving bulk z. Their mixture costs−1310.3017, a reduction352.8484J/mol. A homogeneous property calculation constrains every atom to one composition state; allowing separation enlarges the feasible set. Evaluating a phase at the bulk composition is not equivalent to evaluating its equilibrium composition in a multiphase assemblage.</p></details></div>
+<div class="exercise"><h3 id="5-prove-the-effect-of-entering-gamma">5. Prove the effect of entering GAMMA</h3><p>Show analytically that GAMMA is the full equilibrium of the three-phase teaching model at every interior bulk composition.</p><details class="solution"><summary>Solution</summary><p>At each x, gAlpha−gGamma=5000+6000x&gt;0 and gBeta−gGamma=11000−6000x&gt;0. GAMMA is strictly convex, so its tangent at any given z underlies GAMMA everywhere. It therefore also underlies both other branches everywhere. The single homogeneous GAMMA state at z attains this bound. Its equilibrium amount is1, and at600 K,z=.4 its energy is−5000+RTq(.4)≈−8357.4533J/mol. Removing GAMMA yields a higher restricted optimum but supplies no kinetic persistence time for that state.</p></details></div>
+<div class="exercise"><h3 id="6-audit-the-delta-output">6. Audit the DELTA output</h3><p>The result contains two positive entries both named DELTA. Why is this meaningful, and what independent check can distinguish it from a duplicate-array error?</p><details class="solution"><summary>Solution</summary><p>The model permits separation into different compositions of the same phase function. At600 K, the symmetric nontrivial root of RTln[a/(1−a)]+12000(1−2a)=0 gives a≈.16914401 and1−a≈.83085599. The high-composition fraction is(.4−a)/(1−2a)≈.34887685, and the low fraction≈.65112315. The code brackets that root independently and checks reconstructed bulk composition. A parser should retain each occupied composition set rather than identifying a state solely by phase-name text. This test does not classify crystal structures beyond the stipulated model.</p></details></div>
+<div class="exercise"><h3 id="7-distinguish-a-vertical-section-from-a-binary-tie-line">7. Distinguish a vertical section from a binary tie line</h3><p>For the two manufactured ternary phases, recover the bulk composition at beta fraction .4. Can a lever rule along xC=.22 use the phase endpoints as points on that section?</p><details class="solution"><summary>Solution</summary><p>The balance is .6(.7,.2,.1)+.4(.1,.5,.4)=(.46,.32,.22). Neither endpoint has C fraction.22, so neither lies on the selected constant-C section. That section intersects the tie line at the overall point only. Treating boundaries of an isopleth as endpoints of this tie line would discard partitioning of C. One must use the full phase compositions and matched phase-amount basis. If the section used mass fractions instead, the balances and amount fractions would require the corresponding conversion.</p></details></div>
+<div class="exercise"><h3 id="8-locate-the-end-of-the-restricted-two-phase-thermal-path">8. Locate the end of the restricted two-phase thermal path</h3><p>For fixed z=.4, find the temperature at which the ALPHA contact reaches the bulk composition, and state what happens to the lever formula above it.</p><details class="solution"><summary>Solution</summary><p>Set a=z in the analytic expression: exp[6000/(RT)]=(1−z)/z=1.5, so \(T_s=6000/[R\ln(1.5)]\), approximately1780 K with the stated rounded R. Below this temperature the bulk lies between the contacts and fBeta is positive. At Ts it reaches zero. Above Ts the algebraic lever expression becomes negative and must be replaced by the single-phase ALPHA minimum at bulk z. This threshold is an equilibrium boundary of the specified restricted model, not an onset time or a calibrated solution-treatment temperature for an actual alloy.</p></details></div>
+<div class="exercise"><h3 id="9-repair-a-condition-list-and-a-saved-calculation">9. Repair a condition list and a saved calculation</h3><p>A binary console list contains p,T,W(CR), but no N, and reports one free condition. What should be checked before comparing it with a saved GUI result? What if a cloned tree still suppresses a phase?</p><details class="solution"><summary>Solution</summary><p>Specify the intended total amount, for example N=1, and relist conditions to confirm the missing normalization is supplied. Check that W(CR)=.45 represents45 mass percent, not45fraction or.45molefraction; confirm the actual database/version, phase set, p and T. Adding W(FE)=.55 does not supply an independent binary composition condition because normalization already fixes it. A retained phase exclusion changes the permitted minimization; it must be restored for a full-equilibrium comparison or explicitly stated as a restricted calculation. A zero condition counter and a plausible plot do not replace these checks.</p></details></div>
 <p class="chapter-nav"><a href="chapter-13-calphad-models-database-minimization.html">Previous: CALPHAD models and minimization</a> · <a href="index.html">All chapters</a></p>
 <!-- BOOK-CONTENT-END --></article><nav class="page-turn"><a href="index.html">Chapter index</a></nav></main></div><footer class="site-footer">Independent study edition. Prof. K. Guruvidyathri, University of Hyderabad; NPTEL coordinating institution IIT Madras. Original exposition and teaching constructions; attribution does not imply endorsement.</footer></body></html>

@@ -1,8 +1,8 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="dark light"><meta name="book-content-sha256" content="6f8f77bbb4554d11e2207bbb8381806f8512dc5d218329871128e251b1dcb59b"><title>Global tangents, transformation driving forces and the phase rule · Computational Thermodynamics</title><link rel="stylesheet" href="assets/book.css"><script src="assets/math-config.js"></script><script defer src="assets/mathjax-tex-svg.js"></script><script defer src="assets/book.js"></script></head>
-<body><a class="skip" href="#main">Skip to content</a><header class="site-header"><a class="brand" href="index.html">Computational Thermodynamics and Kinetics of Materials</a><nav class="course-nav"><a href="index.html">Chapters</a><a href="source-map.html">Source map</a><a href="references.html">References</a><a href="numerical-lab.html">Numerical lab</a></nav></header><div class="layout"><aside class="toc" id="chapter-toc"><h2>On this page</h2></aside><main id="main"><div class="reading-tools"><button id="theme-toggle" aria-pressed="false">Light theme</button><button id="text-toggle" aria-pressed="false">Larger text</button><button id="solutions-toggle" aria-pressed="false">Expand solutions</button><button id="print-page">Print with solutions</button></div>
+<body><a class="skip" href="#main">Skip to content</a><header class="site-header"><a class="brand" href="index.html">Computational Thermodynamics and Kinetics of Materials</a><nav class="course-nav"><a href="index.html">Chapters</a><a href="source-map.html">Source map</a><a href="references.html">References</a><a href="numerical-lab.html">Numerical lab</a></nav></header><div class="layout"><aside class="toc" id="chapter-toc"><h2 id="on-this-page">On this page</h2></aside><main id="main"><div class="reading-tools"><button id="theme-toggle" aria-pressed="false">Light theme</button><button id="text-toggle" aria-pressed="false">Larger text</button><button id="solutions-toggle" aria-pressed="false">Expand solutions</button><button id="print-page">Print with solutions</button></div>
 <article id="chapter-content"><!-- BOOK-CONTENT-START -->
-<h1>12. Global tangents, transformation driving forces and the phase rule</h1>
+<h1 id="chapter-title">12. Global tangents, transformation driving forces and the phase rule</h1>
 <p class="lead">Equal chemical potentials identify a stationary phase assemblage. To establish equilibrium, its supporting line must also lie below every admissible phase at every composition. This global condition distinguishes a minimum from a plausible tangent construction that misses another phase. Once the minimum is known, three different questions remain: the finite energy released on reaching it, the differential incentive to form an infinitesimal product, and the freedom to vary its intensive state. They require different calculations.</p>
 <p class="source-note">The entire local transcripts of lessons 21–24 were read sequentially. They connect common tangents to binary and ternary diagrams, distinguish transformation and nucleation driving forces, introduce the equal-composition $T_0$ locus and derive the Gibbs phase rule. This chapter supplies a global lower-bound proof, an explicit counterexample to chemical-potential equality as a sufficient test, endpoint and line-compound qualifications, and a consistent intensive-variable count. All plotted energies are declared teaching functions, not assessed alloy data. Neither commercial software nor an experimental phase diagram is reproduced.</p>
 
@@ -30,10 +30,10 @@
 <p>Likewise, the lower curve at a given composition need not be the only relevant branch. A curve with the same crystallographic structure can have a miscibility gap and support two phases of different composition. Conversely, crystallographic structure alone need not specify every internal state: ordering, magnetism or other internal variables may produce additional branches or require minimization within a phase model. “One curve per structure” is a useful introductory picture, not a universal classification theorem.</p>
 
 <h2 id="binodal" data-video="cz9NYZfL7Ow" data-start="869" data-end="1032">12.4 Local curvature, metastability and global separation <a class="timestamp" href="https://www.youtube.com/watch?v=cz9NYZfL7Ow&amp;t=869s">L 22 · 14:29</a></h2>
-<p>Consider the symmetric regular mixing branch $g(x)=RT[x\ln x+(1-x)\ln(1-x)]+\Omega x(1-x)$ with constant positive $\Omega$. An affine common reference does not change its curvature. The local stability condition is $g''=RT/[x(1-x)]-2\Omega>0$. Equality gives the spinodal compositions</p>
-<div class="equation">$$x_s^\pm=\frac12\left[1\pm\sqrt{1-2RT/\Omega}\right],\qquad T<T_c=\frac{\Omega}{2R}.$$</div>
+<p>Consider the symmetric regular mixing branch $g(x)=RT[x\ln x+(1-x)\ln(1-x)]+\Omega x(1-x)$ with constant positive $\Omega$. An affine common reference does not change its curvature. The local stability condition is $g''=RT/[x(1-x)]-2\Omega\gt 0$. Equality gives the spinodal compositions</p>
+<div class="equation">$$x_s^\pm=\frac12\left[1\pm\sqrt{1-2RT/\Omega}\right],\qquad T\lt T_c=\frac{\Omega}{2R}.$$</div>
 <p>The smallest curvature occurs at $x=1/2$ because $x(1-x)$ is largest there. Above $T_c$ the branch is strictly convex; the two spinodal points merge at the mean-field critical point. Below it, the common tangent between the two global minima is horizontal by symmetry. The binodal endpoints $x_b$ and $1-x_b$ solve</p>
-<div class="equation">$$RT\ln\frac{x_b}{1-x_b}+\Omega(1-2x_b)=0,\qquad0<x_b<1/2.$$</div>
+<div class="equation">$$RT\ln\frac{x_b}{1-x_b}+\Omega(1-2x_b)=0,\qquad0\lt x_b\lt 1/2.$$</div>
 <p>There is also the stationary root $1/2$; a root finder must not mistake that central maximum for a binodal endpoint. The curvature has two zeros. On the left of the first, $g'$ increases from−infinity to a positive value, giving one minimum; symmetry supplies the other. Between them the central stationary point is a maximum. This sign structure proves that the two equal minima define a global lower horizontal line for this declared branch.</p>
 <p>For $\Omega=12000$ J/mol and 600 K, $T_c=721.634130256$ K, binodals are 0.169140902 and 0.830859098, and spinodals are 0.294723517 and 0.705276483. At the intermediate composition 0.231932209, curvature is positive 4004.306176615 J/mol, yet the homogeneous energy lies 16.879041231 J/mol above the two-phase line. This is metastability within the bulk composition model: infinitesimal nearby composition variations do not lower the energy, but a sufficiently large separation does. Inside the spinodal, arbitrarily small symmetric composition variations already lower bulk energy.</p>
 <p>These are thermodynamic statements. The finite-length interface, gradient penalty, coherency strain and material transport determine how a spatial perturbation develops. A binodal or negative curvature alone is not a growth-rate calculation. Nor does a positive curvature establish global stability against another phase or distant composition.</p>
@@ -86,91 +86,244 @@
 <figure><img src="assets/global-tangents.svg" alt="Original parabolic phase energies with a global supporting line and distinct parallel parent and product tangents; a regular-solution curve with binodal contacts outside its spinodal interval."><figcaption>Declared teaching models. The left panel compares finite equilibrium release with the initial parent-tangent construction. The right panel distinguishes global binodal contacts from local curvature boundaries.</figcaption></figure>
 <h2 id="lab">12.12 Reproducible numerical checks</h2>
 <p>The program verifies exact supporting-line identities, lever balance, the third-phase counterexample, finite versus infinitesimal release, affinity integration, a line-compound support interval and bounded binodal roots. Grid evaluations check arithmetic against exact identities; the derivations above establish why those identities hold globally. All displayed output was produced by executing this exact listing.</p>
-<pre data-run="code/ch12_global_tangents.py"><code class="language-python">"""Exact declared parabolic certificates and bounded regular-solution checks."""
-from math import log,sqrt,isclose
-R=8.31446261815324
-A,LEFT,RIGHT=10000.0,.2,.8
+<pre data-run="code/ch12_global_tangents.py"><code class="language-python">"""Exact declared parabolic certificates and bounded regular-solution c\
+hecks."""
 
-def ga(x):return A*(x-LEFT)**2
+from math import log, sqrt, isclose
 
-def gb(x,delta=0):return A*(x-RIGHT)**2+delta
+R = 8.31446261815324
+A, LEFT, RIGHT = 10000.0, 0.2, 0.8
+
+
+def ga(x):
+    return A * (x - LEFT) ** 2
+
+
+def gb(x, delta=0):
+    return A * (x - RIGHT) ** 2 + delta
+
 
 def pair(delta=0):
-    slope=delta/(RIGHT-LEFT)
-    xa=LEFT+slope/(2*A);xb=RIGHT+slope/(2*A)
-    intercept=ga(xa)-slope*xa
-    return xa,xb,slope,intercept
+    slope = delta / (RIGHT - LEFT)
+    xa = LEFT + slope / (2 * A)
+    xb = RIGHT + slope / (2 * A)
+    intercept = ga(xa) - slope * xa
+    return xa, xb, slope, intercept
 
-def g_regular(x,t,omega=12000):
-    return R*t*(x*log(x)+(1-x)*log(1-x))+omega*x*(1-x)
 
-def bisect(fn,a,b):
-    fa=fn(a);fb=fn(b);assert fa*fb&lt;0
+def g_regular(x, t, omega=12000):
+    return R * t * (x * log(x) + (1 - x) * log(1 - x)) + omega * x * (1 - x)
+
+
+def bisect(fn, a, b):
+    fa = fn(a)
+    fb = fn(b)
+    assert fa * fb &lt; 0
     for _ in range(100):
-        c=(a+b)/2;fc=fn(c)
-        if fa*fc&lt;=0:b,fb=c,fc
-        else:a,fa=c,fc
-    return (a+b)/2
+        c = (a + b) / 2
+        fc = fn(c)
+        if fa * fc &lt;= 0:
+            b, fb = c, fc
+        else:
+            a, fa = c, fc
+    return (a + b) / 2
+
 
 def main():
-    for delta in (0,500):
-        xa,xb,m,c=pair(delta)
-        assert 0&lt;xa&lt;xb&lt;1
+    for delta in (0, 500):
+        xa, xb, m, c = pair(delta)
+        assert 0 &lt; xa &lt; xb &lt; 1
         for j in range(1001):
-            x=j/1000
-            # Both exact residual identities are global certificates, not mere grid claims.
-            assert isclose(ga(x)-(c+m*x),A*(x-xa)**2,abs_tol=1e-9)
-            assert isclose(gb(x,delta)-(c+m*x),A*(x-xb)**2,abs_tol=1e-9)
-        xt0=.5+delta/(2*A*(RIGHT-LEFT))
-        assert isclose(ga(xt0),gb(xt0,delta),abs_tol=1e-9)
-        print(f'Parabolic delta={delta}: coexistence={xa:.9f},{xb:.9f}; slope={m:.9f}; T0 composition={xt0:.9f}')
-    z=.3;fraction=(z-LEFT)/(RIGHT-LEFT)
-    assert isclose((1-fraction)*LEFT+fraction*RIGHT,z)
-    print(f'At overallxB0.3: beta mole fraction={fraction:.9f}; finite release={ga(z):.9f} J/mol_initial')
-    # Old alpha/beta equality alone misses a new competing phase.
-    gamma=lambda x:A*(x-.5)**2-200
-    assert gamma(.5)&lt;0
-    print(f'Third-phase counterexample: old common line=0; competing gamma at0.5={gamma(.5):.6f} J/mol')
-    parent_slope=2*A*(z-LEFT)
-    tangent=lambda y:ga(z)+parent_slope*(y-z)
-    ystar=RIGHT+parent_slope/(2*A)
-    drive=tangent(ystar)-gb(ystar)
-    def infant(eta):
-        xp=(z-eta*ystar)/(1-eta)
-        return (1-eta)*ga(xp)+eta*gb(ystar)
-    eta=1e-7;derivative=(infant(eta)-ga(z))/eta
-    assert isclose(derivative,-drive,abs_tol=.001)
-    print(f'Infinitesimal product: xB={ystar:.9f}; parent-tangent release={drive:.9f} J/mol_product; finite_difference_derivative={derivative:.6f}')
-    # A separate full-progress path keeps productcomposition at its final0.8value.
-    d=z-LEFT;h=RIGHT-LEFT
-    def progress_g(eta):return A*(d-h*eta)**2/(1-eta)
-    def affinity(eta):return A*(2*h*(d-h*eta)/(1-eta)-(d-h*eta)**2/(1-eta)**2)
-    n=1000;step=fraction/n
-    integral=step*(affinity(0)+affinity(fraction)+sum((4 if j%2 else 2)*affinity(j*step) for j in range(1,n)))/3
-    assert isclose(integral,progress_g(0)-progress_g(fraction),abs_tol=1e-9)
-    print(f'Full constrained path: initial affinity={affinity(0):.9f} J/mol_product; integral={integral:.9f} J/mol_initial; final affinity={affinity(fraction):.9f}')
-    gc,xc=-100.0,.5
-    # Symmetric tangent from alpha to the line compound.
-    xa=xc-sqrt((xc-LEFT)**2-gc/A)
-    ml=2*A*(xa-LEFT)
-    assert isclose(ga(xa)+ml*(xc-xa),gc,abs_tol=1e-9)
-    print(f'Line compound: x_alpha={xa:.9f}; x_beta={1-xa:.9f}; admissible purecompound support slopes=[{ml:.9f},{-ml:.9f}]')
-    t,omega=600.0,12000.0
-    tc=omega/(2*R)
-    spin=(1-sqrt(1-2*R*t/omega))/2
-    binodal=bisect(lambda x:R*t*log(x/(1-x))+omega*(1-2*x),1e-12,.499999)
-    assert binodal&lt;spin&lt;.5
-    print(f'Regular model: criticalT={tc:.9f} K; binodal={binodal:.9f},{1-binodal:.9f}; spinodal={spin:.9f},{1-spin:.9f}')
-    # Check a convex local branch that is still above the global two-phase line.
-    test=.5*(binodal+spin)
-    curvature=R*t/(test*(1-test))-2*omega
-    gap=g_regular(test,t)-g_regular(binodal,t)
-    assert curvature&gt;0 and gap&gt;0
-    print(f'Metastable local test: xB={test:.9f}; curvature={curvature:.9f}; above equilibrium line={gap:.9f} J/mol')
-    print('Generic intensive counts: binary2phase F=2, fixedp F=1; binary3phase fixedp F=0; ternary2phase fixedTp F=1')
-    print('All exact supporting-line, conservation, affinity and bounded root checks passed.')
+            x = j / 1000
+            # Both exact residual identities are global certificates, not mere
+            # grid claims.
+            assert isclose(
+                ga(x) - (c + m * x), A * (x - xa) ** 2, abs_tol=1e-9
+            )
+            assert isclose(
+                gb(x, delta) - (c + m * x), A * (x - xb) ** 2, abs_tol=1e-9
+            )
+        xt0 = 0.5 + delta / (2 * A * (RIGHT - LEFT))
+        assert isclose(ga(xt0), gb(xt0, delta), abs_tol=1e-9)
+        print(
+            (
+                f"Parabolic delta="
+                f"{delta}"
+                f": coexistence="
+                f"{xa:.9f}"
+                f","
+                f"{xb:.9f}"
+                f"; slope="
+                f"{m:.9f}"
+                f"; T0 composition="
+                f"{xt0:.9f}"
+            )
+        )
+    z = 0.3
+    fraction = (z - LEFT) / (RIGHT - LEFT)
+    assert isclose((1 - fraction) * LEFT + fraction * RIGHT, z)
+    print(
+        (
+            f"At overallxB0.3: beta mole fraction="
+            f"{fraction:.9f}"
+            f"; finite release="
+            f"{ga(z):.9f}"
+            f" J/mol_initial"
+        )
+    )
 
-if __name__=='__main__':main()
+    # Old alpha/beta equality alone misses a new competing phase.
+    def gamma(x):
+        return A * (x - 0.5) ** 2 - 200
+
+    assert gamma(0.5) &lt; 0
+    print(
+        (
+            f"Third-phase counterexample: old common line=0; competing gam"
+            f"ma at0.5="
+            f"{gamma(0.5):.6f}"
+            f" J/mol"
+        )
+    )
+    parent_slope = 2 * A * (z - LEFT)
+
+    def tangent(y):
+        return ga(z) + parent_slope * (y - z)
+
+    ystar = RIGHT + parent_slope / (2 * A)
+    drive = tangent(ystar) - gb(ystar)
+
+    def infant(eta):
+        xp = (z - eta * ystar) / (1 - eta)
+        return (1 - eta) * ga(xp) + eta * gb(ystar)
+
+    eta = 1e-7
+    derivative = (infant(eta) - ga(z)) / eta
+    assert isclose(derivative, -drive, abs_tol=0.001)
+    print(
+        (
+            f"Infinitesimal product: xB="
+            f"{ystar:.9f}"
+            f"; parent-tangent release="
+            f"{drive:.9f}"
+            f" J/mol_product; finite_difference_derivative="
+            f"{derivative:.6f}"
+        )
+    )
+    # A separate full-progress path keeps productcomposition at its
+    # final0.8value.
+    d = z - LEFT
+    h = RIGHT - LEFT
+
+    def progress_g(eta):
+        return A * (d - h * eta) ** 2 / (1 - eta)
+
+    def affinity(eta):
+        return A * (
+            2 * h * (d - h * eta) / (1 - eta)
+            - (d - h * eta) ** 2 / (1 - eta) ** 2
+        )
+
+    n = 1000
+    step = fraction / n
+    integral = (
+        step
+        * (
+            affinity(0)
+            + affinity(fraction)
+            + sum(
+                (4 if j % 2 else 2) * affinity(j * step) for j in range(1, n)
+            )
+        )
+        / 3
+    )
+    assert isclose(
+        integral, progress_g(0) - progress_g(fraction), abs_tol=1e-9
+    )
+    print(
+        (
+            f"Full constrained path: initial affinity="
+            f"{affinity(0):.9f}"
+            f" J/mol_product; integral="
+            f"{integral:.9f}"
+            f" J/mol_initial; final affinity="
+            f"{affinity(fraction):.9f}"
+        )
+    )
+    gc, xc = -100.0, 0.5
+    # Symmetric tangent from alpha to the line compound.
+    xa = xc - sqrt((xc - LEFT) ** 2 - gc / A)
+    ml = 2 * A * (xa - LEFT)
+    assert isclose(ga(xa) + ml * (xc - xa), gc, abs_tol=1e-9)
+    print(
+        (
+            f"Line compound: x_alpha="
+            f"{xa:.9f}"
+            f"; x_beta="
+            f"{1 - xa:.9f}"
+            f"; admissible purecompound support slopes=["
+            f"{ml:.9f}"
+            f","
+            f"{-ml:.9f}"
+            f"]"
+        )
+    )
+    t, omega = 600.0, 12000.0
+    tc = omega / (2 * R)
+    spin = (1 - sqrt(1 - 2 * R * t / omega)) / 2
+    binodal = bisect(
+        lambda x: R * t * log(x / (1 - x)) + omega * (1 - 2 * x),
+        1e-12,
+        0.499999,
+    )
+    assert binodal &lt; spin &lt; 0.5
+    print(
+        (
+            f"Regular model: criticalT="
+            f"{tc:.9f}"
+            f" K; binodal="
+            f"{binodal:.9f}"
+            f","
+            f"{1 - binodal:.9f}"
+            f"; spinodal="
+            f"{spin:.9f}"
+            f","
+            f"{1 - spin:.9f}"
+        )
+    )
+    # Check a convex local branch that is still above the global two-phase
+    # line.
+    test = 0.5 * (binodal + spin)
+    curvature = R * t / (test * (1 - test)) - 2 * omega
+    gap = g_regular(test, t) - g_regular(binodal, t)
+    assert curvature &gt; 0 and gap &gt; 0
+    print(
+        (
+            f"Metastable local test: xB="
+            f"{test:.9f}"
+            f"; curvature="
+            f"{curvature:.9f}"
+            f"; above equilibrium line="
+            f"{gap:.9f}"
+            f" J/mol"
+        )
+    )
+    print(
+        (
+            "Generic intensive counts: binary2phase F=2, fixedp F=1; binary3p"
+            "hase fixedp F=0; ternary2phase fixedTp F=1"
+        )
+    )
+    print(
+        (
+            "All exact supporting-line, conservation, affinity and bounded ro"
+            "ot checks passed."
+        )
+    )
+
+
+if __name__ == "__main__":
+    main()
 </code></pre>
 <pre class="output">Parabolic delta=0: coexistence=0.200000000,0.800000000; slope=0.000000000; T0 composition=0.500000000
 Parabolic delta=500: coexistence=0.241666667,0.841666667; slope=833.333333333; T0 composition=0.541666667

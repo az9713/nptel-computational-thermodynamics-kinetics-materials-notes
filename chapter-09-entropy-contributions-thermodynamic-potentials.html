@@ -1,8 +1,8 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="dark light"><meta name="book-content-sha256" content="d58476469ddb382c9ec776b4fc37d5367ba2df8fa95ffa18c3c3a6d9fe7277bd"><title>Entropy contributions and thermodynamic potentials · Computational Thermodynamics</title><link rel="stylesheet" href="assets/book.css"><script src="assets/math-config.js"></script><script defer src="assets/mathjax-tex-svg.js"></script><script defer src="assets/book.js"></script></head>
-<body><a class="skip" href="#main">Skip to content</a><header class="site-header"><a class="brand" href="index.html">Computational Thermodynamics and Kinetics of Materials</a><nav class="course-nav"><a href="index.html">Chapters</a><a href="source-map.html">Source map</a><a href="references.html">References</a><a href="numerical-lab.html">Numerical lab</a></nav></header><div class="layout"><aside class="toc" id="chapter-toc"><h2>On this page</h2></aside><main id="main"><div class="reading-tools"><button id="theme-toggle" aria-pressed="false">Light theme</button><button id="text-toggle" aria-pressed="false">Larger text</button><button id="solutions-toggle" aria-pressed="false">Expand solutions</button><button id="print-page">Print with solutions</button></div>
+<body><a class="skip" href="#main">Skip to content</a><header class="site-header"><a class="brand" href="index.html">Computational Thermodynamics and Kinetics of Materials</a><nav class="course-nav"><a href="index.html">Chapters</a><a href="source-map.html">Source map</a><a href="references.html">References</a><a href="numerical-lab.html">Numerical lab</a></nav></header><div class="layout"><aside class="toc" id="chapter-toc"><h2 id="on-this-page">On this page</h2></aside><main id="main"><div class="reading-tools"><button id="theme-toggle" aria-pressed="false">Light theme</button><button id="text-toggle" aria-pressed="false">Larger text</button><button id="solutions-toggle" aria-pressed="false">Expand solutions</button><button id="print-page">Print with solutions</button></div>
 <article id="chapter-content"><!-- BOOK-CONTENT-START -->
-<h1>9. Entropy contributions and thermodynamic potentials</h1>
+<h1 id="chapter-title">9. Entropy contributions and thermodynamic potentials</h1>
 <p class="lead">A material may become more ordered while releasing enough heat to increase the entropy of its environment. The system's entropy alone therefore cannot decide the direction of a transformation. A thermodynamic potential incorporates a specified environment into an accounting function for the system. The constraints determine the function: Helmholtz energy for fixed temperature and volume, Gibbs energy for fixed temperature and pressure. Their minimization principles require those constraints, conserved amounts and an explicit work convention.</p>
 <p class="source-note">The entire local transcript of lesson 17 was read sequentially. It connects positional counting to Joule expansion, classifies entropy contributions, introduces Legendre transforms through tangent intercepts, and derives a Gibbs-energy criterion. This chapter supplies the missing constraint and state-space distinctions, corrects the rounded small-system counting, and develops original analytic and numerical examples. The gas, oscillator, phase and noise models are declared constructions, not measurements. Raw ASR may misrecognize symbols; the equations below are independently derived.</p>
 
@@ -37,7 +37,7 @@
 
 <h2 id="legendre" data-video="A-1WonbIt9A" data-start="1450" data-end="1974">9.4 Exchanging natural variables without losing the product rule <a class="timestamp" href="https://www.youtube.com/watch?v=A-1WonbIt9A&amp;t=1450s">L 17 · 24:10</a></h2>
 <p>At fixed volume, a tangent to $U(S)$ at $S_0$ has equation $y=U(S_0)+T(S_0)(S-S_0)$. Its slope is $T$ and its vertical intercept is $U-TS$. Labeling the same family of tangents by slope instead of contact entropy produces the Helmholtz energy $A(T,V)=U-TS$. The intercept is not generally zero, and $U$ is not generally equal to $TS$.</p>
-<p>For a stable smooth branch with positive heat capacity, $U_{SS}=(\partial T/\partial S)_V=T/C_V>0$, so temperature locally labels the entropy uniquely. At coexistence or a nonstrictly convex region this inverse can cease to be unique; the equilibrium potential is still obtained by the appropriate constrained minimization or convex construction. A tangent picture alone should not assume global invertibility across phase transitions.</p>
+<p>For a stable smooth branch with positive heat capacity, $U_{SS}=(\partial T/\partial S)_V=T/C_V\gt 0$, so temperature locally labels the entropy uniquely. At coexistence or a nonstrictly convex region this inverse can cease to be unique; the equilibrium potential is still obtained by the appropriate constrained minimization or convex construction. A tangent picture alone should not assume global invertibility across phase transitions.</p>
 <div class="equation">$$dA=dU-T\,dS-S\,dT=-S\,dT-p\,dV.$$</div>
 <p>The derivative of $TS$ has two terms. Retaining only $T\,dS$ would incorrectly leave temperature absent from the transformed natural variables. Pressure is conjugate to volume with a minus sign in $dU$, so exchanging volume for pressure adds $pV$ rather than subtracting it. Applying the same product rule gives</p>
 <div class="equation">$$H=U+pV,\quad dH=T\,dS+V\,dp;\qquad G=U+pV-TS,\quad dG=-S\,dT+V\,dp.$$</div>
@@ -47,7 +47,7 @@
 <figure><img src="assets/potentials-entropy.svg" alt="Original fixed-volume convex internal-energy curve and three tangent lines with Helmholtz intercepts; a separate prescribed phase-energy difference bends away from a frozen enthalpy-entropy approximation."><figcaption>Declared one-mole caloric model and synthetic phase differences. The left panel exchanges entropy coordinate for tangent slope; the right panel retains a nonzero heat-capacity difference. Neither panel is fitted to material data.</figcaption></figure>
 
 <h2 id="availability" data-video="A-1WonbIt9A" data-start="1974" data-end="2458">9.5 Derive the environment-dependent decrease criterion <a class="timestamp" href="https://www.youtube.com/watch?v=A-1WonbIt9A&amp;t=1974s">L 17 · 32:54</a></h2>
-<p>Let a closed system interact with one ideal thermal reservoir at fixed $T_0>0$ and a constant external mechanical pressure $p_0$. Let $W_u$ be useful work delivered to an ideal work store, excluding the $p_0\Delta V$ displacement work. Take heat into the system as positive. Neglect energy changes outside the thermal reservoir, pressure-work store and useful-work store; these ideal work stores carry no entropy. The first law and reservoir entropy balance are</p>
+<p>Let a closed system interact with one ideal thermal reservoir at fixed $T_0\gt 0$ and a constant external mechanical pressure $p_0$. Let $W_u$ be useful work delivered to an ideal work store, excluding the $p_0\Delta V$ displacement work. Take heat into the system as positive. Neglect energy changes outside the thermal reservoir, pressure-work store and useful-work store; these ideal work stores carry no entropy. The first law and reservoir entropy balance are</p>
 <div class="equation">$$\Delta U=Q-p_0\Delta V-W_u,\qquad \Delta S_{\rm total}=\Delta S-Q/T_0\ge0.$$</div>
 <p>Define an environment-referenced function $\Phi=U+p_0V-T_0S$. Eliminating the <em>actual</em> heat gives</p>
 <div class="equation">$$\Delta\Phi=-W_u-T_0\Delta S_{\rm total},\qquad W_u\le-\Delta\Phi.$$</div>
@@ -60,7 +60,7 @@
 <p>There appears to be a contradiction: $dG=-S\,dT+V\,dp$ gives zero at fixed $T,p$, yet transformations are driven by decreasing $G$. The abbreviated identity describes a selected equilibrium branch with fixed species amounts and no remaining internal freedom. Transforming states need a larger state space. For example, retain a constrained internal coordinate $\xi$ such as phase amount or degree of order. A constrained-equilibrium description has</p>
 <div class="equation">$$dG=-S\,dT+V\,dp+X\,d\xi,\qquad X=\left(\frac{\partial G}{\partial\xi}\right)_{T,p,n_i}.$$</div>
 <p>At fixed $T,p$, the remaining variation is $X\,d\xi$. For a pure material with two bulk phases and negligible interfacial energy, write $G=n[(1-\xi)g_\alpha+\xi g_\beta]$, $0\le\xi\le1$. Then $X=n(g_\beta-g_\alpha)$. A lower $g_\beta$ favors increasing $\xi$; equality gives a flat direction, so any phase amount can coexist subject to other constraints. Chemical transfers among phases similarly require the $\mu_i^k\,dn_i^k$ terms even though total amounts are conserved.</p>
-<p>Minimization does not guarantee rapid motion. A declared constrained model $G(\xi)=B\xi^2(1-\xi)^2$, $B>0$, on $0\le\xi\le1$ has equally low endpoints and a barrier $B/16$ at $\xi=1/2$. The positive second derivative at an interior stationary point is only a local test; a global comparison must consider all admissible states. Interfacial costs, nucleation barriers, diffusion and frozen internal variables explain why a system can remain metastable even if another state has lower Gibbs energy. No kinetic rate follows merely from the sign of a finite $\Delta G$.</p>
+<p>Minimization does not guarantee rapid motion. A declared constrained model $G(\xi)=B\xi^2(1-\xi)^2$, $B\gt 0$, on $0\le\xi\le1$ has equally low endpoints and a barrier $B/16$ at $\xi=1/2$. The positive second derivative at an interior stationary point is only a local test; a global comparison must consider all admissible states. Interfacial costs, nucleation barriers, diffusion and frozen internal variables explain why a system can remain metastable even if another state has lower Gibbs energy. No kinetic rate follows merely from the sign of a finite $\Delta G$.</p>
 
 <h2 id="competition" data-video="A-1WonbIt9A" data-start="2488" data-end="2852">9.7 Enthalpy–entropy competition needs temperature dependence <a class="timestamp" href="https://www.youtube.com/watch?v=A-1WonbIt9A&amp;t=2488s">L 17 · 41:28</a></h2>
 <p>Compare two constrained states at a common temperature and pressure. Then $\Delta G=\Delta H-T\Delta S$ exactly. A negative $\Delta H$ with positive $\Delta S$ favors the second state at positive temperature; the opposite pair opposes it. Equal signs allow a crossover, provided the magnitudes and their temperature dependence are known. The sign test concerns the defined comparison, not every possible reaction, mixture or intermediate state.</p>
@@ -79,71 +79,173 @@
 <h2 id="lab">9.9 Reproducible numerical checks</h2>
 <p>The following standard-library program verifies the exact four-mode count, a correlated entropy example, both derivatives of a declared fundamental relation, the actual-heat availability ledger, oscillator entropy, temperature-dependent phase differences and a finite-difference entropy calculation. Every output below was generated by executing this exact listing.</p>
 <pre data-run="code/ch09_potentials_entropy.py"><code class="language-python">"""Declared ideal models; standard library only; no experimental data."""
+
 from math import exp, log, factorial, isclose, sqrt
+
 R = 8.31446261815324
-C = 1.5*R
+C = 1.5 * R
 TREF, VREF = 300.0, 0.025
 
+
 def entropy(t, v):
-    return C*log(t/TREF)+R*log(v/VREF)
+    return C * log(t / TREF) + R * log(v / VREF)
+
 
 def energy(s, v):
-    return C*TREF*exp(s/C)*(VREF/v)**(R/C)
+    return C * TREF * exp(s / C) * (VREF / v) ** (R / C)
+
 
 def availability(t, v, t0, p0):
-    return C*t+p0*v-t0*entropy(t,v)
+    return C * t + p0 * v - t0 * entropy(t, v)
+
 
 def phase_difference(t):
-    dh=10000+20*(t-1000)
-    ds=10+20*log(t/1000)
-    return dh,ds,dh-t*ds
+    dh = 10000 + 20 * (t - 1000)
+    ds = 10 + 20 * log(t / 1000)
+    return dh, ds, dh - t * ds
+
 
 def main():
-    wi, wf = 56*4,20*20
-    hot, cold = log(20/56),log(20/4)
-    assert isclose(hot+cold,log(wf/wi))
-    print(f'Four-mode transfer: dS_hot/k={hot:.9f}; cold={cold:.9f}; total={hot+cold:.9f}')
-    # Correlated equiprobable pairs00 and11: two fair marginals but only two joint states.
-    joint=log(2); marginal_sum=2*log(2); mutual=marginal_sum-joint
-    print(f'Correlated binary pair: S_joint/k={joint:.9f}; sum_marginals={marginal_sum:.9f}; mutual={mutual:.9f}')
+    wi, wf = 56 * 4, 20 * 20
+    hot, cold = log(20 / 56), log(20 / 4)
+    assert isclose(hot + cold, log(wf / wi))
+    print(
+        (
+            f"Four-mode transfer: dS_hot/k="
+            f"{hot:.9f}"
+            f"; cold="
+            f"{cold:.9f}"
+            f"; total="
+            f"{hot + cold:.9f}"
+        )
+    )
+    # Correlated equiprobable pairs00 and11: two fair marginals but only two
+    # joint states.
+    joint = log(2)
+    marginal_sum = 2 * log(2)
+    mutual = marginal_sum - joint
+    print(
+        (
+            f"Correlated binary pair: S_joint/k="
+            f"{joint:.9f}"
+            f"; sum_marginals="
+            f"{marginal_sum:.9f}"
+            f"; mutual="
+            f"{mutual:.9f}"
+        )
+    )
     # The exact one-mole gas fundamental relation has positive d2U/dS2=T/C.
-    t,v=450.0,0.04;s=entropy(t,v);h=1e-4
-    t_num=(energy(s+h,v)-energy(s-h,v))/(2*h)
-    p_num=-(energy(s,v+1e-7)-energy(s,v-1e-7))/(2e-7)
-    assert isclose(t_num,t,rel_tol=1e-8)
-    assert isclose(p_num,R*t/v,rel_tol=1e-8)
-    a=energy(s,v)-t*s
-    assert isclose(a,C*t-t*s,abs_tol=1e-10)
-    print(f'Ideal fundamental relation: S={s:.9f} J/K; T={t_num:.6f} K; p={p_num:.6f} Pa; A={a:.6f} J')
+    t, v = 450.0, 0.04
+    s = entropy(t, v)
+    h = 1e-4
+    t_num = (energy(s + h, v) - energy(s - h, v)) / (2 * h)
+    p_num = -(energy(s, v + 1e-7) - energy(s, v - 1e-7)) / (2e-7)
+    assert isclose(t_num, t, rel_tol=1e-8)
+    assert isclose(p_num, R * t / v, rel_tol=1e-8)
+    a = energy(s, v) - t * s
+    assert isclose(a, C * t - t * s, abs_tol=1e-10)
+    print(
+        (
+            f"Ideal fundamental relation: S="
+            f"{s:.9f}"
+            f" J/K; T="
+            f"{t_num:.6f}"
+            f" K; p="
+            f"{p_num:.6f}"
+            f" Pa; A="
+            f"{a:.6f}"
+            f" J"
+        )
+    )
     # Availability equals G at endpoints whose T,p match the environment.
-    t0,p0=300.0,100000.0
-    vi=R*600/p0;vf=R*t0/p0
-    delta_phi=availability(t0,vf,t0,p0)-availability(600,vi,t0,p0)
+    t0, p0 = 300.0, 100000.0
+    vi = R * 600 / p0
+    vf = R * t0 / p0
+    delta_phi = availability(t0, vf, t0, p0) - availability(600, vi, t0, p0)
     # Constant external pressure/no useful work: Q=dH=Cp*(Tf-Ti).
-    dh=(C+R)*(300-600);ds=(C+R)*log(300/600)
-    gen=ds-dh/t0
-    assert isclose(delta_phi,-t0*gen,abs_tol=1e-9)
-    print(f'600-to300 K cooling at100 kPa: Q={dh:.6f} J; dS_gas={ds:.9f} J/K; generation={gen:.9f} J/K; dPhi={delta_phi:.6f} J')
-    print('Temperature-dependent phase differences: '+ '; '.join(f'T={t}: dH={phase_difference(t)[0]:.6f}, dS={phase_difference(t)[1]:.9f}, dG={phase_difference(t)[2]:.6f}' for t in (500,1000,1500)))
-    # One quantum oscillator, excitation energies j*k*theta, excluding zero-point shift.
-    x=2.0;z=1/(1-exp(-x));nbar=1/(exp(x)-1)
-    s_mode=x*nbar+log(z)
-    assert isclose(s_mode,x/(exp(x)-1)-log(1-exp(-x)))
-    print(f'Oscillator theta/T=2: Z={z:.9f}; mean_quanta={nbar:.9f}; S/k={s_mode:.9f}')
+    dh = (C + R) * (300 - 600)
+    ds = (C + R) * log(300 / 600)
+    gen = ds - dh / t0
+    assert isclose(delta_phi, -t0 * gen, abs_tol=1e-9)
+    print(
+        (
+            f"600-to300 K cooling at100 kPa: Q="
+            f"{dh:.6f}"
+            f" J; dS_gas="
+            f"{ds:.9f}"
+            f" J/K; generation="
+            f"{gen:.9f}"
+            f" J/K; dPhi="
+            f"{delta_phi:.6f}"
+            f" J"
+        )
+    )
+    print(
+        "Temperature-dependent phase differences: "
+        + "; ".join(
+            (
+                f"T="
+                f"{t}"
+                f": dH="
+                f"{phase_difference(t)[0]:.6f}"
+                f", dS="
+                f"{phase_difference(t)[1]:.9f}"
+                f", dG="
+                f"{phase_difference(t)[2]:.6f}"
+            )
+            for t in (500, 1000, 1500)
+        )
+    )
+    # One quantum oscillator, excitation energies j*k*theta, excluding
+    # zero-point shift.
+    x = 2.0
+    z = 1 / (1 - exp(-x))
+    nbar = 1 / (exp(x) - 1)
+    s_mode = x * nbar + log(z)
+    assert isclose(s_mode, x / (exp(x) - 1) - log(1 - exp(-x)))
+    print(
+        (
+            f"Oscillator theta/T=2: Z="
+            f"{z:.9f}"
+            f"; mean_quanta="
+            f"{nbar:.9f}"
+            f"; S/k="
+            f"{s_mode:.9f}"
+        )
+    )
     # Analytic entropy extraction: small noise in G can have amplified slope.
     # G(T)=a+b*T-c*T*log(T/Tref), so S=-b+c*(log(T/Tref)+1).
-    b,c,t=-10.0,20.0,600.0
-    def g(temp):return 1000+b*temp-c*temp*log(temp/300)
-    ds_exact=-b+c*(log(t/300)+1)
-    eps=0.1
-    ds_num=-(g(t+eps)-g(t-eps))/(2*eps)
-    assert isclose(ds_num,ds_exact,rel_tol=1e-8)
-    slope_noise=sqrt(2)*0.5/(2*eps)
-    print(f'Analytic entropy slope: exact={ds_exact:.9f}, finite_difference={ds_num:.9f} J/(mol K); sigma_G=0.5 J/mol gives sigma_slope={slope_noise:.9f}')
-    assert phase_difference(500)[2]&gt;0 and phase_difference(1500)[2]&lt;0
-    print('All fundamental-relation, availability, counting and finite-difference checks passed.')
+    b, c, t = -10.0, 20.0, 600.0
 
-if __name__=='__main__':main()
+    def g(temp):
+        return 1000 + b * temp - c * temp * log(temp / 300)
+
+    ds_exact = -b + c * (log(t / 300) + 1)
+    eps = 0.1
+    ds_num = -(g(t + eps) - g(t - eps)) / (2 * eps)
+    assert isclose(ds_num, ds_exact, rel_tol=1e-8)
+    slope_noise = sqrt(2) * 0.5 / (2 * eps)
+    print(
+        (
+            f"Analytic entropy slope: exact="
+            f"{ds_exact:.9f}"
+            f", finite_difference="
+            f"{ds_num:.9f}"
+            f" J/(mol K); sigma_G=0.5 J/mol gives sigma_slope="
+            f"{slope_noise:.9f}"
+        )
+    )
+    assert phase_difference(500)[2] &gt; 0 and phase_difference(1500)[2] &lt; 0
+    print(
+        (
+            "All fundamental-relation, availability, counting and finite-diff"
+            "erence checks passed."
+        )
+    )
+
+
+if __name__ == "__main__":
+    main()
 </code></pre>
 <pre class="output">Four-mode transfer: dS_hot/k=-1.029619417; cold=1.609437912; total=0.579818495
 Correlated binary pair: S_joint/k=0.693147181; sum_marginals=1.386294361; mutual=0.693147181

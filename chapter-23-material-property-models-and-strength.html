@@ -1,8 +1,8 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="dark light"><meta name="book-content-sha256" content="d8627dae1bd38782199af5940f481f669e3c4b363974d609abe27247d70e30eb"><title>Material property models and strength · Computational Thermodynamics</title><link rel="stylesheet" href="assets/book.css"><script src="assets/math-config.js"></script><script defer src="assets/mathjax-tex-svg.js"></script><script defer src="assets/book.js"></script></head>
-<body><a class="skip" href="#main">Skip to content</a><header class="site-header"><a class="brand" href="index.html">Computational Thermodynamics and Kinetics of Materials</a><nav class="course-nav"><a href="index.html">Chapters</a><a href="source-map.html">Source map</a><a href="references.html">References</a><a href="numerical-lab.html">Numerical lab</a></nav></header><div class="layout"><aside class="toc" id="chapter-toc"><h2>On this page</h2></aside><main id="main"><div class="reading-tools"><button id="theme-toggle" aria-pressed="false">Light theme</button><button id="text-toggle" aria-pressed="false">Larger text</button><button id="solutions-toggle" aria-pressed="false">Expand solutions</button><button id="print-page">Print with solutions</button></div>
+<body><a class="skip" href="#main">Skip to content</a><header class="site-header"><a class="brand" href="index.html">Computational Thermodynamics and Kinetics of Materials</a><nav class="course-nav"><a href="index.html">Chapters</a><a href="source-map.html">Source map</a><a href="references.html">References</a><a href="numerical-lab.html">Numerical lab</a></nav></header><div class="layout"><aside class="toc" id="chapter-toc"><h2 id="on-this-page">On this page</h2></aside><main id="main"><div class="reading-tools"><button id="theme-toggle" aria-pressed="false">Light theme</button><button id="text-toggle" aria-pressed="false">Larger text</button><button id="solutions-toggle" aria-pressed="false">Expand solutions</button><button id="print-page">Print with solutions</button></div>
 <article id="chapter-content"><!-- BOOK-CONTENT-START -->
-<h1>23. Material property models and strength</h1>
+<h1 id="chapter-title">23. Material property models and strength</h1>
 <p class="lead">A phase-equilibrium calculation may identify the phases in a casting without predicting how easily its liquid fills a mold or how strongly the aged solid resists plastic flow. The missing information is different in each case. Volume and compressibility require a pressure-dependent thermodynamic potential. Viscosity requires a dissipative constitutive law. Yield strength also requires a definition of the test and a description of the microstructure.</p>
 <div class="callout"><strong>A property model is an additional scientific commitment.</strong> The running task is to build a consistent material record for processing and subsequent loading. Its fields include a phase Gibbs energy, liquid viscosity and solid yield-strength relation. All numerical coefficients in the calculations below are invented teaching parameters. The recording's commercial Al–Sc comparison is discussed separately; none of its experimental points or database parameters is reconstructed.</div>
 <h2 id="property-question">1. What information belongs to a material-property record?</h2>
@@ -123,6 +123,7 @@ x_{Ti}=\frac{a y_{Ti}}{a+b y_C}.\tag{23.8}\]
 Run with Python 3.13. Inputs are stated teaching parameters in SI units,
 except the explicitly labelled MPa/nm strength model. No files are written.
 """
+
 from math import exp, isclose, log, sqrt
 
 GAS_R = 8.31446261815324
@@ -132,133 +133,172 @@ V0, ALPHA0, KAPPA0, CP = 1e-5, 6e-5, 1e-11, 25.0
 
 def gibbs(temperature, pressure):
     if temperature &lt;= 0:
-        raise ValueError('Positive temperature required')
-    q = pressure-P0
-    thermal = -CP*(temperature*log(temperature/T0)-temperature+T0)
-    return thermal+V0*((1+ALPHA0*(temperature-T0))*q-KAPPA0*q*q/2)
+        raise ValueError("Positive temperature required")
+    q = pressure - P0
+    thermal = -CP * (temperature * log(temperature / T0) - temperature + T0)
+    return thermal + V0 * (
+        (1 + ALPHA0 * (temperature - T0)) * q - KAPPA0 * q * q / 2
+    )
 
 
 def response(temperature, pressure):
     if temperature &lt;= 0:
-        raise ValueError('Positive temperature required')
-    factor = 1+ALPHA0*(temperature-T0)-KAPPA0*(pressure-P0)
+        raise ValueError("Positive temperature required")
+    factor = 1 + ALPHA0 * (temperature - T0) - KAPPA0 * (pressure - P0)
     if factor &lt;= 0:
-        raise ValueError('Outside positive-volume domain of the local model')
-    volume = V0*factor
-    alpha, kappa = ALPHA0/factor, KAPPA0/factor
-    cv = CP-temperature*volume*alpha*alpha/kappa
+        raise ValueError("Outside positive-volume domain of the local model")
+    volume = V0 * factor
+    alpha, kappa = ALPHA0 / factor, KAPPA0 / factor
+    cv = CP - temperature * volume * alpha * alpha / kappa
     if cv &lt;= 0:
-        raise ValueError('Outside thermal-stability domain of the local model')
-    return volume, alpha, kappa, 1/kappa, cv
+        raise ValueError("Outside thermal-stability domain of the local model")
+    return volume, alpha, kappa, 1 / kappa, cv
 
 
-volume, alpha, kappa, modulus, cv = response(1100., P0+1e9)
-hp, ht = 1e6, .1
-vp_fd = (gibbs(1100., P0+1e9+hp)-gibbs(1100., P0+1e9-hp))/(2*hp)
-gpp_fd = (gibbs(1100., P0+1e9+hp)-2*gibbs(1100., P0+1e9)
-          + gibbs(1100., P0+1e9-hp))/(hp*hp)
-cp_fd = -1100*(gibbs(1100+ht, P0+1e9)-2*gibbs(1100., P0+1e9)
-               + gibbs(1100-ht, P0+1e9))/(ht*ht)
+volume, alpha, kappa, modulus, cv = response(1100.0, P0 + 1e9)
+hp, ht = 1e6, 0.1
+vp_fd = (gibbs(1100.0, P0 + 1e9 + hp) - gibbs(1100.0, P0 + 1e9 - hp)) / (
+    2 * hp
+)
+gpp_fd = (
+    gibbs(1100.0, P0 + 1e9 + hp)
+    - 2 * gibbs(1100.0, P0 + 1e9)
+    + gibbs(1100.0, P0 + 1e9 - hp)
+) / (hp * hp)
+cp_fd = (
+    -1100
+    * (
+        gibbs(1100 + ht, P0 + 1e9)
+        - 2 * gibbs(1100.0, P0 + 1e9)
+        + gibbs(1100 - ht, P0 + 1e9)
+    )
+    / (ht * ht)
+)
 assert isclose(vp_fd, volume, rel_tol=1e-9)
-assert isclose(-gpp_fd/volume, kappa, rel_tol=1e-6)
+assert isclose(-gpp_fd / volume, kappa, rel_tol=1e-6)
 assert isclose(cp_fd, CP, rel_tol=1e-5)
-print(f'Local molar volume at 1100 K, pressure increment 1 GPa: {volume:.9e}')
-print(f'Volumetric expansivity and compressibility: {alpha:.9e}, {kappa:.9e}')
-print(f'Isothermal bulk modulus and Cv: {modulus/1e9:.6f} GPa, '
-      f'{cv:.6f} J/(mol K)')
-print(f'Finite-difference volume and Cp: {vp_fd:.9e}, {cp_fd:.6f}')
-print(f'Maxwell entropy-pressure derivative: {-V0*ALPHA0:.9e} m3/(mol K)')
+print(f"Local molar volume at 1100 K, pressure increment 1 GPa: {volume:.9e}")
+print(f"Volumetric expansivity and compressibility: {alpha:.9e}, {kappa:.9e}")
+print(
+    f"Isothermal bulk modulus and Cv: {modulus/1e9:.6f} GPa, "
+    f"{cv:.6f} J/(mol K)"
+)
+print(f"Finite-difference volume and Cp: {vp_fd:.9e}, {cp_fd:.6f}")
+print(f"Maxwell entropy-pressure derivative: {-V0*ALPHA0:.9e} m3/(mol K)")
 
 # Independent log-viscosity model: x is B atomic fraction in the liquid.
-ETA_A, ETA_B = .004, .002  # Pa s at T0
-E_A, E_B = 20000., 15000.  # J/mol
-L0, L1 = 6000., -2000.  # J/mol; not Gibbs interaction parameters
+ETA_A, ETA_B = 0.004, 0.002  # Pa s at T0
+E_A, E_B = 20000.0, 15000.0  # J/mol
+L0, L1 = 6000.0, -2000.0  # J/mol; not Gibbs interaction parameters
 
 
 def viscosity(x, temperature=T0, l0=L0, l1=L1):
     if not 0 &lt;= x &lt;= 1 or temperature &lt;= 0:
-        raise ValueError('Require composition in [0,1] and temperature &gt; 0')
-    ya = log(ETA_A)+E_A/GAS_R*(1/temperature-1/T0)
-    yb = log(ETA_B)+E_B/GAS_R*(1/temperature-1/T0)
-    interaction = x*(1-x)*(l0+l1*(1-2*x))/(GAS_R*temperature)
-    return exp((1-x)*ya+x*yb+interaction)
+        raise ValueError("Require composition in [0,1] and temperature &gt; 0")
+    ya = log(ETA_A) + E_A / GAS_R * (1 / temperature - 1 / T0)
+    yb = log(ETA_B) + E_B / GAS_R * (1 / temperature - 1 / T0)
+    interaction = x * (1 - x) * (l0 + l1 * (1 - 2 * x)) / (GAS_R * temperature)
+    return exp((1 - x) * ya + x * yb + interaction)
 
 
 def reduced_interaction(x):
-    pure = (1-x)*log(ETA_A)+x*log(ETA_B)
-    return GAS_R*T0*(log(viscosity(x))-pure)/(x*(1-x))
+    pure = (1 - x) * log(ETA_A) + x * log(ETA_B)
+    return GAS_R * T0 * (log(viscosity(x)) - pure) / (x * (1 - x))
 
 
-eta_mid = viscosity(.5)
+eta_mid = viscosity(0.5)
 assert isclose(viscosity(0), ETA_A, rel_tol=1e-14)
 assert isclose(viscosity(1), ETA_B, rel_tol=1e-14)
-assert isclose(viscosity(.5, l1=1e6), eta_mid, rel_tol=1e-14)
-d25, d75 = reduced_interaction(.25), reduced_interaction(.75)
-fit0, fit1 = (d25+d75)/2, d25-d75
+assert isclose(viscosity(0.5, l1=1e6), eta_mid, rel_tol=1e-14)
+d25, d75 = reduced_interaction(0.25), reduced_interaction(0.75)
+fit0, fit1 = (d25 + d75) / 2, d25 - d75
 assert isclose(fit0, L0, abs_tol=1e-8)
 assert isclose(fit1, L1, abs_tol=1e-8)
-rho_ref = (.027+.045)/2/V0  # Reference equimolar mass/volume: kg/m3
-print(f'Viscosity at x=.25, .5, .75: {viscosity(.25):.9f}, '
-      f'{eta_mid:.9f}, {viscosity(.75):.9f} Pa s')
-print(f'Equimolar no-excess viscosity and multiplier: '
-      f'{sqrt(ETA_A*ETA_B):.9f}, {eta_mid/sqrt(ETA_A*ETA_B):.9f}')
-print(f'Two-composition reconstructed L0, L1: {fit0:.6f}, {fit1:.6f} J/mol')
-print(f'Reference density and kinematic viscosity: '
-      f'{rho_ref:.6f} kg/m3, {eta_mid/rho_ref:.9e} m2/s')
+rho_ref = (0.027 + 0.045) / 2 / V0  # Reference equimolar mass/volume: kg/m3
+print(
+    f"Viscosity at x=.25, .5, .75: {viscosity(.25):.9f}, "
+    f"{eta_mid:.9f}, {viscosity(.75):.9f} Pa s"
+)
+print(
+    f"Equimolar no-excess viscosity and multiplier: "
+    f"{sqrt(ETA_A*ETA_B):.9f}, {eta_mid/sqrt(ETA_A*ETA_B):.9f}"
+)
+print(f"Two-composition reconstructed L0, L1: {fit0:.6f}, {fit1:.6f} J/mol")
+print(
+    f"Reference density and kinematic viscosity: "
+    f"{rho_ref:.6f} kg/m3, {eta_mid/rho_ref:.9e} m2/s"
+)
 # Same local conductivities, different imposed one-dimensional geometry.
-k_parallel, k_series = .5*100+.5*10, 1/(.5/100+.5/10)
-print(f'Parallel/series thermal conductivity: '
-      f'{k_parallel:.6f}, {k_series:.6f} W/(m K)')
+k_parallel, k_series = 0.5 * 100 + 0.5 * 10, 1 / (0.5 / 100 + 0.5 / 10)
+print(
+    f"Parallel/series thermal conductivity: "
+    f"{k_parallel:.6f}, {k_series:.6f} W/(m K)"
+)
 
 # (Fe,Ti)1(C,Va)1: hypothetical endmember strengths, not measured values.
-y_ti, y_c = .2, .1
-weights = ((1-y_ti)*(1-y_c), y_ti*(1-y_c), (1-y_ti)*y_c, y_ti*y_c)
-endmember = (50., 100., 200., 500.)  # Fe:Va, Ti:Va, Fe:C, Ti:C in MPa
-intrinsic = sum(w*s for w, s in zip(weights, endmember))
-assert isclose(sum(weights), 1., abs_tol=1e-15)
-x_c, x_ti = y_c/(1+y_c), y_ti/(1+y_c)
-print('Endmember weights: '+', '.join(f'{w:.6f}' for w in weights))
-print(f'Intrinsic strength and atomic C/Ti fractions: '
-      f'{intrinsic:.6f} MPa, {x_c:.9f}, {x_ti:.9f}')
+y_ti, y_c = 0.2, 0.1
+weights = (
+    (1 - y_ti) * (1 - y_c),
+    y_ti * (1 - y_c),
+    (1 - y_ti) * y_c,
+    y_ti * y_c,
+)
+endmember = (50.0, 100.0, 200.0, 500.0)  # Fe:Va, Ti:Va, Fe:C, Ti:C in MPa
+intrinsic = sum(w * s for w, s in zip(weights, endmember))
+assert isclose(sum(weights), 1.0, abs_tol=1e-15)
+x_c, x_ti = y_c / (1 + y_c), y_ti / (1 + y_c)
+print("Endmember weights: " + ", ".join(f"{w:.6f}" for w in weights))
+print(
+    f"Intrinsic strength and atomic C/Ti fractions: "
+    f"{intrinsic:.6f} MPa, {x_c:.9f}, {x_ti:.9f}"
+)
 # These additional constitutive choices are independent teaching parameters.
-grain_size, hp_coefficient = 25e-6, .08  # m and MPa sqrt(m)
-matrix_solute, ss_coefficient = .02, 400.  # atomic fraction and MPa
-gb_strength = hp_coefficient/sqrt(grain_size)
-ss_strength = ss_coefficient*matrix_solute**(2/3)
-base_strength = intrinsic+gb_strength+ss_strength
-print(f'Grain and matrix-solute increments: '
-      f'{gb_strength:.6f}, {ss_strength:.6f} MPa')
-print(f'Linear baseline without precipitation: {base_strength:.6f} MPa')
-print(f'Using bulk solute .04 instead of matrix .02 gives: '
-      f'{ss_coefficient*.04**(2/3):.6f} MPa')
+grain_size, hp_coefficient = 25e-6, 0.08  # m and MPa sqrt(m)
+matrix_solute, ss_coefficient = 0.02, 400.0  # atomic fraction and MPa
+gb_strength = hp_coefficient / sqrt(grain_size)
+ss_strength = ss_coefficient * matrix_solute ** (2 / 3)
+base_strength = intrinsic + gb_strength + ss_strength
+print(
+    f"Grain and matrix-solute increments: "
+    f"{gb_strength:.6f}, {ss_strength:.6f} MPa"
+)
+print(f"Linear baseline without precipitation: {base_strength:.6f} MPa")
+print(
+    f"Using bulk solute .04 instead of matrix .02 gives: "
+    f"{ss_coefficient*.04**(2/3):.6f} MPa"
+)
 
 # Stipulated constant-volume-fraction cutting/bypass envelope, radius in nm.
-CUT, BYPASS = 40., 800.  # Both coefficients in MPa; u = r/(1 nm)
+CUT, BYPASS = 40.0, 800.0  # Both coefficients in MPa; u = r/(1 nm)
 
 
 def increments(radius_nm):
     if radius_nm &lt;= 0:
-        raise ValueError('Positive radius required')
-    return CUT*sqrt(radius_nm), BYPASS/radius_nm
+        raise ValueError("Positive radius required")
+    return CUT * sqrt(radius_nm), BYPASS / radius_nm
 
 
-critical = (BYPASS/CUT)**(2/3)
-peak = CUT*sqrt(critical)
+critical = (BYPASS / CUT) ** (2 / 3)
+peak = CUT * sqrt(critical)
 assert isclose(*increments(critical), rel_tol=1e-14)
-assert min(increments(critical/2)) &lt; peak
-assert min(increments(2*critical)) &lt; peak
-print(f'Toy crossover radius and increment: {critical:.9f} nm, {peak:.6f} MPa')
-print(f'Toy total strength at the crossover: {base_strength+peak:.6f} MPa')
-local = [increments(r) for r in (2., 20.)]
-average_minimum = sum(min(pair) for pair in local)/2
-minimum_average = min(sum(pair[i] for pair in local)/2 for i in (0, 1))
-mean_radius_value = min(increments(11.))
+assert min(increments(critical / 2)) &lt; peak
+assert min(increments(2 * critical)) &lt; peak
+print(f"Toy crossover radius and increment: {critical:.9f} nm, {peak:.6f} MPa")
+print(f"Toy total strength at the crossover: {base_strength+peak:.6f} MPa")
+local = [increments(r) for r in (2.0, 20.0)]
+average_minimum = sum(min(pair) for pair in local) / 2
+minimum_average = min(sum(pair[i] for pair in local) / 2 for i in (0, 1))
+mean_radius_value = min(increments(11.0))
 assert average_minimum &lt;= minimum_average
-print(f'Distribution operation checks, average(min), min(average), '
-      f'min(at mean r): {average_minimum:.6f}, {minimum_average:.6f}, '
-      f'{mean_radius_value:.6f} MPa')
-print(f'Two stipulated 100 MPa increments: linear={200.:.6f}, '
-      f'quadrature={sqrt(100**2+100**2):.6f} MPa')
+print(
+    f"Distribution operation checks, average(min), min(average), "
+    f"min(at mean r): {average_minimum:.6f}, {minimum_average:.6f}, "
+    f"{mean_radius_value:.6f} MPa"
+)
+print(
+    f"Two stipulated 100 MPa increments: linear={200.:.6f}, "
+    f"quadrature={sqrt(100**2+100**2):.6f} MPa"
+)
 </code></pre>
 <pre class="output">Local molar volume at 1100 K, pressure increment 1 GPa: 9.960000000e-06
 Volumetric expansivity and compressibility: 6.024096386e-05, 1.004016064e-11
@@ -281,15 +321,15 @@ Distribution operation checks, average(min), min(average), min(at mean r): 48.28
 Two stipulated 100 MPa increments: linear=200.000000, quadrature=141.421356 MPa
 </pre>
 <h2 id="exercises">11. Exercises with complete solutions</h2>
-<div class="exercise"><h3>1. Derive the response functions and check their signs</h3><p>Derive (23.1) and the Maxwell relation. Evaluate the local potential at 1100 K and q=1 GPa, and find the isotropic linear expansivity.</p><details class="solution"><summary>Solution</summary><p>From dg=−s dT+v dp at fixed composition, g<sub>p</sub>=v and g<sub>T</sub>=−s. Differentiating v gives g<sub>pT</sub> and g<sub>pp</sub>; division by v produces α<sub>V</sub> and −κ<sub>T</sub>, respectively. Equality g<sub>Tp</sub>=g<sub>pT</sub> gives (∂s/∂p)<sub>T</sub>=−vα<sub>V</sub>. The example's factor is 1+0.006−0.01=0.996. Hence v=9.96×10⁻⁶ m³/mol, α<sub>V</sub>=6×10⁻⁵/0.996, κ<sub>T</sub>=10⁻¹¹/0.996 and K<sub>T</sub>=99.6 GPa. Since g<sub>pp</sub>=−v<sub>0</sub>κ<sub>0</sub>&lt;0 and v&gt;0, κ<sub>T</sub>&gt;0. For isotropic expansion α<sub>L</sub>=α<sub>V</sub>/3=2.008032×10⁻⁵ K⁻¹; no single scalar division supplies three different anisotropic directional coefficients.</p></details></div>
-<div class="exercise"><h3>2. Check thermal consistency and identify missing pressure information</h3><p>Derive C<sub>p</sub>−C<sub>v</sub> for the stated branch. Can perfect knowledge of g(T,p<sub>0</sub>,x) identify its reference volume or compressibility?</p><details class="solution"><summary>Solution</summary><p>At fixed v, dv=vα<sub>V</sub>dT−vκ<sub>T</sub>dp=0 gives dp/dT=α<sub>V</sub>/κ<sub>T</sub>. Using ds=(C<sub>p</sub>/T)dT−vα<sub>V</sub>dp and multiplying its fixed-v derivative by T gives C<sub>v</sub>=C<sub>p</sub>−Tvα<sub>V</sub>²/κ<sub>T</sub>. For the toy potential this subtraction is Tv<sub>0</sub>α<sub>0</sub>²/κ<sub>0</sub>=3.96 J/(mol K), so C<sub>v</sub>=21.04. To establish nonidentifiability of pressure responses, add either v<sub>1</sub>q−v<sub>1</sub>κ<sub>1</sub>q²/2 or v<sub>2</sub>q−v<sub>2</sub>κ<sub>2</sub>q²/2 to the same reference g. Both additions vanish at q=0, but their first and second pressure derivatives differ. Additional volume or pressure-response evidence is therefore necessary.</p></details></div>
-<div class="exercise"><h3>3. Recover the binary viscosity prediction and its units</h3><p>Evaluate the equimolar viscosity and kinematic viscosity at the reference state. Why must the logarithm contain a reference viscosity?</p><details class="solution"><summary>Solution</summary><p>At x=1/2, the L<sub>1</sub> term vanishes and the excess Y is L<sub>0</sub>/4=1500 J/mol. Consequently η=√(0.004×0.002)exp[1500/(R×1000)]=0.003387626 Pa s. The reference equimolar mass per mole is (0.027+0.045)/2=0.036 kg/mol; division by 10⁻⁵ m³/mol gives ρ=3600 kg/m³. Thus ν=η/ρ=9.410071×10⁻⁷ m²/s. The argument η/η<sub>ref</sub> is dimensionless. A change of viscosity units must be accompanied by the same change in η<sub>ref</sub>; otherwise the logarithmic model's intercept would change without representing a physical effect.</p></details></div>
-<div class="exercise"><h3>4. Design observations that identify both interaction parameters</h3><p>Why is an exact equimolar measurement insufficient? Invert the two-composition construction and identify an important limitation of measurements near a pure endpoint.</p><details class="solution"><summary>Solution</summary><p>At x=1/2 the derivative of Y with respect to L<sub>1</sub> is x(1−x)(1−2x)=0, so that observation is unchanged for every L<sub>1</sub>. At x=1/4 and 3/4 the reduced observations are Z<sub>1</sub>=L<sub>0</sub>+L<sub>1</sub>/2 and Z<sub>2</sub>=L<sub>0</sub>−L<sub>1</sub>/2. Adding gives L<sub>0</sub>=(Z<sub>1</sub>+Z<sub>2</sub>)/2; subtracting gives L<sub>1</sub>=Z<sub>1</sub>−Z<sub>2</sub>. Values 5000 and 7000 J/mol recover 6000 and −2000. Near an endpoint, Z divides the residual by the small factor x(1−x), amplifying measurement and pure-reference errors. A real assessment should analyze the design and uncertainty, then test predictions at compositions not used to determine the coefficients.</p></details></div>
-<div class="exercise"><h3>5. Explain the conductivity discrepancy without choosing a universal mixing rule</h3><p>Derive both results for equal amounts of materials with conductivities 100 and 10 W/(m K). Does one invalidate the other?</p><details class="solution"><summary>Solution</summary><p>For parallel heat paths the temperature gradient is common, so adding area-weighted fluxes gives (100+10)/2=55 W/(m K). In series the steady flux is common; the temperature drops are proportional to f/k<sub>1</sub> and (1−f)/k<sub>2</sub>, giving [0.5/100+0.5/10]⁻¹=18.181818 W/(m K). The boundary-value problems differ, so their disagreement is expected. It does not license assigning either formula to a homogeneous alloy without a property model or to an unspecified three-dimensional aggregate without geometric information.</p></details></div>
-<div class="exercise"><h3>6. Keep sublattice and atomic composition bases separate</h3><p>Compute the four strength weights and the atomic fractions. If a=b=1 and a measured atomic carbon fraction is 0.1, what carbon site fraction must be inserted?</p><details class="solution"><summary>Solution</summary><p>The weights are (1−0.2)(1−0.1)=0.72, 0.2(1−0.1)=0.18, (1−0.2)0.1=0.08 and 0.2×0.1=0.02. Their coefficient-weighted sum is 80 MPa, and their sum is one. One formula unit contains 1+0.1=1.1 atoms because vacancies contribute no atoms. Hence x<sub>C</sub>=0.1/1.1 and x<sub>Ti</sub>=0.2/1.1. For a specified x<sub>C</sub>=0.1, solve x<sub>C</sub>=y<sub>C</sub>/(1+y<sub>C</sub>): y<sub>C</sub>=x<sub>C</sub>/(1−x<sub>C</sub>)=1/9, not 0.1. The strength interpolation must receive the site fraction required by its model, rather than the same numeral on another composition basis.</p></details></div>
-<div class="exercise"><h3>7. Audit the grain-size units, solute input and addition rule</h3><p>Evaluate the two scalar increments, identify the grain-unit error, and explain the double-counting risk.</p><details class="solution"><summary>Solution</summary><p>Convert 25 μm to 25×10⁻⁶ m before using k<sub>HP</sub>=0.08 MPa√m. Its square root is 0.005√m, giving 16 MPa. Inserting the numeral 25 without conversion gives only 0.016 MPa, a factor of 1000 smaller. Equivalently the coefficient is 80 MPa√μm if grain diameter is entered in micrometers. The assumed solute law gives 400(0.02)<sup>2/3</sup>=29.472252 MPa; using bulk 0.04 would instead give 46.784284 MPa. With an independently assigned 80 MPa reference and linear addition, the baseline is 125.472252 MPa. It is valid only as the declared constitutive construction. If the reference measurement already included the same grain or solute increment, adding it again repeats the contribution. A different calibrated combination rule can also change the prediction.</p></details></div>
-<div class="exercise"><h3>8. Prove that the reduced precipitation model has a peak</h3><p>Find the unique crossover, its increment and the illustrative total strength. State what is not learned about an aging schedule.</p><details class="solution"><summary>Solution</summary><p>For u&gt;0, C√u grows monotonically while D/u decreases. Equality implies u<sup>3/2</sup>=D/C, so u<sub>*</sub>=(D/C)<sup>2/3</sup>. On the left the smaller branch is C√u; on the right it is D/u. Thus the lower envelope has its global maximum at u<sub>*</sub>. At C=40 and D=800 MPa with r<sub>0</sub>=1 nm, r<sub>*</sub>=7.368062997 nm and Δσ<sub>*</sub>=108.576705 MPa. Adding the stipulated 125.472252 MPa baseline gives 234.048957 MPa. The calculation does not tell when a material reaches that radius or whether its volume fraction remains fixed. Nucleation, growth, coarsening and temperature-dependent coefficients are additional models and inputs.</p></details></div>
-<div class="exercise"><h3>9. Test whether a mean radius can replace a distribution</h3><p>Evaluate the three operations for equally weighted 2 and 20 nm particles. Prove the averaging inequality and state its physical limit.</p><details class="solution"><summary>Solution</summary><p>At 2 nm the cutting/bypass thresholds are 56.568542 and 400 MPa; at 20 nm they are 178.885438 and 40 MPa. Averaging their local minima gives (56.568542+40)/2=48.284271 MPa. Averaging the cutting branch gives 117.726990 MPa and the bypass branch 220 MPa, whose minimum is 117.726990 MPa. The mean radius is 11 nm; applying the envelope there gives min(40√11,800/11)=72.727273 MPa. For general nonnegative normalized weights, each local minimum is no larger than either branch; weighted summation therefore lies below both branch averages and hence below their minimum. This proves (23.12). It does not prove that a real yield stress is the average of local obstacle thresholds. A physical dislocation/population model must specify its sampling and collective response, then be assessed against appropriate mechanical data.</p></details></div>
+<div class="exercise"><h3 id="1-derive-the-response-functions-and-check-their-signs">1. Derive the response functions and check their signs</h3><p>Derive (23.1) and the Maxwell relation. Evaluate the local potential at 1100 K and q=1 GPa, and find the isotropic linear expansivity.</p><details class="solution"><summary>Solution</summary><p>From dg=−s dT+v dp at fixed composition, g<sub>p</sub>=v and g<sub>T</sub>=−s. Differentiating v gives g<sub>pT</sub> and g<sub>pp</sub>; division by v produces α<sub>V</sub> and −κ<sub>T</sub>, respectively. Equality g<sub>Tp</sub>=g<sub>pT</sub> gives (∂s/∂p)<sub>T</sub>=−vα<sub>V</sub>. The example's factor is 1+0.006−0.01=0.996. Hence v=9.96×10⁻⁶ m³/mol, α<sub>V</sub>=6×10⁻⁵/0.996, κ<sub>T</sub>=10⁻¹¹/0.996 and K<sub>T</sub>=99.6 GPa. Since g<sub>pp</sub>=−v<sub>0</sub>κ<sub>0</sub>&lt;0 and v&gt;0, κ<sub>T</sub>&gt;0. For isotropic expansion α<sub>L</sub>=α<sub>V</sub>/3=2.008032×10⁻⁵ K⁻¹; no single scalar division supplies three different anisotropic directional coefficients.</p></details></div>
+<div class="exercise"><h3 id="2-check-thermal-consistency-and-identify-missing-pressure-information">2. Check thermal consistency and identify missing pressure information</h3><p>Derive C<sub>p</sub>−C<sub>v</sub> for the stated branch. Can perfect knowledge of g(T,p<sub>0</sub>,x) identify its reference volume or compressibility?</p><details class="solution"><summary>Solution</summary><p>At fixed v, dv=vα<sub>V</sub>dT−vκ<sub>T</sub>dp=0 gives dp/dT=α<sub>V</sub>/κ<sub>T</sub>. Using ds=(C<sub>p</sub>/T)dT−vα<sub>V</sub>dp and multiplying its fixed-v derivative by T gives C<sub>v</sub>=C<sub>p</sub>−Tvα<sub>V</sub>²/κ<sub>T</sub>. For the toy potential this subtraction is Tv<sub>0</sub>α<sub>0</sub>²/κ<sub>0</sub>=3.96 J/(mol K), so C<sub>v</sub>=21.04. To establish nonidentifiability of pressure responses, add either v<sub>1</sub>q−v<sub>1</sub>κ<sub>1</sub>q²/2 or v<sub>2</sub>q−v<sub>2</sub>κ<sub>2</sub>q²/2 to the same reference g. Both additions vanish at q=0, but their first and second pressure derivatives differ. Additional volume or pressure-response evidence is therefore necessary.</p></details></div>
+<div class="exercise"><h3 id="3-recover-the-binary-viscosity-prediction-and-its-units">3. Recover the binary viscosity prediction and its units</h3><p>Evaluate the equimolar viscosity and kinematic viscosity at the reference state. Why must the logarithm contain a reference viscosity?</p><details class="solution"><summary>Solution</summary><p>At x=1/2, the L<sub>1</sub> term vanishes and the excess Y is L<sub>0</sub>/4=1500 J/mol. Consequently η=√(0.004×0.002)exp[1500/(R×1000)]=0.003387626 Pa s. The reference equimolar mass per mole is (0.027+0.045)/2=0.036 kg/mol; division by 10⁻⁵ m³/mol gives ρ=3600 kg/m³. Thus ν=η/ρ=9.410071×10⁻⁷ m²/s. The argument η/η<sub>ref</sub> is dimensionless. A change of viscosity units must be accompanied by the same change in η<sub>ref</sub>; otherwise the logarithmic model's intercept would change without representing a physical effect.</p></details></div>
+<div class="exercise"><h3 id="4-design-observations-that-identify-both-interaction-parameters">4. Design observations that identify both interaction parameters</h3><p>Why is an exact equimolar measurement insufficient? Invert the two-composition construction and identify an important limitation of measurements near a pure endpoint.</p><details class="solution"><summary>Solution</summary><p>At x=1/2 the derivative of Y with respect to L<sub>1</sub> is x(1−x)(1−2x)=0, so that observation is unchanged for every L<sub>1</sub>. At x=1/4 and 3/4 the reduced observations are Z<sub>1</sub>=L<sub>0</sub>+L<sub>1</sub>/2 and Z<sub>2</sub>=L<sub>0</sub>−L<sub>1</sub>/2. Adding gives L<sub>0</sub>=(Z<sub>1</sub>+Z<sub>2</sub>)/2; subtracting gives L<sub>1</sub>=Z<sub>1</sub>−Z<sub>2</sub>. Values 5000 and 7000 J/mol recover 6000 and −2000. Near an endpoint, Z divides the residual by the small factor x(1−x), amplifying measurement and pure-reference errors. A real assessment should analyze the design and uncertainty, then test predictions at compositions not used to determine the coefficients.</p></details></div>
+<div class="exercise"><h3 id="5-explain-the-conductivity-discrepancy-without-choosing-a-universal-mixing-rule">5. Explain the conductivity discrepancy without choosing a universal mixing rule</h3><p>Derive both results for equal amounts of materials with conductivities 100 and 10 W/(m K). Does one invalidate the other?</p><details class="solution"><summary>Solution</summary><p>For parallel heat paths the temperature gradient is common, so adding area-weighted fluxes gives (100+10)/2=55 W/(m K). In series the steady flux is common; the temperature drops are proportional to f/k<sub>1</sub> and (1−f)/k<sub>2</sub>, giving [0.5/100+0.5/10]⁻¹=18.181818 W/(m K). The boundary-value problems differ, so their disagreement is expected. It does not license assigning either formula to a homogeneous alloy without a property model or to an unspecified three-dimensional aggregate without geometric information.</p></details></div>
+<div class="exercise"><h3 id="6-keep-sublattice-and-atomic-composition-bases-separate">6. Keep sublattice and atomic composition bases separate</h3><p>Compute the four strength weights and the atomic fractions. If a=b=1 and a measured atomic carbon fraction is 0.1, what carbon site fraction must be inserted?</p><details class="solution"><summary>Solution</summary><p>The weights are (1−0.2)(1−0.1)=0.72, 0.2(1−0.1)=0.18, (1−0.2)0.1=0.08 and 0.2×0.1=0.02. Their coefficient-weighted sum is 80 MPa, and their sum is one. One formula unit contains 1+0.1=1.1 atoms because vacancies contribute no atoms. Hence x<sub>C</sub>=0.1/1.1 and x<sub>Ti</sub>=0.2/1.1. For a specified x<sub>C</sub>=0.1, solve x<sub>C</sub>=y<sub>C</sub>/(1+y<sub>C</sub>): y<sub>C</sub>=x<sub>C</sub>/(1−x<sub>C</sub>)=1/9, not 0.1. The strength interpolation must receive the site fraction required by its model, rather than the same numeral on another composition basis.</p></details></div>
+<div class="exercise"><h3 id="7-audit-the-grain-size-units-solute-input-and-addition-rule">7. Audit the grain-size units, solute input and addition rule</h3><p>Evaluate the two scalar increments, identify the grain-unit error, and explain the double-counting risk.</p><details class="solution"><summary>Solution</summary><p>Convert 25 μm to 25×10⁻⁶ m before using k<sub>HP</sub>=0.08 MPa√m. Its square root is 0.005√m, giving 16 MPa. Inserting the numeral 25 without conversion gives only 0.016 MPa, a factor of 1000 smaller. Equivalently the coefficient is 80 MPa√μm if grain diameter is entered in micrometers. The assumed solute law gives 400(0.02)<sup>2/3</sup>=29.472252 MPa; using bulk 0.04 would instead give 46.784284 MPa. With an independently assigned 80 MPa reference and linear addition, the baseline is 125.472252 MPa. It is valid only as the declared constitutive construction. If the reference measurement already included the same grain or solute increment, adding it again repeats the contribution. A different calibrated combination rule can also change the prediction.</p></details></div>
+<div class="exercise"><h3 id="8-prove-that-the-reduced-precipitation-model-has-a-peak">8. Prove that the reduced precipitation model has a peak</h3><p>Find the unique crossover, its increment and the illustrative total strength. State what is not learned about an aging schedule.</p><details class="solution"><summary>Solution</summary><p>For u&gt;0, C√u grows monotonically while D/u decreases. Equality implies u<sup>3/2</sup>=D/C, so u<sub>*</sub>=(D/C)<sup>2/3</sup>. On the left the smaller branch is C√u; on the right it is D/u. Thus the lower envelope has its global maximum at u<sub>*</sub>. At C=40 and D=800 MPa with r<sub>0</sub>=1 nm, r<sub>*</sub>=7.368062997 nm and Δσ<sub>*</sub>=108.576705 MPa. Adding the stipulated 125.472252 MPa baseline gives 234.048957 MPa. The calculation does not tell when a material reaches that radius or whether its volume fraction remains fixed. Nucleation, growth, coarsening and temperature-dependent coefficients are additional models and inputs.</p></details></div>
+<div class="exercise"><h3 id="9-test-whether-a-mean-radius-can-replace-a-distribution">9. Test whether a mean radius can replace a distribution</h3><p>Evaluate the three operations for equally weighted 2 and 20 nm particles. Prove the averaging inequality and state its physical limit.</p><details class="solution"><summary>Solution</summary><p>At 2 nm the cutting/bypass thresholds are 56.568542 and 400 MPa; at 20 nm they are 178.885438 and 40 MPa. Averaging their local minima gives (56.568542+40)/2=48.284271 MPa. Averaging the cutting branch gives 117.726990 MPa and the bypass branch 220 MPa, whose minimum is 117.726990 MPa. The mean radius is 11 nm; applying the envelope there gives min(40√11,800/11)=72.727273 MPa. For general nonnegative normalized weights, each local minimum is no larger than either branch; weighted summation therefore lies below both branch averages and hence below their minimum. This proves (23.12). It does not prove that a real yield stress is the average of local obstacle thresholds. A physical dislocation/population model must specify its sampling and collective response, then be assessed against appropriate mechanical data.</p></details></div>
 <p class="source-note">Source scope: the full lesson 58 local machine transcript supplies the topic sequence. The uncertain comparator name is corroborated only to the extent stated by versioned official documentation. The selected thermophysical-property discussion, endmember release description and Al–Sc room-temperature mechanisms support their cited roles; no complete software, literature or audiovisual audit is implied. All numerical results and the figure here are original mathematical constructions with explicit parameters.</p>
 <p class="closing">A useful property database connects equilibrium, transport and mechanics through explicit interfaces. It specifies which derivatives exist, which coefficients were assessed independently, and which microstructural inputs a prediction requires. Those distinctions make a successful calculation interpretable and identify the new data needed when it fails.</p>
 <p class="chapter-nav"><a href="index.html">All chapters</a></p>

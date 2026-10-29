@@ -2,8 +2,8 @@
   "chapter": 1,
   "title": "Microstructure, phases and composition",
   "file": "chapter-01-microstructure-phases-composition.html",
-  "status": "Accepted in two independent scientific reviews",
-  "authored_body_sha256": "c123f965c6d72ccdea4914960efca3346e1ba70a7aafd83d676e70b3e06bcee5",
+  "status": "Compliance repairs frozen; awaiting two independent focused reviews",
+  "authored_body_sha256": "e8ab6bbe0271b7793c60438aac92824eb37d2dfb3b6060aaed410f56a1267e43",
   "recordings": [
     {
       "official_lesson": 1,
@@ -68,6 +68,19 @@
     "Synthetic2Dphase maps with equalarea unequalinterface"
   ],
   "independent_review": {
+    "status": "pending-focused-compliance-review",
+    "accepted": false,
+    "body_sha256": "e8ab6bbe0271b7793c60438aac92824eb37d2dfb3b6060aaed410f56a1267e43",
+    "scope": "Prior full scientific/source reviews apply to the separately bound accepted baseline; current definitions, derivation hinges, markup, code and figure amendments require focused independent closure."
+  },
+  "limitations": [
+    "No comprehensive audiovisual/board audit",
+    "ASR and chunk boundary errors possible",
+    "No experimental microstructure or property validation",
+    "No real sucrose solubility datum asserted",
+    "2Dmap doesnot establish3Dgeometry"
+  ],
+  "historical_scientific_review": {
     "status": "accepted",
     "accepted": true,
     "body_sha256": "c123f965c6d72ccdea4914960efca3346e1ba70a7aafd83d676e70b3e06bcee5",
@@ -83,19 +96,14 @@
     "major": 0,
     "minor": 0
   },
-  "limitations": [
-    "No comprehensive audiovisual/board audit",
-    "ASR and chunk boundary errors possible",
-    "No experimental microstructure or property validation",
-    "No real sucrose solubility datum asserted",
-    "2Dmap doesnot establish3Dgeometry"
-  ],
-  "review_round_1": {
-    "report": "private editorial record",
-    "reviewed_body_sha256": "2f449a708abaf72d144fdf47a53ff1a9dc42ce3c0de80a3a5ebba4a25692747a",
-    "blocking": 0,
-    "major": 1,
-    "minor": 3,
-    "status": "All four findings repaired; revised body awaiting independent round2"
+  "historical_review_rounds": {
+    "review_round_1": {
+      "report": "private editorial record",
+      "reviewed_body_sha256": "2f449a708abaf72d144fdf47a53ff1a9dc42ce3c0de80a3a5ebba4a25692747a",
+      "blocking": 0,
+      "major": 1,
+      "minor": 3,
+      "status": "All four findings repaired; revised body awaiting independent round2"
+    }
   }
 }

@@ -2,8 +2,8 @@
   "chapter": 2,
   "title": "Chemical order, site populations and composition bases",
   "file": "chapter-02-chemical-order-sites-composition.html",
-  "status": "Accepted in two independent scientific reviews",
-  "authored_body_sha256": "9f882d8f9ce3cc80fc3a7f42db67eff355ab4017b464ab43fe5db0a6ceabaf0d",
+  "status": "Compliance repairs frozen; awaiting two independent focused reviews",
+  "authored_body_sha256": "9202e3ab9d9bcaebddbd41d95199959526aa6a2c5547a712bba7aef8e022d15f",
   "recordings": [
     {
       "official_lesson": 2,
@@ -83,6 +83,19 @@
     }
   ],
   "independent_review": {
+    "status": "pending-focused-compliance-review",
+    "accepted": false,
+    "body_sha256": "9202e3ab9d9bcaebddbd41d95199959526aa6a2c5547a712bba7aef8e022d15f",
+    "scope": "Prior full scientific/source reviews apply to the separately bound accepted baseline; current definitions, derivation hinges, markup, code and figure amendments require focused independent closure."
+  },
+  "limitations": [
+    "No full audiovisual/board audit",
+    "No experimental validation or alloy phase-boundary prediction",
+    "Sublattice model assumes equal site populations, full occupation and equiatomic overall composition",
+    "Finite enumeration is not a thermal ensemble without specified energies",
+    "Primary-source access outcomes retained privately; direct requests to IUPAC403, definition read through web source"
+  ],
+  "historical_scientific_review": {
     "status": "accepted",
     "accepted": true,
     "body_sha256": "9f882d8f9ce3cc80fc3a7f42db67eff355ab4017b464ab43fe5db0a6ceabaf0d",
@@ -97,12 +110,5 @@
     "blocking": 0,
     "major": 0,
     "minor": 0
-  },
-  "limitations": [
-    "No full audiovisual/board audit",
-    "No experimental validation or alloy phase-boundary prediction",
-    "Sublattice model assumes equal site populations, full occupation and equiatomic overall composition",
-    "Finite enumeration is not a thermal ensemble without specified energies",
-    "Primary-source access outcomes retained privately; direct requests to IUPAC403, definition read through web source"
-  ]
+  }
 }
