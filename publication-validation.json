@@ -1,8 +1,8 @@
 {
   "passed": true,
-  "final": false,
+  "final": true,
   "status": "passed",
-  "checked_at_utc": "2026-10-29T02:26:51.578010+00:00",
+  "checked_at_utc": "2026-10-29T02:30:57.532666+00:00",
   "base_url": "https://az9713.github.io/nptel-computational-thermodynamics-kinetics-materials-notes/",
   "repository": "az9713/nptel-computational-thermodynamics-kinetics-materials-notes",
   "issues": [],
@@ -124,7 +124,7 @@
     "code/ch23_material_properties.py": "11b08d89d36443bdb99fd29a376bbcd87f78a2f7054260cd1d2fac887a3d190a",
     "code/ch24_size_electrochemistry_scope.py": "4cff3a99657b3f333a24203e0d63aa4ec2192b90fa0b96ffe93bfa37cd5f5e65",
     "code/plot_ch23_property_models.py": "4be679327ca9db2d704c8c11c96cf9a34c4d5bcd74ffc2fa51efb4ba104566b0",
-    "completion.json": "85470f4d21e2a864cae5d90d541d0abdd54df75268f1590f5831be910159cfc3",
+    "completion.json": "9e474eb2779ed3dfc4fb11d08ac2de40b396abf54c4d20f08ed284835a596588",
     "content-inventory.json": "5fd9c8f1fb0ac3aa3484b8c94ddcea7d9fc630ca528b120f67d0b0a638c691f7",
     "course-review.json": "656df49a50756664376193015abd3ed8040062422d09d5a02b130e98c296df29",
     "data/ch14_synthetic.tdb": "b3df86459160237326667b7463aa892d994615583a8f59a475b32025ef4afa01",
@@ -891,7 +891,7 @@
     {
       "path": "completion.json",
       "http_status": 200,
-      "bytes": 3574,
+      "bytes": 4054,
       "matches": true
     },
     {
@@ -1168,12 +1168,12 @@
   "served_selfreport": {
     "http_status": 200,
     "valid_json": true,
-    "passed": false,
+    "passed": true,
     "final": false
   },
   "served_completion": {
-    "complete": false,
-    "publication": false
+    "complete": true,
+    "publication": true
   },
   "browser_checks": {
     "passed": true,
@@ -1785,6 +1785,6 @@
     "preview_checked": true,
     "issues": []
   },
-  "local_commit": "8b4de2db8257657f51d4b7082aacd69062f85456",
-  "remote_commit": "8b4de2db8257657f51d4b7082aacd69062f85456"
+  "local_commit": "58c6caa54bf9ecfe19097cb5d1079c209497f2dc",
+  "remote_commit": "58c6caa54bf9ecfe19097cb5d1079c209497f2dc"
 }
