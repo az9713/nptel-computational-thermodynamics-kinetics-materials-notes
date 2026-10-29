@@ -1,0 +1,108 @@
+{
+  "chapter": 5,
+  "title": "Phase amounts, heat flow and the interpretation of cooling curves",
+  "file": "chapter-05-phase-amounts-heat-flow-cooling-curves.html",
+  "status": "Accepted in two independent scientific reviews",
+  "authored_body_sha256": "acdc265dcfe2c732651440b9b3237d39ca775312e258a91d8b402360c0174288",
+  "recordings": [
+    {
+      "official_lesson": 9,
+      "playlist_position": 10,
+      "video_id": "m-RUuHye-tc",
+      "duration_seconds": 1275.0541875,
+      "source_type": "local faster-whisper small.en ASR, not publisher captions",
+      "transcript_reading": "Entire transcript read sequentially",
+      "chunk_policy": "90-second cores with 2-second context; possible recognition and boundary errors"
+    },
+    {
+      "official_lesson": 10,
+      "playlist_position": 11,
+      "video_id": "bQOEhmJcmAU",
+      "duration_seconds": 702.31075,
+      "source_type": "local faster-whisper small.en ASR, not publisher captions",
+      "transcript_reading": "Entire transcript read sequentially",
+      "chunk_policy": "90-second cores with 2-second context; possible recognition and boundary errors"
+    }
+  ],
+  "sections": [
+    {
+      "anchor": "amount-path",
+      "video_id": "m-RUuHye-tc",
+      "start": 65,
+      "end": 591
+    },
+    {
+      "anchor": "time",
+      "video_id": "m-RUuHye-tc",
+      "start": 498,
+      "end": 717
+    },
+    {
+      "anchor": "history",
+      "video_id": "m-RUuHye-tc",
+      "start": 718,
+      "end": 1268
+    },
+    {
+      "anchor": "energy",
+      "video_id": "bQOEhmJcmAU",
+      "start": 65,
+      "end": 383
+    },
+    {
+      "anchor": "range",
+      "video_id": "bQOEhmJcmAU",
+      "start": 170,
+      "end": 501
+    },
+    {
+      "anchor": "undercooling",
+      "video_id": "bQOEhmJcmAU",
+      "start": 501,
+      "end": 576
+    },
+    {
+      "anchor": "thermometry",
+      "video_id": "bQOEhmJcmAU",
+      "start": 576,
+      "end": 695
+    },
+    {
+      "anchor": "inverse",
+      "video_id": "bQOEhmJcmAU",
+      "start": 65,
+      "end": 695
+    }
+  ],
+  "worked_solutions": 9,
+  "executable_listings": 1,
+  "original_constructions": [
+    "Constant-pressure enthalpy balance and exact pure-substance arrest",
+    "Prescribed caloric freezing-range model and 4001 balance checks",
+    "Exact first-order thermometer response and sign test",
+    "Adiabatic recalescence enthalpy calculation",
+    "Relaxation law and dimensional diffusion estimates"
+  ],
+  "independent_review": {
+    "status": "accepted",
+    "accepted": true,
+    "body_sha256": "acdc265dcfe2c732651440b9b3237d39ca775312e258a91d8b402360c0174288",
+    "review_ids": [
+      "ct-ch05-r1",
+      "ct-ch05-r2"
+    ],
+    "reviewer_ids": [
+      "separate-ai-agent-coordinator",
+      "separate-ai-agent-cardiovascular"
+    ],
+    "blocking": 0,
+    "major": 0,
+    "minor": 0
+  },
+  "limitations": [
+    "No comprehensive audiovisual or lecture-board audit",
+    "Caloric examples and relaxation law are stipulated teaching models, not real-alloy assessments",
+    "Cambridge instrument bias is not reproduced by the one-body sensor model",
+    "Primary calibration experiment and uncertainty analysis are not reproduced"
+  ]
+}

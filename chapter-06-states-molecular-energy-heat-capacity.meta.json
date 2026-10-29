@@ -1,0 +1,127 @@
+{
+  "chapter": 6,
+  "title": "Thermodynamic states, molecular energy and heat capacity",
+  "file": "chapter-06-states-molecular-energy-heat-capacity.html",
+  "status": "Accepted in two independent scientific reviews",
+  "authored_body_sha256": "0af2b4020037a6d4b526ff7d12a6e0ed7312aba7af4d857e076ea92c44af379d",
+  "recordings": [
+    {
+      "official_lesson": 11,
+      "playlist_position": 12,
+      "video_id": "LKqeecILglA",
+      "duration_seconds": 1854.7635625,
+      "source_type": "local faster-whisper small.en ASR, not publisher captions",
+      "transcript_reading": "Entire transcript read sequentially",
+      "chunk_policy": "90-second cores with 2-second context; possible recognition and boundary errors"
+    },
+    {
+      "official_lesson": 12,
+      "playlist_position": 13,
+      "video_id": "AIufuEzEgFY",
+      "duration_seconds": 2644.520625,
+      "source_type": "local faster-whisper small.en ASR, not publisher captions",
+      "transcript_reading": "Entire transcript read sequentially",
+      "chunk_policy": "90-second cores with 2-second context; possible recognition and boundary errors"
+    }
+  ],
+  "sections": [
+    {
+      "anchor": "scope",
+      "video_id": "LKqeecILglA",
+      "start": 102,
+      "end": 691
+    },
+    {
+      "anchor": "boundaries",
+      "video_id": "LKqeecILglA",
+      "start": 875,
+      "end": 1172
+    },
+    {
+      "anchor": "state",
+      "video_id": "LKqeecILglA",
+      "start": 1172,
+      "end": 1675
+    },
+    {
+      "anchor": "scaling",
+      "video_id": "LKqeecILglA",
+      "start": 1541,
+      "end": 1827
+    },
+    {
+      "anchor": "ideal",
+      "video_id": "AIufuEzEgFY",
+      "start": 65,
+      "end": 489
+    },
+    {
+      "anchor": "kinetic",
+      "video_id": "AIufuEzEgFY",
+      "start": 489,
+      "end": 780
+    },
+    {
+      "anchor": "maxwell",
+      "video_id": "AIufuEzEgFY",
+      "start": 780,
+      "end": 1007
+    },
+    {
+      "anchor": "internal-energy",
+      "video_id": "AIufuEzEgFY",
+      "start": 1953,
+      "end": 2644
+    },
+    {
+      "anchor": "heat-work",
+      "video_id": "AIufuEzEgFY",
+      "start": 1007,
+      "end": 1336
+    },
+    {
+      "anchor": "capacity",
+      "video_id": "AIufuEzEgFY",
+      "start": 1339,
+      "end": 1646
+    },
+    {
+      "anchor": "oscillators",
+      "video_id": "AIufuEzEgFY",
+      "start": 1646,
+      "end": 1949
+    }
+  ],
+  "worked_solutions": 9,
+  "executable_listings": 1,
+  "original_constructions": [
+    "Full Maxwell speed-density normalization, moments and mode derivation",
+    "Independent Simpson quadrature of speed distribution",
+    "Extensive scaling and monatomic caloric checks",
+    "Synthetic temperature-dependent capacity antiderivative and quadrature",
+    "Quantum harmonic partition sum and heat capacity with exact model limits"
+  ],
+  "independent_review": {
+    "status": "accepted",
+    "accepted": true,
+    "body_sha256": "0af2b4020037a6d4b526ff7d12a6e0ed7312aba7af4d857e076ea92c44af379d",
+    "review_ids": [
+      "ct-ch06-r1",
+      "ct-ch06-r2"
+    ],
+    "reviewer_ids": [
+      "separate-ai-agent-graph-theory",
+      "separate-ai-agent-coordinator"
+    ],
+    "blocking": 0,
+    "major": 0,
+    "minor": 0
+  },
+  "limitations": [
+    "No comprehensive audiovisual or board audit",
+    "Classical monatomic and equal-frequency oscillator results have stated restricted domains",
+    "Synthetic molar mass and caloric polynomial are not fitted real-material properties",
+    "Historical acoustic thermometry experiment and uncertainty budget not reproduced",
+    "General Cp-Cv identity stated with its conditions; full Maxwell-identity derivation deferred to thermodynamic potentials"
+  ]
+}

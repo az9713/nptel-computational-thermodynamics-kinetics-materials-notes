@@ -1,0 +1,121 @@
+{
+  "chapter": 24,
+  "title": "Size, electrochemical reservoirs and database limits",
+  "file": "chapter-24-size-electrochemical-reservoirs-database-limits.html",
+  "status": "Accepted in two independent scientific reviews",
+  "authored_body_sha256": "3ef129e72d7153d8d962ec8785d68379ce7e599fc50b497e9c84c178b9bc0a14",
+  "recordings": [
+    {
+      "official_lesson": 59,
+      "playlist_position": 60,
+      "video_id": "JoOavIGtk80",
+      "duration_seconds": 922.9003125,
+      "source_type": "local faster-whisper small.en ASR, not publisher captions",
+      "transcript_reading": "Entire transcript read sequentially",
+      "chunk_policy": "90-second cores with 2-second context; possible recognition and boundary errors"
+    },
+    {
+      "official_lesson": 60,
+      "playlist_position": 61,
+      "video_id": "s5nxvmVmGAc",
+      "duration_seconds": 862.4355625,
+      "source_type": "local faster-whisper small.en ASR, not publisher captions",
+      "transcript_reading": "Entire transcript read sequentially",
+      "chunk_policy": "90-second cores with 2-second context; possible recognition and boundary errors"
+    }
+  ],
+  "sections": [
+    {
+      "anchor": "surface-energy",
+      "video_id": "JoOavIGtk80",
+      "start": 126,
+      "end": 356
+    },
+    {
+      "anchor": "finite-size",
+      "video_id": "JoOavIGtk80",
+      "start": 356,
+      "end": 508
+    },
+    {
+      "anchor": "fast-paths",
+      "video_id": "JoOavIGtk80",
+      "start": 508,
+      "end": 779
+    },
+    {
+      "anchor": "electrochemical",
+      "video_id": "JoOavIGtk80",
+      "start": 780,
+      "end": 856
+    },
+    {
+      "anchor": "process",
+      "video_id": "JoOavIGtk80",
+      "start": 856,
+      "end": 917
+    },
+    {
+      "anchor": "coverage",
+      "video_id": "s5nxvmVmGAc",
+      "start": 111,
+      "end": 469
+    },
+    {
+      "anchor": "history",
+      "video_id": "s5nxvmVmGAc",
+      "start": 470,
+      "end": 597
+    },
+    {
+      "anchor": "future",
+      "video_id": "s5nxvmVmGAc",
+      "start": 597,
+      "end": 773
+    }
+  ],
+  "worked_solutions": 9,
+  "executable_listings": 1,
+  "original_constructions": [
+    "Spherical total-per-mole versus incremental surface-energy derivation and finite-difference audit",
+    "Restricted equal-radius two-state phase crossing with original analytic figure",
+    "Parallel/series fast-path mobility topology counterexample with nonnegative fraction ledger",
+    "Explicit reduction-reaction pH and ion-activity sign/units checks",
+    "Open oxygen reservoir versus closed inventory, synthetic oxide reaction pressure boundary",
+    "Candidate-set envelope theorem and exact missing-line-phase counterexample",
+    "Ternary interaction invisible on all binary edges, subsystem combinatorics and bounded-discrepancy sign audit"
+  ],
+  "actual_execution": {
+    "python": "3.13",
+    "standard_library_only": true,
+    "program": "code/ch24_size_electrochemistry_scope.py",
+    "displayed_stdout_lines": 18,
+    "scope": "Original synthetic analytic/algebraic audits; no measured alloy, commercial module or assessed TDB calculation"
+  },
+  "independent_review": {
+    "status": "accepted",
+    "accepted": true,
+    "body_sha256": "3ef129e72d7153d8d962ec8785d68379ce7e599fc50b497e9c84c178b9bc0a14",
+    "review_ids": [
+      "ct-ch24-r1",
+      "ct-ch24-r2"
+    ],
+    "reviewer_ids": [
+      "separate-ai-agent-cardiovascular",
+      "separate-ai-agent-graph-theory"
+    ],
+    "blocking": 0,
+    "major": 0,
+    "minor": 0
+  },
+  "limitations": [
+    "Full59–60 local ASR read, not comprehensive audiovisual/board verification",
+    "BiSn10nm and sigma-phase database plots described as recording examples, not independently reproduced",
+    "Surface calculations compare declared constrained models, not universal melting laws or unrestricted nanoscale phase equilibria",
+    "Barrier multipliers/geometric weights are stipulated model choices, not verified current software defaults or universal diffusion hierarchy",
+    "Illustrative electrochemical potentials and oxygen reaction data are invented teaching parameters, not a corrosion/steelmaking assessment",
+    "IUPAC equation inspected through indexed official term text; direct page/PDF requests returned403, no full underlying recommendation audit",
+    "Kattner2016 introduction and selected methods sections read, not full cited literature; NRC2008 report publication metadata only, not a full report audit",
+    "AI surrogate is a proposed learning project; no trained model, uncertainty calibration or industrial validation claimed"
+  ]
+}

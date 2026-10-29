@@ -1,0 +1,150 @@
+{
+  "chapter": 23,
+  "title": "Material property models and strength",
+  "file": "chapter-23-material-property-models-and-strength.html",
+  "status": "Accepted in two independent scientific reviews",
+  "authored_body_sha256": "d8627dae1bd38782199af5940f481f669e3c4b363974d609abe27247d70e30eb",
+  "recordings": [
+    {
+      "official_lesson": 58,
+      "playlist_position": 59,
+      "video_id": "atjrQP2E11Y",
+      "duration_seconds": 740.0199375,
+      "source_type": "local faster-whisper small.en ASR, not publisher captions",
+      "transcript_reading": "Entire local transcript read sequentially",
+      "transcript_sha256": "0347c750bdec6d972599224cee092eae9bfebbff933916b64bf78f72e70f767e",
+      "chunk_policy": "90-second cores with 2-second context; recognition and boundary errors remain"
+    }
+  ],
+  "sections": [
+    {
+      "anchor": "property-question",
+      "video_id": "atjrQP2E11Y",
+      "start": 15,
+      "end": 94
+    },
+    {
+      "anchor": "gibbs-responses",
+      "video_id": "atjrQP2E11Y",
+      "start": 94,
+      "end": 165
+    },
+    {
+      "anchor": "assessment",
+      "video_id": "atjrQP2E11Y",
+      "start": 165,
+      "end": 236
+    },
+    {
+      "anchor": "viscosity",
+      "video_id": "atjrQP2E11Y",
+      "start": 236,
+      "end": 332
+    },
+    {
+      "anchor": "property-transforms",
+      "video_id": "atjrQP2E11Y",
+      "start": 320,
+      "end": 337
+    },
+    {
+      "anchor": "intrinsic-strength",
+      "video_id": "atjrQP2E11Y",
+      "start": 337,
+      "end": 443
+    },
+    {
+      "anchor": "strengthening",
+      "video_id": "atjrQP2E11Y",
+      "start": 443,
+      "end": 518
+    },
+    {
+      "anchor": "precipitate-size",
+      "video_id": "atjrQP2E11Y",
+      "start": 518,
+      "end": 707
+    },
+    {
+      "anchor": "model-audit",
+      "video_id": "atjrQP2E11Y",
+      "start": 707,
+      "end": 734
+    }
+  ],
+  "worked_solutions": 9,
+  "executable_listings": 1,
+  "original_constructions": [
+    "Locally integrable Gibbs response model with Maxwell, heat-capacity and mechanical-stability checks",
+    "Missing-pressure-extension and same-equilibrium/different-viscosity counterexamples",
+    "Dimensionless log-viscosity binary model and two-composition parameter-identifiability inversion",
+    "Parallel/series conductivity comparison with explicit geometry",
+    "Two-sublattice strength interpolation and vacancy-correct atomic-composition ledger",
+    "Constitutive addition/unit/solute-composition audit",
+    "Cutting/bypass synthetic crossover with exact global peak and noncommuting population operations",
+    "Analytic original SVG with explicit independent panels"
+  ],
+  "actual_execution": {
+    "python": "3.13",
+    "standard_library_only": true,
+    "program": "code/ch23_material_properties.py",
+    "displayed_stdout_lines": 19,
+    "scope": "Original synthetic consistency and constitutive checks; no assessed real-alloy or proprietary example calculation"
+  },
+  "references": [
+    {
+      "url": "https://doi.org/10.4322/2176-1523.1059",
+      "title": "Kattner2016, The CALPHAD method and its role in material and process development",
+      "scope": "Actual selected printed pages7–9: phase-based properties, volume/EOS and nonthermodynamic property descriptions; not full literature audit"
+    },
+    {
+      "url": "https://thermocalc.com/news/thermo-calc-2024a-release-overview/",
+      "title": "Thermo-Calc2024a intrinsic-strength formulation",
+      "scope": "Actual intrinsic-strength release paragraph and endmember reference description; no reproduced product accuracy claim"
+    },
+    {
+      "url": "https://www2.thermocalc.com/docs/tc-python/latest-version/html/high_level_modules/property_model_definitions/yield_strength.html",
+      "title": "TC-Python2026b yield-strength model definitions",
+      "scope": "Actual selected model options, microstructure/input definitions and units; no SDK execution or all-variant audit"
+    },
+    {
+      "url": "https://dunand.northwestern.edu/pdf/Seidman2002.pdf",
+      "title": "Seidman, Marquis and Dunand2002 Al–Sc precipitation strengthening",
+      "scope": "Actual abstract/introduction and room-temperature discussion4.1–4.2, printed4027–4030 including visual figure12; no complete creep analysis or parameter reproduction"
+    },
+    {
+      "url": "https://thermocalc.com/wp-content/uploads/Documentation/Release_Notes/2022a-thermo-calc-release-notes.pdf",
+      "title": "Thermo-Calc2022a release notes",
+      "scope": "Actual printed13 and25 identify Seidman in an Al–Sc example; source ASR uncertain naming remains bounded"
+    }
+  ],
+  "independent_review": {
+    "status": "accepted",
+    "accepted": true,
+    "body_sha256": "d8627dae1bd38782199af5940f481f669e3c4b363974d609abe27247d70e30eb",
+    "review_ids": [
+      "ct-ch23-r1",
+      "ct-ch23-r2"
+    ],
+    "reviewer_ids": [
+      "separate-ai-agent-graph-theory",
+      "separate-ai-agent-coordinator"
+    ],
+    "blocking": 0,
+    "major": 0,
+    "minor": 0
+  },
+  "limitations": [
+    "Complete lesson 58 machine transcript read; no comprehensive audiovisual/board verification",
+    "All numerical material-property and strength coefficients are invented teaching inputs, not a real-alloy assessment",
+    "The formal Fe/Ti/C endmember calculation and the scalar combined-strength example have independent composition assumptions",
+    "Pressure model is local; positive responses at one state do not establish wide-range EOS accuracy",
+    "Log-viscosity representation/interaction inversion is a stated model, not imported Gibbs interaction parameters or an executed product schema",
+    "Strength laws, fixed particle fraction and operation-average examples are deliberately reduced; no complete Seidman implementation or dislocation-population homogenization is claimed",
+    "Commercial Al–Sc curves, input file, exact configuration and measured points not independently reproduced",
+    "Selected primary sections and versioned documentation only; no full paper/recommendation/literature or SDK verification"
+  ],
+  "article_words_including_math_code": 5597,
+  "counting_method": "Whitespace tokens in exact authored article including math and code, excluding reader chrome",
+  "display_equations": 16
+}

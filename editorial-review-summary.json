@@ -1,0 +1,839 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "accepted_chapters": 24,
+  "review_kind": "Separate AI-agent scientific reviews, not external human peer review",
+  "scope": "Full source-grounded chapter review plus actual focused repair closure where needed; no complete audiovisual or experimental validation",
+  "chapter_hashes": {
+    "chapter-01-microstructure-phases-composition.html": "c123f965c6d72ccdea4914960efca3346e1ba70a7aafd83d676e70b3e06bcee5",
+    "chapter-02-chemical-order-sites-composition.html": "9f882d8f9ce3cc80fc3a7f42db67eff355ab4017b464ab43fe5db0a6ceabaf0d",
+    "chapter-03-unary-binary-equilibrium-diagrams.html": "ae63a2c757cbbdef3c842bc7619b04b6afccfeb23b8a20172cf095bb3f51b0b4",
+    "chapter-04-ternary-sections-reactions-projections.html": "87135b8f136963346689c752e7cf4013ec6658cd5a5adc20ec89bd08f98f6cdd",
+    "chapter-05-phase-amounts-heat-flow-cooling-curves.html": "acdc265dcfe2c732651440b9b3237d39ca775312e258a91d8b402360c0174288",
+    "chapter-06-states-molecular-energy-heat-capacity.html": "0af2b4020037a6d4b526ff7d12a6e0ed7312aba7af4d857e076ea92c44af379d",
+    "chapter-07-first-law-reversible-adiabatic-paths.html": "e8312d8f0b9a414bedc763b1f8fdada0b49dd44437348b282d1b170c0f1f9381",
+    "chapter-08-entropy-engines-statistical-concentration.html": "cf40efb072ac317a7d76975a417c342ebcabf523a5d80bff061a7b9f5859cdc0",
+    "chapter-09-entropy-contributions-thermodynamic-potentials.html": "d58476469ddb382c9ec776b4fc37d5367ba2df8fa95ffa18c3c3a6d9fe7277bd",
+    "chapter-10-lattice-stability-caloric-mixing.html": "095746842be219508ced20167f325853515d56456efa5532725bef3feee6b120",
+    "chapter-11-mixing-chemical-potentials-activities.html": "c12bda2a41c816ffc28f484236a6bd7e3bef0aa43d5f9ee0a688e8bb9186ff13",
+    "chapter-12-global-tangents-driving-forces-phase-rule.html": "6f8f77bbb4554d11e2207bbb8381806f8512dc5d218329871128e251b1dcb59b",
+    "chapter-13-calphad-models-database-minimization.html": "7f4fc8dcc83c4c7c45b5c8721bb11cc542de675f8475d01693c143c0a5adcc16",
+    "chapter-14-reproducible-equilibrium-calculations.html": "d9950d0ffd018ee5bd1b6778311684b2b74ddcaa8c034c6e93a9bc0d3403e348",
+    "chapter-15-composition-paths-references-tzero.html": "23c1e3e09cf4a1009554c7e731aff9e89c4c72758c9bdbaa1dc686261765ff80",
+    "chapter-16-scheil-solidification-conservative-histories.html": "da4aaf511c100fa28edc0e55e1e0e8c9b63badb0368fb1cd6bf7e88c3b774a58",
+    "chapter-17-assessment-data-measurements-constraints.html": "1d14960c3b7134e0149f34e656150adcc7378664b76b0b4c9f56c98200d26cc3",
+    "chapter-18-sublattice-models-assessment-databases.html": "f528fff6d2e6b2fe4ef696f838c804ca0449425b6ab882ea3ae35a0a8ffc99ae",
+    "chapter-19-diffusion-mobility-thermodynamic-forces.html": "50b09f397003f5ac587b0a840c409446644d30d24212513df9f9458fbd2c1a97",
+    "chapter-20-conservative-transport-interfaces-rapid-solidification.html": "f081244ad1ec7b41949bcaa32106c7376e4a36f3c2af7d776f2b94f272394836",
+    "chapter-21-nucleation-transformation-diagrams-precipitation-aging.html": "b7229e9e8b92c5cb654a5f423bb840699390bd4cf7f6957dbe2d44692a914b84",
+    "chapter-22-high-throughput-design-phase-identification.html": "be3771499520b00e6780c0ed68adfc0a0f2ee858d90a9c28b092525dd27e6e3b",
+    "chapter-23-material-property-models-and-strength.html": "d8627dae1bd38782199af5940f481f669e3c4b363974d609abe27247d70e30eb",
+    "chapter-24-size-electrochemical-reservoirs-database-limits.html": "3ef129e72d7153d8d962ec8785d68379ce7e599fc50b497e9c84c178b9bc0a14"
+  },
+  "chapters": [
+    {
+      "chapter": 1,
+      "file": "chapter-01-microstructure-phases-composition.html",
+      "body_sha256": "c123f965c6d72ccdea4914960efca3346e1ba70a7aafd83d676e70b3e06bcee5",
+      "accepted": true,
+      "author_id": "ai-agent-thermodynamics",
+      "rounds": [
+        {
+          "round": 1,
+          "reviewer_id": "separate-ai-agent-graph-theory",
+          "body_sha256": "c123f965c6d72ccdea4914960efca3346e1ba70a7aafd83d676e70b3e06bcee5",
+          "accepted": true,
+          "independent_of_author": true,
+          "blocking": 0,
+          "major": 0,
+          "minor": 0,
+          "review_id": "ct-ch01-r1",
+          "private_evidence_sha256": "e5d2fae3a5c14dabc0d9fe2474ec33d45e47e0b5d8aa8ff82b8ffb5522a2b095"
+        },
+        {
+          "round": 2,
+          "reviewer_id": "separate-ai-agent-coordinator",
+          "body_sha256": "c123f965c6d72ccdea4914960efca3346e1ba70a7aafd83d676e70b3e06bcee5",
+          "accepted": true,
+          "independent_of_author": true,
+          "blocking": 0,
+          "major": 0,
+          "minor": 0,
+          "review_id": "ct-ch01-r2",
+          "private_evidence_sha256": "226c48102d89674238c14a09af627f4ad94f5a6f0f843c8055dee26081a8bfe8"
+        }
+      ],
+      "prior_review_history": {
+        "body_sha256": "2f449a708abaf72d144fdf47a53ff1a9dc42ce3c0de80a3a5ebba4a25692747a",
+        "major": 1,
+        "minor": 3,
+        "accepted": false,
+        "closure": "Actual independent current-body repair closure completed; original findings retained privately"
+      }
+    },
+    {
+      "chapter": 2,
+      "file": "chapter-02-chemical-order-sites-composition.html",
+      "body_sha256": "9f882d8f9ce3cc80fc3a7f42db67eff355ab4017b464ab43fe5db0a6ceabaf0d",
+      "accepted": true,
+      "author_id": "ai-agent-thermodynamics",
+      "rounds": [
+        {
+          "round": 1,
+          "reviewer_id": "separate-ai-agent-graph-theory",
+          "body_sha256": "9f882d8f9ce3cc80fc3a7f42db67eff355ab4017b464ab43fe5db0a6ceabaf0d",
+          "accepted": true,
+          "independent_of_author": true,
+          "blocking": 0,
+          "major": 0,
+          "minor": 0,
+          "review_id": "ct-ch02-r1",
+          "private_evidence_sha256": "e94cfdc0700cbf2ed3d2a75002b099a5fd4815c984a137368d08e5e1caabcba9"
+        },
+        {
+          "round": 2,
+          "reviewer_id": "separate-ai-agent-coordinator",
+          "body_sha256": "9f882d8f9ce3cc80fc3a7f42db67eff355ab4017b464ab43fe5db0a6ceabaf0d",
+          "accepted": true,
+          "independent_of_author": true,
+          "blocking": 0,
+          "major": 0,
+          "minor": 0,
+          "review_id": "ct-ch02-r2",
+          "private_evidence_sha256": "ad19d81ecd12b8fbb93a7546ae0207c55001deed06ec96e5c3851a80794fed63"
+        }
+      ]
+    },
+    {
+      "chapter": 3,
+      "file": "chapter-03-unary-binary-equilibrium-diagrams.html",
+      "body_sha256": "ae63a2c757cbbdef3c842bc7619b04b6afccfeb23b8a20172cf095bb3f51b0b4",
+      "accepted": true,
+      "author_id": "ai-agent-thermodynamics",
+      "rounds": [
+        {
+          "round": 1,
+          "reviewer_id": "separate-ai-agent-graph-theory",
+          "body_sha256": "ae63a2c757cbbdef3c842bc7619b04b6afccfeb23b8a20172cf095bb3f51b0b4",
+          "accepted": true,
+          "independent_of_author": true,
+          "blocking": 0,
+          "major": 0,
+          "minor": 0,
+          "review_id": "ct-ch03-r1",
+          "private_evidence_sha256": "348bf4a29882b12e576d3d09062b0bf47dba4ce5f187bbf47609046f3a7c4b77"
+        },
+        {
+          "round": 2,
+          "reviewer_id": "separate-ai-agent-coordinator",
+          "body_sha256": "ae63a2c757cbbdef3c842bc7619b04b6afccfeb23b8a20172cf095bb3f51b0b4",
+          "accepted": true,
+          "independent_of_author": true,
+          "blocking": 0,
+          "major": 0,
+          "minor": 0,
+          "review_id": "ct-ch03-r2",
+          "private_evidence_sha256": "354d1389c0612d90a59de789e00b50dc44fdc329cac08916a4f92f8987bb2fc8"
+        }
+      ]
+    },
+    {
+      "chapter": 4,
+      "file": "chapter-04-ternary-sections-reactions-projections.html",
+      "body_sha256": "87135b8f136963346689c752e7cf4013ec6658cd5a5adc20ec89bd08f98f6cdd",
+      "accepted": true,
+      "author_id": "ai-agent-thermodynamics",
+      "rounds": [
+        {
+          "round": 1,
+          "reviewer_id": "separate-ai-agent-cardiovascular",
+          "body_sha256": "87135b8f136963346689c752e7cf4013ec6658cd5a5adc20ec89bd08f98f6cdd",
+          "accepted": true,
+          "independent_of_author": true,
+          "blocking": 0,
+          "major": 0,
+          "minor": 0,
+          "review_id": "ct-ch04-r1",
+          "private_evidence_sha256": "5cc94d73d6f838499c8f23dfe52d50c8d59290a6bca8a0e7aeb4f47a488159f7"
+        },
+        {
+          "round": 2,
+          "reviewer_id": "separate-ai-agent-coordinator",
+          "body_sha256": "87135b8f136963346689c752e7cf4013ec6658cd5a5adc20ec89bd08f98f6cdd",
+          "accepted": true,
+          "independent_of_author": true,
+          "blocking": 0,
+          "major": 0,
+          "minor": 0,
+          "review_id": "ct-ch04-r2",
+          "private_evidence_sha256": "81accb4083dd8134b8f4a26578665333745e923212048a7fc255cac14cbec879"
+        }
+      ]
+    },
+    {
+      "chapter": 5,
+      "file": "chapter-05-phase-amounts-heat-flow-cooling-curves.html",
+      "body_sha256": "acdc265dcfe2c732651440b9b3237d39ca775312e258a91d8b402360c0174288",
+      "accepted": true,
+      "author_id": "ai-agent-thermodynamics",
+      "rounds": [
+        {
+          "round": 1,
+          "reviewer_id": "separate-ai-agent-coordinator",
+          "body_sha256": "acdc265dcfe2c732651440b9b3237d39ca775312e258a91d8b402360c0174288",
+          "accepted": true,
+          "independent_of_author": true,
+          "blocking": 0,
+          "major": 0,
+          "minor": 0,
+          "review_id": "ct-ch05-r1",
+          "private_evidence_sha256": "0654a811bd318d6f0d2d93c7af2d9198c62e727f2b8cf29c65431106ac1b16bb"
+        },
+        {
+          "round": 2,
+          "reviewer_id": "separate-ai-agent-cardiovascular",
+          "body_sha256": "acdc265dcfe2c732651440b9b3237d39ca775312e258a91d8b402360c0174288",
+          "accepted": true,
+          "independent_of_author": true,
+          "blocking": 0,
+          "major": 0,
+          "minor": 0,
+          "review_id": "ct-ch05-r2",
+          "private_evidence_sha256": "825dc66651f681304954fac0903ec2615926948a3104ffac1f2a8f1afdbbc0aa"
+        }
+      ]
+    },
+    {
+      "chapter": 6,
+      "file": "chapter-06-states-molecular-energy-heat-capacity.html",
+      "body_sha256": "0af2b4020037a6d4b526ff7d12a6e0ed7312aba7af4d857e076ea92c44af379d",
+      "accepted": true,
+      "author_id": "ai-agent-thermodynamics",
+      "rounds": [
+        {
+          "round": 1,
+          "reviewer_id": "separate-ai-agent-graph-theory",
+          "body_sha256": "0af2b4020037a6d4b526ff7d12a6e0ed7312aba7af4d857e076ea92c44af379d",
+          "accepted": true,
+          "independent_of_author": true,
+          "blocking": 0,
+          "major": 0,
+          "minor": 0,
+          "review_id": "ct-ch06-r1",
+          "private_evidence_sha256": "1053d0ec7ac236539d992b36befc3dadd71bb758bc2904fcb9fff081c73c0970"
+        },
+        {
+          "round": 2,
+          "reviewer_id": "separate-ai-agent-coordinator",
+          "body_sha256": "0af2b4020037a6d4b526ff7d12a6e0ed7312aba7af4d857e076ea92c44af379d",
+          "accepted": true,
+          "independent_of_author": true,
+          "blocking": 0,
+          "major": 0,
+          "minor": 0,
+          "review_id": "ct-ch06-r2",
+          "private_evidence_sha256": "edc3dc8ea380609cbebb0cf02c49578019e13ac5363f423467c0cf65b46d76bf"
+        }
+      ]
+    },
+    {
+      "chapter": 7,
+      "file": "chapter-07-first-law-reversible-adiabatic-paths.html",
+      "body_sha256": "e8312d8f0b9a414bedc763b1f8fdada0b49dd44437348b282d1b170c0f1f9381",
+      "accepted": true,
+      "author_id": "ai-agent-thermodynamics",
+      "rounds": [
+        {
+          "round": 1,
+          "reviewer_id": "separate-ai-agent-cardiovascular",
+          "body_sha256": "e8312d8f0b9a414bedc763b1f8fdada0b49dd44437348b282d1b170c0f1f9381",
+          "accepted": true,
+          "independent_of_author": true,
+          "blocking": 0,
+          "major": 0,
+          "minor": 0,
+          "review_id": "ct-ch07-r1",
+          "private_evidence_sha256": "1123424e6b6b40b3ad727d8dc7ed707302dae638a2348954c57372533745cd41"
+        },
+        {
+          "round": 2,
+          "reviewer_id": "separate-ai-agent-coordinator",
+          "body_sha256": "e8312d8f0b9a414bedc763b1f8fdada0b49dd44437348b282d1b170c0f1f9381",
+          "accepted": true,
+          "independent_of_author": true,
+          "blocking": 0,
+          "major": 0,
+          "minor": 0,
+          "review_id": "ct-ch07-r2",
+          "private_evidence_sha256": "a3d31e42eda82d25988d620c03b42e6fa18e8b11519cd889c27f7a4f05540f5f"
+        }
+      ]
+    },
+    {
+      "chapter": 8,
+      "file": "chapter-08-entropy-engines-statistical-concentration.html",
+      "body_sha256": "cf40efb072ac317a7d76975a417c342ebcabf523a5d80bff061a7b9f5859cdc0",
+      "accepted": true,
+      "author_id": "ai-agent-thermodynamics",
+      "rounds": [
+        {
+          "round": 1,
+          "reviewer_id": "separate-ai-agent-graph-theory",
+          "body_sha256": "cf40efb072ac317a7d76975a417c342ebcabf523a5d80bff061a7b9f5859cdc0",
+          "accepted": true,
+          "independent_of_author": true,
+          "blocking": 0,
+          "major": 0,
+          "minor": 0,
+          "review_id": "ct-ch08-r1",
+          "private_evidence_sha256": "9a6e48d9aa066bbc6572727462d0f4a22a4852c6b0d5ed8cfbf6a97af5945fe1"
+        },
+        {
+          "round": 2,
+          "reviewer_id": "separate-ai-agent-coordinator",
+          "body_sha256": "cf40efb072ac317a7d76975a417c342ebcabf523a5d80bff061a7b9f5859cdc0",
+          "accepted": true,
+          "independent_of_author": true,
+          "blocking": 0,
+          "major": 0,
+          "minor": 0,
+          "review_id": "ct-ch08-r2",
+          "private_evidence_sha256": "84ee2efbb46fad7277de307cfbad83b2a0da3ba2b85add532a05c0f009cb9427"
+        }
+      ]
+    },
+    {
+      "chapter": 9,
+      "file": "chapter-09-entropy-contributions-thermodynamic-potentials.html",
+      "body_sha256": "d58476469ddb382c9ec776b4fc37d5367ba2df8fa95ffa18c3c3a6d9fe7277bd",
+      "accepted": true,
+      "author_id": "ai-agent-thermodynamics",
+      "rounds": [
+        {
+          "round": 1,
+          "reviewer_id": "separate-ai-agent-coordinator",
+          "body_sha256": "d58476469ddb382c9ec776b4fc37d5367ba2df8fa95ffa18c3c3a6d9fe7277bd",
+          "accepted": true,
+          "independent_of_author": true,
+          "blocking": 0,
+          "major": 0,
+          "minor": 0,
+          "review_id": "ct-ch09-r1",
+          "private_evidence_sha256": "aab9f3e519b07f1fecdc996ad289613eeb81301690e066bf915cee37d81abc93"
+        },
+        {
+          "round": 2,
+          "reviewer_id": "separate-ai-agent-cardiovascular",
+          "body_sha256": "d58476469ddb382c9ec776b4fc37d5367ba2df8fa95ffa18c3c3a6d9fe7277bd",
+          "accepted": true,
+          "independent_of_author": true,
+          "blocking": 0,
+          "major": 0,
+          "minor": 0,
+          "review_id": "ct-ch09-r2",
+          "private_evidence_sha256": "30a707682a7d09821e61781fbe45f17cfeb367e5f0b20e0a0b9fa6052c15247d"
+        }
+      ]
+    },
+    {
+      "chapter": 10,
+      "file": "chapter-10-lattice-stability-caloric-mixing.html",
+      "body_sha256": "095746842be219508ced20167f325853515d56456efa5532725bef3feee6b120",
+      "accepted": true,
+      "author_id": "ai-agent-thermodynamics",
+      "rounds": [
+        {
+          "round": 1,
+          "reviewer_id": "separate-ai-agent-graph-theory",
+          "body_sha256": "095746842be219508ced20167f325853515d56456efa5532725bef3feee6b120",
+          "accepted": true,
+          "independent_of_author": true,
+          "blocking": 0,
+          "major": 0,
+          "minor": 0,
+          "review_id": "ct-ch10-r1",
+          "private_evidence_sha256": "2c4c67229e40f27ed9cea1647c448fda758fb7d352aeef4f86afad7de15738f6"
+        },
+        {
+          "round": 2,
+          "reviewer_id": "separate-ai-agent-coordinator",
+          "body_sha256": "095746842be219508ced20167f325853515d56456efa5532725bef3feee6b120",
+          "accepted": true,
+          "independent_of_author": true,
+          "blocking": 0,
+          "major": 0,
+          "minor": 0,
+          "review_id": "ct-ch10-r2",
+          "private_evidence_sha256": "dbee82e588b2f96e1a24075dd32ba0a7355cfe5a757f24625c69d6105da77cfb"
+        }
+      ]
+    },
+    {
+      "chapter": 11,
+      "file": "chapter-11-mixing-chemical-potentials-activities.html",
+      "body_sha256": "c12bda2a41c816ffc28f484236a6bd7e3bef0aa43d5f9ee0a688e8bb9186ff13",
+      "accepted": true,
+      "author_id": "ai-agent-thermodynamics",
+      "rounds": [
+        {
+          "round": 1,
+          "reviewer_id": "separate-ai-agent-cardiovascular",
+          "body_sha256": "c12bda2a41c816ffc28f484236a6bd7e3bef0aa43d5f9ee0a688e8bb9186ff13",
+          "accepted": true,
+          "independent_of_author": true,
+          "blocking": 0,
+          "major": 0,
+          "minor": 0,
+          "review_id": "ct-ch11-r1",
+          "private_evidence_sha256": "7952a70390a0c580ae34bf39b50ef3bb4fdeaddc53804bc0f46f4093f2998f3b"
+        },
+        {
+          "round": 2,
+          "reviewer_id": "separate-ai-agent-coordinator",
+          "body_sha256": "c12bda2a41c816ffc28f484236a6bd7e3bef0aa43d5f9ee0a688e8bb9186ff13",
+          "accepted": true,
+          "independent_of_author": true,
+          "blocking": 0,
+          "major": 0,
+          "minor": 0,
+          "review_id": "ct-ch11-r2",
+          "private_evidence_sha256": "cbc484aa01455b16adaa647a0e632cf6e02705822c0eef722545e7311f121e9d"
+        }
+      ]
+    },
+    {
+      "chapter": 12,
+      "file": "chapter-12-global-tangents-driving-forces-phase-rule.html",
+      "body_sha256": "6f8f77bbb4554d11e2207bbb8381806f8512dc5d218329871128e251b1dcb59b",
+      "accepted": true,
+      "author_id": "ai-agent-thermodynamics",
+      "rounds": [
+        {
+          "round": 1,
+          "reviewer_id": "separate-ai-agent-cardiovascular",
+          "body_sha256": "6f8f77bbb4554d11e2207bbb8381806f8512dc5d218329871128e251b1dcb59b",
+          "accepted": true,
+          "independent_of_author": true,
+          "blocking": 0,
+          "major": 0,
+          "minor": 0,
+          "review_id": "ct-ch12-r1",
+          "private_evidence_sha256": "afab0e5fd3186ff77addaca5fc1753c189818d403b2722cbf2d7dd381db6c88d"
+        },
+        {
+          "round": 2,
+          "reviewer_id": "separate-ai-agent-coordinator",
+          "body_sha256": "6f8f77bbb4554d11e2207bbb8381806f8512dc5d218329871128e251b1dcb59b",
+          "accepted": true,
+          "independent_of_author": true,
+          "blocking": 0,
+          "major": 0,
+          "minor": 0,
+          "review_id": "ct-ch12-r2",
+          "private_evidence_sha256": "7d5401b2945c9495471dd32cb4af2428fbb1adf81ff19ac207c506cb359b1c62"
+        }
+      ]
+    },
+    {
+      "chapter": 13,
+      "file": "chapter-13-calphad-models-database-minimization.html",
+      "body_sha256": "7f4fc8dcc83c4c7c45b5c8721bb11cc542de675f8475d01693c143c0a5adcc16",
+      "accepted": true,
+      "author_id": "ai-agent-thermodynamics",
+      "rounds": [
+        {
+          "round": 1,
+          "reviewer_id": "separate-ai-agent-cardiovascular",
+          "body_sha256": "7f4fc8dcc83c4c7c45b5c8721bb11cc542de675f8475d01693c143c0a5adcc16",
+          "accepted": true,
+          "independent_of_author": true,
+          "blocking": 0,
+          "major": 0,
+          "minor": 0,
+          "review_id": "ct-ch13-r1",
+          "private_evidence_sha256": "662c95cb6f8944ff9160018e98302fa8688c3319ba107158abe87dfc0c3f6c02"
+        },
+        {
+          "round": 2,
+          "reviewer_id": "separate-ai-agent-coordinator",
+          "body_sha256": "7f4fc8dcc83c4c7c45b5c8721bb11cc542de675f8475d01693c143c0a5adcc16",
+          "accepted": true,
+          "independent_of_author": true,
+          "blocking": 0,
+          "major": 0,
+          "minor": 0,
+          "review_id": "ct-ch13-r2",
+          "private_evidence_sha256": "1b64b5e73fac238d81f995efca5bb84cf4766a2e6714983b81e6160d4ae3720a"
+        }
+      ]
+    },
+    {
+      "chapter": 14,
+      "file": "chapter-14-reproducible-equilibrium-calculations.html",
+      "body_sha256": "d9950d0ffd018ee5bd1b6778311684b2b74ddcaa8c034c6e93a9bc0d3403e348",
+      "accepted": true,
+      "author_id": "ai-agent-thermodynamics",
+      "rounds": [
+        {
+          "round": 1,
+          "reviewer_id": "separate-ai-agent-cardiovascular",
+          "body_sha256": "d9950d0ffd018ee5bd1b6778311684b2b74ddcaa8c034c6e93a9bc0d3403e348",
+          "accepted": true,
+          "independent_of_author": true,
+          "blocking": 0,
+          "major": 0,
+          "minor": 0,
+          "review_id": "ct-ch14-r1",
+          "private_evidence_sha256": "59c2dde75883e51b294950bcc5257d3008c3ed08934049d83f51cf760777d3b4"
+        },
+        {
+          "round": 2,
+          "reviewer_id": "separate-ai-agent-coordinator",
+          "body_sha256": "d9950d0ffd018ee5bd1b6778311684b2b74ddcaa8c034c6e93a9bc0d3403e348",
+          "accepted": true,
+          "independent_of_author": true,
+          "blocking": 0,
+          "major": 0,
+          "minor": 0,
+          "review_id": "ct-ch14-r2",
+          "private_evidence_sha256": "12b24924cb566e5801f9ac702d63130ebc8c978d06c97109dfcb1b5d213f3fe7"
+        }
+      ]
+    },
+    {
+      "chapter": 15,
+      "file": "chapter-15-composition-paths-references-tzero.html",
+      "body_sha256": "23c1e3e09cf4a1009554c7e731aff9e89c4c72758c9bdbaa1dc686261765ff80",
+      "accepted": true,
+      "author_id": "ai-agent-thermodynamics",
+      "rounds": [
+        {
+          "round": 1,
+          "reviewer_id": "separate-ai-agent-graph-theory",
+          "body_sha256": "23c1e3e09cf4a1009554c7e731aff9e89c4c72758c9bdbaa1dc686261765ff80",
+          "accepted": true,
+          "independent_of_author": true,
+          "blocking": 0,
+          "major": 0,
+          "minor": 0,
+          "review_id": "ct-ch15-r1",
+          "private_evidence_sha256": "edaacbb56d76a2f51137ea0c0b67ce5eb364f89f917768c7ebd475a7e64e202a"
+        },
+        {
+          "round": 2,
+          "reviewer_id": "separate-ai-agent-coordinator",
+          "body_sha256": "23c1e3e09cf4a1009554c7e731aff9e89c4c72758c9bdbaa1dc686261765ff80",
+          "accepted": true,
+          "independent_of_author": true,
+          "blocking": 0,
+          "major": 0,
+          "minor": 0,
+          "review_id": "ct-ch15-r2",
+          "private_evidence_sha256": "1413e752e6a8005f6a42a763463bf672f5fc5f481553768ff63f55f9118be1a3"
+        }
+      ]
+    },
+    {
+      "chapter": 16,
+      "file": "chapter-16-scheil-solidification-conservative-histories.html",
+      "body_sha256": "da4aaf511c100fa28edc0e55e1e0e8c9b63badb0368fb1cd6bf7e88c3b774a58",
+      "accepted": true,
+      "author_id": "ai-agent-thermodynamics",
+      "rounds": [
+        {
+          "round": 1,
+          "reviewer_id": "separate-ai-agent-graph-theory",
+          "body_sha256": "da4aaf511c100fa28edc0e55e1e0e8c9b63badb0368fb1cd6bf7e88c3b774a58",
+          "accepted": true,
+          "independent_of_author": true,
+          "blocking": 0,
+          "major": 0,
+          "minor": 0,
+          "review_id": "ct-ch16-r1",
+          "private_evidence_sha256": "a487e35cfc6e7eb8f5bb05236ca688fc866dc64a9ac71bd20c7fdbbb1c8205e6"
+        },
+        {
+          "round": 2,
+          "reviewer_id": "separate-ai-agent-coordinator",
+          "body_sha256": "da4aaf511c100fa28edc0e55e1e0e8c9b63badb0368fb1cd6bf7e88c3b774a58",
+          "accepted": true,
+          "independent_of_author": true,
+          "blocking": 0,
+          "major": 0,
+          "minor": 0,
+          "review_id": "ct-ch16-r2",
+          "private_evidence_sha256": "7c97222691268a5d04096967a6b1eb2717d5409c97ac1fa36a67145c347feb2c"
+        }
+      ]
+    },
+    {
+      "chapter": 17,
+      "file": "chapter-17-assessment-data-measurements-constraints.html",
+      "body_sha256": "1d14960c3b7134e0149f34e656150adcc7378664b76b0b4c9f56c98200d26cc3",
+      "accepted": true,
+      "author_id": "ai-agent-thermodynamics",
+      "rounds": [
+        {
+          "round": 1,
+          "reviewer_id": "separate-ai-agent-turbulence",
+          "body_sha256": "1d14960c3b7134e0149f34e656150adcc7378664b76b0b4c9f56c98200d26cc3",
+          "accepted": true,
+          "independent_of_author": true,
+          "blocking": 0,
+          "major": 0,
+          "minor": 0,
+          "review_id": "ct-ch17-r1",
+          "private_evidence_sha256": "36b52f51dc9c1b58c7106eabbc956850474118ebda7e681ffa9acd962c3ea6e5"
+        },
+        {
+          "round": 2,
+          "reviewer_id": "separate-ai-agent-coordinator",
+          "body_sha256": "1d14960c3b7134e0149f34e656150adcc7378664b76b0b4c9f56c98200d26cc3",
+          "accepted": true,
+          "independent_of_author": true,
+          "blocking": 0,
+          "major": 0,
+          "minor": 0,
+          "review_id": "ct-ch17-r2",
+          "private_evidence_sha256": "3aacb7d34c72b504e3640ff33a226aadf854e506609b5e490b26ec38e4cb383a"
+        }
+      ]
+    },
+    {
+      "chapter": 18,
+      "file": "chapter-18-sublattice-models-assessment-databases.html",
+      "body_sha256": "f528fff6d2e6b2fe4ef696f838c804ca0449425b6ab882ea3ae35a0a8ffc99ae",
+      "accepted": true,
+      "author_id": "ai-agent-thermodynamics",
+      "rounds": [
+        {
+          "round": 1,
+          "reviewer_id": "separate-ai-agent-graph-theory",
+          "body_sha256": "f528fff6d2e6b2fe4ef696f838c804ca0449425b6ab882ea3ae35a0a8ffc99ae",
+          "accepted": true,
+          "independent_of_author": true,
+          "blocking": 0,
+          "major": 0,
+          "minor": 0,
+          "review_id": "ct-ch18-r1",
+          "private_evidence_sha256": "f3f3ef5b94fb60be19b3b8ae55398ec0545e1d1f093d4f3b78facbf07efbd164"
+        },
+        {
+          "round": 2,
+          "reviewer_id": "separate-ai-agent-coordinator",
+          "body_sha256": "f528fff6d2e6b2fe4ef696f838c804ca0449425b6ab882ea3ae35a0a8ffc99ae",
+          "accepted": true,
+          "independent_of_author": true,
+          "blocking": 0,
+          "major": 0,
+          "minor": 0,
+          "review_id": "ct-ch18-r2",
+          "private_evidence_sha256": "84c0aa167e08ab3f0caa13b520e48a6dc4e52427d71e9cd80f53257aa039efa6"
+        }
+      ]
+    },
+    {
+      "chapter": 19,
+      "file": "chapter-19-diffusion-mobility-thermodynamic-forces.html",
+      "body_sha256": "50b09f397003f5ac587b0a840c409446644d30d24212513df9f9458fbd2c1a97",
+      "accepted": true,
+      "author_id": "ai-agent-thermodynamics",
+      "rounds": [
+        {
+          "round": 1,
+          "reviewer_id": "separate-ai-agent-graph-theory",
+          "body_sha256": "50b09f397003f5ac587b0a840c409446644d30d24212513df9f9458fbd2c1a97",
+          "accepted": true,
+          "independent_of_author": true,
+          "blocking": 0,
+          "major": 0,
+          "minor": 0,
+          "review_id": "ct-ch19-r1",
+          "private_evidence_sha256": "53b25eae85d6470dbc9759db06b476b69ab3b2e7a22610bfaa034e0b41bc8a6c"
+        },
+        {
+          "round": 2,
+          "reviewer_id": "separate-ai-agent-coordinator",
+          "body_sha256": "50b09f397003f5ac587b0a840c409446644d30d24212513df9f9458fbd2c1a97",
+          "accepted": true,
+          "independent_of_author": true,
+          "blocking": 0,
+          "major": 0,
+          "minor": 0,
+          "review_id": "ct-ch19-r2",
+          "private_evidence_sha256": "142daaeb665919cbbad80837c8514e0e9936e6da995fb98b225d0ee8805e95be"
+        }
+      ]
+    },
+    {
+      "chapter": 20,
+      "file": "chapter-20-conservative-transport-interfaces-rapid-solidification.html",
+      "body_sha256": "f081244ad1ec7b41949bcaa32106c7376e4a36f3c2af7d776f2b94f272394836",
+      "accepted": true,
+      "author_id": "ai-agent-thermodynamics",
+      "rounds": [
+        {
+          "round": 1,
+          "reviewer_id": "separate-ai-agent-turbulence",
+          "body_sha256": "f081244ad1ec7b41949bcaa32106c7376e4a36f3c2af7d776f2b94f272394836",
+          "accepted": true,
+          "independent_of_author": true,
+          "blocking": 0,
+          "major": 0,
+          "minor": 0,
+          "review_id": "ct-ch20-r1",
+          "private_evidence_sha256": "c3bdd50c9bf5d5340564e5e6a04a1ef97a92d1724dcc59ea30821a3034e86391"
+        },
+        {
+          "round": 2,
+          "reviewer_id": "separate-ai-agent-coordinator",
+          "body_sha256": "f081244ad1ec7b41949bcaa32106c7376e4a36f3c2af7d776f2b94f272394836",
+          "accepted": true,
+          "independent_of_author": true,
+          "blocking": 0,
+          "major": 0,
+          "minor": 0,
+          "review_id": "ct-ch20-r2",
+          "private_evidence_sha256": "96617a12f41772221238b7c47aa5e349472dd7715b52b30273205c89ac782dac"
+        }
+      ]
+    },
+    {
+      "chapter": 21,
+      "file": "chapter-21-nucleation-transformation-diagrams-precipitation-aging.html",
+      "body_sha256": "b7229e9e8b92c5cb654a5f423bb840699390bd4cf7f6957dbe2d44692a914b84",
+      "accepted": true,
+      "author_id": "ai-agent-thermodynamics",
+      "rounds": [
+        {
+          "round": 1,
+          "reviewer_id": "separate-ai-agent-cardiovascular",
+          "body_sha256": "b7229e9e8b92c5cb654a5f423bb840699390bd4cf7f6957dbe2d44692a914b84",
+          "accepted": true,
+          "independent_of_author": true,
+          "blocking": 0,
+          "major": 0,
+          "minor": 0,
+          "review_id": "ct-ch21-r1",
+          "private_evidence_sha256": "987e2ebc3645afc14e777ec165e5ba75eb0e0dc1c7f0b46d5fc602d360cce552"
+        },
+        {
+          "round": 2,
+          "reviewer_id": "separate-ai-agent-coordinator",
+          "body_sha256": "b7229e9e8b92c5cb654a5f423bb840699390bd4cf7f6957dbe2d44692a914b84",
+          "accepted": true,
+          "independent_of_author": true,
+          "blocking": 0,
+          "major": 0,
+          "minor": 0,
+          "review_id": "ct-ch21-r2",
+          "private_evidence_sha256": "0b523d523ece9b5e2359e911c09527ec06825ce5408fa99affb69c30b08f240c"
+        }
+      ],
+      "prior_review_history": {
+        "body_sha256": "d8b8da2ff1ab8a08dd4c51fd5ea6cd901e799428169a8e3b77a90ab41b221c7f",
+        "accepted": false,
+        "repair": "Precipitating-solute versus atomic molar-volume basis explicitly clarified; both actual independent closures bind current body"
+      }
+    },
+    {
+      "chapter": 22,
+      "file": "chapter-22-high-throughput-design-phase-identification.html",
+      "body_sha256": "be3771499520b00e6780c0ed68adfc0a0f2ee858d90a9c28b092525dd27e6e3b",
+      "accepted": true,
+      "author_id": "ai-agent-graph-theory",
+      "rounds": [
+        {
+          "round": 1,
+          "reviewer_id": "separate-ai-agent-cardiovascular",
+          "body_sha256": "be3771499520b00e6780c0ed68adfc0a0f2ee858d90a9c28b092525dd27e6e3b",
+          "accepted": true,
+          "independent_of_author": true,
+          "blocking": 0,
+          "major": 0,
+          "minor": 0,
+          "review_id": "ct-ch22-r1",
+          "private_evidence_sha256": "64e7e02c80e25d2f0b4843e89ffadd02ede7e26bc112d9669c4a4e52f64a4dfd"
+        },
+        {
+          "round": 2,
+          "reviewer_id": "separate-ai-agent-coordinator",
+          "body_sha256": "be3771499520b00e6780c0ed68adfc0a0f2ee858d90a9c28b092525dd27e6e3b",
+          "accepted": true,
+          "independent_of_author": true,
+          "blocking": 0,
+          "major": 0,
+          "minor": 0,
+          "review_id": "ct-ch22-r2",
+          "private_evidence_sha256": "0e57a3ca8f7d6e0d169d9dfd4f9ba824a2969cde788efa286d043875f2044cfe"
+        }
+      ]
+    },
+    {
+      "chapter": 23,
+      "file": "chapter-23-material-property-models-and-strength.html",
+      "body_sha256": "d8627dae1bd38782199af5940f481f669e3c4b363974d609abe27247d70e30eb",
+      "accepted": true,
+      "author_id": "ai-agent-cardiovascular",
+      "rounds": [
+        {
+          "round": 1,
+          "reviewer_id": "separate-ai-agent-graph-theory",
+          "body_sha256": "d8627dae1bd38782199af5940f481f669e3c4b363974d609abe27247d70e30eb",
+          "accepted": true,
+          "independent_of_author": true,
+          "blocking": 0,
+          "major": 0,
+          "minor": 0,
+          "review_id": "ct-ch23-r1",
+          "private_evidence_sha256": "3c6d6b1cf7f648684a9d72ac9e94b8e0cc3d1a3b40e7d2898ae9db53913d4cc3"
+        },
+        {
+          "round": 2,
+          "reviewer_id": "separate-ai-agent-coordinator",
+          "body_sha256": "d8627dae1bd38782199af5940f481f669e3c4b363974d609abe27247d70e30eb",
+          "accepted": true,
+          "independent_of_author": true,
+          "blocking": 0,
+          "major": 0,
+          "minor": 0,
+          "review_id": "ct-ch23-r2",
+          "private_evidence_sha256": "f41c1255c26c3c83e77eb65e99b370660fd2d2eeec67181d7bf48f023ea9306e"
+        }
+      ]
+    },
+    {
+      "chapter": 24,
+      "file": "chapter-24-size-electrochemical-reservoirs-database-limits.html",
+      "body_sha256": "3ef129e72d7153d8d962ec8785d68379ce7e599fc50b497e9c84c178b9bc0a14",
+      "accepted": true,
+      "author_id": "ai-agent-coordinator",
+      "rounds": [
+        {
+          "round": 1,
+          "reviewer_id": "separate-ai-agent-cardiovascular",
+          "body_sha256": "3ef129e72d7153d8d962ec8785d68379ce7e599fc50b497e9c84c178b9bc0a14",
+          "accepted": true,
+          "independent_of_author": true,
+          "blocking": 0,
+          "major": 0,
+          "minor": 0,
+          "review_id": "ct-ch24-r1",
+          "private_evidence_sha256": "db88c5503ea4a6609efa4e0302c1d31cea6ae3e169965c094feb0ae21d19ed38"
+        },
+        {
+          "round": 2,
+          "reviewer_id": "separate-ai-agent-graph-theory",
+          "body_sha256": "3ef129e72d7153d8d962ec8785d68379ce7e599fc50b497e9c84c178b9bc0a14",
+          "accepted": true,
+          "independent_of_author": true,
+          "blocking": 0,
+          "major": 0,
+          "minor": 0,
+          "review_id": "ct-ch24-r2",
+          "private_evidence_sha256": "e0331f20d3dd330036a7f64c3c84f92fab2e39b2dcf8fe9d134cc4e888d155fe"
+        }
+      ]
+    }
+  ]
+}

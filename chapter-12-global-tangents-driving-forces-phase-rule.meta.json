@@ -1,0 +1,136 @@
+{
+  "chapter": 12,
+  "title": "Global tangents, transformation driving forces and the phase rule",
+  "file": "chapter-12-global-tangents-driving-forces-phase-rule.html",
+  "status": "Accepted in two independent scientific reviews",
+  "authored_body_sha256": "6f8f77bbb4554d11e2207bbb8381806f8512dc5d218329871128e251b1dcb59b",
+  "recordings": [
+    {
+      "official_lesson": 21,
+      "playlist_position": 22,
+      "video_id": "yWQ7vsf2JRs",
+      "duration_seconds": 1014.433375,
+      "source_type": "local faster-whisper small.en ASR, not publisher captions",
+      "transcript_reading": "Entire transcript read sequentially",
+      "chunk_policy": "90-second cores with 2-second context; possible recognition and boundary errors"
+    },
+    {
+      "official_lesson": 22,
+      "playlist_position": 23,
+      "video_id": "cz9NYZfL7Ow",
+      "duration_seconds": 1407.7794375,
+      "source_type": "local faster-whisper small.en ASR, not publisher captions",
+      "transcript_reading": "Entire transcript read sequentially",
+      "chunk_policy": "90-second cores with 2-second context; possible recognition and boundary errors"
+    },
+    {
+      "official_lesson": 23,
+      "playlist_position": 24,
+      "video_id": "lq50vklOrw8",
+      "duration_seconds": 1475.1173125,
+      "source_type": "local faster-whisper small.en ASR, not publisher captions",
+      "transcript_reading": "Entire transcript read sequentially",
+      "chunk_policy": "90-second cores with 2-second context; possible recognition and boundary errors"
+    },
+    {
+      "official_lesson": 24,
+      "playlist_position": 25,
+      "video_id": "nVZ3k3h6DN4",
+      "duration_seconds": 2267.5214375,
+      "source_type": "local faster-whisper small.en ASR, not publisher captions",
+      "transcript_reading": "Entire transcript read sequentially",
+      "chunk_policy": "90-second cores with 2-second context; possible recognition and boundary errors"
+    }
+  ],
+  "sections": [
+    {
+      "anchor": "global",
+      "video_id": "yWQ7vsf2JRs",
+      "start": 51,
+      "end": 727
+    },
+    {
+      "anchor": "certificate",
+      "video_id": "yWQ7vsf2JRs",
+      "start": 727,
+      "end": 1008
+    },
+    {
+      "anchor": "models",
+      "video_id": "cz9NYZfL7Ow",
+      "start": 67,
+      "end": 869
+    },
+    {
+      "anchor": "binodal",
+      "video_id": "cz9NYZfL7Ow",
+      "start": 869,
+      "end": 1032
+    },
+    {
+      "anchor": "compound",
+      "video_id": "cz9NYZfL7Ow",
+      "start": 1032,
+      "end": 1401
+    },
+    {
+      "anchor": "driving",
+      "video_id": "lq50vklOrw8",
+      "start": 55,
+      "end": 1128
+    },
+    {
+      "anchor": "infant",
+      "video_id": "lq50vklOrw8",
+      "start": 1128,
+      "end": 1377
+    },
+    {
+      "anchor": "tzero",
+      "video_id": "lq50vklOrw8",
+      "start": 1377,
+      "end": 1469
+    },
+    {
+      "anchor": "rule",
+      "video_id": "nVZ3k3h6DN4",
+      "start": 41,
+      "end": 2261
+    }
+  ],
+  "worked_solutions": 9,
+  "executable_listings": 1,
+  "original_constructions": [
+    "Global supporting-line lower-bound proof and exact parabolic residual certificates",
+    "Third-phase counterexample to equality-only equilibrium",
+    "Regular-solution binodal/spinodal and convex-metastable example",
+    "Line-compound supporting-slope interval and formula-unit basis",
+    "Finite energy release versus constrained affinity integral versus optimized infinitesimal product",
+    "T0 locus separate from partitioning coexistence",
+    "Full-rank generic intensive phase-rule count versus phase amounts"
+  ],
+  "independent_review": {
+    "status": "accepted",
+    "accepted": true,
+    "body_sha256": "6f8f77bbb4554d11e2207bbb8381806f8512dc5d218329871128e251b1dcb59b",
+    "review_ids": [
+      "ct-ch12-r1",
+      "ct-ch12-r2"
+    ],
+    "reviewer_ids": [
+      "separate-ai-agent-cardiovascular",
+      "separate-ai-agent-coordinator"
+    ],
+    "blocking": 0,
+    "major": 0,
+    "minor": 0
+  },
+  "limitations": [
+    "No comprehensive audiovisual or board audit",
+    "No assessed phase diagram, TC-Python calculation or licensed database reproduced",
+    "Exact global certificates only for declared teaching functions; finite general sampling does not prove global stability",
+    "Michelsen1982 primary abstract read; full PDF retrieval timed out and algorithms not implemented",
+    "Phase-rule count requires declared variables, constraints and rank; special stoichiometric and critical cases require separate analysis",
+    "Positive bulk driving force does not establish nucleation rate or overcome interface/coherency costs"
+  ]
+}

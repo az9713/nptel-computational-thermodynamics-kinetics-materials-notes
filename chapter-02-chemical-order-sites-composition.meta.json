@@ -1,0 +1,108 @@
+{
+  "chapter": 2,
+  "title": "Chemical order, site populations and composition bases",
+  "file": "chapter-02-chemical-order-sites-composition.html",
+  "status": "Accepted in two independent scientific reviews",
+  "authored_body_sha256": "9f882d8f9ce3cc80fc3a7f42db67eff355ab4017b464ab43fe5db0a6ceabaf0d",
+  "recordings": [
+    {
+      "official_lesson": 2,
+      "playlist_position": 3,
+      "video_id": "aFXTk8V6mcw",
+      "duration_seconds": 1575.61325,
+      "source_type": "local faster-whisper small.en ASR, not publisher captions",
+      "transcript_reading": "Complete 333-segment transcript read sequentially",
+      "chunk_policy": "90-second cores with 2-second context; possible recognition/boundary errors"
+    }
+  ],
+  "sections": [
+    {
+      "anchor": "solid-solutions",
+      "video_id": "aFXTk8V6mcw",
+      "start": 46,
+      "end": 294
+    },
+    {
+      "anchor": "compounds",
+      "video_id": "aFXTk8V6mcw",
+      "start": 294,
+      "end": 401
+    },
+    {
+      "anchor": "chemical-order",
+      "video_id": "aFXTk8V6mcw",
+      "start": 401,
+      "end": 713
+    },
+    {
+      "anchor": "components",
+      "video_id": "aFXTk8V6mcw",
+      "start": 713,
+      "end": 873
+    },
+    {
+      "anchor": "amount-units",
+      "video_id": "aFXTk8V6mcw",
+      "start": 873,
+      "end": 1182
+    },
+    {
+      "anchor": "phase-balance",
+      "video_id": "aFXTk8V6mcw",
+      "start": 1182,
+      "end": 1514
+    },
+    {
+      "anchor": "equilibrium",
+      "video_id": "aFXTk8V6mcw",
+      "start": 1514,
+      "end": 1569
+    }
+  ],
+  "worked_solutions": 7,
+  "executable_listings": 1,
+  "original_constructions": [
+    "Vacancy site fraction versus atomic fraction",
+    "Generic interstitial-site denominator model",
+    "Two-sublattice order parameter and exact eight-site enumeration",
+    "Internally consistent two-phase table replacing uncertain board counts",
+    "Rounded-molar-mass conversion and molecular versus atomic entity count"
+  ],
+  "transcript_issues": [
+    {
+      "time_seconds": 178,
+      "issue": "Recognized copper where context is carbon; no unspecified-temperature solubility range adopted"
+    },
+    {
+      "time_seconds": 649,
+      "issue": "Ambiguous formula near L12 quiz; verified AFLOW Cu3Au/Ni3Al examples used instead"
+    },
+    {
+      "time_seconds": 1283,
+      "issue": "ASR counts internally inconsistent: 18A+26B=44, not46. New explicit table used without claiming visual recovery."
+    }
+  ],
+  "independent_review": {
+    "status": "accepted",
+    "accepted": true,
+    "body_sha256": "9f882d8f9ce3cc80fc3a7f42db67eff355ab4017b464ab43fe5db0a6ceabaf0d",
+    "review_ids": [
+      "ct-ch02-r1",
+      "ct-ch02-r2"
+    ],
+    "reviewer_ids": [
+      "separate-ai-agent-graph-theory",
+      "separate-ai-agent-coordinator"
+    ],
+    "blocking": 0,
+    "major": 0,
+    "minor": 0
+  },
+  "limitations": [
+    "No full audiovisual/board audit",
+    "No experimental validation or alloy phase-boundary prediction",
+    "Sublattice model assumes equal site populations, full occupation and equiatomic overall composition",
+    "Finite enumeration is not a thermal ensemble without specified energies",
+    "Primary-source access outcomes retained privately; direct requests to IUPAC403, definition read through web source"
+  ]
+}

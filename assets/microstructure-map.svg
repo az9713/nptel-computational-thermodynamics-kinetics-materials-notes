@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 310"
+ role="img" aria-labelledby="micro-title micro-desc">
+<title id="micro-title">Equal phase area, unequal interface</title>
+<desc id="micro-desc">Both constructed six-by-six maps have four
+ B cells. One cluster has eight internal A-B edges; four isolated
+ cells have sixteen. This is not a micrograph.</desc>
+<rect width="680" height="310" fill="#11151d"/>
+<text x="65" y="27" fill="#dce4ef" font-size="19">Cluster: B area = 4/36</text>
+<rect x="65" y="45" width="32" height="32" fill="#506882" stroke="#11151d" stroke-width="1"/>
+<rect x="65" y="77" width="32" height="32" fill="#506882" stroke="#11151d" stroke-width="1"/>
+<rect x="65" y="109" width="32" height="32" fill="#506882" stroke="#11151d" stroke-width="1"/>
+<rect x="65" y="141" width="32" height="32" fill="#506882" stroke="#11151d" stroke-width="1"/>
+<rect x="65" y="173" width="32" height="32" fill="#506882" stroke="#11151d" stroke-width="1"/>
+<rect x="65" y="205" width="32" height="32" fill="#506882" stroke="#11151d" stroke-width="1"/>
+<rect x="97" y="45" width="32" height="32" fill="#506882" stroke="#11151d" stroke-width="1"/>
+<rect x="97" y="77" width="32" height="32" fill="#506882" stroke="#11151d" stroke-width="1"/>
+<rect x="97" y="109" width="32" height="32" fill="#506882" stroke="#11151d" stroke-width="1"/>
+<rect x="97" y="141" width="32" height="32" fill="#506882" stroke="#11151d" stroke-width="1"/>
+<rect x="97" y="173" width="32" height="32" fill="#506882" stroke="#11151d" stroke-width="1"/>
+<rect x="97" y="205" width="32" height="32" fill="#506882" stroke="#11151d" stroke-width="1"/>
+<rect x="129" y="45" width="32" height="32" fill="#506882" stroke="#11151d" stroke-width="1"/>
+<rect x="129" y="77" width="32" height="32" fill="#506882" stroke="#11151d" stroke-width="1"/>
+<rect x="129" y="109" width="32" height="32" fill="#f2bf78" stroke="#11151d" stroke-width="1"/>
+<rect x="129" y="141" width="32" height="32" fill="#f2bf78" stroke="#11151d" stroke-width="1"/>
+<rect x="129" y="173" width="32" height="32" fill="#506882" stroke="#11151d" stroke-width="1"/>
+<rect x="129" y="205" width="32" height="32" fill="#506882" stroke="#11151d" stroke-width="1"/>
+<rect x="161" y="45" width="32" height="32" fill="#506882" stroke="#11151d" stroke-width="1"/>
+<rect x="161" y="77" width="32" height="32" fill="#506882" stroke="#11151d" stroke-width="1"/>
+<rect x="161" y="109" width="32" height="32" fill="#f2bf78" stroke="#11151d" stroke-width="1"/>
+<rect x="161" y="141" width="32" height="32" fill="#f2bf78" stroke="#11151d" stroke-width="1"/>
+<rect x="161" y="173" width="32" height="32" fill="#506882" stroke="#11151d" stroke-width="1"/>
+<rect x="161" y="205" width="32" height="32" fill="#506882" stroke="#11151d" stroke-width="1"/>
+<rect x="193" y="45" width="32" height="32" fill="#506882" stroke="#11151d" stroke-width="1"/>
+<rect x="193" y="77" width="32" height="32" fill="#506882" stroke="#11151d" stroke-width="1"/>
+<rect x="193" y="109" width="32" height="32" fill="#506882" stroke="#11151d" stroke-width="1"/>
+<rect x="193" y="141" width="32" height="32" fill="#506882" stroke="#11151d" stroke-width="1"/>
+<rect x="193" y="173" width="32" height="32" fill="#506882" stroke="#11151d" stroke-width="1"/>
+<rect x="193" y="205" width="32" height="32" fill="#506882" stroke="#11151d" stroke-width="1"/>
+<rect x="225" y="45" width="32" height="32" fill="#506882" stroke="#11151d" stroke-width="1"/>
+<rect x="225" y="77" width="32" height="32" fill="#506882" stroke="#11151d" stroke-width="1"/>
+<rect x="225" y="109" width="32" height="32" fill="#506882" stroke="#11151d" stroke-width="1"/>
+<rect x="225" y="141" width="32" height="32" fill="#506882" stroke="#11151d" stroke-width="1"/>
+<rect x="225" y="173" width="32" height="32" fill="#506882" stroke="#11151d" stroke-width="1"/>
+<rect x="225" y="205" width="32" height="32" fill="#506882" stroke="#11151d" stroke-width="1"/>
+<text x="65" y="267" fill="#dce4ef" font-size="17">A-B interface = 8 cell edges</text>
+<text x="385" y="27" fill="#dce4ef" font-size="19">Islands: B area = 4/36</text>
+<rect x="385" y="45" width="32" height="32" fill="#506882" stroke="#11151d" stroke-width="1"/>
+<rect x="385" y="77" width="32" height="32" fill="#506882" stroke="#11151d" stroke-width="1"/>
+<rect x="385" y="109" width="32" height="32" fill="#506882" stroke="#11151d" stroke-width="1"/>
+<rect x="385" y="141" width="32" height="32" fill="#506882" stroke="#11151d" stroke-width="1"/>
+<rect x="385" y="173" width="32" height="32" fill="#506882" stroke="#11151d" stroke-width="1"/>
+<rect x="385" y="205" width="32" height="32" fill="#506882" stroke="#11151d" stroke-width="1"/>
+<rect x="417" y="45" width="32" height="32" fill="#506882" stroke="#11151d" stroke-width="1"/>
+<rect x="417" y="77" width="32" height="32" fill="#f2bf78" stroke="#11151d" stroke-width="1"/>
+<rect x="417" y="109" width="32" height="32" fill="#506882" stroke="#11151d" stroke-width="1"/>
+<rect x="417" y="141" width="32" height="32" fill="#506882" stroke="#11151d" stroke-width="1"/>
+<rect x="417" y="173" width="32" height="32" fill="#f2bf78" stroke="#11151d" stroke-width="1"/>
+<rect x="417" y="205" width="32" height="32" fill="#506882" stroke="#11151d" stroke-width="1"/>
+<rect x="449" y="45" width="32" height="32" fill="#506882" stroke="#11151d" stroke-width="1"/>
+<rect x="449" y="77" width="32" height="32" fill="#506882" stroke="#11151d" stroke-width="1"/>
+<rect x="449" y="109" width="32" height="32" fill="#506882" stroke="#11151d" stroke-width="1"/>
+<rect x="449" y="141" width="32" height="32" fill="#506882" stroke="#11151d" stroke-width="1"/>
+<rect x="449" y="173" width="32" height="32" fill="#506882" stroke="#11151d" stroke-width="1"/>
+<rect x="449" y="205" width="32" height="32" fill="#506882" stroke="#11151d" stroke-width="1"/>
+<rect x="481" y="45" width="32" height="32" fill="#506882" stroke="#11151d" stroke-width="1"/>
+<rect x="481" y="77" width="32" height="32" fill="#506882" stroke="#11151d" stroke-width="1"/>
+<rect x="481" y="109" width="32" height="32" fill="#506882" stroke="#11151d" stroke-width="1"/>
+<rect x="481" y="141" width="32" height="32" fill="#506882" stroke="#11151d" stroke-width="1"/>
+<rect x="481" y="173" width="32" height="32" fill="#506882" stroke="#11151d" stroke-width="1"/>
+<rect x="481" y="205" width="32" height="32" fill="#506882" stroke="#11151d" stroke-width="1"/>
+<rect x="513" y="45" width="32" height="32" fill="#506882" stroke="#11151d" stroke-width="1"/>
+<rect x="513" y="77" width="32" height="32" fill="#f2bf78" stroke="#11151d" stroke-width="1"/>
+<rect x="513" y="109" width="32" height="32" fill="#506882" stroke="#11151d" stroke-width="1"/>
+<rect x="513" y="141" width="32" height="32" fill="#506882" stroke="#11151d" stroke-width="1"/>
+<rect x="513" y="173" width="32" height="32" fill="#f2bf78" stroke="#11151d" stroke-width="1"/>
+<rect x="513" y="205" width="32" height="32" fill="#506882" stroke="#11151d" stroke-width="1"/>
+<rect x="545" y="45" width="32" height="32" fill="#506882" stroke="#11151d" stroke-width="1"/>
+<rect x="545" y="77" width="32" height="32" fill="#506882" stroke="#11151d" stroke-width="1"/>
+<rect x="545" y="109" width="32" height="32" fill="#506882" stroke="#11151d" stroke-width="1"/>
+<rect x="545" y="141" width="32" height="32" fill="#506882" stroke="#11151d" stroke-width="1"/>
+<rect x="545" y="173" width="32" height="32" fill="#506882" stroke="#11151d" stroke-width="1"/>
+<rect x="545" y="205" width="32" height="32" fill="#506882" stroke="#11151d" stroke-width="1"/>
+<text x="385" y="267" fill="#dce4ef" font-size="17">A-B interface = 16 cell edges</text>
+<text x="65" y="299" fill="#dce4ef" font-size="16">Blue: phase A. Gold: phase B. Grid-cell edge length = 1 μm.</text></svg>

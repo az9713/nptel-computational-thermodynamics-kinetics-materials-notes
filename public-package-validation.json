@@ -1,0 +1,681 @@
+{
+  "passed": true,
+  "mode": "content",
+  "scope": "Public payload and declared evidence audit, not new scientific review",
+  "issues": [],
+  "warnings": [],
+  "public_file_count": 162,
+  "chapter_hashes": {
+    "chapter-01-microstructure-phases-composition.html": "c123f965c6d72ccdea4914960efca3346e1ba70a7aafd83d676e70b3e06bcee5",
+    "chapter-02-chemical-order-sites-composition.html": "9f882d8f9ce3cc80fc3a7f42db67eff355ab4017b464ab43fe5db0a6ceabaf0d",
+    "chapter-03-unary-binary-equilibrium-diagrams.html": "ae63a2c757cbbdef3c842bc7619b04b6afccfeb23b8a20172cf095bb3f51b0b4",
+    "chapter-04-ternary-sections-reactions-projections.html": "87135b8f136963346689c752e7cf4013ec6658cd5a5adc20ec89bd08f98f6cdd",
+    "chapter-05-phase-amounts-heat-flow-cooling-curves.html": "acdc265dcfe2c732651440b9b3237d39ca775312e258a91d8b402360c0174288",
+    "chapter-06-states-molecular-energy-heat-capacity.html": "0af2b4020037a6d4b526ff7d12a6e0ed7312aba7af4d857e076ea92c44af379d",
+    "chapter-07-first-law-reversible-adiabatic-paths.html": "e8312d8f0b9a414bedc763b1f8fdada0b49dd44437348b282d1b170c0f1f9381",
+    "chapter-08-entropy-engines-statistical-concentration.html": "cf40efb072ac317a7d76975a417c342ebcabf523a5d80bff061a7b9f5859cdc0",
+    "chapter-09-entropy-contributions-thermodynamic-potentials.html": "d58476469ddb382c9ec776b4fc37d5367ba2df8fa95ffa18c3c3a6d9fe7277bd",
+    "chapter-10-lattice-stability-caloric-mixing.html": "095746842be219508ced20167f325853515d56456efa5532725bef3feee6b120",
+    "chapter-11-mixing-chemical-potentials-activities.html": "c12bda2a41c816ffc28f484236a6bd7e3bef0aa43d5f9ee0a688e8bb9186ff13",
+    "chapter-12-global-tangents-driving-forces-phase-rule.html": "6f8f77bbb4554d11e2207bbb8381806f8512dc5d218329871128e251b1dcb59b",
+    "chapter-13-calphad-models-database-minimization.html": "7f4fc8dcc83c4c7c45b5c8721bb11cc542de675f8475d01693c143c0a5adcc16",
+    "chapter-14-reproducible-equilibrium-calculations.html": "d9950d0ffd018ee5bd1b6778311684b2b74ddcaa8c034c6e93a9bc0d3403e348",
+    "chapter-15-composition-paths-references-tzero.html": "23c1e3e09cf4a1009554c7e731aff9e89c4c72758c9bdbaa1dc686261765ff80",
+    "chapter-16-scheil-solidification-conservative-histories.html": "da4aaf511c100fa28edc0e55e1e0e8c9b63badb0368fb1cd6bf7e88c3b774a58",
+    "chapter-17-assessment-data-measurements-constraints.html": "1d14960c3b7134e0149f34e656150adcc7378664b76b0b4c9f56c98200d26cc3",
+    "chapter-18-sublattice-models-assessment-databases.html": "f528fff6d2e6b2fe4ef696f838c804ca0449425b6ab882ea3ae35a0a8ffc99ae",
+    "chapter-19-diffusion-mobility-thermodynamic-forces.html": "50b09f397003f5ac587b0a840c409446644d30d24212513df9f9458fbd2c1a97",
+    "chapter-20-conservative-transport-interfaces-rapid-solidification.html": "f081244ad1ec7b41949bcaa32106c7376e4a36f3c2af7d776f2b94f272394836",
+    "chapter-21-nucleation-transformation-diagrams-precipitation-aging.html": "b7229e9e8b92c5cb654a5f423bb840699390bd4cf7f6957dbe2d44692a914b84",
+    "chapter-22-high-throughput-design-phase-identification.html": "be3771499520b00e6780c0ed68adfc0a0f2ee858d90a9c28b092525dd27e6e3b",
+    "chapter-23-material-property-models-and-strength.html": "d8627dae1bd38782199af5940f481f669e3c4b363974d609abe27247d70e30eb",
+    "chapter-24-size-electrochemical-reservoirs-database-limits.html": "3ef129e72d7153d8d962ec8785d68379ce7e599fc50b497e9c84c178b9bc0a14"
+  },
+  "inventory": [
+    {
+      "path": ".gitattributes",
+      "sha256": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da"
+    },
+    {
+      "path": ".gitignore",
+      "sha256": "887b2f56e7e8fad8a5cac4c94a12c3df84027b4bb0f56d4067c28b0263d32fc8"
+    },
+    {
+      "path": ".nojekyll",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "README.md",
+      "sha256": "483cf36525f451f618695cb57765793cee02e90f81d2e42ce510eff95fb1e8a1"
+    },
+    {
+      "path": "WORKFLOW.md",
+      "sha256": "52244db5559d0c7058d25ff24834657c628f1747e1e3fcb2faedf85f5a7e7cd0"
+    },
+    {
+      "path": "assets/assessment-identifiability.svg",
+      "sha256": "1dcd5dee2c1aaf8388a5c248b442ca7963470ee60a935b3482f7d16a6bf47c20"
+    },
+    {
+      "path": "assets/assessment-models.svg",
+      "sha256": "18c0cafcb96756eaa2fca91a32216605eab49a130fc1ff2a7db94917c1745704"
+    },
+    {
+      "path": "assets/book.css",
+      "sha256": "0db5a603b9820800c9cbd02af1a332a3be2610201bb26625cac5786e212cb97a"
+    },
+    {
+      "path": "assets/book.js",
+      "sha256": "e31d522b88712b15eddb3323de2c325a4e1ff1bf77bf0cde74f021809d2bae4f"
+    },
+    {
+      "path": "assets/calphad-continuation.svg",
+      "sha256": "f06037c4f0a4682dad50dd71a7ae916704c24f6ae79de224a27fce07a5f31e79"
+    },
+    {
+      "path": "assets/ch22_screening_diffraction.svg",
+      "sha256": "e92171550c8cc706fcc9dd5ea32abb5e341b8fd1dd0e0906e1ab526fcb96c801"
+    },
+    {
+      "path": "assets/ch23_property_models.svg",
+      "sha256": "c1547ac0116721423837283efb9a196adaf31f028c18ea479c3cc91c4dec58cf"
+    },
+    {
+      "path": "assets/ch24_size_reservoirs.svg",
+      "sha256": "71b6132d799b55dc1b60c99e42211e81bb75926019811178f6f0af744fe45ce4"
+    },
+    {
+      "path": "assets/conservative-transport.svg",
+      "sha256": "fa8bed0a8c2ae25bf1d74231d268e9ab12dc26e09f58955d2d79e7c8cb51207d"
+    },
+    {
+      "path": "assets/cooling-models.svg",
+      "sha256": "7ab681271f399334a69fd9ffcc2a60a27e12e9576210ccea1e60bb895db7a5a1"
+    },
+    {
+      "path": "assets/diffusion-mobility.svg",
+      "sha256": "3645c5515bec0b5b5ddf406f976f98e0f3db8ed375f75a1316bad67939ba82dd"
+    },
+    {
+      "path": "assets/entropy-counts.svg",
+      "sha256": "625e62e7560dbdc75cc692fce0300e742ba4028e60418ee4b017c03cddb6ea76"
+    },
+    {
+      "path": "assets/equilibrium-workflow.svg",
+      "sha256": "ef38949777336608b446edbaf08e986ca458d535409532b6bb2bb660cc1c013e"
+    },
+    {
+      "path": "assets/first-law-paths.svg",
+      "sha256": "2b64000922340ed18088b7512f322ae206d8378f5bb7e230da0bc68da4536e66"
+    },
+    {
+      "path": "assets/global-tangents.svg",
+      "sha256": "38f2a0916163642605be8ec47822520adcf6269682bc74170c0635707b412f15"
+    },
+    {
+      "path": "assets/input/tex/extensions/boldsymbol.js",
+      "sha256": "d6771fee0772db2657796c8d0e20e1878bb3237f6d3ed1e828e1834a4ff743ca"
+    },
+    {
+      "path": "assets/input/tex/extensions/cancel.js",
+      "sha256": "0d263ecf2671d1cc13135b8b4afcdca4d40151a9aea51b69402e68adde4cf8c9"
+    },
+    {
+      "path": "assets/input/tex/extensions/mathtools.js",
+      "sha256": "04272d69a0b64783cd5b66820d6f8220ee510409d0b12c38626404be9ed9689c"
+    },
+    {
+      "path": "assets/isomorphous-model.svg",
+      "sha256": "50d996bfbe1729b9c96194a4a461c8fab15fb919929a7d6486521df626e5beee"
+    },
+    {
+      "path": "assets/lattice-caloric.svg",
+      "sha256": "a9fd986ebc2e41419dcf4091367d59ba91dc0242f32051707f8c34dc86d2c8e6"
+    },
+    {
+      "path": "assets/math-config.js",
+      "sha256": "da226bd58ca06e2ef05c9f50c02047ccfe5a0c42556fa7148e7ed447a4bbd6d0"
+    },
+    {
+      "path": "assets/mathjax-LICENSE",
+      "sha256": "3ddf9be5c28fe27dad143a5dc76eea25222ad1dd68934a047064e56ed2fa40c5"
+    },
+    {
+      "path": "assets/mathjax-tex-svg.js",
+      "sha256": "d4295dc33744836935c1399feece5159577b34c5c8ffb9f1c6324cd82e03a882"
+    },
+    {
+      "path": "assets/microstructure-map.svg",
+      "sha256": "ef92292447eef35d27b1228da64f102e9ad9bf4e12e5490b2977e5612b9ea1a8"
+    },
+    {
+      "path": "assets/mixtures-activity.svg",
+      "sha256": "f4dcf7236c1a263ba7d2265841499fd8511164f5e5bb81803197be624b8fc4e7"
+    },
+    {
+      "path": "assets/molecular-caloric.svg",
+      "sha256": "3729dd111adf2b406f977bbb38cfea007f37240b1bc5f935bc57be4295bc80e8"
+    },
+    {
+      "path": "assets/nucleation-aging.svg",
+      "sha256": "a96a531350e3d395eeabe957f6701f5253c9d403c0efdef56dae2110fe68dbfd"
+    },
+    {
+      "path": "assets/potentials-entropy.svg",
+      "sha256": "fefd942b339a3bcd01493fa6109e7a29a40f548e44df45b83483d6c611618e8c"
+    },
+    {
+      "path": "assets/regular-solution.svg",
+      "sha256": "50b4bef2cbafcb0a99f7e63237aec0b2cf590bb972729d5cef0b161a8b83b4ad"
+    },
+    {
+      "path": "assets/scheil-conservation.svg",
+      "sha256": "01a06c7157201ffdc511b1adf2f21ea5ef68f84bb4bbb3f893422d703e887ab4"
+    },
+    {
+      "path": "assets/site-preview.png",
+      "sha256": "f6f3afa384bbf90c66401e4a1e70797dc7287c2933929522ec215b78cae2edfb"
+    },
+    {
+      "path": "assets/sublattice-order.svg",
+      "sha256": "3e803d3a0a1b021b2035856e678dd5931ed472c293f5b9c804f2f3f436548459"
+    },
+    {
+      "path": "assets/ternary-balances.svg",
+      "sha256": "d12c1c727b7b7ff2e7db190f022f1d2be6955bab7b951469fb700ae764f4d687"
+    },
+    {
+      "path": "assets/ternary-lab.js",
+      "sha256": "03ce2742a120a0de87ae77ff100eeb83a9012327af459f7e53d3a7a21dc7de67"
+    },
+    {
+      "path": "assets/tzero-paths.svg",
+      "sha256": "3faa433dd0bc1284e9db9619008fc2aef6d6b2398773e4f0d986fa9d299fdbb4"
+    },
+    {
+      "path": "book-overview.html",
+      "sha256": "7a2c7284fbbb34b825523e37545d8c674c3ea7bf2621c1e9d8045df5d9584c3f"
+    },
+    {
+      "path": "chapter-01-microstructure-phases-composition.html",
+      "sha256": "fe1b7c345a898a255cc96f35cd92fa4e582a943960db40c0cda60637c96c5928"
+    },
+    {
+      "path": "chapter-01-microstructure-phases-composition.meta.json",
+      "sha256": "b786f815a3143630bed8f73c1c04ec16e1f647f28f497f7ad556a79c53019626"
+    },
+    {
+      "path": "chapter-02-chemical-order-sites-composition.html",
+      "sha256": "a4a928f76f512022786f66e302901a2489fbaae47fedab727ee054b13f69756e"
+    },
+    {
+      "path": "chapter-02-chemical-order-sites-composition.meta.json",
+      "sha256": "86e68a9aad73cd5fb81759b064e3b25f405025f69e25956a0002542401a4b5d6"
+    },
+    {
+      "path": "chapter-03-unary-binary-equilibrium-diagrams.html",
+      "sha256": "0dc0cf1d1858dfbfd04be1d0e90ac8e71f099eb64949a243b55d717fa8ab8a24"
+    },
+    {
+      "path": "chapter-03-unary-binary-equilibrium-diagrams.meta.json",
+      "sha256": "038e9aa8d6588d7571d420058fc656f6917bad97faa2aa1022667b9d48f92472"
+    },
+    {
+      "path": "chapter-04-ternary-sections-reactions-projections.html",
+      "sha256": "7476cf48509811935889031d09119729f922278d62bbbf4ecd7c946109c48e6a"
+    },
+    {
+      "path": "chapter-04-ternary-sections-reactions-projections.meta.json",
+      "sha256": "c066e4f97eb416d82138fd86a8a7ccf047cd831f75dbd07ca76a0f044aa1a07b"
+    },
+    {
+      "path": "chapter-05-phase-amounts-heat-flow-cooling-curves.html",
+      "sha256": "f7bd53cd658a0357ad9be2f6942fe1fab4e42aca2bffdfdef99d1fd57c9ff2eb"
+    },
+    {
+      "path": "chapter-05-phase-amounts-heat-flow-cooling-curves.meta.json",
+      "sha256": "3b58fa7f6aa9fa776744ba35ac5953c23b09e5af85ab311b0db827456fcb1396"
+    },
+    {
+      "path": "chapter-06-states-molecular-energy-heat-capacity.html",
+      "sha256": "6edf47a6eac2af4ad6102df11004353d8d90f13939290ead4a4f54e55f80079e"
+    },
+    {
+      "path": "chapter-06-states-molecular-energy-heat-capacity.meta.json",
+      "sha256": "827883ffd28b82a0400f78b924e9fffde02c8be8a27800cb39ece6f2b43f27a4"
+    },
+    {
+      "path": "chapter-07-first-law-reversible-adiabatic-paths.html",
+      "sha256": "9ad6450cafd67298a53dad1fe5626890026cc585b38c8d141f97b5059dd8e24f"
+    },
+    {
+      "path": "chapter-07-first-law-reversible-adiabatic-paths.meta.json",
+      "sha256": "1e9f9e96d426c27c1cc0c468749677602c882e15e7d7e3e0d0c59243c9b96eea"
+    },
+    {
+      "path": "chapter-08-entropy-engines-statistical-concentration.html",
+      "sha256": "6fa587996835577c8004eb99de341a4b5b8cba87eff0b9fcd6d3d3bfd67deb84"
+    },
+    {
+      "path": "chapter-08-entropy-engines-statistical-concentration.meta.json",
+      "sha256": "9994cd92b69ffc68348402836e8db973a90d1b287cec39ae9899928cbbb13f91"
+    },
+    {
+      "path": "chapter-09-entropy-contributions-thermodynamic-potentials.html",
+      "sha256": "38c9cc47c14b3f6185f532832f9f1f88438a1e2711222eeebce356341fbedf5e"
+    },
+    {
+      "path": "chapter-09-entropy-contributions-thermodynamic-potentials.meta.json",
+      "sha256": "2177396b7a910f05d69245fbdc6583817c3990c3c2a322f86977c7fc03c53edb"
+    },
+    {
+      "path": "chapter-10-lattice-stability-caloric-mixing.html",
+      "sha256": "ea2509657835b248b950bf41ad4b2d67ddbbb4e1d612fe16c26812b77e5a2971"
+    },
+    {
+      "path": "chapter-10-lattice-stability-caloric-mixing.meta.json",
+      "sha256": "03db3dd1706514e2d6bccfd06b75d755171576a3dfd54aeb61c003190c8ad917"
+    },
+    {
+      "path": "chapter-11-mixing-chemical-potentials-activities.html",
+      "sha256": "55006634a59c54cc44416b53284ba4c37f3616c4dd11077d630d3697cb8424e1"
+    },
+    {
+      "path": "chapter-11-mixing-chemical-potentials-activities.meta.json",
+      "sha256": "f8330e2a4ab0deade7ba03d0f5f7e3829dc4ae26751ed197c2f95efba935ee5a"
+    },
+    {
+      "path": "chapter-12-global-tangents-driving-forces-phase-rule.html",
+      "sha256": "49f45c5082ea68379558bdfb55ac54a45f898b21bf2e8bcc5865320b3e370c35"
+    },
+    {
+      "path": "chapter-12-global-tangents-driving-forces-phase-rule.meta.json",
+      "sha256": "8d7ebeb44c5d03ecd17d3d2fa057f910e74d31172b6a8f64989b6540ec53d928"
+    },
+    {
+      "path": "chapter-13-calphad-models-database-minimization.html",
+      "sha256": "b908a62e6e9578f0b5388a141b356dce2b4e3a8b5d8794dbab18dec3e93ceb83"
+    },
+    {
+      "path": "chapter-13-calphad-models-database-minimization.meta.json",
+      "sha256": "dbd0e797e086ed94e0aaf57d318cb1e1e3e7d90c3546cac21163ca069e6a2751"
+    },
+    {
+      "path": "chapter-14-reproducible-equilibrium-calculations.html",
+      "sha256": "d6aec512c2dfe736d39f977be82720d2dd9382216966d7a7250a58114ed1dbdf"
+    },
+    {
+      "path": "chapter-14-reproducible-equilibrium-calculations.meta.json",
+      "sha256": "a237f28f60b96a36f94fa08d6966961c0fb9f422f6a3ba0153974fdc89a5b56f"
+    },
+    {
+      "path": "chapter-15-composition-paths-references-tzero.html",
+      "sha256": "09c1ba15fbd03616c61280ee8dc5c5de2fbcbf6035badfc8bc8113c66d557fe0"
+    },
+    {
+      "path": "chapter-15-composition-paths-references-tzero.meta.json",
+      "sha256": "87c4ff78d92c76d2a2ad620260cb66e958963431ee108fb61d25995eae9204c2"
+    },
+    {
+      "path": "chapter-16-scheil-solidification-conservative-histories.html",
+      "sha256": "2d679a767cfd36fd70f36e26bab030b2a51a127d5dd584d4498358babf4c3aa8"
+    },
+    {
+      "path": "chapter-16-scheil-solidification-conservative-histories.meta.json",
+      "sha256": "66bf2a5bd5777726495ed3f86de1b1bd5152c81de8637bf256e0315fe6badf86"
+    },
+    {
+      "path": "chapter-17-assessment-data-measurements-constraints.html",
+      "sha256": "776012da15c92f88e66edd47255bc470fe18c2171b54eb59c0f67e8ac7d056da"
+    },
+    {
+      "path": "chapter-17-assessment-data-measurements-constraints.meta.json",
+      "sha256": "9e8ad9b20e522a21deedf2e2850ce674646acc30b3ae46e010ce3726a34b77af"
+    },
+    {
+      "path": "chapter-18-sublattice-models-assessment-databases.html",
+      "sha256": "540c2e89a3b7eefdd2b5f4d947fd8ccef869c1f596bac29df5a7eccfb0b71de3"
+    },
+    {
+      "path": "chapter-18-sublattice-models-assessment-databases.meta.json",
+      "sha256": "44df1cf5d39719d96d0671a7beee555ce485a32cab810a6cede9d2f10c602a6f"
+    },
+    {
+      "path": "chapter-19-diffusion-mobility-thermodynamic-forces.html",
+      "sha256": "b107e6de4a47e060da8a3fe672895ec14c52aec53088180640118221a4043f1a"
+    },
+    {
+      "path": "chapter-19-diffusion-mobility-thermodynamic-forces.meta.json",
+      "sha256": "fc851ba5cd81aff84e01190186218a3ed22bba8a9459169b37917375b094291d"
+    },
+    {
+      "path": "chapter-20-conservative-transport-interfaces-rapid-solidification.html",
+      "sha256": "9a3d26220976f89d135dca06f11101d50e09fcef69427f5e7657f68cb7a08799"
+    },
+    {
+      "path": "chapter-20-conservative-transport-interfaces-rapid-solidification.meta.json",
+      "sha256": "35ca716c570d0afaad9f94c391affeee34b6b51d6c32af397b20ffa92b3f6ec1"
+    },
+    {
+      "path": "chapter-21-nucleation-transformation-diagrams-precipitation-aging.html",
+      "sha256": "498c94fa414f5592f85339dfd96a6d47aec60ecac3ae83cf1199c53be466d158"
+    },
+    {
+      "path": "chapter-21-nucleation-transformation-diagrams-precipitation-aging.meta.json",
+      "sha256": "f7a95f05aa1fceba1ed9681b5d7cb1756ff660eb2a3c3c3c668209bc40fe8a51"
+    },
+    {
+      "path": "chapter-22-high-throughput-design-phase-identification.html",
+      "sha256": "58833e182747b48aef406e985ca10eadce38afeb20264569397f5b9f978e717e"
+    },
+    {
+      "path": "chapter-22-high-throughput-design-phase-identification.meta.json",
+      "sha256": "c756e72c777cad3a9ce4361368f6ba891fab015df8eac39c49fd0fdc4e55495c"
+    },
+    {
+      "path": "chapter-23-material-property-models-and-strength.html",
+      "sha256": "5d6c69140da3bd1907f88d5f6e5721f2c65130f2e843291ad93b507ef0f6dc82"
+    },
+    {
+      "path": "chapter-23-material-property-models-and-strength.meta.json",
+      "sha256": "bffaab707719b8a44f4b5125f53a516f5669d5eadcd11080b7f9af9870b3d7db"
+    },
+    {
+      "path": "chapter-24-size-electrochemical-reservoirs-database-limits.html",
+      "sha256": "38f46cd0382ba638f1a88e005902a87662babf4273d9ced80682170fd36d434d"
+    },
+    {
+      "path": "chapter-24-size-electrochemical-reservoirs-database-limits.meta.json",
+      "sha256": "3ff5dd9c86093b2e81c176aa07dd133c5c0d7d3a4ae01121d5fef1ed76dfc201"
+    },
+    {
+      "path": "chapter-code-validation.json",
+      "sha256": "b4b27730bc0862386e82ae643d1555ba44a770263f0df5de089592a1be8aae1d"
+    },
+    {
+      "path": "code/ch01_microstructure.py",
+      "sha256": "6719ac070855d9b37ced6485e0cc7f11b04808053cd1b187da8e28840c50467c"
+    },
+    {
+      "path": "code/ch02_order_and_bases.py",
+      "sha256": "235cbeb8f908cbf9d465f5f55d3956e63ebc09c543dbb7a818bb63c17930485b"
+    },
+    {
+      "path": "code/ch03_phase_diagrams.py",
+      "sha256": "9eb3093dbfae3ef26718e9f179facdac8825b7b1a21c036d51082741a93e82c3"
+    },
+    {
+      "path": "code/ch04_ternary_balances.py",
+      "sha256": "b6f524f815901253962e045eea2ba7382e2187ff1c3035f3c7483fd514d70f6d"
+    },
+    {
+      "path": "code/ch05_cooling_curves.py",
+      "sha256": "8dbf20601e6d88e7c373ed90402c6e63e3bdc5ea0707c23e812b58e46dff2c05"
+    },
+    {
+      "path": "code/ch06_molecular_caloric.py",
+      "sha256": "ce4843a81b8bfcfa20db5e64b5553ce6da578f58014f787a51f3963fd2a9edfa"
+    },
+    {
+      "path": "code/ch07_first_law_paths.py",
+      "sha256": "5089ce4e383654b903d7b08942f7cae28fbd76bc0b3df81a0288426854d67112"
+    },
+    {
+      "path": "code/ch08_entropy_and_counts.py",
+      "sha256": "8d960c500c456340c9aeb7ba8e727a4f9fc4d7337ab69f25e8a4a77347d5d4fc"
+    },
+    {
+      "path": "code/ch09_potentials_entropy.py",
+      "sha256": "a5318df4ff6879503278ab233d7bbe9a159bcfcf801340c4bfcbe747dbfb01f1"
+    },
+    {
+      "path": "code/ch10_lattice_caloric.py",
+      "sha256": "c568a7b07f7f75d64d6e4c993569b8f3190dfc5858dc23c6f33d1628af513903"
+    },
+    {
+      "path": "code/ch11_mixtures_activity.py",
+      "sha256": "63806ed3f6e7d8a70408d2da69a3045bf86560ae5b7e7921996142eb56156c23"
+    },
+    {
+      "path": "code/ch12_global_tangents.py",
+      "sha256": "c86a283f570599723251f45cbc015c034487a48f0f5940d3aad3101a93d9c431"
+    },
+    {
+      "path": "code/ch13_calphad_models.py",
+      "sha256": "b84a17e1e702205aa9bbd493d5ac4f021783c26d30c0fc81d4e9ece3bebebbc1"
+    },
+    {
+      "path": "code/ch14_equilibrium_workflow.py",
+      "sha256": "9b5050fc1a0f2ec6bd7add50bffb0a1b28412eaa20237c94f276c2ee769b9445"
+    },
+    {
+      "path": "code/ch15_sections_references_tzero.py",
+      "sha256": "6cd061552216b4e8878b594681ddabe3517a0eb61cbc771647dd955a6d350ff2"
+    },
+    {
+      "path": "code/ch16_scheil_conservation.py",
+      "sha256": "b8a9f7dc2bc2856fe67f1995037f612cfedddd2423cf42eddbf0cefaf37812c5"
+    },
+    {
+      "path": "code/ch17_data_constraints.py",
+      "sha256": "1bc74ba7221a035fcfa9a31ae2cdfd907703bf13ae28691fdb937d78b7028ca4"
+    },
+    {
+      "path": "code/ch18_models_and_assessment.py",
+      "sha256": "c2d7894f6c44ec50cd11096cd4728d5e145edd857c92c3c75431da3f1e5bc991"
+    },
+    {
+      "path": "code/ch19_diffusion_mobility.py",
+      "sha256": "e94675c2913e9617ebf9338b91c3793c98be0f2d4130f1e132a88f2eec153680"
+    },
+    {
+      "path": "code/ch20_conservative_transport.py",
+      "sha256": "8787c3c2e5d4d4d40ff72d178ac562386535025f81175f4d5ff743bc17f101de"
+    },
+    {
+      "path": "code/ch21_nucleation_aging.py",
+      "sha256": "a9f114ac0652eca4be6650c4f3ed641062f45827ad21e44a0015cce1528ea383"
+    },
+    {
+      "path": "code/ch22_screening_characterization.py",
+      "sha256": "371708c7c61f8a5aefed3013c63af12a04a22132c5418171544ae3f5202e064f"
+    },
+    {
+      "path": "code/ch23_material_properties.py",
+      "sha256": "11b08d89d36443bdb99fd29a376bbcd87f78a2f7054260cd1d2fac887a3d190a"
+    },
+    {
+      "path": "code/ch24_size_electrochemistry_scope.py",
+      "sha256": "4cff3a99657b3f333a24203e0d63aa4ec2192b90fa0b96ffe93bfa37cd5f5e65"
+    },
+    {
+      "path": "code/plot_ch23_property_models.py",
+      "sha256": "4be679327ca9db2d704c8c11c96cf9a34c4d5bcd74ffc2fa51efb4ba104566b0"
+    },
+    {
+      "path": "completion.json",
+      "sha256": "5366f886138b8054e6b3e9e92fcfbea748c454a9bbc58fdf76e828df4d723d7f"
+    },
+    {
+      "path": "content-inventory.json",
+      "sha256": "5fd9c8f1fb0ac3aa3484b8c94ddcea7d9fc630ca528b120f67d0b0a638c691f7"
+    },
+    {
+      "path": "course-review.json",
+      "sha256": "656df49a50756664376193015abd3ed8040062422d09d5a02b130e98c296df29"
+    },
+    {
+      "path": "data/ch14_synthetic.tdb",
+      "sha256": "b3df86459160237326667b7463aa892d994615583a8f59a475b32025ef4afa01"
+    },
+    {
+      "path": "data/ch15_tzero.tdb",
+      "sha256": "82a29427e05c7b09c34ae808b1f1a3e706caa29ea3b82b02803cd7bf67a759b6"
+    },
+    {
+      "path": "data/ch22_screening.tdb",
+      "sha256": "5338495c814ecf130d3990dfffc12dae4eb04da9df5c765557db37d2b8ceb0ac"
+    },
+    {
+      "path": "editorial-review-summary.json",
+      "sha256": "452754c4b0aed5a96931004c49ff666c248e5d899e1c59be6ae57aebdbde908c"
+    },
+    {
+      "path": "index.html",
+      "sha256": "c76757a64a0a792eee38a8fe70581e61404a2ff16bba086cda2ff56228e6ccae"
+    },
+    {
+      "path": "numerical-lab.html",
+      "sha256": "edccdbd610ee7b1f8746931fbcfe3d357a853241ba8dbf0c6f2c5055669f49ef"
+    },
+    {
+      "path": "numerical_lab.py",
+      "sha256": "25321701609f47dae732b980fdf66db99dd8d85bca87f1a7f3673607e535df49"
+    },
+    {
+      "path": "package-validation.json",
+      "sha256": "4fbcb4a895117f8005f279ca3b656e884c9e55a170e55627c9f3eafc8f38a2e4"
+    },
+    {
+      "path": "publication-validation.json",
+      "sha256": "8f0d5fa09bef0310ac1241baefda535e75a31f6f3eb43f9504054ce178519a29"
+    },
+    {
+      "path": "reader-validation.json",
+      "sha256": "43f5954952ff4d04326cf9dac2011e27adb47da36f235f3e225fd5d22ae14160"
+    },
+    {
+      "path": "references.html",
+      "sha256": "865dfdffcebff822449df0b9a4f0a87d406c2a7727e73231bb0c31846a3d5d38"
+    },
+    {
+      "path": "requirements.txt",
+      "sha256": "c02322066f3828cd919fb13250e23acfbfd628a40ab08b2937cc59e673742390"
+    },
+    {
+      "path": "source-free-validation.json",
+      "sha256": "c71f2aa1b420e8ec838db2f139e900fda4fab1214379b7a2f9571c80821e8a77"
+    },
+    {
+      "path": "source-manifest.json",
+      "sha256": "266487297100c6c9cbe42fa250483d72626de6445c659594e1ab70f332b25809"
+    },
+    {
+      "path": "source-map.html",
+      "sha256": "18791da7cba77bf6f5f372c79c6be1b7dd50fc7b68a71248b957a14b67617fee"
+    },
+    {
+      "path": "source-validation-summary.json",
+      "sha256": "c0cf49081eadb9ab90dee4989efffca2ae5dee25a68a694365357616bbd90b79"
+    },
+    {
+      "path": "tools/audit_public.py",
+      "sha256": "a93e0efe52ff1d015287d3bdc7d03626afcb130021195dae6e5312868d82046c"
+    },
+    {
+      "path": "tools/build_book.py",
+      "sha256": "dab84e2b493e179aefdc8717f46108a34dad57ac26bfaf2d70902733d5591e3d"
+    },
+    {
+      "path": "tools/plot_assessment_identifiability.py",
+      "sha256": "680fea29f11020ea0aec27d964186b4714656d245a9c14880e700be38aa8313a"
+    },
+    {
+      "path": "tools/plot_assessment_models.py",
+      "sha256": "dac2341edbaf1bcef746135fe83f80f15c2ff44c743f67146aaecf0cb11d7015"
+    },
+    {
+      "path": "tools/plot_calphad_models.py",
+      "sha256": "c6270b7486ea40d17883a885fcd4f6b6d618be0978e45be6365f47a66f315372"
+    },
+    {
+      "path": "tools/plot_conservative_transport.py",
+      "sha256": "b3cbd71790349c5d09710b7cf3a8bca170b5dc17d3418e24c1178abb50093062"
+    },
+    {
+      "path": "tools/plot_cooling.py",
+      "sha256": "47d98f6b5d1e514838998a6989ea9f6f13eb315f4a7d42a91f4d03b5e58624b2"
+    },
+    {
+      "path": "tools/plot_diffusion_mobility.py",
+      "sha256": "309cc8b25961522491615ab6a28dc93a95d7b5f08b96f37b39c64a8765d4fa8b"
+    },
+    {
+      "path": "tools/plot_entropy.py",
+      "sha256": "6502835bfff30217341e4397416fbc6b3cedd509dc24b9e8d8af2159ae931d21"
+    },
+    {
+      "path": "tools/plot_equilibrium_workflow.py",
+      "sha256": "49b9dad12dbaab916b2119cb41dd534ad90088470af4f5b08279030dd96b5502"
+    },
+    {
+      "path": "tools/plot_first_law.py",
+      "sha256": "716106c4bcf4b2a5cb0ce942e87ce59be929c62b44902f4e59db449586701b93"
+    },
+    {
+      "path": "tools/plot_lattice.py",
+      "sha256": "7f959a4662c06b436c447974d62cfd70dce19dc85a9f2cd9c4b11fa4a8d6ac36"
+    },
+    {
+      "path": "tools/plot_microstructure.py",
+      "sha256": "5b2f8f482fb79c2468a0482212809908ca2e0939ccc017545e1a2041130adc7f"
+    },
+    {
+      "path": "tools/plot_mixtures.py",
+      "sha256": "2a20c52e80d33ac0909dbb05d4307bd17cb680218615a11ede8be8deac568d51"
+    },
+    {
+      "path": "tools/plot_molecular_caloric.py",
+      "sha256": "e388c4ef5bede9e0c0bd3bf698f7f6e52b272f0e017f41d8cf6cc49828af7cb1"
+    },
+    {
+      "path": "tools/plot_nucleation_aging.py",
+      "sha256": "2fa53e8bd8eb196cc74f3cf5426ba96369d66dda0fa9b3cf61cbbdc6d7fc895f"
+    },
+    {
+      "path": "tools/plot_order.py",
+      "sha256": "15917b410311788985937dce0f974ebf2101a8746fe01655342f239b17efb65b"
+    },
+    {
+      "path": "tools/plot_phase_diagrams.py",
+      "sha256": "688db83de7167f7342fd0237614924c9e58f8e22d207f449f0f054b456448608"
+    },
+    {
+      "path": "tools/plot_potentials.py",
+      "sha256": "cbb9e07334bd7a2dc14f76eeeb6b73948d3486b4aa23a147557f4d6159a2ca43"
+    },
+    {
+      "path": "tools/plot_regular_solution.py",
+      "sha256": "7a53119bd5bef435c4862607ce01e0b9aab8d36405558768f86ad233adf01278"
+    },
+    {
+      "path": "tools/plot_scheil_conservation.py",
+      "sha256": "541edfe96780ea98c559fb3890a773d36330681e94b40add849dad1726838fd4"
+    },
+    {
+      "path": "tools/plot_tangents.py",
+      "sha256": "c8894434562a072499056bc49bee28ed6629222b1958bbee50ff392edef9b33c"
+    },
+    {
+      "path": "tools/plot_ternary.py",
+      "sha256": "c94a0e0f5cc11710055bcc94514cdb1bf9518ef93d771ef6645ddb979dd595fd"
+    },
+    {
+      "path": "tools/plot_tzero_paths.py",
+      "sha256": "8bbb4efd0d6e4d66e64935b9a2fe6e09630caf4adbed38f05d70fad2ed2ea0c4"
+    },
+    {
+      "path": "tools/validate_book.py",
+      "sha256": "e042ea96526ad1863645e1e3adba0515e4b1c6fe70d2bcfb617783410ebe7110"
+    },
+    {
+      "path": "tools/verify_publication.py",
+      "sha256": "6964117de0b3528bf9e0116f223ca50eef598e3a90cf22a9fb3ac8d7ebc8f89c"
+    },
+    {
+      "path": "tools/verify_source_free.py",
+      "sha256": "19689e72edac7516c1af47daa64cd6b27bd3957dede6282fbb7f52ad67f0a9e1"
+    }
+  ],
+  "self_hash_exclusion": "Only this audit report is excluded from its own inventory hashes"
+}

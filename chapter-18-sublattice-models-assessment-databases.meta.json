@@ -1,0 +1,152 @@
+{
+  "chapter": 18,
+  "title": "Sublattice models, assessment and compatible databases",
+  "file": "chapter-18-sublattice-models-assessment-databases.html",
+  "status": "Accepted in two independent scientific reviews",
+  "authored_body_sha256": "f528fff6d2e6b2fe4ef696f838c804ca0449425b6ab882ea3ae35a0a8ffc99ae",
+  "recordings": [
+    {
+      "official_lesson": 41,
+      "playlist_position": 42,
+      "video_id": "BvCfZN-2KeU",
+      "duration_seconds": 1486.4021875,
+      "source_type": "local faster-whisper small.en ASR, not publisher captions",
+      "transcript_reading": "Entire transcript read sequentially",
+      "chunk_policy": "90-second cores with 2-second context; recognition and boundary uncertainty remains"
+    },
+    {
+      "official_lesson": 42,
+      "playlist_position": 43,
+      "video_id": "C2qokvTCI3Q",
+      "duration_seconds": 1480.92225,
+      "source_type": "local faster-whisper small.en ASR, not publisher captions",
+      "transcript_reading": "Entire transcript read sequentially",
+      "chunk_policy": "90-second cores with 2-second context; recognition and boundary uncertainty remains"
+    },
+    {
+      "official_lesson": 43,
+      "playlist_position": 44,
+      "video_id": "PU_E23fAdE8",
+      "duration_seconds": 1518.44575,
+      "source_type": "local faster-whisper small.en ASR, not publisher captions",
+      "transcript_reading": "Entire transcript read sequentially",
+      "chunk_policy": "90-second cores with 2-second context; recognition and boundary uncertainty remains"
+    },
+    {
+      "official_lesson": 44,
+      "playlist_position": 45,
+      "video_id": "NndIepcRizg",
+      "duration_seconds": 1704.484,
+      "source_type": "local faster-whisper small.en ASR, not publisher captions",
+      "transcript_reading": "Entire transcript read sequentially",
+      "chunk_policy": "90-second cores with 2-second context; recognition and boundary uncertainty remains"
+    },
+    {
+      "official_lesson": 45,
+      "playlist_position": 46,
+      "video_id": "3x-kkfu6w9E",
+      "duration_seconds": 1047.1735,
+      "source_type": "local faster-whisper small.en ASR, not publisher captions",
+      "transcript_reading": "Entire transcript read sequentially",
+      "chunk_policy": "90-second cores with 2-second context; recognition and boundary uncertainty remains"
+    }
+  ],
+  "sections": [
+    {
+      "anchor": "states",
+      "video_id": "BvCfZN-2KeU",
+      "start": 204,
+      "end": 1281
+    },
+    {
+      "anchor": "cef",
+      "video_id": "C2qokvTCI3Q",
+      "start": 43,
+      "end": 761
+    },
+    {
+      "anchor": "order",
+      "video_id": "BvCfZN-2KeU",
+      "start": 343,
+      "end": 693
+    },
+    {
+      "anchor": "vacancies",
+      "video_id": "C2qokvTCI3Q",
+      "start": 889,
+      "end": 1286
+    },
+    {
+      "anchor": "sro",
+      "video_id": "C2qokvTCI3Q",
+      "start": 1288,
+      "end": 1474
+    },
+    {
+      "anchor": "observations",
+      "video_id": "PU_E23fAdE8",
+      "start": 114,
+      "end": 1032
+    },
+    {
+      "anchor": "fit",
+      "video_id": "NndIepcRizg",
+      "start": 95,
+      "end": 323
+    },
+    {
+      "anchor": "workflow",
+      "video_id": "PU_E23fAdE8",
+      "start": 1032,
+      "end": 1511
+    },
+    {
+      "anchor": "workflow",
+      "video_id": "NndIepcRizg",
+      "start": 323,
+      "end": 1695
+    },
+    {
+      "anchor": "merge",
+      "video_id": "3x-kkfu6w9E",
+      "start": 70,
+      "end": 1040
+    }
+  ],
+  "worked_solutions": 9,
+  "executable_listings": 1,
+  "original_constructions": [
+    "Two-sublattice order proof with complete stationary/global-minimum checks",
+    "Vacancy site versus actual atom and entropy normalization",
+    "Exact associated-solution reaction conservation and physical root",
+    "Weighted two-parameter assessment with known-noise covariance and extrapolated prediction",
+    "Partitioned disordered-limit identity and missing-end-member merge",
+    "Interior-only quaternary ambiguity invisible to every lower-order boundary"
+  ],
+  "independent_review": {
+    "status": "accepted",
+    "accepted": true,
+    "body_sha256": "f528fff6d2e6b2fe4ef696f838c804ca0449425b6ab882ea3ae35a0a8ffc99ae",
+    "review_ids": [
+      "ct-ch18-r1",
+      "ct-ch18-r2"
+    ],
+    "reviewer_ids": [
+      "separate-ai-agent-graph-theory",
+      "separate-ai-agent-coordinator"
+    ],
+    "blocking": 0,
+    "major": 0,
+    "minor": 0
+  },
+  "limitations": [
+    "No audiovisual or board audit",
+    "Commercial Ag-Cu PARROT/macros/database not rerun",
+    "No ESPEI or MCMC run",
+    "All executable material models/data are original synthetic examples",
+    "Dupin2018 actualPDFpp1–4 read, not full33-page implementation or example audit",
+    "ESPEI2019 actualPDFpp1–8 read, not full26pages or Cu-Mg reproduction",
+    "Richter2026 preprint abstract only read, not61-page methods/results or artifact audit",
+    "Conditional covariance omits model-form/reference/omitted-phase uncertainty"
+  ]
+}

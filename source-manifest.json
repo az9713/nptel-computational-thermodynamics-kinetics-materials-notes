@@ -1,0 +1,1522 @@
+{
+  "course": {
+    "course": "Computational Thermodynamics and Kinetics of Materials",
+    "instructor": "Prof. K. Guruvidyathri",
+    "institution": "University of Hyderabad",
+    "coordinating_institute": "IIT Madras",
+    "playlist_items": 61,
+    "substantive_lectures": 60,
+    "official_course_id": "113106776",
+    "status": "Production in progress: chapters 1–10 accepted in two independent rounds; chapter11 frozen for independent review; full course remains incomplete",
+    "obstacles": [
+      "Official media URLs empty",
+      "Official transcript URLs null",
+      "YouTube timedtext HTTP 429"
+    ],
+    "next": "Continue source-grounded chapters while root schedules remaining ASR; independent reviews, full validation and separate publication pending"
+  },
+  "playlist_url": "https://www.youtube.com/playlist?list=PLyqSpQzTE6M_aMcUUnHD2_D-7v7B_CbZs",
+  "retrieved": "2026-10-28",
+  "recordings": [
+    {
+      "position": 1,
+      "id": "lxBnV9EUSFI",
+      "title": "Computational Thermodynamics and Kinetics of Materials Introduction",
+      "duration_label": "Computational Thermodynamics and Kinetics of Materials Introduction 8 minutes, 4 seconds",
+      "url": "https://www.youtube.com/watch?v=lxBnV9EUSFI",
+      "role": "introduction",
+      "transcript_status": "Complete local small.en ASR; machine recognition uncertainty remains",
+      "chapter_status": "Orientation; no substantive lesson omitted",
+      "official_lesson": null,
+      "official_week": null,
+      "media_status": "downloaded and decoded duration verified",
+      "duration_seconds": 483.8574375,
+      "expected_duration_seconds": 484,
+      "media_sha256": "ba9eafa721651f4bb1d07e6ce52064bfaef933895170e9d32f29503b1ae12224",
+      "media_format": "YouTube format233 raw HE-AAC ADTS; full decoded samplecount used for duration",
+      "transcript_reading": "Entire introductory transcript read for course orientation",
+      "chapters": []
+    },
+    {
+      "position": 2,
+      "id": "UA4P_D6fJkE",
+      "title": "Essential physical metallurgy concepts 1: Microstructure | Phase",
+      "duration_label": "Essential physical metallurgy concepts 1: Microstructure | Phase 22 minutes",
+      "url": "https://www.youtube.com/watch?v=UA4P_D6fJkE",
+      "role": "lecture",
+      "transcript_status": "Complete local small.en ASR; machine recognition uncertainty remains",
+      "chapter_status": "Accepted in two independent scientific reviews",
+      "official_lesson": 1,
+      "official_week": "Week 1",
+      "media_status": "downloaded and decoded duration verified",
+      "duration_seconds": 1372.16,
+      "expected_duration_seconds": 1372,
+      "media_sha256": "b327644a71a365898fd49708b28f4958e6174b64c4768b425ab669bb470d4229",
+      "media_format": "YouTube format233 raw HE-AAC ADTS; full decoded samplecount used for duration",
+      "transcript_reading": "Entire transcript read sequentially by the corresponding chapter author",
+      "chapters": [
+        "chapter-01-microstructure-phases-composition.html"
+      ],
+      "chapter": 1
+    },
+    {
+      "position": 3,
+      "id": "aFXTk8V6mcw",
+      "title": "Essential physical metallurgy concepts 2: Types of phases | Chemical order | Phase Equilibria",
+      "duration_label": "Essential physical metallurgy concepts 2: Types of phases | Chemical order | Phase Equilibria 26 minutes",
+      "url": "https://www.youtube.com/watch?v=aFXTk8V6mcw",
+      "role": "lecture",
+      "transcript_status": "Complete local small.en ASR; machine recognition uncertainty remains",
+      "chapter_status": "Accepted in two independent scientific reviews",
+      "official_lesson": 2,
+      "official_week": "Week 1",
+      "media_status": "downloaded and decoded duration verified",
+      "duration_seconds": 1575.61325,
+      "expected_duration_seconds": 1576,
+      "media_sha256": "99bf5b96bce6392d44f52856e00af56cbee614860c4259d930f8556d90972bc0",
+      "media_format": "YouTube format233 raw HE-AAC ADTS; full decoded samplecount used for duration",
+      "transcript_reading": "Entire transcript read sequentially by the corresponding chapter author",
+      "chapters": [
+        "chapter-02-chemical-order-sites-composition.html"
+      ],
+      "chapter": 2
+    },
+    {
+      "position": 4,
+      "id": "955OEvtMoUg",
+      "title": "Essential physical metallurgy concepts 3: Phase diagrams - Unary | Isomorphous",
+      "duration_label": "Essential physical metallurgy concepts 3: Phase diagrams - Unary | Isomorphous 26 minutes",
+      "url": "https://www.youtube.com/watch?v=955OEvtMoUg",
+      "role": "lecture",
+      "transcript_status": "Complete local small.en ASR; machine recognition uncertainty remains",
+      "chapter_status": "Accepted in two independent scientific reviews",
+      "official_lesson": 3,
+      "official_week": "Week 1",
+      "media_status": "downloaded and decoded duration verified",
+      "duration_seconds": 1560.6131875,
+      "expected_duration_seconds": 1561,
+      "media_sha256": "e402ab8aa221824340abf6142ff31d4ee7445188475bd48b42607cea7e19ad61",
+      "media_format": "YouTube format233 raw HE-AAC ADTS; full decoded samplecount used for duration",
+      "transcript_reading": "Entire transcript read sequentially by the corresponding chapter author",
+      "chapters": [
+        "chapter-03-unary-binary-equilibrium-diagrams.html"
+      ],
+      "chapter": 3
+    },
+    {
+      "position": 5,
+      "id": "AXcxrGV96Ys",
+      "title": "Essential physical metallurgy concepts 4: Phase diagram - Information",
+      "duration_label": "Essential physical metallurgy concepts 4: Phase diagram - Information 15 minutes",
+      "url": "https://www.youtube.com/watch?v=AXcxrGV96Ys",
+      "role": "lecture",
+      "transcript_status": "Complete local small.en ASR; machine recognition uncertainty remains",
+      "chapter_status": "Accepted in two independent scientific reviews",
+      "official_lesson": 4,
+      "official_week": "Week 1",
+      "media_status": "downloaded and decoded duration verified",
+      "duration_seconds": 958.008875,
+      "expected_duration_seconds": 958,
+      "media_sha256": "f738a1b92bde2688910143eb7282d44e9c6bf834db789a548bc14530ef33438a",
+      "media_format": "YouTube format233 raw HE-AAC ADTS; full decoded samplecount used for duration",
+      "transcript_reading": "Entire transcript read sequentially by the corresponding chapter author",
+      "chapters": [
+        "chapter-03-unary-binary-equilibrium-diagrams.html"
+      ],
+      "chapter": 3
+    },
+    {
+      "position": 6,
+      "id": "eQU3Qs_GHJw",
+      "title": "Essential physical metallurgy concepts 5: Phase diagrams - Transformations",
+      "duration_label": "Essential physical metallurgy concepts 5: Phase diagrams - Transformations 19 minutes",
+      "url": "https://www.youtube.com/watch?v=eQU3Qs_GHJw",
+      "role": "lecture",
+      "transcript_status": "Complete local small.en ASR; machine recognition uncertainty remains",
+      "chapter_status": "Accepted in two independent scientific reviews",
+      "official_lesson": 5,
+      "official_week": "Week 1",
+      "media_status": "downloaded and decoded duration verified",
+      "duration_seconds": 1144.00075,
+      "expected_duration_seconds": 1144,
+      "media_sha256": "2b86099e4fc9810e7fa436c28b35fd26e593d5cb37733c3fdd0f581e2d06c100",
+      "media_format": "YouTube format233 raw HE-AAC ADTS; full decoded samplecount used for duration",
+      "transcript_reading": "Entire transcript read sequentially by the corresponding chapter author",
+      "chapters": [
+        "chapter-03-unary-binary-equilibrium-diagrams.html"
+      ],
+      "chapter": 3
+    },
+    {
+      "position": 7,
+      "id": "hE4-f_QtVlw",
+      "title": "Essential physical metallurgy concepts 6: Ternary phase diagrams - Isothermal sections",
+      "duration_label": "Essential physical metallurgy concepts 6: Ternary phase diagrams - Isothermal sections 16 minutes",
+      "url": "https://www.youtube.com/watch?v=hE4-f_QtVlw",
+      "role": "lecture",
+      "transcript_status": "Complete local small.en ASR; machine recognition uncertainty remains",
+      "chapter_status": "Accepted in two independent scientific reviews",
+      "official_lesson": 6,
+      "official_week": "Week 2",
+      "media_status": "downloaded and decoded duration verified",
+      "duration_seconds": 1014.52625,
+      "expected_duration_seconds": 1015,
+      "media_sha256": "6c59a1e80b4139756ba3fe20a73471c6dc2257b04ce124736800adf64dfc893a",
+      "media_format": "YouTube format233 raw HE-AAC ADTS; full decoded samplecount used for duration",
+      "transcript_reading": "Entire transcript read sequentially by the corresponding chapter author",
+      "chapters": [
+        "chapter-04-ternary-sections-reactions-projections.html"
+      ],
+      "chapter": 4
+    },
+    {
+      "position": 8,
+      "id": "Id1L8ZyZ03Y",
+      "title": "Essential physical metallurgy concepts 7:Phase diagrams:Extended & emergent phases|Vertical sections",
+      "duration_label": "Essential physical metallurgy concepts 7:Phase diagrams:Extended & emergent phases|Vertical sections 18 minutes",
+      "url": "https://www.youtube.com/watch?v=Id1L8ZyZ03Y",
+      "role": "lecture",
+      "transcript_status": "Complete local small.en ASR; machine recognition uncertainty remains",
+      "chapter_status": "Accepted in two independent scientific reviews",
+      "official_lesson": 7,
+      "official_week": "Week 2",
+      "media_status": "downloaded and decoded duration verified",
+      "duration_seconds": 1104.57325,
+      "expected_duration_seconds": 1105,
+      "media_sha256": "78fb9794c6aea180b0d31e536a42ebdb0215a77a694be113ebbbf3f5389ca446",
+      "media_format": "YouTube format233 raw HE-AAC ADTS; full decoded samplecount used for duration",
+      "transcript_reading": "Entire transcript read sequentially by the corresponding chapter author",
+      "chapters": [
+        "chapter-04-ternary-sections-reactions-projections.html"
+      ],
+      "chapter": 4
+    },
+    {
+      "position": 9,
+      "id": "mzFz8_AqMJc",
+      "title": "Essential physical metallurgy concepts 8: Phase diagrams: Reactions | Liquidus projections",
+      "duration_label": "Essential physical metallurgy concepts 8: Phase diagrams: Reactions | Liquidus projections 31 minutes",
+      "url": "https://www.youtube.com/watch?v=mzFz8_AqMJc",
+      "role": "lecture",
+      "transcript_status": "Complete local small.en ASR; machine recognition uncertainty remains",
+      "chapter_status": "Accepted in two independent scientific reviews",
+      "official_lesson": 8,
+      "official_week": "Week 2",
+      "media_status": "downloaded and decoded duration verified",
+      "duration_seconds": 1871.6676875,
+      "expected_duration_seconds": 1872,
+      "media_sha256": "080c8ac16a453d47fc7658f5d25f9897a0d178bc7ec8a501e8d3e69d9d858295",
+      "media_format": "YouTube format233 raw HE-AAC ADTS; full decoded samplecount used for duration",
+      "transcript_reading": "Entire transcript read sequentially by the corresponding chapter author",
+      "chapters": [
+        "chapter-04-ternary-sections-reactions-projections.html"
+      ],
+      "chapter": 4
+    },
+    {
+      "position": 10,
+      "id": "m-RUuHye-tc",
+      "title": "Essential physical metallurgy concepts 9: Phase fraction plots | Mechanisms of transformations",
+      "duration_label": "Essential physical metallurgy concepts 9: Phase fraction plots | Mechanisms of transformations 21 minutes",
+      "url": "https://www.youtube.com/watch?v=m-RUuHye-tc",
+      "role": "lecture",
+      "transcript_status": "Complete local small.en ASR; machine recognition uncertainty remains",
+      "chapter_status": "Accepted in two independent scientific reviews",
+      "official_lesson": 9,
+      "official_week": "Week 2",
+      "media_status": "downloaded and decoded duration verified",
+      "duration_seconds": 1275.0541875,
+      "expected_duration_seconds": 1275,
+      "media_sha256": "08db633c9ac69285c27a3c14b94a8b0f3e64d9a806f4b2e603411bcc18b633bd",
+      "media_format": "YouTube format233 raw HE-AAC ADTS; full decoded samplecount used for duration",
+      "transcript_reading": "Entire transcript read sequentially by the corresponding chapter author",
+      "chapters": [
+        "chapter-05-phase-amounts-heat-flow-cooling-curves.html"
+      ],
+      "chapter": 5
+    },
+    {
+      "position": 11,
+      "id": "bQOEhmJcmAU",
+      "title": "Experimental methods of phase diagram determination - Cooling curve method",
+      "duration_label": "Experimental methods of phase diagram determination - Cooling curve method 11 minutes, 43 seconds",
+      "url": "https://www.youtube.com/watch?v=bQOEhmJcmAU",
+      "role": "lecture",
+      "transcript_status": "Complete local small.en ASR; machine recognition uncertainty remains",
+      "chapter_status": "Accepted in two independent scientific reviews",
+      "official_lesson": 10,
+      "official_week": "Week 2",
+      "media_status": "downloaded and decoded duration verified",
+      "duration_seconds": 702.31075,
+      "expected_duration_seconds": 702,
+      "media_sha256": "8e6f7d3ca7aa8bbc70df17acc6b93fe8651f3f39bcf77f56451c543b4c15bfe2",
+      "media_format": "YouTube format233 raw HE-AAC ADTS; full decoded samplecount used for duration",
+      "transcript_reading": "Entire transcript read sequentially by the corresponding chapter author",
+      "chapters": [
+        "chapter-05-phase-amounts-heat-flow-cooling-curves.html"
+      ],
+      "chapter": 5
+    },
+    {
+      "position": 12,
+      "id": "LKqeecILglA",
+      "title": "Essential concepts of thermodynamics 1: Scope | State | State properties",
+      "duration_label": "Essential concepts of thermodynamics 1: Scope | State | State properties 30 minutes",
+      "url": "https://www.youtube.com/watch?v=LKqeecILglA",
+      "role": "lecture",
+      "transcript_status": "Complete local small.en ASR; machine recognition uncertainty remains",
+      "chapter_status": "Accepted in two independent scientific reviews",
+      "official_lesson": 11,
+      "official_week": "Week 3",
+      "media_status": "downloaded and decoded duration verified",
+      "duration_seconds": 1854.7635625,
+      "expected_duration_seconds": 1855,
+      "media_sha256": "414349cd2aed33085ed89b7044ed87dd5e6d8a30b6ec0173f51d9a2753baf152",
+      "media_format": "YouTube format233 raw HE-AAC ADTS; full decoded samplecount used for duration",
+      "transcript_reading": "Entire transcript read sequentially by the corresponding chapter author",
+      "chapters": [
+        "chapter-06-states-molecular-energy-heat-capacity.html"
+      ],
+      "chapter": 6
+    },
+    {
+      "position": 13,
+      "id": "AIufuEzEgFY",
+      "title": "Essential concepts of thermodynamics 2: Temperature | Heat capacity | Internal energy",
+      "duration_label": "Essential concepts of thermodynamics 2: Temperature | Heat capacity | Internal energy 44 minutes",
+      "url": "https://www.youtube.com/watch?v=AIufuEzEgFY",
+      "role": "lecture",
+      "transcript_status": "Complete local small.en ASR; machine recognition uncertainty remains",
+      "chapter_status": "Accepted in two independent scientific reviews",
+      "official_lesson": 12,
+      "official_week": "Week 3",
+      "media_status": "downloaded and decoded duration verified",
+      "duration_seconds": 2644.520625,
+      "expected_duration_seconds": 2645,
+      "media_sha256": "9ded5c5b266f147dba1597cd60eaf6456dd2e27dcc5bb7ebd1c4bc7f86ddd684",
+      "media_format": "YouTube format233 raw HE-AAC ADTS; full decoded samplecount used for duration",
+      "transcript_reading": "Entire transcript read sequentially by the corresponding chapter author",
+      "chapters": [
+        "chapter-06-states-molecular-energy-heat-capacity.html"
+      ],
+      "chapter": 6
+    },
+    {
+      "position": 14,
+      "id": "5Ms2vab0HsQ",
+      "title": "Essential concepts of thermodynamics 3: The first law, Reversible & Irreversible processes",
+      "duration_label": "Essential concepts of thermodynamics 3: The first law, Reversible & Irreversible processes 30 minutes",
+      "url": "https://www.youtube.com/watch?v=5Ms2vab0HsQ",
+      "role": "lecture",
+      "transcript_status": "Complete local small.en ASR; machine recognition uncertainty remains",
+      "chapter_status": "Accepted in two independent scientific reviews",
+      "official_lesson": 13,
+      "official_week": "Week 3",
+      "media_status": "downloaded and decoded duration verified",
+      "duration_seconds": 1828.0141875,
+      "expected_duration_seconds": 1828,
+      "media_sha256": "0b00539bc2814e4014da7c42317fd0497e7201d159e7af97840a95a2b8a70d92",
+      "media_format": "YouTube format233 raw HE-AAC ADTS; full decoded samplecount used for duration",
+      "transcript_reading": "Entire transcript read sequentially by the corresponding chapter author",
+      "chapters": [
+        "chapter-07-first-law-reversible-adiabatic-paths.html"
+      ],
+      "chapter": 7
+    },
+    {
+      "position": 15,
+      "id": "5oXfprB7Jts",
+      "title": "Essential concepts of thermodynamics 4: Isothermal & adiabatic processes | Path quantities",
+      "duration_label": "Essential concepts of thermodynamics 4: Isothermal & adiabatic processes | Path quantities 27 minutes",
+      "url": "https://www.youtube.com/watch?v=5oXfprB7Jts",
+      "role": "lecture",
+      "transcript_status": "Complete local small.en ASR; machine recognition uncertainty remains",
+      "chapter_status": "Accepted in two independent scientific reviews",
+      "official_lesson": 14,
+      "official_week": "Week 3",
+      "media_status": "downloaded and decoded duration verified",
+      "duration_seconds": 1659.158625,
+      "expected_duration_seconds": 1659,
+      "media_sha256": "440145c95aa7701504b6efa08a54c48933bda4c28d592a07064a4e8be4403003",
+      "media_format": "YouTube format233 raw HE-AAC ADTS; full decoded samplecount used for duration",
+      "transcript_reading": "Entire transcript read sequentially by the corresponding chapter author",
+      "chapters": [
+        "chapter-07-first-law-reversible-adiabatic-paths.html"
+      ],
+      "chapter": 7
+    },
+    {
+      "position": 16,
+      "id": "Vqu8De1sdYs",
+      "title": "Essential concepts of thermodynamics 5: Engine | Entropy | Clausius inequality | The second law",
+      "duration_label": "Essential concepts of thermodynamics 5: Engine | Entropy | Clausius inequality | The second law 36 minutes",
+      "url": "https://www.youtube.com/watch?v=Vqu8De1sdYs",
+      "role": "lecture",
+      "transcript_status": "Complete local small.en ASR; machine recognition uncertainty remains",
+      "chapter_status": "Accepted in two independent scientific reviews",
+      "official_lesson": 15,
+      "official_week": "Week 3",
+      "media_status": "downloaded and decoded duration verified",
+      "duration_seconds": 2179.56425,
+      "expected_duration_seconds": 2180,
+      "media_sha256": "c662d8728b7e7badce1079a383a8e67c4d6a3191c34f3c25e49f230e0e09dc16",
+      "media_format": "YouTube format233 raw HE-AAC ADTS; full decoded samplecount used for duration",
+      "transcript_reading": "Entire transcript read sequentially by the corresponding chapter author",
+      "chapters": [
+        "chapter-08-entropy-engines-statistical-concentration.html"
+      ],
+      "chapter": 8
+    },
+    {
+      "position": 17,
+      "id": "yRMvL3aBYQw",
+      "title": "Essential concepts of thermodynamics 6: Statistical thermodynamics | Meaning of entropy",
+      "duration_label": "Essential concepts of thermodynamics 6: Statistical thermodynamics | Meaning of entropy 30 minutes",
+      "url": "https://www.youtube.com/watch?v=yRMvL3aBYQw",
+      "role": "lecture",
+      "transcript_status": "Complete local small.en ASR; machine recognition uncertainty remains",
+      "chapter_status": "Accepted in two independent scientific reviews",
+      "official_lesson": 16,
+      "official_week": "Week 4",
+      "media_status": "downloaded and decoded duration verified",
+      "duration_seconds": 1850.35175,
+      "expected_duration_seconds": 1850,
+      "media_sha256": "a2d3cd90ef47504a8ce5d173e0c98e0b02a9100284fbd7beb129451f0f6e725b",
+      "media_format": "YouTube format233 raw HE-AAC ADTS; full decoded samplecount used for duration",
+      "transcript_reading": "Entire transcript read sequentially by the corresponding chapter author",
+      "chapters": [
+        "chapter-08-entropy-engines-statistical-concentration.html"
+      ],
+      "chapter": 8
+    },
+    {
+      "position": 18,
+      "id": "A-1WonbIt9A",
+      "title": "Essential concepts of thermodynamics 7: Types of Entropy | Combined laws | Enthalpy and Gibbs energy",
+      "duration_label": "Essential concepts of thermodynamics 7: Types of Entropy | Combined laws | Enthalpy and Gibbs energy 47 minutes",
+      "url": "https://www.youtube.com/watch?v=A-1WonbIt9A",
+      "role": "lecture",
+      "transcript_status": "Complete local small.en ASR; machine recognition uncertainty remains",
+      "chapter_status": "Accepted in two independent scientific reviews",
+      "official_lesson": 17,
+      "official_week": "Week 4",
+      "media_status": "downloaded and decoded duration verified",
+      "duration_seconds": 2859.6303125,
+      "expected_duration_seconds": 2860,
+      "media_sha256": "79b80644b7b2513116e83a92d629bd0ef937e2fe76405ffb88d1c5873cd9f72e",
+      "media_format": "YouTube format233 raw HE-AAC ADTS; full decoded samplecount used for duration",
+      "transcript_reading": "Entire transcript read sequentially by the corresponding chapter author",
+      "chapters": [
+        "chapter-09-entropy-contributions-thermodynamic-potentials.html"
+      ],
+      "chapter": 9
+    },
+    {
+      "position": 19,
+      "id": "3FbPv8oxa7w",
+      "title": "Thermodynamics of Materials 1: Lattice stability | Enthalpy of mixing",
+      "duration_label": "Thermodynamics of Materials 1: Lattice stability | Enthalpy of mixing 55 minutes",
+      "url": "https://www.youtube.com/watch?v=3FbPv8oxa7w",
+      "role": "lecture",
+      "transcript_status": "Complete local small.en ASR; machine recognition uncertainty remains",
+      "chapter_status": "Accepted in two independent scientific reviews",
+      "official_lesson": 18,
+      "official_week": "Week 4",
+      "media_status": "downloaded and decoded duration verified",
+      "duration_seconds": 3345.9955,
+      "expected_duration_seconds": 3346,
+      "media_sha256": "cdec376120eb789acf1de851316b77f0471b882c6b010da86d18152d2a23f054",
+      "media_format": "YouTube format233 raw HE-AAC ADTS; full decoded samplecount used for duration",
+      "transcript_reading": "Entire transcript read sequentially by the corresponding chapter author",
+      "chapters": [
+        "chapter-10-lattice-stability-caloric-mixing.html"
+      ],
+      "chapter": 10
+    },
+    {
+      "position": 20,
+      "id": "qf453j8wLgc",
+      "title": "Thermodynamics of Materials 2: Interaction Parameter | Entropy | Gibbs Energy & Chemical Potential",
+      "duration_label": "Thermodynamics of Materials 2: Interaction Parameter | Entropy | Gibbs Energy & Chemical Potential 36 minutes",
+      "url": "https://www.youtube.com/watch?v=qf453j8wLgc",
+      "role": "lecture",
+      "transcript_status": "Complete local small.en ASR; machine recognition uncertainty remains",
+      "chapter_status": "Accepted in two independent scientific reviews",
+      "official_lesson": 19,
+      "official_week": "Week 4",
+      "media_status": "downloaded and decoded duration verified",
+      "duration_seconds": 2211.3291875,
+      "expected_duration_seconds": 2211,
+      "media_sha256": "a2f57ab06559e87ec37b360e02ba4ceee4e155f46bc751ae068ddf6000353b2d",
+      "media_format": "YouTube format233 raw HE-AAC ADTS; full decoded samplecount used for duration",
+      "transcript_reading": "Entire transcript read sequentially by the corresponding chapter author",
+      "chapters": [
+        "chapter-11-mixing-chemical-potentials-activities.html"
+      ],
+      "chapter": 11
+    },
+    {
+      "position": 21,
+      "id": "Jy9Vlk0tUZ4",
+      "title": "Thermodynamics of Materials 3: Chemical potential | Activity | Solutions",
+      "duration_label": "Thermodynamics of Materials 3: Chemical potential | Activity | Solutions 32 minutes",
+      "url": "https://www.youtube.com/watch?v=Jy9Vlk0tUZ4",
+      "role": "lecture",
+      "transcript_status": "Complete local small.en ASR; machine recognition uncertainty remains",
+      "chapter_status": "Accepted in two independent scientific reviews",
+      "official_lesson": 20,
+      "official_week": "Week 4",
+      "media_status": "downloaded and decoded duration verified",
+      "duration_seconds": 1957.02425,
+      "expected_duration_seconds": 1957,
+      "media_sha256": "cf62c661b16a212276c3cb4bbe5cb5f37290f5d82dfa8498d0dc4e0092007a4b",
+      "media_format": "YouTube format233 raw HE-AAC ADTS; full decoded samplecount used for duration",
+      "transcript_reading": "Entire transcript read sequentially by the corresponding chapter author",
+      "chapters": [
+        "chapter-11-mixing-chemical-potentials-activities.html"
+      ],
+      "chapter": 11
+    },
+    {
+      "position": 22,
+      "id": "yWQ7vsf2JRs",
+      "title": "Thermodynamics of Materials 4: G-x plots | Common tangent construction",
+      "duration_label": "Thermodynamics of Materials 4: G-x plots | Common tangent construction 16 minutes",
+      "url": "https://www.youtube.com/watch?v=yWQ7vsf2JRs",
+      "role": "lecture",
+      "transcript_status": "Complete local small.en ASR; machine recognition uncertainty remains",
+      "chapter_status": "Accepted in two independent scientific reviews",
+      "official_lesson": 21,
+      "official_week": "Week 5",
+      "media_status": "downloaded and decoded duration verified",
+      "duration_seconds": 1014.433375,
+      "expected_duration_seconds": 1014,
+      "media_sha256": "8dd2cff74b63b6fcd3bf9bab35c5a3292a993810bfa28a48785a4cac485dd767",
+      "media_format": "YouTube format233 raw HE-AAC ADTS; full decoded samplecount used for duration",
+      "transcript_reading": "Entire transcript read sequentially by the corresponding chapter author",
+      "chapters": [
+        "chapter-12-global-tangents-driving-forces-phase-rule.html"
+      ],
+      "chapter": 12
+    },
+    {
+      "position": 23,
+      "id": "cz9NYZfL7Ow",
+      "title": "Thermodynamics of Materials 5: G-x diagrams | G description",
+      "duration_label": "Thermodynamics of Materials 5: G-x diagrams | G description 23 minutes",
+      "url": "https://www.youtube.com/watch?v=cz9NYZfL7Ow",
+      "role": "lecture",
+      "transcript_status": "Complete local small.en ASR; machine recognition uncertainty remains",
+      "chapter_status": "Accepted in two independent scientific reviews",
+      "official_lesson": 22,
+      "official_week": "Week 5",
+      "media_status": "downloaded and decoded duration verified",
+      "duration_seconds": 1407.7794375,
+      "expected_duration_seconds": 1408,
+      "media_sha256": "0ee16e03bf8b66c8e3b3656e0e290c0a00abe214c34c8bfe3e59a0f8701fe4c6",
+      "media_format": "YouTube format233 raw HE-AAC ADTS; full decoded samplecount used for duration",
+      "transcript_reading": "Entire transcript read sequentially by the corresponding chapter author",
+      "chapters": [
+        "chapter-12-global-tangents-driving-forces-phase-rule.html"
+      ],
+      "chapter": 12
+    },
+    {
+      "position": 24,
+      "id": "lq50vklOrw8",
+      "title": "Thermodynamics of Materials 6: G-x curves | Driving force | T0 curve",
+      "duration_label": "Thermodynamics of Materials 6: G-x curves | Driving force | T0 curve 24 minutes",
+      "url": "https://www.youtube.com/watch?v=lq50vklOrw8",
+      "role": "lecture",
+      "transcript_status": "Complete local small.en ASR; machine recognition uncertainty remains",
+      "chapter_status": "Accepted in two independent scientific reviews",
+      "official_lesson": 23,
+      "official_week": "Week 5",
+      "media_status": "downloaded and decoded duration verified",
+      "duration_seconds": 1475.1173125,
+      "expected_duration_seconds": 1475,
+      "media_sha256": "0b65241981ce3ff3585f3b55e17abdffac0df779d07ed9cf63425a042409148e",
+      "media_format": "YouTube format233 raw HE-AAC ADTS; full decoded samplecount used for duration",
+      "transcript_reading": "Entire transcript read sequentially by the corresponding chapter author",
+      "chapters": [
+        "chapter-12-global-tangents-driving-forces-phase-rule.html"
+      ],
+      "chapter": 12
+    },
+    {
+      "position": 25,
+      "id": "nVZ3k3h6DN4",
+      "title": "Thermodynamics of Materials 7: G-x curves exercises | Gibbs phase rule",
+      "duration_label": "Thermodynamics of Materials 7: G-x curves exercises | Gibbs phase rule 37 minutes",
+      "url": "https://www.youtube.com/watch?v=nVZ3k3h6DN4",
+      "role": "lecture",
+      "transcript_status": "Complete local small.en ASR; machine recognition uncertainty remains",
+      "chapter_status": "Accepted in two independent scientific reviews",
+      "official_lesson": 24,
+      "official_week": "Week 5",
+      "media_status": "downloaded and decoded duration verified",
+      "duration_seconds": 2267.5214375,
+      "expected_duration_seconds": 2268,
+      "media_sha256": "089ddf27f36fbc234affd93587b700de58237206a6397024d0bcba0a9cd69d0b",
+      "media_format": "YouTube format233 raw HE-AAC ADTS; full decoded samplecount used for duration",
+      "transcript_reading": "Entire transcript read sequentially by the corresponding chapter author",
+      "chapters": [
+        "chapter-12-global-tangents-driving-forces-phase-rule.html"
+      ],
+      "chapter": 12
+    },
+    {
+      "position": 26,
+      "id": "_YSc-fSIUi4",
+      "title": "Computational Thermodynamics 1: Introduction | Unary models and data",
+      "duration_label": "Computational Thermodynamics 1: Introduction | Unary models and data 23 minutes",
+      "url": "https://www.youtube.com/watch?v=_YSc-fSIUi4",
+      "role": "lecture",
+      "transcript_status": "Complete local small.en ASR; machine recognition uncertainty remains",
+      "chapter_status": "Accepted in two independent scientific reviews",
+      "official_lesson": 25,
+      "official_week": "Week 5",
+      "media_status": "downloaded and decoded duration verified",
+      "duration_seconds": 1423.151,
+      "expected_duration_seconds": 1423,
+      "media_sha256": "c3dd9fe55da33d114162fa559376683745bbb62fd219c29f0775b130f95cfd72",
+      "media_format": "YouTube format233 raw HE-AAC ADTS; full decoded samplecount used for duration",
+      "transcript_reading": "Entire transcript read sequentially by the corresponding chapter author",
+      "chapters": [
+        "chapter-13-calphad-models-database-minimization.html"
+      ],
+      "chapter": 13
+    },
+    {
+      "position": 27,
+      "id": "xCGYkJPUQbA",
+      "title": "Computational Thermodynamics 2: Binary and higher order models | Minimization",
+      "duration_label": "Computational Thermodynamics 2: Binary and higher order models | Minimization 21 minutes",
+      "url": "https://www.youtube.com/watch?v=xCGYkJPUQbA",
+      "role": "lecture",
+      "transcript_status": "Complete local small.en ASR; machine recognition uncertainty remains",
+      "chapter_status": "Accepted in two independent scientific reviews",
+      "official_lesson": 26,
+      "official_week": "Week 6",
+      "media_status": "downloaded and decoded duration verified",
+      "duration_seconds": 1303.7075625,
+      "expected_duration_seconds": 1304,
+      "media_sha256": "dff386bfcf789b21bad37f160aeb6c955a57534bfd69423ea8c7d026f0a4cf25",
+      "media_format": "YouTube format233 raw HE-AAC ADTS; full decoded samplecount used for duration",
+      "transcript_reading": "Entire transcript read sequentially by the corresponding chapter author",
+      "chapters": [
+        "chapter-13-calphad-models-database-minimization.html"
+      ],
+      "chapter": 13
+    },
+    {
+      "position": 28,
+      "id": "diFN59CIKJo",
+      "title": "Hands-on Thermodynamic Calculations 1: Software | Modes | Single point calculations",
+      "duration_label": "Hands-on Thermodynamic Calculations 1: Software | Modes | Single point calculations 26 minutes",
+      "url": "https://www.youtube.com/watch?v=diFN59CIKJo",
+      "role": "lecture",
+      "transcript_status": "Complete local small.en ASR; machine recognition uncertainty remains",
+      "chapter_status": "Accepted in two independent scientific reviews",
+      "official_lesson": 27,
+      "official_week": "Week 6",
+      "media_status": "downloaded and decoded duration verified",
+      "duration_seconds": 1608.167625,
+      "expected_duration_seconds": 1608,
+      "media_sha256": "22216f9118a516dcb6455d75c982b1de2543c82d7a3d270336b10477f62762c4",
+      "media_format": "YouTube format233 raw HE-AAC ADTS; full decoded samplecount used for duration",
+      "transcript_reading": "Entire transcript read sequentially by the corresponding chapter author",
+      "chapters": [
+        "chapter-14-reproducible-equilibrium-calculations.html"
+      ],
+      "chapter": 14
+    },
+    {
+      "position": 29,
+      "id": "ek7BitlHojI",
+      "title": "Hands-on Thermodynamic Calculations 2: Unary G vs T | Binary phase fraction plot",
+      "duration_label": "Hands-on Thermodynamic Calculations 2: Unary G vs T | Binary phase fraction plot 36 minutes",
+      "url": "https://www.youtube.com/watch?v=ek7BitlHojI",
+      "role": "lecture",
+      "transcript_status": "Complete local small.en ASR; machine recognition uncertainty remains",
+      "chapter_status": "Accepted in two independent scientific reviews",
+      "official_lesson": 28,
+      "official_week": "Week 6",
+      "media_status": "downloaded and decoded duration verified",
+      "duration_seconds": 2179.099875,
+      "expected_duration_seconds": 2179,
+      "media_sha256": "334bce81bcbdb9c1ab59d40a6b0c493dea556f1b86541a66a79b41740bd0db8a",
+      "media_format": "YouTube format233 raw HE-AAC ADTS; full decoded samplecount used for duration",
+      "transcript_reading": "Entire transcript read sequentially by the corresponding chapter author",
+      "chapters": [
+        "chapter-14-reproducible-equilibrium-calculations.html"
+      ],
+      "chapter": 14
+    },
+    {
+      "position": 30,
+      "id": "mxuZkETH_Jg",
+      "title": "Hands-on Thermodynamic Calculations 3: Binary, ternary and metastable Phase Diagrams",
+      "duration_label": "Hands-on Thermodynamic Calculations 3: Binary, ternary and metastable Phase Diagrams 31 minutes",
+      "url": "https://www.youtube.com/watch?v=mxuZkETH_Jg",
+      "role": "lecture",
+      "transcript_status": "Complete local small.en ASR; machine recognition uncertainty remains",
+      "chapter_status": "Accepted in two independent scientific reviews",
+      "official_lesson": 29,
+      "official_week": "Week 6",
+      "media_status": "downloaded and decoded duration verified",
+      "duration_seconds": 1899.996,
+      "expected_duration_seconds": 1900,
+      "media_sha256": "6671dcc45f0de7e38a06c452d763efc249d61da92b9f9b1f51072ec2594ad002",
+      "media_format": "YouTube format233 raw HE-AAC ADTS; full decoded samplecount used for duration",
+      "transcript_reading": "Entire transcript read sequentially by the corresponding chapter author",
+      "chapters": [
+        "chapter-14-reproducible-equilibrium-calculations.html"
+      ],
+      "chapter": 14
+    },
+    {
+      "position": 31,
+      "id": "wXVkvJ8PH9g",
+      "title": "Hands-on Thermodynamic Calculations 4: Ternary Vertical | Pseudo binary section | Console Mode",
+      "duration_label": "Hands-on Thermodynamic Calculations 4: Ternary Vertical | Pseudo binary section | Console Mode 36 minutes",
+      "url": "https://www.youtube.com/watch?v=wXVkvJ8PH9g",
+      "role": "lecture",
+      "transcript_status": "Complete local small.en ASR; machine recognition uncertainty remains",
+      "chapter_status": "Accepted in two independent scientific reviews",
+      "official_lesson": 30,
+      "official_week": "Week 6",
+      "media_status": "downloaded and decoded duration verified",
+      "duration_seconds": 2205.3384375,
+      "expected_duration_seconds": 2205,
+      "media_sha256": "af6b0c8aa4fc57cd0dceb7e26cd2d9082fa5288caaab5d0952d4cbad5fe47ed0",
+      "media_format": "YouTube format233 raw HE-AAC ADTS; full decoded samplecount used for duration",
+      "transcript_reading": "Entire transcript read sequentially by the corresponding chapter author",
+      "chapters": [
+        "chapter-14-reproducible-equilibrium-calculations.html"
+      ],
+      "chapter": 14
+    },
+    {
+      "position": 32,
+      "id": "9NB_EO-GxKQ",
+      "title": "Hands-on Thermodynamic Calculations 5: Vertical sections",
+      "duration_label": "Hands-on Thermodynamic Calculations 5: Vertical sections 27 minutes",
+      "url": "https://www.youtube.com/watch?v=9NB_EO-GxKQ",
+      "role": "lecture",
+      "transcript_status": "Complete local small.en ASR; machine recognition uncertainty remains",
+      "chapter_status": "Accepted in two independent scientific reviews",
+      "official_lesson": 31,
+      "official_week": "Week 7",
+      "media_status": "downloaded and decoded duration verified",
+      "duration_seconds": 1623.12125,
+      "expected_duration_seconds": 1623,
+      "media_sha256": "fb60760411242bf3594de56120c8b5efd6a4e3265f733e3436ea304bd6129199",
+      "media_format": "YouTube format233 raw HE-AAC ADTS; full decoded samplecount used for duration",
+      "transcript_reading": "Entire transcript read sequentially by the corresponding chapter author",
+      "chapters": [
+        "chapter-15-composition-paths-references-tzero.html"
+      ],
+      "chapter": 15
+    },
+    {
+      "position": 33,
+      "id": "Yv0dMq5moX0",
+      "title": "Hands-on Thermodynamic Calculations 6: Quaternary and higher order diagrams",
+      "duration_label": "Hands-on Thermodynamic Calculations 6: Quaternary and higher order diagrams 26 minutes",
+      "url": "https://www.youtube.com/watch?v=Yv0dMq5moX0",
+      "role": "lecture",
+      "transcript_status": "Complete local small.en ASR; machine recognition uncertainty remains",
+      "chapter_status": "Accepted in two independent scientific reviews",
+      "official_lesson": 32,
+      "official_week": "Week 7",
+      "media_status": "downloaded and decoded duration verified",
+      "duration_seconds": 1602.8735,
+      "expected_duration_seconds": 1603,
+      "media_sha256": "ca5fc98d860df2d6eb74982c49c2fba559a4d8e85b34dc4feb20eb5c51dfcabc",
+      "media_format": "YouTube format233 raw HE-AAC ADTS; full decoded samplecount used for duration",
+      "transcript_reading": "Entire transcript read sequentially by the corresponding chapter author",
+      "chapters": [
+        "chapter-15-composition-paths-references-tzero.html"
+      ],
+      "chapter": 15
+    },
+    {
+      "position": 34,
+      "id": "qqoAc6JpTOs",
+      "title": "Hands-on Thermodynamic Calculations 7: Property diagrams",
+      "duration_label": "Hands-on Thermodynamic Calculations 7: Property diagrams 26 minutes",
+      "url": "https://www.youtube.com/watch?v=qqoAc6JpTOs",
+      "role": "lecture",
+      "transcript_status": "Complete local small.en ASR; machine recognition uncertainty remains",
+      "chapter_status": "Accepted in two independent scientific reviews",
+      "official_lesson": 33,
+      "official_week": "Week 7",
+      "media_status": "downloaded and decoded duration verified",
+      "duration_seconds": 1588.152,
+      "expected_duration_seconds": 1588,
+      "media_sha256": "331e53dbd1342fd3d41375a85ace42d98a998ec0995b117d1fadfface4d5bf56",
+      "media_format": "YouTube format233 raw HE-AAC ADTS; full decoded samplecount used for duration",
+      "transcript_reading": "Entire transcript read sequentially by the corresponding chapter author",
+      "chapters": [
+        "chapter-15-composition-paths-references-tzero.html"
+      ],
+      "chapter": 15
+    },
+    {
+      "position": 35,
+      "id": "SGtheIa_Tl0",
+      "title": "Hands-on Thermodynamic Calculations 8: T0 curve",
+      "duration_label": "Hands-on Thermodynamic Calculations 8: T0 curve 21 minutes",
+      "url": "https://www.youtube.com/watch?v=SGtheIa_Tl0",
+      "role": "lecture",
+      "transcript_status": "Complete local small.en ASR; machine recognition uncertainty remains",
+      "chapter_status": "Accepted in two independent scientific reviews",
+      "official_lesson": 34,
+      "official_week": "Week 7",
+      "media_status": "downloaded and decoded duration verified",
+      "duration_seconds": 1268.506125,
+      "expected_duration_seconds": 1269,
+      "media_sha256": "a2e9d68545f47038e75fe64a8b3e2b307bfb27722570e29c9ddba28ab75d69a3",
+      "media_format": "YouTube format233 raw HE-AAC ADTS; full decoded samplecount used for duration",
+      "transcript_reading": "Entire transcript read sequentially by the corresponding chapter author",
+      "chapters": [
+        "chapter-15-composition-paths-references-tzero.html"
+      ],
+      "chapter": 15
+    },
+    {
+      "position": 36,
+      "id": "LKEh7qZXme8",
+      "title": "Hands-on Thermodynamic Calculations 9: Scheil solidification",
+      "duration_label": "Hands-on Thermodynamic Calculations 9: Scheil solidification 30 minutes",
+      "url": "https://www.youtube.com/watch?v=LKEh7qZXme8",
+      "role": "lecture",
+      "transcript_status": "Complete local small.en ASR; machine recognition uncertainty remains",
+      "chapter_status": "Accepted in two independent scientific reviews",
+      "official_lesson": 35,
+      "official_week": "Week 7",
+      "media_status": "downloaded and decoded duration verified",
+      "duration_seconds": 1842.921375,
+      "expected_duration_seconds": 1843,
+      "media_sha256": "93048a4115f9cb2a899fb2d71f8d60ebaebcd40f770694f3274c55b3697b384f",
+      "media_format": "YouTube format233 raw HE-AAC ADTS; full decoded samplecount used for duration",
+      "chapter": 16,
+      "transcript_reading": "Entire transcript read sequentially by the corresponding chapter author",
+      "chapters": [
+        "chapter-16-scheil-solidification-conservative-histories.html"
+      ]
+    },
+    {
+      "position": 37,
+      "id": "OolkJI4f_bY",
+      "title": "Thermodynamic assessment 1: Outline of the method | Input thermochemical data",
+      "duration_label": "Thermodynamic assessment 1: Outline of the method | Input thermochemical data 18 minutes",
+      "url": "https://www.youtube.com/watch?v=OolkJI4f_bY",
+      "role": "lecture",
+      "transcript_status": "Complete local small.en ASR; machine recognition uncertainty remains",
+      "chapter_status": "Accepted in two independent scientific reviews",
+      "official_lesson": 36,
+      "official_week": "Week 8",
+      "media_status": "downloaded and decoded duration verified",
+      "duration_seconds": 1086.136625,
+      "expected_duration_seconds": 1086,
+      "media_sha256": "af345b82d70071947421abe05df0b81dae2aa338eb3e8a1a162649b516828960",
+      "media_format": "YouTube format233 raw HE-AAC ADTS; full decoded samplecount used for duration",
+      "transcript_reading": "Entire transcript read sequentially by the corresponding chapter author",
+      "chapter": 17,
+      "chapters": [
+        "chapter-17-assessment-data-measurements-constraints.html"
+      ]
+    },
+    {
+      "position": 38,
+      "id": "sCTYh4Gk6Bc",
+      "title": "Thermodynamic assessment 2: Input thermochemical data",
+      "duration_label": "Thermodynamic assessment 2: Input thermochemical data 23 minutes",
+      "url": "https://www.youtube.com/watch?v=sCTYh4Gk6Bc",
+      "role": "lecture",
+      "transcript_status": "Complete local small.en ASR; machine recognition uncertainty remains",
+      "chapter_status": "Accepted in two independent scientific reviews",
+      "official_lesson": 37,
+      "official_week": "Week 8",
+      "media_status": "downloaded and decoded duration verified",
+      "duration_seconds": 1435.4111875,
+      "expected_duration_seconds": 1435,
+      "media_sha256": "144526b9b479e8b1082b69d9dbce68a288050f8f1da6bbbd06632cfc1e3bd6c8",
+      "media_format": "YouTube format233 raw HE-AAC ADTS; full decoded samplecount used for duration",
+      "transcript_reading": "Entire transcript read sequentially by the corresponding chapter author",
+      "chapter": 17,
+      "chapters": [
+        "chapter-17-assessment-data-measurements-constraints.html"
+      ]
+    },
+    {
+      "position": 39,
+      "id": "5gMniJxWDcI",
+      "title": "Thermodynamic Assessment 3: Input phase equilibria data, non-isothermal methods",
+      "duration_label": "Thermodynamic Assessment 3: Input phase equilibria data, non-isothermal methods 12 minutes, 24 seconds",
+      "url": "https://www.youtube.com/watch?v=5gMniJxWDcI",
+      "role": "lecture",
+      "transcript_status": "Complete local small.en ASR; machine recognition uncertainty remains",
+      "chapter_status": "Accepted in two independent scientific reviews",
+      "official_lesson": 38,
+      "official_week": "Week 8",
+      "media_status": "downloaded and decoded duration verified",
+      "duration_seconds": 743.8745,
+      "expected_duration_seconds": 744,
+      "media_sha256": "79949ef168fc542cf67e0aa4da594e2b791992fc2077cf656e773e33935e3e31",
+      "media_format": "YouTube format233 raw HE-AAC ADTS; full decoded samplecount used for duration",
+      "transcript_reading": "Entire transcript read sequentially by the corresponding chapter author",
+      "chapter": 17,
+      "chapters": [
+        "chapter-17-assessment-data-measurements-constraints.html"
+      ]
+    },
+    {
+      "position": 40,
+      "id": "mn3Cd77yka4",
+      "title": "Thermodynamic assessment 4: Input phase equilibria data - Isothermal methods",
+      "duration_label": "Thermodynamic assessment 4: Input phase equilibria data - Isothermal methods 43 minutes",
+      "url": "https://www.youtube.com/watch?v=mn3Cd77yka4",
+      "role": "lecture",
+      "transcript_status": "Complete local small.en ASR; machine recognition uncertainty remains",
+      "chapter_status": "Accepted in two independent scientific reviews",
+      "official_lesson": 39,
+      "official_week": "Week 8",
+      "media_status": "downloaded and decoded duration verified",
+      "duration_seconds": 2580.66575,
+      "expected_duration_seconds": 2581,
+      "media_sha256": "aa6c0f547208bcab6c757dabb978b6eb59869e5584e17e3995037d0dc37a55b9",
+      "media_format": "YouTube format233 raw HE-AAC ADTS; full decoded samplecount used for duration",
+      "transcript_reading": "Entire transcript read sequentially by the corresponding chapter author",
+      "chapter": 17,
+      "chapters": [
+        "chapter-17-assessment-data-measurements-constraints.html"
+      ]
+    },
+    {
+      "position": 41,
+      "id": "6N7efzoyosk",
+      "title": "Thermodynamic assessment 5: Input data collection, critical evaluation",
+      "duration_label": "Thermodynamic assessment 5: Input data collection, critical evaluation 21 minutes",
+      "url": "https://www.youtube.com/watch?v=6N7efzoyosk",
+      "role": "lecture",
+      "transcript_status": "Complete local small.en ASR; machine recognition uncertainty remains",
+      "chapter_status": "Accepted in two independent scientific reviews",
+      "official_lesson": 40,
+      "official_week": "Week 8",
+      "media_status": "downloaded and decoded duration verified",
+      "duration_seconds": 1297.5310625,
+      "expected_duration_seconds": 1298,
+      "media_sha256": "716342f78614631152e9086e743dae4e20e4e7e1fc241cccd96fc98b3a5bb5ab",
+      "media_format": "YouTube format233 raw HE-AAC ADTS; full decoded samplecount used for duration",
+      "transcript_reading": "Entire transcript read sequentially by the corresponding chapter author",
+      "chapter": 17,
+      "chapters": [
+        "chapter-17-assessment-data-measurements-constraints.html"
+      ]
+    },
+    {
+      "position": 42,
+      "id": "BvCfZN-2KeU",
+      "title": "Thermodynamic assessment 6: Models 1",
+      "duration_label": "Thermodynamic assessment 6: Models 1 24 minutes",
+      "url": "https://www.youtube.com/watch?v=BvCfZN-2KeU",
+      "role": "lecture",
+      "transcript_status": "Complete local small.en ASR; machine recognition uncertainty remains",
+      "chapter_status": "Accepted in two independent scientific reviews",
+      "official_lesson": 41,
+      "official_week": "Week 9",
+      "media_status": "downloaded and decoded duration verified",
+      "duration_seconds": 1486.4021875,
+      "expected_duration_seconds": 1486,
+      "media_sha256": "d230a27a98746946c9e4133dd5479d69e9d942f36d9949b88522ec424cf537ae",
+      "media_format": "YouTube format233 raw HE-AAC ADTS; full decoded samplecount used for duration",
+      "transcript_reading": "Entire transcript read sequentially by the corresponding chapter author",
+      "chapter": 18,
+      "chapters": [
+        "chapter-18-sublattice-models-assessment-databases.html"
+      ]
+    },
+    {
+      "position": 43,
+      "id": "C2qokvTCI3Q",
+      "title": "Thermodynamic assessment 7: Models 2",
+      "duration_label": "Thermodynamic assessment 7: Models 2 24 minutes",
+      "url": "https://www.youtube.com/watch?v=C2qokvTCI3Q",
+      "role": "lecture",
+      "transcript_status": "Complete local small.en ASR; machine recognition uncertainty remains",
+      "chapter_status": "Accepted in two independent scientific reviews",
+      "official_lesson": 42,
+      "official_week": "Week 9",
+      "media_status": "downloaded and decoded duration verified",
+      "duration_seconds": 1480.92225,
+      "expected_duration_seconds": 1481,
+      "media_sha256": "8d42e32bc05e863a246ed27d4833d6c14997c4502c2d327722e30b3f7e8d905c",
+      "media_format": "YouTube format233 raw HE-AAC ADTS; full decoded samplecount used for duration",
+      "transcript_reading": "Entire transcript read sequentially by the corresponding chapter author",
+      "chapter": 18,
+      "chapters": [
+        "chapter-18-sublattice-models-assessment-databases.html"
+      ]
+    },
+    {
+      "position": 44,
+      "id": "PU_E23fAdE8",
+      "title": "Thermodynamic Assessment 8: Optimization guidelines",
+      "duration_label": "Thermodynamic Assessment 8: Optimization guidelines 25 minutes",
+      "url": "https://www.youtube.com/watch?v=PU_E23fAdE8",
+      "role": "lecture",
+      "transcript_status": "Complete local small.en ASR; machine recognition uncertainty remains",
+      "chapter_status": "Accepted in two independent scientific reviews",
+      "official_lesson": 43,
+      "official_week": "Week 9",
+      "media_status": "downloaded and decoded duration verified",
+      "duration_seconds": 1518.44575,
+      "expected_duration_seconds": 1518,
+      "media_sha256": "a3a7dc07de124c60e9d877009d7f27447d6e8aea03670a49ebaeb19d06541537",
+      "media_format": "YouTube format233 raw HE-AAC ADTS; full decoded samplecount used for duration",
+      "transcript_reading": "Entire transcript read sequentially by the corresponding chapter author",
+      "chapter": 18,
+      "chapters": [
+        "chapter-18-sublattice-models-assessment-databases.html"
+      ]
+    },
+    {
+      "position": 45,
+      "id": "NndIepcRizg",
+      "title": "Thermodynamic Assessment 9: Hands-on G Optimization",
+      "duration_label": "Thermodynamic Assessment 9: Hands-on G Optimization 28 minutes",
+      "url": "https://www.youtube.com/watch?v=NndIepcRizg",
+      "role": "lecture",
+      "transcript_status": "Complete local small.en ASR; machine recognition uncertainty remains",
+      "chapter_status": "Accepted in two independent scientific reviews",
+      "official_lesson": 44,
+      "official_week": "Week 9",
+      "media_status": "downloaded and decoded duration verified",
+      "duration_seconds": 1704.484,
+      "expected_duration_seconds": 1705,
+      "media_sha256": "6c440671279565ddc8edcd7397a3f74e4931085a50f3e3f899b347ba09b2a581",
+      "media_format": "YouTube format233 raw HE-AAC ADTS; full decoded samplecount used for duration",
+      "transcript_reading": "Entire transcript read sequentially by the corresponding chapter author",
+      "chapter": 18,
+      "chapters": [
+        "chapter-18-sublattice-models-assessment-databases.html"
+      ]
+    },
+    {
+      "position": 46,
+      "id": "3x-kkfu6w9E",
+      "title": "Thermodynamic Assessment 10: Database compilation",
+      "duration_label": "Thermodynamic Assessment 10: Database compilation 17 minutes",
+      "url": "https://www.youtube.com/watch?v=3x-kkfu6w9E",
+      "role": "lecture",
+      "transcript_status": "Complete local small.en ASR; machine recognition uncertainty remains",
+      "chapter_status": "Accepted in two independent scientific reviews",
+      "official_lesson": 45,
+      "official_week": "Week 9",
+      "media_status": "downloaded and decoded duration verified",
+      "duration_seconds": 1047.1735,
+      "expected_duration_seconds": 1047,
+      "media_sha256": "a2aa7822783a0a1c150b0038a3a57915aa4994b09e428423bd44a4ad7b9c62cc",
+      "media_format": "YouTube format233 raw HE-AAC ADTS; full decoded samplecount used for duration",
+      "transcript_reading": "Entire transcript read sequentially by the corresponding chapter author",
+      "chapter": 18,
+      "chapters": [
+        "chapter-18-sublattice-models-assessment-databases.html"
+      ]
+    },
+    {
+      "position": 47,
+      "id": "lcAIQt7LHh0",
+      "title": "Kinetics of Materials 1: Diffusion | Fick's laws",
+      "duration_label": "Kinetics of Materials 1: Diffusion | Fick's laws 27 minutes",
+      "url": "https://www.youtube.com/watch?v=lcAIQt7LHh0",
+      "role": "lecture",
+      "transcript_status": "Complete local small.en ASR; machine recognition uncertainty remains",
+      "chapter_status": "Accepted in two independent scientific reviews",
+      "official_lesson": 46,
+      "official_week": "Week 10",
+      "media_status": "downloaded and decoded duration verified",
+      "duration_seconds": 1646.805625,
+      "expected_duration_seconds": 1647,
+      "media_sha256": "45ec822c17952aeb0b094309d5005b3747a09f89050660658ab55c4580b4b0dd",
+      "media_format": "YouTube format233 raw HE-AAC ADTS; full decoded samplecount used for duration",
+      "transcript_reading": "Entire transcript read sequentially by the corresponding chapter author",
+      "chapter": 19,
+      "chapters": [
+        "chapter-19-diffusion-mobility-thermodynamic-forces.html"
+      ]
+    },
+    {
+      "position": 48,
+      "id": "dP6RcxXd6mY",
+      "title": "Kinetics of Materials 2: Phase equilibria and diffusion | Mobility",
+      "duration_label": "Kinetics of Materials 2: Phase equilibria and diffusion | Mobility 30 minutes",
+      "url": "https://www.youtube.com/watch?v=dP6RcxXd6mY",
+      "role": "lecture",
+      "transcript_status": "Complete local small.en ASR; machine recognition uncertainty remains",
+      "chapter_status": "Accepted in two independent scientific reviews",
+      "official_lesson": 47,
+      "official_week": "Week 10",
+      "media_status": "downloaded and decoded duration verified",
+      "duration_seconds": 1811.4815625,
+      "expected_duration_seconds": 1812,
+      "media_sha256": "924587b34197e4b9026f740627fb204e0490af34915c30720b36fcf329173dd5",
+      "media_format": "YouTube format233 raw HE-AAC ADTS; full decoded samplecount used for duration",
+      "transcript_reading": "Entire transcript read sequentially by the corresponding chapter author",
+      "chapter": 19,
+      "chapters": [
+        "chapter-19-diffusion-mobility-thermodynamic-forces.html"
+      ]
+    },
+    {
+      "position": 49,
+      "id": "oR54_YarDII",
+      "title": "Computational Thermokinetics: Introduction and mobility assessment",
+      "duration_label": "Computational Thermokinetics: Introduction and mobility assessment 27 minutes",
+      "url": "https://www.youtube.com/watch?v=oR54_YarDII",
+      "role": "lecture",
+      "transcript_status": "Complete local small.en ASR; machine recognition uncertainty remains",
+      "chapter_status": "Accepted in two independent scientific reviews",
+      "official_lesson": 48,
+      "official_week": "Week 10",
+      "media_status": "downloaded and decoded duration verified",
+      "duration_seconds": 1643.60125,
+      "expected_duration_seconds": 1644,
+      "media_sha256": "13cf610df6b0bb437681375a6633cb2d031080c789832158c075bd9b31fcbf0e",
+      "media_format": "YouTube format233 raw HE-AAC ADTS; full decoded samplecount used for duration",
+      "transcript_reading": "Entire transcript read sequentially by the corresponding chapter author",
+      "chapter": 19,
+      "chapters": [
+        "chapter-19-diffusion-mobility-thermodynamic-forces.html"
+      ]
+    },
+    {
+      "position": 50,
+      "id": "sQLRFii3dwY",
+      "title": "Hands-on kinetic simulation 1: Homogenization",
+      "duration_label": "Hands-on kinetic simulation 1: Homogenization 19 minutes",
+      "url": "https://www.youtube.com/watch?v=sQLRFii3dwY",
+      "role": "lecture",
+      "transcript_status": "Complete local small.en ASR; machine recognition uncertainty remains",
+      "chapter_status": "Accepted in two independent scientific reviews",
+      "official_lesson": 49,
+      "official_week": "Week 10",
+      "media_status": "downloaded and decoded duration verified",
+      "duration_seconds": 1198.7069375,
+      "expected_duration_seconds": 1199,
+      "media_sha256": "2e09635c59c51a0969f8656029997538c2a4b00de75a65b2a35d17029b2b1f8c",
+      "media_format": "YouTube format233 raw HE-AAC ADTS; full decoded samplecount used for duration",
+      "transcript_reading": "Entire transcript read sequentially by the corresponding chapter author",
+      "chapter": 20,
+      "chapters": [
+        "chapter-20-conservative-transport-interfaces-rapid-solidification.html"
+      ]
+    },
+    {
+      "position": 51,
+      "id": "7P2L5ahOOUk",
+      "title": "Hands-on kinetic simulation 2: Moving phase boundary problems",
+      "duration_label": "Hands-on kinetic simulation 2: Moving phase boundary problems 19 minutes",
+      "url": "https://www.youtube.com/watch?v=7P2L5ahOOUk",
+      "role": "lecture",
+      "transcript_status": "Complete local small.en ASR; machine recognition uncertainty remains",
+      "chapter_status": "Accepted in two independent scientific reviews",
+      "official_lesson": 50,
+      "official_week": "Week 10",
+      "media_status": "downloaded and decoded duration verified",
+      "duration_seconds": 1196.15275,
+      "expected_duration_seconds": 1196,
+      "media_sha256": "3917a345ee20a3f7b45b2d292eadf9d31785492738e3a7ff4169a062be606218",
+      "media_format": "YouTube format233 raw HE-AAC ADTS; full decoded samplecount used for duration",
+      "transcript_reading": "Entire transcript read sequentially by the corresponding chapter author",
+      "chapter": 20,
+      "chapters": [
+        "chapter-20-conservative-transport-interfaces-rapid-solidification.html"
+      ]
+    },
+    {
+      "position": 52,
+      "id": "aD9ENCXvjxw",
+      "title": "Hands on kinetic simulation 3: Diffusion couple | Non-isothermal diffusion",
+      "duration_label": "Hands on kinetic simulation 3: Diffusion couple | Non-isothermal diffusion 25 minutes",
+      "url": "https://www.youtube.com/watch?v=aD9ENCXvjxw",
+      "role": "lecture",
+      "transcript_status": "Complete local small.en ASR; machine recognition uncertainty remains",
+      "chapter_status": "Accepted in two independent scientific reviews",
+      "official_lesson": 51,
+      "official_week": "Week 11",
+      "media_status": "downloaded and decoded duration verified",
+      "duration_seconds": 1541.805,
+      "expected_duration_seconds": 1542,
+      "media_sha256": "7a1de890e05d441d0e8aa38455134f96abe7380cd745a0fb59a6d5d119765909",
+      "media_format": "YouTube format233 raw HE-AAC ADTS; full decoded samplecount used for duration",
+      "transcript_reading": "Entire transcript read sequentially by the corresponding chapter author",
+      "chapter": 20,
+      "chapters": [
+        "chapter-20-conservative-transport-interfaces-rapid-solidification.html"
+      ]
+    },
+    {
+      "position": 53,
+      "id": "h8tc6VBdt_Y",
+      "title": "Hands on kinetic simulations 4: Modified Scheil: Back diffusion & Solute trapping",
+      "duration_label": "Hands on kinetic simulations 4: Modified Scheil: Back diffusion & Solute trapping 19 minutes",
+      "url": "https://www.youtube.com/watch?v=h8tc6VBdt_Y",
+      "role": "lecture",
+      "transcript_status": "Complete local small.en ASR; machine recognition uncertainty remains",
+      "chapter_status": "Accepted in two independent scientific reviews",
+      "official_lesson": 52,
+      "official_week": "Week 11",
+      "media_status": "downloaded and decoded duration verified",
+      "duration_seconds": 1169.031875,
+      "expected_duration_seconds": 1169,
+      "media_sha256": "2f8c1c03b6a48f3bc7cd8b06c4fb78c1ebd697fb5dc22363da149e565de94708",
+      "media_format": "YouTube format233 raw HE-AAC ADTS; full decoded samplecount used for duration",
+      "transcript_reading": "Entire transcript read sequentially by the corresponding chapter author",
+      "chapter": 20,
+      "chapters": [
+        "chapter-20-conservative-transport-interfaces-rapid-solidification.html"
+      ]
+    },
+    {
+      "position": 54,
+      "id": "XNhnrzhPJX8",
+      "title": "Essential concepts of overall kinetics - Nucleation and growth",
+      "duration_label": "Essential concepts of overall kinetics - Nucleation and growth 22 minutes",
+      "url": "https://www.youtube.com/watch?v=XNhnrzhPJX8",
+      "role": "lecture",
+      "transcript_status": "Complete local small.en ASR; machine recognition uncertainty remains",
+      "chapter_status": "Accepted in two independent scientific reviews",
+      "official_lesson": 53,
+      "official_week": "Week 11",
+      "media_status": "downloaded and decoded duration verified",
+      "duration_seconds": 1377.3148125,
+      "expected_duration_seconds": 1377,
+      "media_sha256": "275492fddc5edfb0f14146e5643f3c2c09c7fd1d8f4b759b62ef0001e94a78b4",
+      "media_format": "YouTube format233 raw HE-AAC ADTS; full decoded samplecount used for duration",
+      "transcript_reading": "Entire transcript read sequentially by the corresponding chapter author",
+      "chapter": 21,
+      "chapters": [
+        "chapter-21-nucleation-transformation-diagrams-precipitation-aging.html"
+      ]
+    },
+    {
+      "position": 55,
+      "id": "Jkoicj1Fhes",
+      "title": "Hands-on kinetic simulation: 5 - Overall kinetics, TTT",
+      "duration_label": "Hands-on kinetic simulation: 5 - Overall kinetics, TTT 16 minutes",
+      "url": "https://www.youtube.com/watch?v=Jkoicj1Fhes",
+      "role": "lecture",
+      "transcript_status": "Complete local small.en ASR; machine recognition uncertainty remains",
+      "chapter_status": "Accepted in two independent scientific reviews",
+      "official_lesson": 54,
+      "official_week": "Week 11",
+      "media_status": "downloaded and decoded duration verified",
+      "duration_seconds": 967.0646875,
+      "expected_duration_seconds": 967,
+      "media_sha256": "9880eb82cd739185512494b06f38127d83558dc75e96307ec2820ed82bfeb3e2",
+      "media_format": "YouTube format233 raw HE-AAC ADTS; full decoded samplecount used for duration",
+      "transcript_reading": "Entire transcript read sequentially by the corresponding chapter author",
+      "chapter": 21,
+      "chapters": [
+        "chapter-21-nucleation-transformation-diagrams-precipitation-aging.html"
+      ]
+    },
+    {
+      "position": 56,
+      "id": "msz4HjomKpU",
+      "title": "Hands-on kinetic simulation: 6 -  Precipitation aging",
+      "duration_label": "Hands-on kinetic simulation: 6 -  Precipitation aging 20 minutes",
+      "url": "https://www.youtube.com/watch?v=msz4HjomKpU",
+      "role": "lecture",
+      "transcript_status": "Complete local small.en ASR; machine recognition uncertainty remains",
+      "chapter_status": "Accepted in two independent scientific reviews",
+      "official_lesson": 55,
+      "official_week": "Week 11",
+      "media_status": "downloaded and decoded duration verified",
+      "duration_seconds": 1233.165375,
+      "expected_duration_seconds": 1233,
+      "media_sha256": "d0e56eae3997e80ecbeadf3095f6dc35f1a2074c8f31454d0351fa55a84dca4d",
+      "media_format": "YouTube format233 raw HE-AAC ADTS; full decoded samplecount used for duration",
+      "transcript_reading": "Entire transcript read sequentially by the corresponding chapter author",
+      "chapter": 21,
+      "chapters": [
+        "chapter-21-nucleation-transformation-diagrams-precipitation-aging.html"
+      ]
+    },
+    {
+      "position": 57,
+      "id": "17gucCFasYY",
+      "title": "Compositional design - High-throughput Calphad",
+      "duration_label": "Compositional design - High-throughput Calphad 21 minutes",
+      "url": "https://www.youtube.com/watch?v=17gucCFasYY",
+      "role": "lecture",
+      "transcript_status": "Complete local small.en ASR; machine recognition uncertainty remains",
+      "chapter_status": "Accepted in two independent scientific reviews",
+      "official_lesson": 56,
+      "official_week": "Week 12",
+      "media_status": "downloaded and decoded duration verified",
+      "duration_seconds": 1310.8593125,
+      "expected_duration_seconds": 1311,
+      "media_sha256": "8cc8f84b8d53880d699d5bee54d95f748f035d8d47c0a9a119fcbb32349755f3",
+      "media_format": "YouTube format233 raw HE-AAC ADTS; full decoded samplecount used for duration",
+      "transcript_reading": "Entire transcript read sequentially by the corresponding chapter author",
+      "chapters": [
+        "chapter-22-high-throughput-design-phase-identification.html"
+      ],
+      "chapter": 22
+    },
+    {
+      "position": 58,
+      "id": "4xTnDKBPSzM",
+      "title": "Insights from Calphad for alloy design and characterization",
+      "duration_label": "Insights from Calphad for alloy design and characterization 19 minutes",
+      "url": "https://www.youtube.com/watch?v=4xTnDKBPSzM",
+      "role": "lecture",
+      "transcript_status": "Complete local small.en ASR; machine recognition uncertainty remains",
+      "chapter_status": "Accepted in two independent scientific reviews",
+      "official_lesson": 57,
+      "official_week": "Week 12",
+      "media_status": "downloaded and decoded duration verified",
+      "duration_seconds": 1154.124625,
+      "expected_duration_seconds": 1154,
+      "media_sha256": "6fa06ac20bd7362a7ea652d24fe35df9f27c02ac878acef50e03ce06bee7203d",
+      "media_format": "YouTube format233 raw HE-AAC ADTS; full decoded samplecount used for duration",
+      "transcript_reading": "Entire transcript read sequentially by the corresponding chapter author",
+      "chapters": [
+        "chapter-22-high-throughput-design-phase-identification.html"
+      ],
+      "chapter": 22
+    },
+    {
+      "position": 59,
+      "id": "atjrQP2E11Y",
+      "title": "Material properties in Calphad spirit",
+      "duration_label": "Material properties in Calphad spirit 12 minutes, 21 seconds",
+      "url": "https://www.youtube.com/watch?v=atjrQP2E11Y",
+      "role": "lecture",
+      "transcript_status": "Complete local small.en ASR; machine recognition uncertainty remains",
+      "chapter_status": "Accepted in two independent scientific reviews",
+      "official_lesson": 58,
+      "official_week": "Week 12",
+      "media_status": "downloaded and decoded duration verified",
+      "duration_seconds": 740.0199375,
+      "expected_duration_seconds": 740,
+      "media_sha256": "1a80f03d928fb737fce7fd5d1fd3ec07e2f75e4453bfcd25b998becf40d7501e",
+      "media_format": "YouTube format233 raw HE-AAC ADTS; full decoded samplecount used for duration",
+      "transcript_reading": "Entire transcript read sequentially by the corresponding chapter author",
+      "chapters": [
+        "chapter-23-material-property-models-and-strength.html"
+      ],
+      "chapter": 23
+    },
+    {
+      "position": 60,
+      "id": "JoOavIGtk80",
+      "title": "Calphad - Size effects, Electrochemistry, Process metallurgy",
+      "duration_label": "Calphad - Size effects, Electrochemistry, Process metallurgy 15 minutes",
+      "url": "https://www.youtube.com/watch?v=JoOavIGtk80",
+      "role": "lecture",
+      "transcript_status": "Complete local small.en ASR; machine recognition uncertainty remains",
+      "chapter_status": "Accepted in two independent scientific reviews",
+      "official_lesson": 59,
+      "official_week": "Week 12",
+      "media_status": "downloaded and decoded duration verified",
+      "duration_seconds": 922.9003125,
+      "expected_duration_seconds": 923,
+      "media_sha256": "1c264ec92b5778af9fc4a51481269b0f1d63ed65bdf52ce987fd71848f1e8b9d",
+      "media_format": "YouTube format233 raw HE-AAC ADTS; full decoded samplecount used for duration",
+      "transcript_reading": "Entire transcript read sequentially by the corresponding chapter author",
+      "chapters": [
+        "chapter-24-size-electrochemical-reservoirs-database-limits.html"
+      ],
+      "chapter": 24
+    },
+    {
+      "position": 61,
+      "id": "s5nxvmVmGAc",
+      "title": "Calphad - Summary, history and future",
+      "duration_label": "Calphad - Summary, history and future 14 minutes, 23 seconds",
+      "url": "https://www.youtube.com/watch?v=s5nxvmVmGAc",
+      "role": "lecture",
+      "transcript_status": "Complete local small.en ASR; machine recognition uncertainty remains",
+      "chapter_status": "Accepted in two independent scientific reviews",
+      "official_lesson": 60,
+      "official_week": "Week 12",
+      "media_status": "downloaded and decoded duration verified",
+      "duration_seconds": 862.4355625,
+      "expected_duration_seconds": 862,
+      "media_sha256": "ccc2e9a0b8f4685a0984dc80790c9f62bf318f2f91b9944e2dfe69fe55a57267",
+      "media_format": "YouTube format233 raw HE-AAC ADTS; full decoded samplecount used for duration",
+      "transcript_reading": "Entire transcript read sequentially by the corresponding chapter author",
+      "chapters": [
+        "chapter-24-size-electrochemical-reservoirs-database-limits.html"
+      ],
+      "chapter": 24
+    }
+  ],
+  "scope_check": {
+    "playlist_items": 61,
+    "official_lessons": 60,
+    "unmapped_official_ids": [],
+    "extra_playlist_ids": [
+      "lxBnV9EUSFI"
+    ],
+    "introduction_id": "lxBnV9EUSFI"
+  },
+  "media_verification": {
+    "checked": 61,
+    "passed": 61,
+    "method": "Full FFmpeg decode to mono signed16 PCM at16000Hz; duration=bytes/32000. Raw-container duration is a bitrate estimate and is not used."
+  },
+  "chapters": [
+    {
+      "chapter": 1,
+      "file": "chapter-01-microstructure-phases-composition.html",
+      "title": "Microstructure, phases and composition",
+      "body_sha256": "c123f965c6d72ccdea4914960efca3346e1ba70a7aafd83d676e70b3e06bcee5"
+    },
+    {
+      "chapter": 2,
+      "file": "chapter-02-chemical-order-sites-composition.html",
+      "title": "Chemical order, site populations and composition bases",
+      "body_sha256": "9f882d8f9ce3cc80fc3a7f42db67eff355ab4017b464ab43fe5db0a6ceabaf0d"
+    },
+    {
+      "chapter": 3,
+      "file": "chapter-03-unary-binary-equilibrium-diagrams.html",
+      "title": "Reading unary and binary equilibrium diagrams",
+      "body_sha256": "ae63a2c757cbbdef3c842bc7619b04b6afccfeb23b8a20172cf095bb3f51b0b4"
+    },
+    {
+      "chapter": 4,
+      "file": "chapter-04-ternary-sections-reactions-projections.html",
+      "title": "Ternary geometry, reaction paths and liquidus projections",
+      "body_sha256": "87135b8f136963346689c752e7cf4013ec6658cd5a5adc20ec89bd08f98f6cdd"
+    },
+    {
+      "chapter": 5,
+      "file": "chapter-05-phase-amounts-heat-flow-cooling-curves.html",
+      "title": "Phase amounts, heat flow and the interpretation of cooling curves",
+      "body_sha256": "acdc265dcfe2c732651440b9b3237d39ca775312e258a91d8b402360c0174288"
+    },
+    {
+      "chapter": 6,
+      "file": "chapter-06-states-molecular-energy-heat-capacity.html",
+      "title": "Thermodynamic states, molecular energy and heat capacity",
+      "body_sha256": "0af2b4020037a6d4b526ff7d12a6e0ed7312aba7af4d857e076ea92c44af379d"
+    },
+    {
+      "chapter": 7,
+      "file": "chapter-07-first-law-reversible-adiabatic-paths.html",
+      "title": "The first law, reversible paths and adiabatic processes",
+      "body_sha256": "e8312d8f0b9a414bedc763b1f8fdada0b49dd44437348b282d1b170c0f1f9381"
+    },
+    {
+      "chapter": 8,
+      "file": "chapter-08-entropy-engines-statistical-concentration.html",
+      "title": "Entropy, engines and statistical concentration",
+      "body_sha256": "cf40efb072ac317a7d76975a417c342ebcabf523a5d80bff061a7b9f5859cdc0"
+    },
+    {
+      "chapter": 9,
+      "file": "chapter-09-entropy-contributions-thermodynamic-potentials.html",
+      "title": "Entropy contributions and thermodynamic potentials",
+      "body_sha256": "d58476469ddb382c9ec776b4fc37d5367ba2df8fa95ffa18c3c3a6d9fe7277bd"
+    },
+    {
+      "chapter": 10,
+      "file": "chapter-10-lattice-stability-caloric-mixing.html",
+      "title": "Lattice stability, caloric integration and microscopic mixing energies",
+      "body_sha256": "095746842be219508ced20167f325853515d56456efa5532725bef3feee6b120"
+    },
+    {
+      "chapter": 11,
+      "file": "chapter-11-mixing-chemical-potentials-activities.html",
+      "title": "Mixing, chemical potentials, activities and transfer equilibrium",
+      "body_sha256": "c12bda2a41c816ffc28f484236a6bd7e3bef0aa43d5f9ee0a688e8bb9186ff13"
+    },
+    {
+      "chapter": 12,
+      "file": "chapter-12-global-tangents-driving-forces-phase-rule.html",
+      "title": "Global tangents, transformation driving forces and the phase rule",
+      "body_sha256": "6f8f77bbb4554d11e2207bbb8381806f8512dc5d218329871128e251b1dcb59b"
+    },
+    {
+      "chapter": 13,
+      "file": "chapter-13-calphad-models-database-minimization.html",
+      "title": "CALPHAD models, database consistency and constrained equilibrium",
+      "body_sha256": "7f4fc8dcc83c4c7c45b5c8721bb11cc542de675f8475d01693c143c0a5adcc16"
+    },
+    {
+      "chapter": 14,
+      "file": "chapter-14-reproducible-equilibrium-calculations.html",
+      "title": "Reproducible calculations: phase status, paths and result audits",
+      "body_sha256": "d9950d0ffd018ee5bd1b6778311684b2b74ddcaa8c034c6e93a9bc0d3403e348"
+    },
+    {
+      "chapter": 15,
+      "file": "chapter-15-composition-paths-references-tzero.html",
+      "title": "Composition paths, property references and T-zero curves",
+      "body_sha256": "23c1e3e09cf4a1009554c7e731aff9e89c4c72758c9bdbaa1dc686261765ff80"
+    },
+    {
+      "chapter": 16,
+      "file": "chapter-16-scheil-solidification-conservative-histories.html",
+      "title": "Scheil solidification, segregation and conservative histories",
+      "body_sha256": "da4aaf511c100fa28edc0e55e1e0e8c9b63badb0368fb1cd6bf7e88c3b774a58"
+    },
+    {
+      "chapter": 17,
+      "file": "chapter-17-assessment-data-measurements-constraints.html",
+      "title": "Thermodynamic assessment: data, measurements and inverse constraints",
+      "body_sha256": "1d14960c3b7134e0149f34e656150adcc7378664b76b0b4c9f56c98200d26cc3"
+    },
+    {
+      "chapter": 18,
+      "file": "chapter-18-sublattice-models-assessment-databases.html",
+      "title": "Sublattice models, assessment and compatible databases",
+      "body_sha256": "f528fff6d2e6b2fe4ef696f838c804ca0449425b6ab882ea3ae35a0a8ffc99ae"
+    },
+    {
+      "chapter": 19,
+      "file": "chapter-19-diffusion-mobility-thermodynamic-forces.html",
+      "title": "Diffusion, mobility and thermodynamic forces",
+      "body_sha256": "50b09f397003f5ac587b0a840c409446644d30d24212513df9f9458fbd2c1a97"
+    },
+    {
+      "chapter": 20,
+      "file": "chapter-20-conservative-transport-interfaces-rapid-solidification.html",
+      "title": "Conservative transport, interfaces and rapid solidification",
+      "body_sha256": "f081244ad1ec7b41949bcaa32106c7376e4a36f3c2af7d776f2b94f272394836"
+    },
+    {
+      "chapter": 21,
+      "file": "chapter-21-nucleation-transformation-diagrams-precipitation-aging.html",
+      "title": "Nucleation, transformation diagrams and precipitation aging",
+      "body_sha256": "b7229e9e8b92c5cb654a5f423bb840699390bd4cf7f6957dbe2d44692a914b84"
+    },
+    {
+      "chapter": 22,
+      "file": "chapter-22-high-throughput-design-phase-identification.html",
+      "title": "High-throughput design, driving forces and phase identification",
+      "body_sha256": "be3771499520b00e6780c0ed68adfc0a0f2ee858d90a9c28b092525dd27e6e3b"
+    },
+    {
+      "chapter": 23,
+      "file": "chapter-23-material-property-models-and-strength.html",
+      "title": "Material property models and strength",
+      "body_sha256": "d8627dae1bd38782199af5940f481f669e3c4b363974d609abe27247d70e30eb"
+    },
+    {
+      "chapter": 24,
+      "file": "chapter-24-size-electrochemical-reservoirs-database-limits.html",
+      "title": "Size, electrochemical reservoirs and database limits",
+      "body_sha256": "3ef129e72d7153d8d962ec8785d68379ce7e599fc50b497e9c84c178b9bc0a14"
+    }
+  ],
+  "source_reading_scope": "All61 complete local transcripts read by corresponding authors, including orientation; no complete audiovisual/board audit"
+}

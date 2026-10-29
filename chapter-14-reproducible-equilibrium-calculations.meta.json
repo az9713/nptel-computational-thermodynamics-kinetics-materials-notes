@@ -1,0 +1,138 @@
+{
+  "chapter": 14,
+  "title": "Reproducible calculations: phase status, paths and result audits",
+  "file": "chapter-14-reproducible-equilibrium-calculations.html",
+  "status": "Accepted in two independent scientific reviews",
+  "authored_body_sha256": "d9950d0ffd018ee5bd1b6778311684b2b74ddcaa8c034c6e93a9bc0d3403e348",
+  "recordings": [
+    {
+      "official_lesson": 27,
+      "playlist_position": 28,
+      "video_id": "diFN59CIKJo",
+      "duration_seconds": 1608.167625,
+      "source_type": "local faster-whisper small.en ASR, not publisher captions",
+      "transcript_reading": "Entire transcript read sequentially",
+      "chunk_policy": "90-second cores with 2-second context; possible recognition and boundary errors"
+    },
+    {
+      "official_lesson": 28,
+      "playlist_position": 29,
+      "video_id": "ek7BitlHojI",
+      "duration_seconds": 2179.099875,
+      "source_type": "local faster-whisper small.en ASR, not publisher captions",
+      "transcript_reading": "Entire transcript read sequentially",
+      "chunk_policy": "90-second cores with 2-second context; possible recognition and boundary errors"
+    },
+    {
+      "official_lesson": 29,
+      "playlist_position": 30,
+      "video_id": "mxuZkETH_Jg",
+      "duration_seconds": 1899.996,
+      "source_type": "local faster-whisper small.en ASR, not publisher captions",
+      "transcript_reading": "Entire transcript read sequentially",
+      "chunk_policy": "90-second cores with 2-second context; possible recognition and boundary errors"
+    },
+    {
+      "official_lesson": 30,
+      "playlist_position": 31,
+      "video_id": "wXVkvJ8PH9g",
+      "duration_seconds": 2205.3384375,
+      "source_type": "local faster-whisper small.en ASR, not publisher captions",
+      "transcript_reading": "Entire transcript read sequentially",
+      "chunk_policy": "90-second cores with 2-second context; possible recognition and boundary errors"
+    }
+  ],
+  "sections": [
+    {
+      "anchor": "problem",
+      "video_id": "diFN59CIKJo",
+      "start": 37,
+      "end": 316
+    },
+    {
+      "anchor": "units",
+      "video_id": "diFN59CIKJo",
+      "start": 486,
+      "end": 1602
+    },
+    {
+      "anchor": "branches",
+      "video_id": "ek7BitlHojI",
+      "start": 58,
+      "end": 1224
+    },
+    {
+      "anchor": "metastable",
+      "video_id": "mxuZkETH_Jg",
+      "start": 239,
+      "end": 1136
+    },
+    {
+      "anchor": "paths",
+      "video_id": "ek7BitlHojI",
+      "start": 1224,
+      "end": 2173
+    },
+    {
+      "anchor": "sections",
+      "video_id": "wXVkvJ8PH9g",
+      "start": 30,
+      "end": 989
+    },
+    {
+      "anchor": "console",
+      "video_id": "wXVkvJ8PH9g",
+      "start": 989,
+      "end": 2199
+    },
+    {
+      "anchor": "paths",
+      "video_id": "mxuZkETH_Jg",
+      "start": 1136,
+      "end": 1894
+    }
+  ],
+  "worked_solutions": 9,
+  "executable_listings": 1,
+  "actual_engine": {
+    "name": "pycalphad",
+    "version": "0.11.1",
+    "gas_constant": 8.3145,
+    "database": "data/ch14_synthetic.tdb",
+    "database_sha256": "b3df86459160237326667b7463aa892d994615583a8f59a475b32025ef4afa01",
+    "dependencies": "requirements.txt",
+    "scope": "Original synthetic functions with CU/NI identifiers; not an assessed Cu-Ni database or FEDEMO reproduction"
+  },
+  "original_constructions": [
+    "Analytic supporting-line certificate matching real open-source equilibrium outputs",
+    "Mass/mole/volume fraction and mean molar mass audits",
+    "Actual phase-suppression comparison and same-model demixing calculation",
+    "Fixed-composition thermal sweep with analytic boundary and density repeat",
+    "Off-section ternary tie-line counterexample and condition-list repairs"
+  ],
+  "independent_review": {
+    "status": "accepted",
+    "accepted": true,
+    "body_sha256": "d9950d0ffd018ee5bd1b6778311684b2b74ddcaa8c034c6e93a9bc0d3403e348",
+    "review_ids": [
+      "ct-ch14-r1",
+      "ct-ch14-r2"
+    ],
+    "reviewer_ids": [
+      "separate-ai-agent-cardiovascular",
+      "separate-ai-agent-coordinator"
+    ],
+    "blocking": 0,
+    "major": 0,
+    "minor": 0
+  },
+  "limitations": [
+    "No comprehensive audiovisual or board audit",
+    "Thermo-Calc GUI/console procedures are recorded-source descriptions, not rerun FEDEMO results",
+    "Real pycalphad engine executed only on original synthetic TDB, not experimental validation",
+    "OtisLiu2017 selected PDF pages2–5 read, not full11-page paper audit",
+    "Official results documentation selected dataset semantics inspected; development docs differ from executed0.11.1",
+    "Floating-point display precision is not an experimental uncertainty estimate",
+    "Equal-FeCr ratio section introduced by source30 but not completed there"
+  ]
+}

@@ -1,0 +1,151 @@
+{
+  "chapter": 17,
+  "title": "Thermodynamic assessment: data, measurements and inverse constraints",
+  "file": "chapter-17-assessment-data-measurements-constraints.html",
+  "status": "Accepted in two independent scientific reviews",
+  "authored_body_sha256": "1d14960c3b7134e0149f34e656150adcc7378664b76b0b4c9f56c98200d26cc3",
+  "recordings": [
+    {
+      "official_lesson": 36,
+      "playlist_position": 37,
+      "video_id": "OolkJI4f_bY",
+      "duration_seconds": 1086.136625,
+      "source_type": "local faster-whisper small.en ASR, not publisher captions",
+      "transcript_reading": "Entire transcript read sequentially",
+      "chunk_policy": "90-second cores with 2-second context; recognition and boundary uncertainty remains"
+    },
+    {
+      "official_lesson": 37,
+      "playlist_position": 38,
+      "video_id": "sCTYh4Gk6Bc",
+      "duration_seconds": 1435.4111875,
+      "source_type": "local faster-whisper small.en ASR, not publisher captions",
+      "transcript_reading": "Entire transcript read sequentially",
+      "chunk_policy": "90-second cores with 2-second context; recognition and boundary uncertainty remains"
+    },
+    {
+      "official_lesson": 38,
+      "playlist_position": 39,
+      "video_id": "5gMniJxWDcI",
+      "duration_seconds": 743.8745,
+      "source_type": "local faster-whisper small.en ASR, not publisher captions",
+      "transcript_reading": "Entire transcript read sequentially",
+      "chunk_policy": "90-second cores with 2-second context; recognition and boundary uncertainty remains"
+    },
+    {
+      "official_lesson": 39,
+      "playlist_position": 40,
+      "video_id": "mn3Cd77yka4",
+      "duration_seconds": 2580.66575,
+      "source_type": "local faster-whisper small.en ASR, not publisher captions",
+      "transcript_reading": "Entire transcript read sequentially",
+      "chunk_policy": "90-second cores with 2-second context; recognition and boundary uncertainty remains"
+    },
+    {
+      "official_lesson": 40,
+      "playlist_position": 41,
+      "video_id": "6N7efzoyosk",
+      "duration_seconds": 1297.5310625,
+      "source_type": "local faster-whisper small.en ASR, not publisher captions",
+      "transcript_reading": "Entire transcript read sequentially",
+      "chunk_policy": "90-second cores with 2-second context; recognition and boundary uncertainty remains"
+    }
+  ],
+  "sections": [
+    {
+      "anchor": "inverse",
+      "video_id": "OolkJI4f_bY",
+      "start": 55,
+      "end": 740
+    },
+    {
+      "anchor": "calorimetry",
+      "video_id": "OolkJI4f_bY",
+      "start": 775,
+      "end": 1078
+    },
+    {
+      "anchor": "activities",
+      "video_id": "sCTYh4Gk6Bc",
+      "start": 69,
+      "end": 439
+    },
+    {
+      "anchor": "atomistic",
+      "video_id": "sCTYh4Gk6Bc",
+      "start": 439,
+      "end": 1428
+    },
+    {
+      "anchor": "thermal",
+      "video_id": "5gMniJxWDcI",
+      "start": 100,
+      "end": 737
+    },
+    {
+      "anchor": "isothermal",
+      "video_id": "mn3Cd77yka4",
+      "start": 127,
+      "end": 744
+    },
+    {
+      "anchor": "couples",
+      "video_id": "mn3Cd77yka4",
+      "start": 744,
+      "end": 2428
+    },
+    {
+      "anchor": "couples",
+      "video_id": "mn3Cd77yka4",
+      "start": 2428,
+      "end": 2574
+    },
+    {
+      "anchor": "uncertainty",
+      "video_id": "6N7efzoyosk",
+      "start": 34,
+      "end": 632
+    },
+    {
+      "anchor": "diagram-audit",
+      "video_id": "6N7efzoyosk",
+      "start": 632,
+      "end": 1278
+    }
+  ],
+  "worked_solutions": 9,
+  "executable_listings": 1,
+  "original_constructions": [
+    "Enthalpy entropy-null-direction proof and exact complementary activity inversion",
+    "Signed dissolution Hess cycle and constant-volume reaction correction",
+    "Gibbs-Duhem integration-reference and dependent-data argument",
+    "Finite-temperature energy/entropy scale and Landau response derivation",
+    "Bragg shift, phase-fraction nonuniqueness and mixed-signal conditioning examples",
+    "Shared-calibration covariance and uncertainty floor"
+  ],
+  "independent_review": {
+    "status": "accepted",
+    "accepted": true,
+    "body_sha256": "1d14960c3b7134e0149f34e656150adcc7378664b76b0b4c9f56c98200d26cc3",
+    "review_ids": [
+      "ct-ch17-r1",
+      "ct-ch17-r2"
+    ],
+    "reviewer_ids": [
+      "separate-ai-agent-turbulence",
+      "separate-ai-agent-coordinator"
+    ],
+    "blocking": 0,
+    "major": 0,
+    "minor": 0
+  },
+  "limitations": [
+    "No audiovisual or board audit",
+    "No actual calorimetry/microscopy/DFT/commercial assessment execution",
+    "Synthetic program is not experimental validation",
+    "Kattner review actual main text through PDFp14 read, not all figures/tables/cited experiments",
+    "Bartel2018 actual PDFpp1–3 read; descriptor/dataset not rerun",
+    "JCGM100:2008 actual sections5.1–5.2 read, not entire134page guide",
+    "Phase-diagram sketch is explained through qualified equilibrium constraints, not reconstructed from unseen board"
+  ]
+}

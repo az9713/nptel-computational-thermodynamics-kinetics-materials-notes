@@ -1,0 +1,105 @@
+{
+  "chapter": 13,
+  "title": "CALPHAD models, database consistency and constrained equilibrium",
+  "file": "chapter-13-calphad-models-database-minimization.html",
+  "status": "Accepted in two independent scientific reviews",
+  "authored_body_sha256": "7f4fc8dcc83c4c7c45b5c8721bb11cc542de675f8475d01693c143c0a5adcc16",
+  "recordings": [
+    {
+      "official_lesson": 25,
+      "playlist_position": 26,
+      "video_id": "_YSc-fSIUi4",
+      "duration_seconds": 1423.151,
+      "source_type": "local faster-whisper small.en ASR, not publisher captions",
+      "transcript_reading": "Entire transcript read sequentially",
+      "chunk_policy": "90-second cores with 2-second context; possible recognition and boundary errors"
+    },
+    {
+      "official_lesson": 26,
+      "playlist_position": 27,
+      "video_id": "xCGYkJPUQbA",
+      "duration_seconds": 1303.7075625,
+      "source_type": "local faster-whisper small.en ASR, not publisher captions",
+      "transcript_reading": "Entire transcript read sequentially",
+      "chunk_policy": "90-second cores with 2-second context; possible recognition and boundary errors"
+    }
+  ],
+  "sections": [
+    {
+      "anchor": "workflow",
+      "video_id": "_YSc-fSIUi4",
+      "start": 42,
+      "end": 349
+    },
+    {
+      "anchor": "unary",
+      "video_id": "_YSc-fSIUi4",
+      "start": 349,
+      "end": 830
+    },
+    {
+      "anchor": "reference",
+      "video_id": "_YSc-fSIUi4",
+      "start": 830,
+      "end": 1208
+    },
+    {
+      "anchor": "contributions",
+      "video_id": "_YSc-fSIUi4",
+      "start": 1208,
+      "end": 1416
+    },
+    {
+      "anchor": "rk",
+      "video_id": "xCGYkJPUQbA",
+      "start": 175,
+      "end": 731
+    },
+    {
+      "anchor": "higher",
+      "video_id": "xCGYkJPUQbA",
+      "start": 731,
+      "end": 1046
+    },
+    {
+      "anchor": "minimization",
+      "video_id": "xCGYkJPUQbA",
+      "start": 1046,
+      "end": 1297
+    }
+  ],
+  "worked_solutions": 9,
+  "executable_listings": 1,
+  "original_constructions": [
+    "Unary caloric derivative and reference-gauge audits",
+    "Piecewise join correction and heat-capacity distinction",
+    "Pressure-integral and generic magnetic derivative derivations",
+    "RK parity, relabeling and temperature-dependent caloric laboratory",
+    "Identical-binary-edge ternary counterexample and interaction multiplicity proof",
+    "Finite sampled-state minimization with exhaustive pairs and primal-dual certificate"
+  ],
+  "independent_review": {
+    "status": "accepted",
+    "accepted": true,
+    "body_sha256": "7f4fc8dcc83c4c7c45b5c8721bb11cc542de675f8475d01693c143c0a5adcc16",
+    "review_ids": [
+      "ct-ch13-r1",
+      "ct-ch13-r2"
+    ],
+    "reviewer_ids": [
+      "separate-ai-agent-cardiovascular",
+      "separate-ai-agent-coordinator"
+    ],
+    "blocking": 0,
+    "major": 0,
+    "minor": 0
+  },
+  "limitations": [
+    "No comprehensive audiovisual or board audit",
+    "No commercial database or measured elemental coefficients reproduced",
+    "No commercial equilibrium engine or pycalphad runtime reproduced",
+    "Murnaghan pressure model and magnetic derivative identities only; no material magnetic transition simulated",
+    "Primary image-based equation sets not comprehensively decoded; bounded textual source claims explicit",
+    "A sampled certificate alone does not certify continuous equilibrium or omitted phases"
+  ]
+}

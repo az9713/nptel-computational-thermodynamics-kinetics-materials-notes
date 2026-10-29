@@ -1,0 +1,139 @@
+{
+  "chapter": 15,
+  "title": "Composition paths, property references and T-zero curves",
+  "file": "chapter-15-composition-paths-references-tzero.html",
+  "status": "Accepted in two independent scientific reviews",
+  "authored_body_sha256": "23c1e3e09cf4a1009554c7e731aff9e89c4c72758c9bdbaa1dc686261765ff80",
+  "recordings": [
+    {
+      "official_lesson": 31,
+      "playlist_position": 32,
+      "video_id": "9NB_EO-GxKQ",
+      "duration_seconds": 1623.12125,
+      "source_type": "local faster-whisper small.en ASR, not publisher captions",
+      "transcript_reading": "Entire transcript read sequentially",
+      "chunk_policy": "90-second cores with 2-second context; possible recognition and boundary errors"
+    },
+    {
+      "official_lesson": 32,
+      "playlist_position": 33,
+      "video_id": "Yv0dMq5moX0",
+      "duration_seconds": 1602.8735,
+      "source_type": "local faster-whisper small.en ASR, not publisher captions",
+      "transcript_reading": "Entire transcript read sequentially",
+      "chunk_policy": "90-second cores with 2-second context; possible recognition and boundary errors"
+    },
+    {
+      "official_lesson": 33,
+      "playlist_position": 34,
+      "video_id": "qqoAc6JpTOs",
+      "duration_seconds": 1588.152,
+      "source_type": "local faster-whisper small.en ASR, not publisher captions",
+      "transcript_reading": "Entire transcript read sequentially",
+      "chunk_policy": "90-second cores with 2-second context; possible recognition and boundary errors"
+    },
+    {
+      "official_lesson": 34,
+      "playlist_position": 35,
+      "video_id": "SGtheIa_Tl0",
+      "duration_seconds": 1268.506125,
+      "source_type": "local faster-whisper small.en ASR, not publisher captions",
+      "transcript_reading": "Entire transcript read sequentially",
+      "chunk_policy": "90-second cores with 2-second context; possible recognition and boundary errors"
+    }
+  ],
+  "sections": [
+    {
+      "anchor": "constraints",
+      "video_id": "9NB_EO-GxKQ",
+      "start": 987,
+      "end": 1617
+    },
+    {
+      "anchor": "constraints",
+      "video_id": "Yv0dMq5moX0",
+      "start": 88,
+      "end": 1216
+    },
+    {
+      "anchor": "mapping",
+      "video_id": "9NB_EO-GxKQ",
+      "start": 54,
+      "end": 987
+    },
+    {
+      "anchor": "mapping",
+      "video_id": "Yv0dMq5moX0",
+      "start": 1224,
+      "end": 1596
+    },
+    {
+      "anchor": "tangent-basis",
+      "video_id": "qqoAc6JpTOs",
+      "start": 94,
+      "end": 747
+    },
+    {
+      "anchor": "references",
+      "video_id": "qqoAc6JpTOs",
+      "start": 747,
+      "end": 1586
+    },
+    {
+      "anchor": "tzero",
+      "video_id": "SGtheIa_Tl0",
+      "start": 25,
+      "end": 771
+    },
+    {
+      "anchor": "roots",
+      "video_id": "SGtheIa_Tl0",
+      "start": 771,
+      "end": 1262
+    }
+  ],
+  "worked_solutions": 9,
+  "executable_listings": 1,
+  "actual_engine": {
+    "name": "pycalphad",
+    "version": "0.11.1",
+    "gas_constant": 8.3145,
+    "database": "data/ch15_tzero.tdb",
+    "database_sha256": "82a29427e05c7b09c34ae808b1f1a3e706caa29ea3b82b02803cd7bf67a759b6",
+    "dependencies": "requirements.txt",
+    "scope": "Original synthetic PSOL/QSOL functions with CU/NI identifiers; not measured alloy or commercial database reproduction"
+  },
+  "original_constructions": [
+    "Constraint-rank and ratio-endpoint derivation with exact five-component example",
+    "Matching energy/composition-basis common-tangent proof and nonlinear-axis counterexample",
+    "Common versus phase-specific reference distinction and caloric derivative identities",
+    "Exact T-zero line plus different-composition global-support certificate matched to actual engine",
+    "Kinetic mobility nonuniqueness and added product-energy threshold examples",
+    "Multiple/touching root localization counterexamples"
+  ],
+  "independent_review": {
+    "status": "accepted",
+    "accepted": true,
+    "body_sha256": "23c1e3e09cf4a1009554c7e731aff9e89c4c72758c9bdbaa1dc686261765ff80",
+    "review_ids": [
+      "ct-ch15-r1",
+      "ct-ch15-r2"
+    ],
+    "reviewer_ids": [
+      "separate-ai-agent-graph-theory",
+      "separate-ai-agent-coordinator"
+    ],
+    "blocking": 0,
+    "major": 0,
+    "minor": 0
+  },
+  "limitations": [
+    "No comprehensive audiovisual or board audit",
+    "Commercial FEDEMO/TCNI/GUI/macro results described from recordings, not rerun",
+    "Real pycalphad execution only on original synthetic two-branch database",
+    "Archived console manual selected MAP pages155–157 read; not full248-page manual audit",
+    "NIST2014 primary review selectedpages1–3,8–10,12–13 read; transport assessments not independently reproduced",
+    "T-zero equality does not establish transformation onset, mechanism or rate",
+    "Phase-specific mixing references do not rank raw phase stability"
+  ]
+}

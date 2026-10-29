@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="dark light"><meta name="book-content-sha256" content="b7229e9e8b92c5cb654a5f423bb840699390bd4cf7f6957dbe2d44692a914b84"><title>Nucleation, transformation diagrams and precipitation aging · Computational Thermodynamics</title><link rel="stylesheet" href="assets/book.css"><script src="assets/math-config.js"></script><script defer src="assets/mathjax-tex-svg.js"></script><script defer src="assets/book.js"></script></head>
+<body><a class="skip" href="#main">Skip to content</a><header class="site-header"><a class="brand" href="index.html">Computational Thermodynamics and Kinetics of Materials</a><nav class="course-nav"><a href="index.html">Chapters</a><a href="source-map.html">Source map</a><a href="references.html">References</a><a href="numerical-lab.html">Numerical lab</a></nav></header><div class="layout"><aside class="toc" id="chapter-toc"><h2>On this page</h2></aside><main id="main"><div class="reading-tools"><button id="theme-toggle" aria-pressed="false">Light theme</button><button id="text-toggle" aria-pressed="false">Larger text</button><button id="solutions-toggle" aria-pressed="false">Expand solutions</button><button id="print-page">Print with solutions</button></div>
+<article id="chapter-content"><!-- BOOK-CONTENT-START -->
+<h1>21. Nucleation, transformation diagrams and precipitation aging</h1>
+<p class="lead">An equilibrium diagram identifies possible products and amounts; it does not specify how many nuclei appear, their size distribution or the stress required to move a dislocation through them. Overall transformation kinetics connects driving forces to nucleation, growth, field overlap and evolving particle populations. The central discipline is to keep these different observables distinct.</p>
+<div class="callout"><strong>Source and model scope.</strong> Entire local ASRs of lessons 53–55 were read sequentially. The recordings introduce interfacial and elastic costs, nucleation and growth, TTT/CCT diagrams and Al–Sc aging. Their commercial precipitation examples and experimental overlays were not rerun. The calculations below are original synthetic capillarity, Poisson-growth, particle-moment and strength examples. They do not reproduce a Kampmann–Wagner numerical solver, a cluster-dynamics alloy assessment or an experimental aging curve.</div>
+<h2 id="barrier">21.1 Bulk driving force does not eliminate a small-cluster barrier</h2>
+<p class="source"><a href="https://www.youtube.com/watch?v=XNhnrzhPJX8&amp;t=88s">Lesson 53, 1:28–11:58</a>. Topic span; mathematical constructions and numerical examples are explicitly original extensions.</p>
+<p>Let a spherical product cluster of radius r have isotropic interface free energy gamma in J/m². Write the positive bulk transformation benefit as delta-g-b in J/m³ and approximate a coherent elastic cost by a positive constant density e. Define $d=\Delta g_b-e$. At fixed temperature and the specified chemical environment, the capillarity model is</p>
+$$W(r)=4\pi\gamma r^2-\frac{4\pi}{3}d r^3.$$
+<p>The bulk driving force must use a consistent thermodynamic constraint. For a nucleus exchanging components with a large parent reservoir, the relevant chemical-potential or tangent-plane construction determines its composition and benefit; subtracting arbitrary same-composition phase molar energies is not a universal multicomponent nucleation calculation. Molar and volumetric quantities also require the appropriate molar-volume conversion before combining them with an area term.</p>
+<p>For d positive, differentiate: $W'=4\pi r(2\gamma-dr)$. The nonzero stationary radius and its barrier are</p>
+$$r_*=\frac{2\gamma}{d},\qquad
+W_*=\frac{16\pi\gamma^3}{3d^2}.$$
+<p>The second derivative at r-star is $-8\pi\gamma$, so this stationary point is a maximum along the radius coordinate, not a stable minimum. Subcritical clusters tend to shrink and supercritical ones tend to grow under the model's fixed conditions, with stochastic fluctuations still possible. A critical nucleus is an unstable threshold configuration. The model's total work crosses zero only at $r_0=3\gamma/d=1.5r_*$. Thus a just-supercritical cluster can lower its work by growing while its work is still positive relative to the initial parent.</p>
+<p>With gamma=0.05 J/m², delta-g-b=10⁸ J/m³ and e=2×10⁷ J/m³, the original example gives r-star=1.25 nm, zero crossing 1.875 nm and barrier $W_*/(k_BT)=38.036693552$ at 623.15 K. The code verifies the stationary value and the lower work on either side. If d is nonpositive, this simple model has no downhill large-radius product growth. If the critical cluster is only a few atomic spacings across, treating its surface as a sharp interface with size-independent bulk gamma becomes a questionable approximation.</p>
+<p>The constant elastic-density construction is itself an assumption. Coherency, elastic anisotropy, shape, surrounding constraint and relaxation through defects can change it with size. A liquid does not sustain an equilibrium static shear stress like a solid, but that fact does not erase capillary pressure, volume constraints or every possible mechanical contribution. The lecture's bond pictures motivate the energetic terms; they are not atomistically complete definitions of interface free energy.</p>
+<h2 id="rates">21.2 Nucleation rates combine a barrier, a kinetic prefactor and a site population</h2>
+<p class="source"><a href="https://www.youtube.com/watch?v=XNhnrzhPJX8&amp;t=718s">Lesson 53, 11:58–17:09</a>. Topic span; mathematical constructions and numerical examples are explicitly original extensions.</p>
+<p>A schematic homogeneous steady-state rate is $I=N_s Z\beta\exp[-W_*/(k_BT)]$. Here Ns is a site density, Z is a dimensionless barrier-crossing factor and beta is an attachment frequency per site under the chosen convention. I has units nuclei/(m³ s). With a molar activation barrier the exponential must instead use RT; a barrier for one cluster in joules uses kBT. A large negative bulk benefit does not guarantee a high rate when attachment is kinetically slow.</p>
+<p>Holding the combined prefactor at an explicitly illustrative 10³² m⁻³ s⁻¹ gives $I=3.026034538\times10^{15}$ m⁻³ s⁻¹ for the stipulated barrier. In a constant-rate Poisson approximation, a volume V observed for time t has event probability $P(\text{at least one})=1-\exp(-IVt)$ and mean first-event waiting time $1/(IV)$. For V=10⁻¹⁸ m³ and t=100 s, the probability is 0.261107957 and the mean wait is 330.465494507 s. A low expected count is not a deterministic incubation time during which events are impossible.</p>
+<p>For a spherical-cap nucleus on an ideal flat inert substrate, a fixed contact angle measured through the product gives the geometric barrier factor</p>
+$$f(\theta)=\frac{(2+\cos\theta)(1-\cos\theta)^2}{4}.$$
+<p>At 60 degrees it is 0.15625. This ideal heterogeneous model assumes the relevant interfacial balance and cap geometry; it does not cover every grain-boundary, dislocation or coherent-inclusion geometry. A smaller barrier alone also does not fix the total heterogeneous rate: available site densities and attachment kinetics can differ from the homogeneous case. A rate per boundary area must be converted using the actual boundary area per specimen volume before comparison with a volumetric rate.</p>
+<p>Increasing supersaturation can lower a bulk nucleation barrier and enable many intragranular nuclei. It does not switch off heterogeneous sites. The recording's explanation of aging as suppressing heterogeneous nucleation should therefore be read as a processing goal, not a universal consequence of supersaturation. Likewise a formal homogeneous rate does not guarantee a perfectly uniform realized particle spacing. Positions fluctuate, sites can correlate and depletion fields subsequently interact.</p>
+<h2 id="extended">21.3 Derive an impingement correction from a random-growth model</h2>
+<p class="source"><a href="https://www.youtube.com/watch?v=XNhnrzhPJX8&amp;t=1030s">Lesson 53, 17:10–19:12</a>. Topic span; mathematical constructions and numerical examples are explicitly original extensions.</p>
+<p>Consider an ideal infinite three-dimensional material with homogeneous Poisson attempted births of intensity I per unit volume per unit time. Every accepted nucleus grows isotropically with common constant radial speed u. Introduce “extended” spheres that continue through one another and allow attempted births even inside already transformed material. The extended volume covering a specified point at time t is</p>
+$$Y(t)=\int_0^t I\,\frac{4\pi}{3}[u(t-\tau)]^3\,d\tau
+=\frac{\pi}{3}Iu^3t^4.$$
+<p>The set of space-time births whose extended spheres reach the point has Poisson mean Y. Its probability of containing no birth is exp(−Y), giving the actual covered fraction</p>
+$$X(t)=1-e^{-Y(t)}=1-\exp(-Kt^4),\qquad K=\frac{\pi Iu^3}{3}.$$
+<p>Y can exceed one because overlaps are counted repeatedly; X cannot. A phantom birth inside an earlier sphere does not change the covered union in this constant-speed construction: by the triangle inequality, its later sphere is contained within the earlier sphere's later reach. This containment is why the extension is consistent with physical impingement here. Arbitrary diffusion-limited growth laws, nonrandom sites or growth changed by solute depletion do not automatically retain that argument.</p>
+<p>I is the attempted intensity used in the extended construction. The actual accepted new nuclei per specimen volume are reduced by the untransformed fraction. Extended birth moments used in the code are therefore not a prediction of the number density of distinct physical precipitates after impingement. The geometry model also contains no evolving solute inventory or curvature-dependent growth; it should not be substituted for an alloy population balance.</p>
+<p>For I=10¹⁴ m⁻³ s⁻¹ and u=10⁻⁸ m/s, K=1.047197551197×10⁻¹⁰ s⁻⁴. Fractions 1%, 50% and 99% occur at 98.977843939, 285.232632883 and 457.935451981 s. These are operational fraction thresholds, not three microscopic nucleation times. No additional induction-time shift has been introduced.</p>
+<p>If all nuclei are instead present initially with Poisson number density N0, the extended fraction is $(4\pi/3)N_0u^3t^3$, giving exponent three. In d dimensions with a stipulated radius proportional to age raised to p, the continuous-birth extended integral scales as $t^{dp+1}$, whereas site-saturated extended volume scales as $t^{dp}$. Those scaling counts do not prove the same exact impingement correction for every growth law. Fitting a noninteger Avrami exponent therefore does not uniquely reveal dimensionality or nucleation mechanism.</p>
+<h2 id="ttt">21.4 Specify which fraction defines a TTT “start” or “finish”</h2>
+<p class="source"><a href="https://www.youtube.com/watch?v=Jkoicj1Fhes&amp;t=53s">Lesson 54, 0:53–3:56</a>. Topic span; mathematical constructions and numerical examples are explicitly original extensions.</p>
+<p>The isothermal experiments described in lesson 54 prepare comparable parent material, expose separate samples at a fixed temperature for different times and measure product amount. A TTT diagram collects specified fraction times at many such temperatures. “Start” and “finish” require definitions: here they mean 1% and 99% of a stipulated normalized transformation extent. They are not mathematical zero and one, which the exponential model reaches only at limiting times.</p>
+<p>When the equilibrium precipitate fraction is small, normalized extent is not absolute product volume fraction. For an initially absent product with final fraction $f_{\rm eq}$, define $X=f/f_{\rm eq}$ only when that monotone single-product interpretation is appropriate. If feq=0.01, a 1% normalized start corresponds to absolute fraction 0.0001. A diagram based on an absolute 1% threshold would ask an entirely different question and might never register a larger “finish.”</p>
+<p>Competitive products complicate this further. A metastable carbide can appear and later dissolve while another product grows. Its individual fraction need not increase monotonically toward its eventual equilibrium value. Every plotted start curve must specify phase identity, reference amount, threshold and observation window. The recorded Fe–C and Fe–Cr–C precipitation demonstrations use selected phases and heterogeneous site settings; their displayed experimental agreement is not independently revalidated by these synthetic notes.</p>
+<p>To illustrate a C-shaped family, the program stipulates $T_m=1000$ K, positive nucleation and growth functions</p>
+$$I(T)=10^{32}\exp\!\left[-\frac{60000}{RT}
+-\frac{10^9\ {\rm K^3}}{T(T_m-T)^2}\right],$$
+$$u(T)=10^{-3}\exp[-50000/(RT)]
+\left[1-\exp\!\left(-\frac{\Delta\mu(T)}{RT}\right)\right]\ {\rm m/s},
+\qquad \Delta\mu(T)=10000\frac{T_m-T}{T_m}\ {\rm J/mol}.$$
+<p>The first prefactor has units m⁻³ s⁻¹ and the molar activation energies are in J/mol. The temperature-dependent barrier suppresses nucleation near Tm; low-temperature attachment and growth become slow. Evaluating $t_X=[-\ln(1-X)/K(T)]^{1/4}$ on the integer-kelvin grid 300–950 K puts the synthetic 1% nose at 647 K and 0.370627202 s. This is a grid minimum for a chosen mathematical law, not an assessed alloy prediction or a universally optimal aging temperature.</p>
+<figure><img src="assets/nucleation-aging.svg" alt="Original synthetic TTT fraction curves and a separate fixed-fraction strength-versus-radius toy. The TTT nose lies at intermediate temperature, while competing shear and bypass stresses yield a strength maximum at eight nanometers."><figcaption>Transformation time, particle radius and mechanical strength are distinct observables. All curves use the chapter's stipulated models; they do not reproduce the commercial examples.</figcaption></figure>
+<h2 id="history">21.5 Identical isothermal kinetics need not imply identical cooling kinetics</h2>
+<p class="source"><a href="https://www.youtube.com/watch?v=Jkoicj1Fhes&amp;t=667s">Lesson 54, 11:07–12:08</a>. Topic span; mathematical constructions and numerical examples are explicitly original extensions.</p>
+<p>For a common speed u(t) that changes with time, an extended sphere born at tau has radius $\int_\tau^t u(s)\,ds$. The corresponding Poisson coverage is</p>
+$$Y(t)=\frac{4\pi}{3}\int_0^t I(\tau)
+\left[\int_\tau^t u(s)\,ds\right]^3d\tau,\qquad X=1-e^{-Y}.$$
+<p>The additive integrated growth distance preserves the containment argument for this ideal model. The history integral shows why the instantaneous value of K(T)=πI(T)u(T)³/3 does not usually suffice. A nucleus born at one temperature grows later at other temperatures. Its contribution couples past nucleation to subsequent growth rather than multiplying two rates evaluated at the same instant.</p>
+<p>Here is an explicit counterexample. Model A uses I=10¹⁴ and u=10⁻⁸ in the stated units for two successive 100 s stages. Model B uses I/8 and 2u in stage one, then 8I and u/2 in stage two. At each stage both models have the same product Iu³, so their independently initialized isothermal X(t) curves are identical. Nevertheless the two-stage history gives $X_A=0.154267031$ and $X_B=0.035357214$. A table containing only the isothermal fraction curves cannot distinguish them.</p>
+<p>To evaluate the history efficiently, define extended moments $M_j=\int_0^t I(\tau)R(\tau,t)^j\,d\tau$ for j=0 through three. Over a step of duration h with constant I and u, old radii increase by uh. Expanding the binomial and integrating births during the step gives</p>
+$$M_j^{\rm new}=\sum_{k=0}^j{j\choose k}(uh)^{j-k}M_k^{\rm old}
++\frac{Iu^jh^{j+1}}{j+1}.$$
+<p>The code implements this exact piecewise-constant update, not an O(N²) repeated history integral. It uses midpoint temperature values and then doubles the number of steps as a thermal-history refinement check. For cooling from 950 to 300 K, synthetic 1% start temperatures are approximately 796.115, 754.970 and 667.282 K at 1, 10 and 100 K/s. Refinement changes each start by less than 0.005 K. The fastest case ends at X=0.477455662; the two slower cases round to one at the displayed precision.</p>
+<p>A scalar accumulated-time or additivity approximation can be useful when additional isokinetic conditions are satisfied. It must be declared as a model assumption. Drawing a cooling line across an isothermal TTT diagram and reading its intersection is not in general a derivation of a CCT transformation point. Solute depletion, changing phase populations, nonuniform temperature and different nucleation sites add further memory beyond this already history-dependent idealization.</p>
+<h2 id="population">21.6 Particle counts, mean sizes and volume fractions contain different information</h2>
+<p class="source"><a href="https://www.youtube.com/watch?v=msz4HjomKpU&amp;t=1029s">Lesson 55, 17:09–19:02</a>. Topic span; mathematical constructions and numerical examples are explicitly original extensions.</p>
+<p>Let $n(r,t)$ be a spherical-particle number density per specimen volume per radius interval, with units m⁻⁴. Its moments are $M_j=\int r^j n(r,t)\,dr$. The physical number density is M0, the number-weighted mean radius is M1/M0, and the volume fraction is $f=(4\pi/3)M_3$. These are physical particle-distribution moments, distinct from the extended attempted-birth moments in the previous section.</p>
+<p>Replacing M3 by M0 times the cube of mean radius generally fails. Our two-bin example contains 2.5×10²¹ particles/m³ at radius 2 nm and the same number at 8 nm. Its number-mean radius is 5 nm, but its exact volume fraction is 0.005445427266. Substituting the cube of 5 nm gives 0.002617993878, smaller by a factor 2.08. A few large particles can dominate volume while contributing little to the particle count. Radius, diameter and the weighting convention must accompany any reported “mean size.”</p>
+<p>For equal molar densities, a simple two-composition amount balance is $c_0=(1-f)c_m+fc_p$. With nominal solute fraction 0.0018, precipitate fraction composition 0.25 and the two-bin f, the matrix solute fraction is 0.000441044861. Taking planar matrix solubility 0.0001 would give equilibrium amount fraction 0.006802721088. The current population is consistent with a still-supersaturated matrix. Unequal phase molar volumes require converting amount fractions to volume fractions; they cannot be interchanged without correction.</p>
+<p>A continuum population equation can be written schematically as $\partial_tn+\partial_r(\dot r\,n)=I\delta(r-r_*)$, with appropriate small-size loss and other terms. Integrating gives moment balances: growth changes size moments, birth adds new particles, and shrinking particles can exit at zero size. Matrix concentration must be updated from total solute inventory so every new nucleus and growth increment is paid for. A number density that keeps increasing indefinitely while precipitates grow at fixed supersaturation would generally violate that inventory in a closed alloy.</p>
+<p>The actual <a href="https://arxiv.org/abs/cond-mat/0503485">Clouet, Barbu, Laé and Martin (2005) cluster-dynamics preprint, pp.1–4</a> was read. It evolves discrete cluster populations with attachment and emission rates and treats monomer conservation explicitly, rather than prescribing independent nucleation, growth and coarsening stages. Its atomistic comparisons and full experimental assessment were not reproduced. This primary example illustrates how an evolving size distribution can replace a sharp division into a matrix and already recognizable precipitates.</p>
+<p>In a monomer-exchange cluster model, write $F_j=\beta_jC_j-\alpha_{j+1}C_{j+1}$ and $\dot C_j=F_{j-1}-F_j$ for j at least two. Monomers obey $\dot C_1=-2F_1-\sum_{j\ge2}F_j$: making a dimer consumes two monomers, whereas attaching to an existing larger cluster consumes one. Multiply each cluster equation by j and sum. Internal fluxes telescope, cancelling the monomer terms, so $\frac{d}{dt}\sum_{j\ge1}jC_j=0$ when the upper boundary carries no lost solute flux. This explicit count shows why a size-grid truncation or an incorrect factor two can violate solute conservation even if every individual population remains nonnegative. It is a structural check on a prospective solver, not a claim that the present program integrates this full rate system.</p>
+<h2 id="ripening">21.7 Ostwald ripening is driven by curvature-dependent chemical potential</h2>
+<p class="source"><a href="https://www.youtube.com/watch?v=msz4HjomKpU&amp;t=620s">Lesson 55, 10:20–11:25</a>. Topic span; mathematical constructions and numerical examples are explicitly original extensions.</p>
+<p>For this isotropic spherical-precipitate toy, define $V_m$ as particle volume per mole of the <em>precipitating solute</em>, not per mole of all precipitate atoms. For a formula unit containing one solute atom it is also volume per mole of such formula units. The capillary contribution to chemical potential <em>per mole of solute</em> is $2\gamma V_m/r$. In a dilute ideal matrix, neglecting the solvent-chemical-potential correction and retaining a fixed precipitate composition, this gives the Gibbs–Thomson approximation</p>
+$$c_{\rm eq}(r)=c_{\rm eq}(\infty)
+\exp\!\left[\frac{2\gamma V_m}{rRT}\right].$$
+<p>The capillary chemical-potential shift follows by differentiation. A sphere has area $A=4\pi r^2$ and solute amount $n_{\rm solute}=4\pi r^3/(3V_m)$, so $\partial(\gamma A)/\partial n_{\rm solute}=(8\pi\gamma r)/(4\pi r^2/V_m)=2\gamma V_m/r$. Equating this solute-specific shift with $RT\ln[c_{\rm eq}(r)/c_{\rm eq}(\infty)]$ yields the displayed exponential under the stated dilute approximation. If $v_{\rm atom}$ is volume per mole of all precipitate atoms and $c_p$ is their solute atomic fraction, then $V_m=v_{\rm atom}/c_p$. The earlier equal-density inventory uses atomic fractions; these molar bases are not interchangeable. Composition-dependent interface energy, nonideal matrix activity, solvent-potential corrections, elastic stress and nonspherical curvature require a more general relation.</p>
+<p>Smaller particles require a larger surrounding equilibrium solute concentration. A common matrix reservoir can therefore be undersaturated relative to a small particle and supersaturated relative to a large one. The small particle dissolves and supplies solute that can grow the large one; direct contact or literal collision between particles is unnecessary.</p>
+<p>For gamma=0.1 J/m², the explicitly stipulated solute-specific $V_m=10^{-5}$ m³/mol solute, T=623.15 K and matrix concentration 1.12 times the planar solubility, the critical capillary radius is $2\gamma V_m/[RT\ln(1.12)]=3.406146793$ nm. A quasistatic dilute spherical growth check with D=10⁻¹⁹ m²/s uses</p>
+$$\dot r=\frac{D}{r}
+\frac{c_m-c_{\rm eq}(r)}{c_p-c_{\rm eq}(r)}.$$
+<p>The stipulated 2 nm particle shrinks at −1.858729122781×10⁻¹⁵ m/s while the 8 nm particle grows at 3.529739923427×10⁻¹⁶ m/s. This solute-specific volume is an original toy parameter, not an assessed Al3Sc molar volume. This is an instantaneous check in a specified reservoir, not a complete closed-population ripening simulation. The reservoir would need to evolve consistently during a finite closed-system calculation.</p>
+<p>At fixed total particle volume, fewer larger spheres also have less total surface area. Replacing one 2 nm and one 8 nm sphere by one equal-volume sphere gives radius 8.041451517 nm and area ratio 0.950955037. This is a geometric energy comparison; it does not assert that ripening occurs by physical coalescence into a sphere at that moment. In a late dilute coarsening regime the characteristic radius often follows a cube-law scaling, but finite volume fractions, elasticity, coherency loss and multiple species can change a simple asymptotic model.</p>
+<h2 id="aging">21.8 Aging improves strength through an evolving obstacle population</h2>
+<p class="source"><a href="https://www.youtube.com/watch?v=msz4HjomKpU&amp;t=35s">Lesson 55, 0:35–10:20</a>. Topic span; mathematical constructions and numerical examples are explicitly original extensions.</p>
+<p>The processing sequence is solution treatment, quenching and aging. Solution treatment aims to dissolve the desired solute into an appropriate parent phase; quenching attempts to retain a supersaturated state; aging allows an obstacle population to develop. The phase diagram helps choose possible states, but quench effectiveness depends on the complete cooling history. A quenched alloy may still precipitate at defects, retain excess vacancies, develop residual stress or age at room temperature. “Frozen” is an approximation to a specified timescale.</p>
+<p>The recording uses Al with 0.18 mole percent Sc, Al3Sc precipitates in an FCC matrix and aging at 350 °C. The mole fraction is 0.0018, and the temperature is 623.15 K. A reported size statement equates $1.6\times10^{-8}$ m with roughly 60 nm; the numerical conversion is 16 nm. The transcript later calls the plotted quantity mean radius. Without the underlying plotted axis/project audit these notes retain that ambiguity instead of silently using 60 nm or interchanging radius and diameter.</p>
+<p>An edge dislocation can be pictured using an extra half-plane, but a general dislocation is characterized by its line geometry and Burgers vector, not a universal count of missing nearest neighbors. Grain boundaries can impede or transmit slip depending on crystallography and stress. Precipitates can be cut or bypassed; they do not permanently arrest every dislocation that meets them. Diffusion along cores and boundaries likewise depends on species, temperature and geometry rather than an absolute universal hierarchy of all defect diffusivities.</p>
+<p>At fixed volume fraction, increasing particle radius can make cutting harder while making bypass easier because obstacle spacing increases. A deliberately simple competition model uses alternative shear stresses</p>
+$$\tau_{\rm cut}=100\sqrt{r/(8\ {\rm nm})}\ {\rm MPa},\qquad
+\tau_{\rm bypass}=100(8\ {\rm nm}/r)\ {\rm MPa},$$
+$$\sigma_y=50\ {\rm MPa}+3\min(\tau_{\rm cut},\tau_{\rm bypass}).$$
+<p>The lower stress is chosen because these are alternative ways through the same idealized obstacles. It is not a rule to take the minimum of every independent strengthening contribution. This toy gives 200, 350 and 125 MPa at radii 2, 8 and 32 nm, with a maximum at the crossing radius 8 nm. It is a size-dependent illustration at fixed fraction, not a prediction of peak aging time; a real population's size, fraction, shape, coherency and spatial distribution all evolve.</p>
+<p>The selected actual <a href="https://arxiv.org/abs/2311.16551">Sun, Zhang and Wen (2023) preprint, pp.1–3</a> was read. Its model studies thermal activation and competition between shear and bypass mechanisms. These opening pages support treating temperature and mechanism competition as additional modeling questions; the paper's quantitative stress law and validations were not independently rerun or adopted for our synthetic curve. Peak strength is consequently not guaranteed to occur at the time of maximum particle number density, and a strength optimum need not optimize toughness, corrosion resistance or thermal stability.</p>
+<h2 id="code">21.9 Execute the checks</h2>
+<p><a href="code/ch21_nucleation_aging.py">Download the exact standard-library program</a>. It checks the capillarity maximum, event probabilities, fraction thresholds, a constructive TTT/CCT nonuniqueness example, a refined cooling calculation, particle moments, solute inventory, opposite curvature-driven growth signs and the separate strength toy.</p>
+<pre data-run="code/ch21_nucleation_aging.py"><code>&quot;&quot;&quot;Synthetic nucleation, random growth, particle moments and strength checks.&quot;&quot;&quot;
+from math import pi,exp,expm1,log,log1p,sqrt,cos,isclose
+KB=1.380649e-23;R=8.31446261815324
+temp=623.15;gamma=.05;bulk=1e8;elastic=2e7;drive=bulk-elastic
+radius=2*gamma/drive;barrier=16*pi*gamma**3/(3*drive**2)
+def work(r):return 4*pi*gamma*r*r-4*pi*drive*r**3/3
+assert isclose(work(radius),barrier,rel_tol=1e-14)
+assert work(.9*radius)&lt;barrier and work(1.1*radius)&lt;barrier
+shape=(2+cos(pi/3))*(1-cos(pi/3))**2/4
+print(f&#x27;Capillarity: critical radius={radius*1e9:.9f} nm, zero crossing={3*gamma/drive*1e9:.9f} nm, barrier/kBT={barrier/(KB*temp):.9f}, flat60degree factor={shape:.9f}&#x27;)
+prefactor=1e32;rate=prefactor*exp(-barrier/(KB*temp));volume=1e-18;tobs=100.
+prob=-expm1(-rate*volume*tobs)
+print(f&#x27;Illustrative homogeneous events: rate={rate:.9e}/m3/s; probability in1e-18m3 over100s={prob:.9f}; mean wait={1/(rate*volume):.9f}s&#x27;)
+ii,uu=1e14,1e-8;k=pi*ii*uu**3/3
+thresholds=[(-log1p(-x)/k)**.25 for x in (.01,.5,.99)]
+print(&#x27;Constant random nucleation/linear growth: K=&#x27;+f&#x27;{k:.12e}/s4; t1%,t50%,t99%=&#x27;+str([round(x,9) for x in thresholds]))
+ns=1e18;k3=4*pi*ns*uu**3/3
+print(f&#x27;Site-saturated linear growth: n=3, t50={(-log(.5)/k3)**(1/3):.9f}s; no added induction time&#x27;)
+# Exact moment update for ideal Poisson births and common linear radial growth,
+# with I and u piecewise constant within a time interval.
+def advance(m,i,u,dt):
+    g=u*dt;a,b,c,d=m
+    return (a+i*dt,b+g*a+i*u*dt**2/2,
+        c+2*g*b+g*g*a+i*u*u*dt**3/3,
+        d+3*g*c+3*g*g*b+g**3*a+i*u**3*dt**4/4)
+base=(0.,0.,0.,0.)
+ma=advance(advance(base,ii,uu,100),ii,uu,100)
+mb=advance(advance(base,ii/8,uu*2,100),ii*8,uu/2,100)
+xa=-expm1(-4*pi*ma[3]/3);xb=-expm1(-4*pi*mb[3]/3)
+assert abs(xa-xb)&gt;.05
+assert isclose((ii/8)*(uu*2)**3,ii*uu**3)
+assert isclose((ii*8)*(uu/2)**3,ii*uu**3)
+print(f&#x27;Same isothermal K at both stages, different histories: X_A={xa:.9f}, X_B={xb:.9f}; TTT K alone does not determine CCT&#x27;)
+tm=1000.
+def rates(t):
+    assert 0&lt;t&lt;tm
+    nuc=1e32*exp(-60000/(R*t)-1e9/(t*(tm-t)**2))
+    dg=10000*(tm-t)/tm
+    growth=1e-3*exp(-50000/(R*t))*(-expm1(-dg/(R*t)))
+    return nuc,growth
+def t_fraction(t,x):
+    i,u=rates(t);return (-log1p(-x)/(pi*i*u**3/3))**.25
+nose=min(range(300,951),key=lambda t:t_fraction(t,.01))
+print(f&#x27;Synthetic TTT1% grid nose={nose}K, time={t_fraction(nose,.01):.9f}s; no real alloy calibration&#x27;)
+def cooling(cooling_rate,steps):
+    hi,low=950.,300.;dt=(hi-low)/(cooling_rate*steps)
+    m=(0.,0.,0.,0.);old_y=0.;found=None;target=-log1p(-.01)
+    for j in range(steps):
+        tt=hi-(j+.5)*(hi-low)/steps;i,u=rates(tt)
+        m=advance(m,i,u,dt);y=4*pi*m[3]/3
+        if found is None and y&gt;=target:
+            frac=(target-old_y)/(y-old_y)
+            found=hi-(j+frac)*(hi-low)/steps
+        old_y=y
+    return found,-expm1(-old_y)
+for speed in (1.,10.,100.):
+    coarse=cooling(speed,2000);fine=cooling(speed,4000)
+    assert coarse[0] is None and fine[0] is None or abs(coarse[0]-fine[0])&lt;.01
+    print(f&#x27;Synthetic continuous cooling {speed:g}K/s: T1%={fine[0]}, final X={fine[1]:.9f}; refinement temperature difference={None if fine[0] is None else abs(coarse[0]-fine[0])}&#x27;)
+# A two-bin geometric distribution; equal total molar density approximates volume=amount.
+radii=(2e-9,8e-9);number=(2.5e21,2.5e21)
+n=sum(number);rmean=sum(a*b for a,b in zip(number,radii))/n
+f=4*pi/3*sum(a*b**3 for a,b in zip(number,radii))
+wrong=4*pi*n*rmean**3/3
+initial,cp,ceq=.0018,.25,.0001
+matrix=(initial-f*cp)/(1-f);feq=(initial-ceq)/(cp-ceq)
+assert 0&lt;ceq&lt;matrix&lt;initial and 0&lt;f&lt;feq
+print(f&#x27;Two-bin population: mean radius={rmean*1e9:.6f}nm, exact volume fraction={f:.12f}, mean-radius substitution={wrong:.12f}, ratio={f/wrong:.9f}&#x27;)
+print(f&#x27;Solute inventory: matrix x={matrix:.12f}; planar-equilibrium amount fraction={feq:.12f}; current fraction below inventory bound&#x27;)
+capgamma,vm=.1,1e-5;reservoir=1.12*ceq;d=1e-19
+critical=2*capgamma*vm/(R*temp*log(reservoir/ceq))
+growth=[]
+for r in radii:
+    surface=ceq*exp(2*capgamma*vm/(r*R*temp))
+    dr=d/r*(reservoir-surface)/(cp-surface)
+    growth.append(dr)
+assert growth[0]&lt;0&lt;growth[1]
+print(f&#x27;Gibbs-Thomson toy: reservoir critical radius={critical*1e9:.9f}nm; growth at2/8nm={growth[0]:.12e},{growth[1]:.12e}m/s&#x27;)
+combined=(sum(r**3 for r in radii))**(1/3)
+area_ratio=combined**2/sum(r*r for r in radii)
+assert area_ratio&lt;1
+print(f&#x27;Equal-volume area check: combined radius={combined*1e9:.9f}nm; new/old area={area_ratio:.9f}; geometric comparison, not coalescence simulation&#x27;)
+def strength(r):
+    shear=100*sqrt(r/8e-9);bypass=100*8e-9/r
+    return 50+3*min(shear,bypass)
+print(&#x27;Illustrative fixed-fraction strength (radius_nm,yield_MPa): &#x27;+str([(r,round(strength(r*1e-9),9)) for r in (2.,8.,32.)]))
+print(&#x27;All checks PASS; no KWN solver, commercial precipitation demo or experimental aging curve reproduced&#x27;)
+</code></pre><pre class="output">Capillarity: critical radius=1.250000000 nm, zero crossing=1.875000000 nm, barrier/kBT=38.036693552, flat60degree factor=0.156250000
+Illustrative homogeneous events: rate=3.026034538e+15/m3/s; probability in1e-18m3 over100s=0.261107957; mean wait=330.465494507s
+Constant random nucleation/linear growth: K=1.047197551197e-10/s4; t1%,t50%,t99%=[98.977843939, 285.232632883, 457.935451981]
+Site-saturated linear growth: n=3, t50=54.900835100s; no added induction time
+Same isothermal K at both stages, different histories: X_A=0.154267031, X_B=0.035357214; TTT K alone does not determine CCT
+Synthetic TTT1% grid nose=647K, time=0.370627202s; no real alloy calibration
+Synthetic continuous cooling 1K/s: T1%=796.1148832948575, final X=1.000000000; refinement temperature difference=0.004632958569459333
+Synthetic continuous cooling 10K/s: T1%=754.9699668813141, final X=1.000000000; refinement temperature difference=0.0010464991969456605
+Synthetic continuous cooling 100K/s: T1%=667.2820882658245, final X=0.477455662; refinement temperature difference=0.0005804459813134599
+Two-bin population: mean radius=5.000000nm, exact volume fraction=0.005445427266, mean-radius substitution=0.002617993878, ratio=2.080000000
+Solute inventory: matrix x=0.000441044861; planar-equilibrium amount fraction=0.006802721088; current fraction below inventory bound
+Gibbs-Thomson toy: reservoir critical radius=3.406146793nm; growth at2/8nm=-1.858729122781e-15,3.529739923427e-16m/s
+Equal-volume area check: combined radius=8.041451517nm; new/old area=0.950955037; geometric comparison, not coalescence simulation
+Illustrative fixed-fraction strength (radius_nm,yield_MPa): [(2.0, 200.0), (8.0, 350.0), (32.0, 125.0)]
+All checks PASS; no KWN solver, commercial precipitation demo or experimental aging curve reproduced
+</pre>
+<h2 id="exercises">21.10 Problems with complete solutions</h2>
+<div class="exercise"><h3>1. Is a critical nucleus a stable particle?</h3><p>Differentiate the capillarity work and compare the maximum with its zero crossing.</p><details class="solution"><summary>Solution</summary><p>For positive d, W-prime vanishes at r=2gamma/d. W-double-prime there equals −8πgamma, so the nonzero stationary point is a radius-coordinate maximum. Substitution gives 16πgamma³/(3d²). W itself crosses zero at3gamma/d, or 1.5 times the critical radius. In the example the radii are 1.25 and 1.875 nm. A just-supercritical cluster can grow downhill while its total work remains positive; crossing zero work and crossing the growth threshold are different statements.</p></details></div>
+<div class="exercise"><h3>2. A barrier reduction is not a complete rate prediction</h3><p>Calculate the ideal 60-degree factor and state what else is needed.</p><details class="solution"><summary>Solution</summary><p>Cosine 60 degrees is 0.5, giving (2.5)(0.5)²/4=0.15625. This multiplies the homogeneous spherical barrier only under the ideal flat-substrate cap construction with its specified interfacial balance. A heterogeneous site density, its dimensional normalization and attachment prefactor are still needed to calculate a specimen-volume rate. Grain-boundary and dislocation nuclei may have different geometry and strain contributions, so the cap factor is not automatically applicable to them.</p></details></div>
+<div class="exercise"><h3>3. What is the chance of observing a nucleus?</h3><p>Use the illustrative rate in the stated small volume for 100 s.</p><details class="solution"><summary>Solution</summary><p>The Poisson mean is IVt=(3.026034538×10¹⁵)(10⁻¹⁸)(100)=0.302603454. Therefore probability of at least one event is 1−exp(−0.302603454)=0.261107957, and the mean first wait is 1/(IV)=330.465494507 s. A sample with no observed event after 100 s is consistent with this rate; it does not prove thermodynamic stability or an exactly zero nucleation rate. The calculation assumes a constant rate and independent events before depletion changes the environment.</p></details></div>
+<div class="exercise"><h3>4. Derive the Avrami exponents in the stated model</h3><p>Compare continuous attempted births and initially present nuclei.</p><details class="solution"><summary>Solution</summary><p>Continuous births require integrating sphere volume $(4\pi/3)u^3(t-\tau)^3$ over birth time with intensity I. The integral is πIu³t⁴/3, yielding exponent four after Poisson void correction. Initially present Poisson nuclei instead give Y=(4π/3)N0u³t³ and exponent three. The assumptions include homogeneous randomness, common isotropic linear growth and the appropriate phantom containment. Different growth laws or correlated sites require a new impingement argument; a fitted exponent alone is not a unique microscopic identification.</p></details></div>
+<div class="exercise"><h3>5. Construct two identical TTT models with different histories</h3><p>Verify the stage products and explain the fraction difference.</p><details class="solution"><summary>Solution</summary><p>Model B's stage-one product is(I/8)(2u)³=Iu³; stage two gives(8I)(u/2)³=Iu³. Thus each independently initialized isothermal curve matches model A. During the history, however, early nuclei in B are fewer and later grow with the smaller speed. The extended history integral couples their earlier birth to that later growth. Exact two-step moment updates give X=0.154267031 for A and 0.035357214 for B. Identical isothermal K values therefore do not uniquely specify the response to changing temperature.</p></details></div>
+<div class="exercise"><h3>6. Why is the mean radius insufficient for volume fraction?</h3><p>Calculate the two-bin discrepancy and its inventory implication.</p><details class="solution"><summary>Solution</summary><p>The number-mean radius is (2+8)/2=5 nm, but mean radius cubed is 125 nm³ whereas the mean cubed radius is (8+512)/2=260 nm³. Their ratio is 2.08. With total number density 5×10²¹ m⁻³, exact f=0.005445427266 differs from the mean-radius estimate 0.002617993878. Solute balance with c0=0.0018 and cp=0.25 then gives matrix concentration 0.000441044861. Treating the two size summaries as interchangeable would miscount precipitated solute even before considering unequal phase molar volumes.</p></details></div>
+<div class="exercise"><h3>7. Can one reservoir grow and dissolve particles simultaneously?</h3><p>Use the curvature relation and locate its critical radius.</p><details class="solution"><summary>Solution</summary><p>Set the matrix concentration 1.12ceq-infinity equal to the curved-interface equilibrium value. Taking logarithms gives r=2gammaVm/[RTln1.12]=3.406146793 nm. The 2 nm particle requires more than the available matrix solute concentration, so it dissolves; the 8 nm particle requires less and grows. Their instantaneous rates are−1.858729122781×10⁻¹⁵ and3.529739923427×10⁻¹⁶ m/s in the stipulated quasistatic model. A closed calculation must update the shared reservoir as these transfers occur.</p></details></div>
+<div class="exercise"><h3>8. Does larger mean size always imply greater strength?</h3><p>Find the crossing in the two-mechanism toy.</p><details class="solution"><summary>Solution</summary><p>Set $\sqrt{r/r_c}=r_c/r$ with rc=8 nm. Raising the positive ratio to the appropriate power gives r/rc=1. Below this radius cutting is the easier path and its required stress increases with r; above it bypass is easier and decreases with r. The maximum yield stress is 50+3×100=350 MPa at 8 nm. The values at 2 and 32 nm are 200 and 125 MPa. This fixed-fraction geometric model supplies neither an aging time nor the real alloy's yield law.</p></details></div>
+<div class="exercise"><h3>9. Distinguish physical completion from an operational threshold</h3><p>Interpret 1% start and 99% finish for a final precipitate fraction 0.01.</p><details class="solution"><summary>Solution</summary><p>For normalized extent X=f/feq with initially absent product and feq=0.01, the absolute fractions are 0.0001 and 0.0099. In the illustrative constant-rate model these occur at 98.977843939 and 457.935451981 s. Exact X=1 is approached asymptotically. If a product later dissolves or competes with another phase, the simple monotone normalization may fail; each phase's curve then needs its own threshold definition and history. An unqualified “finish” is insufficient to reproduce a TTT or CCT diagram.</p></details></div>
+<p class="chapter-nav"><a href="chapter-20-conservative-transport-interfaces-rapid-solidification.html">Previous: conservative transport</a> · <a href="index.html">All chapters</a></p>
+<!-- BOOK-CONTENT-END --></article><nav class="page-turn"><a href="index.html">Chapter index</a></nav></main></div><footer class="site-footer">Independent study edition. Prof. K. Guruvidyathri, University of Hyderabad; NPTEL coordinating institution IIT Madras. Original exposition and teaching constructions; attribution does not imply endorsement.</footer></body></html>

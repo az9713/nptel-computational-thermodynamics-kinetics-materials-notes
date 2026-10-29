@@ -1,0 +1,95 @@
+{
+  "chapter": 9,
+  "title": "Entropy contributions and thermodynamic potentials",
+  "file": "chapter-09-entropy-contributions-thermodynamic-potentials.html",
+  "status": "Accepted in two independent scientific reviews",
+  "authored_body_sha256": "d58476469ddb382c9ec776b4fc37d5367ba2df8fa95ffa18c3c3a6d9fe7277bd",
+  "recordings": [
+    {
+      "official_lesson": 17,
+      "playlist_position": 18,
+      "video_id": "A-1WonbIt9A",
+      "duration_seconds": 2859.6303125,
+      "source_type": "local faster-whisper small.en ASR, not publisher captions",
+      "transcript_reading": "Entire transcript read sequentially",
+      "chunk_policy": "90-second cores with 2-second context; possible recognition and boundary errors"
+    }
+  ],
+  "sections": [
+    {
+      "anchor": "position",
+      "video_id": "A-1WonbIt9A",
+      "start": 88,
+      "end": 580
+    },
+    {
+      "anchor": "contributions",
+      "video_id": "A-1WonbIt9A",
+      "start": 580,
+      "end": 1220
+    },
+    {
+      "anchor": "fundamental",
+      "video_id": "A-1WonbIt9A",
+      "start": 1220,
+      "end": 1450
+    },
+    {
+      "anchor": "legendre",
+      "video_id": "A-1WonbIt9A",
+      "start": 1450,
+      "end": 1974
+    },
+    {
+      "anchor": "availability",
+      "video_id": "A-1WonbIt9A",
+      "start": 1974,
+      "end": 2458
+    },
+    {
+      "anchor": "internal",
+      "video_id": "A-1WonbIt9A",
+      "start": 2458,
+      "end": 2488
+    },
+    {
+      "anchor": "competition",
+      "video_id": "A-1WonbIt9A",
+      "start": 2488,
+      "end": 2852
+    }
+  ],
+  "worked_solutions": 9,
+  "executable_listings": 1,
+  "original_constructions": [
+    "Conditional basin entropy and correlated-binary example",
+    "Exact four-mode entropy ledger correcting introductory rounding",
+    "Explicit ideal-gas fundamental relation and tangent intercepts",
+    "Finite environment-referenced availability and useful-work balance",
+    "Internal phase fraction resolves abbreviated fixed-T,p identity",
+    "Synthetic nonzero heat-capacity difference and derivative-noise lab"
+  ],
+  "independent_review": {
+    "status": "accepted",
+    "accepted": true,
+    "body_sha256": "d58476469ddb382c9ec776b4fc37d5367ba2df8fa95ffa18c3c3a6d9fe7277bd",
+    "review_ids": [
+      "ct-ch09-r1",
+      "ct-ch09-r2"
+    ],
+    "reviewer_ids": [
+      "separate-ai-agent-coordinator",
+      "separate-ai-agent-cardiovascular"
+    ],
+    "blocking": 0,
+    "major": 0,
+    "minor": 0
+  },
+  "limitations": [
+    "No comprehensive audiovisual/board audit",
+    "No real glass molecular-dynamics or entropy measurement reproduction",
+    "Entropy decomposition depends on declared state partition, ensemble and model",
+    "No kinetic rate inferred from Gibbs-energy difference",
+    "No closed-system criterion applied without qualification to biological systems"
+  ]
+}

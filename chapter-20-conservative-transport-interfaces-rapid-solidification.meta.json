@@ -1,0 +1,149 @@
+{
+  "chapter": 20,
+  "title": "Conservative transport, interfaces and rapid solidification",
+  "file": "chapter-20-conservative-transport-interfaces-rapid-solidification.html",
+  "status": "Accepted in two independent scientific reviews",
+  "authored_body_sha256": "f081244ad1ec7b41949bcaa32106c7376e4a36f3c2af7d776f2b94f272394836",
+  "recordings": [
+    {
+      "official_lesson": 49,
+      "playlist_position": 50,
+      "video_id": "sQLRFii3dwY",
+      "duration_seconds": 1198.7069375,
+      "source_type": "local faster-whisper small.en ASR, not publisher captions",
+      "transcript_reading": "Entire transcript read sequentially",
+      "chunk_policy": "90-second cores with 2-second context; recognition and boundary uncertainty remains"
+    },
+    {
+      "official_lesson": 50,
+      "playlist_position": 51,
+      "video_id": "7P2L5ahOOUk",
+      "duration_seconds": 1196.15275,
+      "source_type": "local faster-whisper small.en ASR, not publisher captions",
+      "transcript_reading": "Entire transcript read sequentially",
+      "chunk_policy": "90-second cores with 2-second context; recognition and boundary uncertainty remains"
+    },
+    {
+      "official_lesson": 51,
+      "playlist_position": 52,
+      "video_id": "aD9ENCXvjxw",
+      "duration_seconds": 1541.805,
+      "source_type": "local faster-whisper small.en ASR, not publisher captions",
+      "transcript_reading": "Entire transcript read sequentially",
+      "chunk_policy": "90-second cores with 2-second context; recognition and boundary uncertainty remains"
+    },
+    {
+      "official_lesson": 52,
+      "playlist_position": 53,
+      "video_id": "h8tc6VBdt_Y",
+      "duration_seconds": 1169.031875,
+      "source_type": "local faster-whisper small.en ASR, not publisher captions",
+      "transcript_reading": "Entire transcript read sequentially",
+      "chunk_policy": "90-second cores with 2-second context; recognition and boundary uncertainty remains"
+    }
+  ],
+  "sections": [
+    {
+      "anchor": "setup",
+      "video_id": "sQLRFii3dwY",
+      "start": 112,
+      "end": 310
+    },
+    {
+      "anchor": "finitevolume",
+      "video_id": "sQLRFii3dwY",
+      "start": 572,
+      "end": 650
+    },
+    {
+      "anchor": "convergence",
+      "video_id": "sQLRFii3dwY",
+      "start": 650,
+      "end": 794
+    },
+    {
+      "anchor": "threshold",
+      "video_id": "sQLRFii3dwY",
+      "start": 937,
+      "end": 1183
+    },
+    {
+      "anchor": "clock",
+      "video_id": "aD9ENCXvjxw",
+      "start": 1057,
+      "end": 1282
+    },
+    {
+      "anchor": "moving",
+      "video_id": "7P2L5ahOOUk",
+      "start": 62,
+      "end": 309
+    },
+    {
+      "anchor": "moving",
+      "video_id": "7P2L5ahOOUk",
+      "start": 538,
+      "end": 913
+    },
+    {
+      "anchor": "paths",
+      "video_id": "aD9ENCXvjxw",
+      "start": 132,
+      "end": 1054
+    },
+    {
+      "anchor": "control",
+      "video_id": "aD9ENCXvjxw",
+      "start": 1320,
+      "end": 1526
+    },
+    {
+      "anchor": "backdiffusion",
+      "video_id": "h8tc6VBdt_Y",
+      "start": 44,
+      "end": 718
+    },
+    {
+      "anchor": "trapping",
+      "video_id": "h8tc6VBdt_Y",
+      "start": 728,
+      "end": 1156
+    }
+  ],
+  "worked_solutions": 9,
+  "executable_listings": 1,
+  "original_constructions": [
+    "Conservative finite-volume solver with every-step maximum principle, mean and variance checks",
+    "Exact cell-average Fourier comparison and combined mesh refinement",
+    "Restricted nonisothermal diffusion clock",
+    "One-sided moving interface root and local/integrated conservation",
+    "Two-mode ternary composition path",
+    "Mixed-resistance crossover and local growth exponent",
+    "Back-diffusion scaling and bounded fixed-speed trapping examples"
+  ],
+  "independent_review": {
+    "status": "accepted",
+    "accepted": true,
+    "body_sha256": "f081244ad1ec7b41949bcaa32106c7376e4a36f3c2af7d776f2b94f272394836",
+    "review_ids": [
+      "ct-ch20-r1",
+      "ct-ch20-r2"
+    ],
+    "reviewer_ids": [
+      "separate-ai-agent-turbulence",
+      "separate-ai-agent-coordinator"
+    ],
+    "blocking": 0,
+    "major": 0,
+    "minor": 0
+  },
+  "limitations": [
+    "No audiovisual or board audit",
+    "No commercial databases, demo project or experimental overlay reproduced",
+    "All numerical material parameters synthetic",
+    "No complete modified-Scheil or nonlinear moving-boundary implementation",
+    "PinomaaProvatas2018 actual preprintpp1–4 read, not phase-field reproduction or asymptotic proof audit",
+    "OriginalAziz1982 PDF located but blocked on local acquisition; not read",
+    "OfficialTC2026b selected API sections read, no API run"
+  ]
+}

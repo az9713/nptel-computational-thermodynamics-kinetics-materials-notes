@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="dark light"><meta name="book-content-sha256" content="be3771499520b00e6780c0ed68adfc0a0f2ee858d90a9c28b092525dd27e6e3b"><title>High-throughput design and phase identification · Computational Thermodynamics</title><link rel="stylesheet" href="assets/book.css"><script src="assets/math-config.js"></script><script defer src="assets/mathjax-tex-svg.js"></script><script defer src="assets/book.js"></script></head>
+<body><a class="skip" href="#main">Skip to content</a><header class="site-header"><a class="brand" href="index.html">Computational Thermodynamics and Kinetics of Materials</a><nav class="course-nav"><a href="index.html">Chapters</a><a href="source-map.html">Source map</a><a href="references.html">References</a><a href="numerical-lab.html">Numerical lab</a></nav></header><div class="layout"><aside class="toc" id="chapter-toc"><h2>On this page</h2></aside><main id="main"><div class="reading-tools"><button id="theme-toggle" aria-pressed="false">Light theme</button><button id="text-toggle" aria-pressed="false">Larger text</button><button id="solutions-toggle" aria-pressed="false">Expand solutions</button><button id="print-page">Print with solutions</button></div>
+<article id="chapter-content"><!-- BOOK-CONTENT-START -->
+<h1>22. High-throughput design, driving forces and phase identification</h1>
+<p class="lead">A screening calculation does not discover a material merely by returning a short list. It creates a conditional prediction: these compositions, evaluated with these phases and this database, satisfy these numerical tests. The useful next step is to ask which parts of that statement survive a change of temperature, a model discrepancy, or an independent measurement. The same discipline makes CALPHAD useful for characterization: a predicted phase is a candidate to test, rather than a replacement for diffraction and chemical evidence.</p>
+<div class="source-note"><p><strong>Source and execution scope.</strong> Both complete local machine transcripts of lessons 56–57 were read. They develop higher-order sections, high-throughput alloy selection, binary and Gibbs-energy heuristics, transformation driving forces and CALPHAD-assisted diffraction interpretation. The published screening cases are identified below with bounded primary-source reading. Their commercial databases, complete input archives and experimental results were not rerun. Our downloadable program actually executes pycalphad 0.11.1 on an <a href="data/ch22_screening.tdb">original synthetic two-branch database</a>, plus independent combinatorial, variational and diffraction checks. The CU/NI identifiers are bookkeeping species in that teaching model, not an assessed Cu–Ni alloy.</p></div>
+
+<h2 id="design-space">22.1 Specify the design space before counting its survivors</h2>
+<p class="source"><a href="https://www.youtube.com/watch?v=17gucCFasYY&amp;t=116">Lesson 56, 01:56–10:49</a>, including higher-order sections and elemental additions.</p>
+<p>For C substitutional components, an atomic composition is a point in the simplex \(x_i\ge0,\ \sum_i x_i=1\). A section that adds one element with fraction s while keeping the others in a prescribed ratio is a one-dimensional path through that simplex. It does not represent every composition of the multicomponent alloy. For three equal background components, \(x_1=x_2=x_3=(1-s)/3\); temperature adds another plotted coordinate. The resulting picture can be informative while sampling a very small part of the full design space.</p>
+<p>The recording uses additions of Cu, Al, Mn and V to illustrate changes in competing solid solutions, ordered structures, liquid and sigma-type phases. These are particular calculated sections, not universal element-by-element rules. An element's pure crystal structure does not determine the structure of an alloy containing it. The relevant comparison includes phase-specific reference energies, configurational terms, interactions, partitioning and all competing phases at the declared temperature. A label such as “FCC stabilizer” summarizes a context; it is not a transferable scalar that can simply be added across unrelated diagrams.</p>
+<p>Likewise, a high ideal mixing entropy is not a theorem of single-phase stability. For an ideal disordered solution, \(s_{\rm mix}=-R\sum_i x_i\ln x_i\), with maximum \(R\ln C\) at equal fractions. One proof applies the concavity of \(\ln\): \(\sum_i x_i\ln(1/x_i)\le\ln\sum_i x_i(1/x_i)=\ln C\) when all fractions are positive. Zero fractions are handled by continuity on the smaller support. This bounds one contribution to one model. Ordered compounds or decomposed assemblages have their own enthalpy and entropy; a complete Gibbs comparison can favor them despite this ideal contribution.</p>
+<p>A reproducible search therefore declares the palette, bounds, composition basis, increments and treatment of absent elements. Five components with a 5 atomic-percent increment can be represented exactly by integers \(q_i\) with \(\sum q_i=20\). If every component is present and lies between 5 and 50 atomic percent, impose \(1\le q_i\le10\). Integer enumeration avoids duplicate or missing points caused by rounding decimal sums. It also gives an independently checkable count before any thermodynamic calculation starts.</p>
+
+<h2 id="counting">22.2 A grid count and a calculation record are different objects</h2>
+<p class="source"><a href="https://www.youtube.com/watch?v=17gucCFasYY&amp;t=649">Lesson 56, 10:49–21:39</a>, followed by original counting and reproducibility audits.</p>
+<p>For the positive five-component grid, let \(y_i=q_i-1\). Then \(\sum y_i=15\) with \(0\le y_i\le9\). Without the upper bound, stars and bars gives \(\binom{19}{4}\). A specified violation \(y_i\ge10\) leaves a nonnegative sum of five, giving \(\binom94\). Two violations are impossible because they would require a sum of at least twenty. Thus</p>
+\[
+N_{5\text{--}50}=\binom{19}{4}-5\binom94=3246.
+\]
+<p>If zero-valued components are allowed instead, \(0\le q_i\le10\) and the same total gives \(\binom{24}{4}-5\binom{13}{4}=7051\). These are different design questions. The latter contains lower-component faces as well as genuine five-component interiors. Counting the palette rather than the positive support would mislabel some of its alloys.</p>
+<p><a href="https://euler.phys.cmu.edu/widom/pubs/PDF/NatCom12_2021_4329.pdf">Feng and colleagues' 2021 primary paper</a>, printed pages 2 and 8 inspected, reports an Al–Cr–Fe–Mn–Ti screen with the sequence 3246 → 1168 → 44 → 8. Its discussion specifies 5–50 atomic percent per element. The agreement with our count reproduces that combinatorial boundary choice, not their thermodynamic input archive or experimental performance. The paper also reports discrepancies requiring improvement of L2₁ stability in its database; a surviving composition is therefore a reason for focused testing.</p>
+<p>The unrestricted number of equimolar subsets of sizes three through six from 26 elements is \(\sum_{k=3}^{6}\binom{26}{k}=313560\). This is not the number of records in an actual database-dependent study. The inspected primary text of <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4366518/">Senkov and colleagues' 2015 study</a> distinguishes 134547 processed calculations, 5540 passing its complete-binary-description filter, 4983 unique alloys among them, and 51 selected candidates. Multiple databases can generate repeated alloy identities, and database availability restricts the processed pool. Our unrestricted count is not a correction of their recorded workload.</p>
+<p>Keep an alloy identifier distinct from an alloy–database–condition identifier. At minimum the latter must specify ordered components, fractions and basis, temperature, pressure, permitted phase descriptions, database bytes/version, engine and solver settings. A failed calculation is an unknown result with a reason, not evidence that a physical criterion failed. Conversely, a successful exit is not enough: verify phase amounts, elemental balance and the actual criterion values before assigning a pass.</p>
+
+<h2 id="criteria">22.3 A numerical filter needs units, tolerances and a declared temperature domain</h2>
+<p>The lecture's precipitation-strengthened example asks for a suitable primary solution and a bounded amount of an ordered phase at selected temperatures. Those criteria target a useful microstructural family; they do not calculate creep strength, precipitate size, coarsening time or fracture resistance. An equilibrium phase fraction alone does not specify its morphology or spatial distribution. A design decision needs the property and processing models appropriate to its application.</p>
+<p>Temperature conventions deserve unusual care. Feng's printed page 2 explicitly defines its fractional-temperature screening convention using Celsius values. That is an operational rule in that study; it must not silently be renamed an absolute homologous-temperature ratio. A physical ratio \(T/T_m\) uses kelvin. For a stipulated \(T_m=1250\,^\circ{\rm C}\), the paper-style operation \(0.8(1250)\) gives 1000 °C, while \(0.8(1250+273.15)-273.15\) gives 945.37 °C. These differ by 54.63 °C. Reproduction requires preserving the stated rule; adopting a different physical criterion requires documenting the change.</p>
+<p>Also distinguish liquidus, where the first equilibrium solid appears during cooling, from solidus, where the last liquid disappears. A single solid phase at the final freezing endpoint does not by itself prove that it was the first solid. Read the phase sequence and state which event defines the temperature used in a filter. Near an endpoint, use a declared small phase-amount tolerance rather than interpreting floating-point equality to one as a physical law.</p>
+<p>Two sampled temperatures cannot certify an entire service interval. The perfectly continuous fraction \(f(T)=0.1+0.6\sin^2[\pi(T-T_a)/(T_b-T_a)]\) equals 0.1 at both ends and 0.7 at the midpoint. It passes a 0.05–0.5 endpoint test and fails inside. This original counterexample does not reconstruct a particular published phase path; it exposes the additional work needed for a statement about every temperature.</p>
+<p>A useful sufficient certificate is available if an independently justified derivative bound exists. Suppose \(|f'|\le L\) throughout the interval and sampled temperatures include both endpoints with maximum gap h. Every interior temperature is within \(h/2\) of a sample. The mean-value bound gives \(|f(T)-f(T_j)|\le Lh/2\). Numerical uncertainty \(\epsilon\) and a stipulated model-discrepancy bound \(\delta\) enlarge the safety margin to \(Lh/2+\epsilon+\delta\). All sample intervals must stay inside the acceptable band by that amount. Without such a bound, a refined scan supplies sampling evidence, not a proof that an arbitrarily narrow phase field is absent.</p>
+
+<h2 id="energy-comparison">22.4 Compare the right Gibbs quantities</h2>
+<p class="source"><a href="https://www.youtube.com/watch?v=4xTnDKBPSzM&amp;t=121">Lesson 57, 02:01–10:28</a>, including binary heuristics, competing phases and unmixing.</p>
+<p>The source moves from widths of binary solution fields to Gibbs-energy comparisons. The useful advance is to ask how close a candidate phase is to its competitors, rather than reject an element because one binary diagram looks unfavorable. However, comparing the depths of two different binary mixing curves is a heuristic. Their endmember references, amounts of elements and available competing phases differ. It does not itself construct the multicomponent equilibrium envelope.</p>
+<p>At a common T,p and overall composition z, a homogeneous parent phase M has tangent line \(\ell_z(x)=g_M(z)+g_M'(z)(x-z)\). Consider making an infinitesimal amount \(\lambda\) of product P at composition x while the remaining parent adjusts to \(x_M(\lambda)=(z-\lambda x)/(1-\lambda)\). This preserves the bulk composition. The molar mixture energy is \(G(\lambda)=(1-\lambda)g_M[x_M(\lambda)]+\lambda g_P(x)\). Differentiating at zero gives</p>
+\[
+G'(0)=g_P(x)-\ell_z(x),\qquad
+D_P(z)=\max_{x\ {\rm feasible}}\{\ell_z(x)-g_P(x)\}.
+\]
+<p>Thus \(D_P>0\) supplies a bulk first-order energy decrease through some composition-changing product. A pointwise comparison \(g_P(z)-g_M(z)\) misses that possibility. The derivation assumes infinitesimal phase amount, an admissible product composition and no additional surface, elastic or kinetic cost. A positive bulk driving force neither proves a nucleus forms nor supplies its rate. Those additional models must retain the same energy and amount conventions.</p>
+<p>For an original exact example, take \(g_M(x)=10000(x-0.3)^2\) and \(g_P(x)=10000(x-0.7)^2-300\) J/mol. At parent z=0.3, its tangent is zero and the best product is x=0.7, with \(D_P=300\) J/mol. Yet the product at the unchanged composition is 1300 J/mol above the parent. At product amount 0.1, balance moves the parent to 0.255555556 and total energy falls by 12.222222222 J/mol. At amount 0.2, the same construction instead lies 20 J/mol above the original parent. The infinitesimal direction is favorable; it is not a license to choose an arbitrary finite amount.</p>
+<p>A common elemental affine reference subtraction \(q(x)\) changes both \(g_P\) and the parent tangent by the same \(q(x)\), so their difference and D are invariant. Subtracting a different phase's own mixing reference from each curve does not have that property. Likewise, if one phase is nonconvex, decomposition into two compositions of that same phase can lower energy. Two FCC composition sets can therefore be distinct coexisting phases despite sharing a lattice type; a phase label alone is not enough to identify their amounts or chemistry.</p>
+
+<h2 id="executed-screen">22.5 Execute a small screen with an independent thermodynamic certificate</h2>
+<p>Our synthetic database contains two ideal substitutional branches named MATRIX and PRECIP. Those names are labels, not asserted crystal structures. Set \(D=6000\) J/mol, \(\delta(T)=8(1100-T)\) J/mol and \(q(x)=(1-x)\ln(1-x)+x\ln x\):</p>
+\[
+g_M=Dx+RTq(x),\qquad
+g_P=D(1-x)+\delta+RTq(x).
+\]
+<p>The linear temperature coefficient has units J/(mol K). The TDB uses CU/NI identifiers solely to supply a complete runnable model. It has no fitted real-alloy phase assessment. We evaluate seven atomic fractions \(x_{\rm Ni}=0.35,0.40,\ldots,0.65\), at 900 and 1000 K. Fourteen actual pycalphad equilibrium calls retain phase identities, compositions and amounts. The engine's own \(R=8.3145\) J/(mol K) is used in the analytic comparison.</p>
+<p>The chemical potentials of an ideal branch follow from \(g-xg'\) and \(g+(1-x)g'\). If MATRIX and PRECIP coexist at a and b, equality gives \(1-a=u(1-b)\), \(a=wb\), with \(u=e^{(D+\delta)/(RT)}\) and \(w=e^{(\delta-D)/(RT)}\). Therefore</p>
+\[
+b=\frac{u-1}{u-w},\qquad a=wb,\qquad
+f_P(z)=\frac{z-a}{b-a}\quad(a\le z\le b).
+\]
+<p>Both branches have positive curvature \(RT/[x(1-x)]\). Their equal tangent is consequently a global supporting line for both complete branches. This is a global equilibrium certificate for this declared two-branch model, rather than an inference from solver convergence alone. The stated temperatures have \(-D<\delta<D\), so the contacts are interior and a&lt;b. Below a the stable state is MATRIX at the overall composition; above b it is PRECIP. Outside that regime the algebraic contact formulas must be rechecked rather than blindly clipped into a different physical problem.</p>
+<p>The executed contacts are (0.443488203,0.798445520) at 900 K and (0.391289385,0.731327105) at 1000 K. At each two-phase point, the code checks the global support energy, both contact compositions and the lever fraction. At every point it checks total phase amount and solute balance. Empty padded vertices are excluded explicitly; merely counting array slots would count absent phases.</p>
+<p>Require \(0.05<f_P<0.5\) at both sampled temperatures. Two candidate compositions pass: 0.50 and 0.55. If a <em>stipulated</em> ±0.04 discrepancy bound is placed on each predicted fraction, only 0.50 is certified to remain inside the band. At 0.55, the 1000 K fraction is 0.466744; its upper admissible value becomes 0.506744. This does not prove that the alloy fails in reality. It means that this bound cannot certify its pass. The bound is a teaching assumption, not an uncertainty estimate fitted from data, and the two-temperature test still says nothing unqualified about every intermediate temperature.</p>
+<figure><img src="assets/ch22_screening_diffraction.svg" alt="Left: original synthetic precipitate-fraction curves at 900 and 1000 kelvin distinguish nominal and robust candidate compositions. Right: three cubic reflections shift by different angular amounts under the same isotropic lattice expansion."><figcaption>Original calculations. The left curves have an analytic supporting-line certificate and sampled engine checks. The right points are Bragg-law constructions, not a measured diffraction pattern. Neither panel reproduces the source's commercial alloy plots.</figcaption></figure>
+
+<h2 id="diffraction">22.6 Let thermodynamics propose candidates that diffraction can refute</h2>
+<p class="source"><a href="https://www.youtube.com/watch?v=4xTnDKBPSzM&amp;t=668">Lesson 57, 11:08–19:07</a>, including phase compositions and shifted diffraction patterns.</p>
+<p>The recording first compares calculated phase fractions and compositions with a microstructure, then revisits an ambiguous powder-diffraction interpretation. Its general lesson is valuable: phase-equilibrium information can suggest structures that a blind best-match search overlooks. The exact proprietary calculations, uncertain compound labels in the ASR and quantitative measured patterns were not recovered for reproduction. The synthetic example below tests the logic without pretending to re-identify those specimens.</p>
+<p>For a cubic phase, \(d_{hkl}=a/\sqrt{h^2+k^2+l^2}\) and first-order diffraction obeys \(2d\sin\theta=\lambda\). With known indexing and wavelength, increasing a shifts every allowed reflection toward lower \(2\theta\). Differentiating at fixed wavelength and reflection gives</p>
+\[
+d(2\theta)=-2\tan\theta\,\frac{da}{a}.
+\]
+<p>The differential is in radians. Equal fractional lattice expansion does <em>not</em> produce one constant angular shift for every peak. At \(\lambda=0.15406\) nm and a changing from 0.3600 to 0.3618 nm, the exact shifts for 111,200,220 are −0.227398°, −0.269791° and −0.432799°. The first-order predictions differ slightly because the expansion is finite. This pattern of angle dependence helps distinguish a lattice change from a constant instrumental zero offset.</p>
+<p>A single peak cannot separately determine both quantities. In the model \(t_h=2\arcsin[\lambda\sqrt{h^2+k^2+l^2}/(2a)]+z_0\), any admissible a can be accompanied by a zero offset chosen to match one measured t. For several distinct indexed reflections, the Jacobian has rows \((-2\tan\theta_h/a,\ 1)\), in consistent angular units. Distinct \(\theta_h\) give rank two, establishing local identifiability of a and \(z_0\) within this model.</p>
+<p>The program creates five exact synthetic peak positions with a=0.3618 nm and \(z_0=0.04^\circ\). For each trial a it eliminates the best common offset analytically as the mean angular residual, then performs a bounded one-dimensional search. It recovers both prescribed values with squared angular residual below \(10^{-20}\ {\rm degree}^2\). This demonstrates a conditional fit with known indexing and no measurement noise. It is not a proof that the phase indexing, phase count or zero-offset model is correct for an experimental pattern.</p>
+<p>Peak positions also respond to strain, and peak widths have sample and instrumental contributions. The actually inspected introduction and section 2 of <a href="https://journals.iucr.org/a/issues/2022/01/00/vk5047/index.html">Beyer, Roth and Iversen's 2022 primary study</a> distinguishes coherent-domain size, microstrain and instrumental broadening. A broad peak does not uniquely measure a grain size or establish a second phase. A thermodynamic candidate should be checked against multiple positions, intensities and absences, chemistry, preparation history and appropriate microscopy. Allowing arbitrary independent shifts to every predicted line would discard much of the crystallographic test.</p>
+<p>Nor can a database exclude a phase absent from its own descriptions. Inspecting binary compounds can generate hypotheses about extended ternary phases, but their stability, solubility and lattice changes require evidence. Ordering a list of unrelated binary compounds by their raw molar energies is not a universal ranking: different stoichiometries require a common conserved assemblage or a specified chemical-potential reservoir. Use the tangent-plane comparison or a full equilibrium problem when its inputs exist. If they do not, preserve the candidates as hypotheses.</p>
+
+<h2 id="workflow">22.7 An evidence chain that survives automation</h2>
+<p>The practical sequence is now explicit. Declare the search domain and count it; evaluate well-defined states; retain convergence and balance evidence; apply numerical criteria with their units and sampled domain; and test selected predictions experimentally. Store rejected, accepted and unknown outcomes separately. If a later assessment introduces a missing phase, rerun the affected comparisons rather than assume that a smaller residual in the old model repairs the omission.</p>
+<p>Composition basis remains part of that chain. Phase mole, mass and volume fractions are different quantities unless the corresponding molar masses and volumes happen to match. A nominally equiatomic bulk alloy need not have equiatomic coexisting phases. A measurement may average several nanoscale regions, while an equilibrium output describes individual phase compositions. Comparison requires a matching quantity and sampling scale, not just similar-looking decimals.</p>
+<p>The program completes a deliberately small serial screen, not a production orchestration system. The 3246-point grid count is executed; those 3246 alloys are not run through the engine. Only the fourteen declared synthetic binary cases are. No real strength, cost, oxidation resistance, kinetic stability or heat-treatment success is predicted. This separation makes the calculation useful: its actual outputs can be reproduced while the much larger scientific claim remains a question to investigate.</p>
+
+<h2 id="laboratory">22.8 Run the exact program</h2>
+<p>Use <a href="code/ch22_screening_characterization.py">the exact downloadable listing</a>, <a href="data/ch22_screening.tdb">its original teaching TDB</a> and the book's <a href="requirements.txt">pinned pycalphad 0.11.1 environment</a>, with the project directory as the working directory. The displayed output was obtained by execution. The fitting residual is reported as a verified bound to avoid giving platform-dependent roundoff a physical interpretation.</p>
+<pre data-run="code/ch22_screening_characterization.py"><code class="language-python">"""Original screening and diffraction audits; synthetic phases, not an assessed alloy."""
+from pathlib import Path
+from itertools import product
+from math import comb, exp, log, sin, cos, asin, sqrt, pi
+import numpy as np
+import pycalphad
+from pycalphad import Database, equilibrium, variables as v
+
+assert pycalphad.__version__ == '0.11.1'
+R = float(v.R)
+# Integer atomic-fraction grid: all five components present, 5 through 50 at.%.
+grid = [q for q in product(range(1, 11), repeat=5) if sum(q) == 20]
+with_zero = sum(sum(q) == 20 for q in product(range(11), repeat=5))
+assert len(grid) == comb(19, 4)-5*comb(9, 4) == 3246
+assert with_zero == comb(24, 4)-5*comb(13, 4) == 7051
+print(f'Five-component 5%-grid, positive / zero-allowed: {len(grid)}, {with_zero}')
+print(f'Unrestricted 26-element equimolar subsets of sizes3--6: {sum(comb(26,k) for k in range(3,7))}')
+tm_c = 1250.
+print(f'0.8 times 1250 Celsius: operational={.8*tm_c:.3f} C; absolute-ratio={.8*(tm_c+273.15)-273.15:.3f} C')
+print(f'Endpoint-only fraction test: endpoints=.100,.100; interior={.1+.6*sin(pi/2)**2:.3f}')
+
+# An infinitesimal product can partition while the remaining matrix conserves composition.
+A, z, xp, advantage = 10000., .3, .7, 300.
+same_composition = A*(z-xp)**2-advantage
+print(f'Parent tangent-plane advantage={advantage:.6f}; same-composition product penalty={same_composition:.6f} J/mol')
+for amount in (.1, .2):
+    xm = (z-amount*xp)/(1-amount)
+    energy = (1-amount)*A*(xm-z)**2-amount*advantage
+    assert abs((1-amount)*xm+amount*xp-z) &lt; 1e-14
+    print(f'Partitioned product amount={amount:.1f}: matrix x={xm:.9f}, total change={energy:.9f} J/mol')
+
+# Execute a small batch with two ideal substitutional solution branches.
+db = Database(str(Path('data/ch22_screening.tdb')))
+D = 6000.
+temperatures = (900., 1000.)
+compositions = [j/20 for j in range(7,14)]
+rows = {x: [] for x in compositions}
+for T in temperatures:
+    delta = 8*(1100-T)
+    u, w = exp((D+delta)/(R*T)), exp((delta-D)/(R*T))
+    b = (u-1)/(u-w); a = w*b
+    mu_a = R*T*log(1-a)
+    slope = D+R*T*log(a/(1-a))
+    print(f'Synthetic common-line contacts T={T:.0f} K: MATRIX={a:.9f}, PRECIP={b:.9f}')
+    for x in compositions:
+        result = equilibrium(db, ['CU','NI'], ['MATRIX','PRECIP'],
+            {v.T:T, v.P:100000, v.N:1, v.X('NI'):x},
+            calc_opts={'pdens':200})
+        records = [(str(p), float(c), float(n)) for p,c,n in zip(
+            result.Phase.values.reshape(-1),
+            result.X.sel(component='NI').values.reshape(-1),
+            result.NP.values.reshape(-1))
+            if p and np.isfinite(n) and n &gt; 1e-9]
+        assert abs(sum(n for _,_,n in records)-1) &lt; 1e-9
+        assert abs(sum(c*n for _,c,n in records)-x) &lt; 1e-9
+        fraction = sum(n for p,_,n in records if p == 'PRECIP')
+        analytic = max(0.,min(1.,(x-a)/(b-a)))
+        assert abs(fraction-analytic) &lt; 1e-7
+        if a &lt; x &lt; b:
+            assert abs(float(result.GM.values.squeeze())-(mu_a+slope*x)) &lt; 1e-6
+            assert all(abs(c-({'MATRIX':a,'PRECIP':b}[p])) &lt; 1e-7 for p,c,_ in records)
+        rows[x].append(fraction)
+nominal = [x for x,fs in rows.items() if all(.05 &lt; f &lt; .5 for f in fs)]
+# A stipulated +/-0.04 bound on each fraction; NOT an inferred uncertainty.
+robust = [x for x,fs in rows.items() if all(.05 &lt; f-.04 and f+.04 &lt; .5 for f in fs)]
+for x,fs in rows.items():
+    print(f'Synthetic xNi={x:.2f}: fPRECIP900/1000={fs[0]:.6f},{fs[1]:.6f}; nominal={x in nominal}; robust={x in robust}')
+assert nominal == [.5,.55] and robust == [.5]
+print('Executed equilibrium batch:14 cases, every mass/composition balance and analytic fraction PASS')
+# Classifier behavior for an absent calculation, not a claim of an actual solver failure.
+def classify(values):
+    if values is None: return 'unknown'
+    return 'pass' if all(.05 &lt; f &lt; .5 for f in values) else 'reject'
+assert classify(None) == 'unknown'
+print('Deliberately absent result classified as unknown, not reject or pass')
+
+# Synthetic angular diffraction data; known cubic indexing and wavelength.
+wavelength, a0, true_a, zero = .15406, .36, .3618, .04  # nm, nm, nm, degrees
+squares = (3,4,8,11,12)
+def angles(a):
+    return [2*asin(wavelength*sqrt(q)/(2*a))*180/pi for q in squares]
+old = angles(a0)
+observed = [t+zero for t in angles(true_a)]
+for q,old_t,new_t in zip(squares[:3],old[:3],angles(true_a)[:3]):
+    linear = -2*sin(old_t*pi/360)/cos(old_t*pi/360)*(.005)*180/pi
+    print(f'Cubic h2+k2+l2={q}: exact 2theta shift={new_t-old_t:.6f} deg; first-order={linear:.6f} deg')
+# For each candidate a, the best common zero offset is the mean angular residual.
+def fit_at(a):
+    residual = [o-t for o,t in zip(observed,angles(a))]
+    shift = sum(residual)/len(residual)
+    return sum((r-shift)**2 for r in residual),shift
+left,right=.355,.367
+gold=(sqrt(5)-1)/2
+c=right-gold*(right-left);d=left+gold*(right-left)
+for _ in range(100):
+    if fit_at(c)[0] &lt; fit_at(d)[0]:
+        right,d=d,c;c=right-gold*(right-left)
+    else:
+        left,c=c,d;d=left+gold*(right-left)
+fitted=(left+right)/2
+sse,fitted_zero=fit_at(fitted)
+assert abs(fitted-true_a)&lt;1e-11 and abs(fitted_zero-zero)&lt;1e-8
+assert sse &lt; 1e-20
+print(f'Synthetic five-peak joint fit: a={fitted:.9f} nm; zero={fitted_zero:.9f} deg; SSE&lt;1e-20 deg^2')
+print('Scope: no measured pattern, real-alloy screening, mechanical-property prediction or thermal-history simulation')
+</code></pre>
+<pre class="output">Five-component 5%-grid, positive / zero-allowed: 3246, 7051
+Unrestricted 26-element equimolar subsets of sizes3--6: 313560
+0.8 times 1250 Celsius: operational=1000.000 C; absolute-ratio=945.370 C
+Endpoint-only fraction test: endpoints=.100,.100; interior=0.700
+Parent tangent-plane advantage=300.000000; same-composition product penalty=1300.000000 J/mol
+Partitioned product amount=0.1: matrix x=0.255555556, total change=-12.222222222 J/mol
+Partitioned product amount=0.2: matrix x=0.200000000, total change=20.000000000 J/mol
+Synthetic common-line contacts T=900 K: MATRIX=0.443488203, PRECIP=0.798445520
+Synthetic common-line contacts T=1000 K: MATRIX=0.391289385, PRECIP=0.731327105
+Synthetic xNi=0.35: fPRECIP900/1000=0.000000,0.000000; nominal=False; robust=False
+Synthetic xNi=0.40: fPRECIP900/1000=0.000000,0.025617; nominal=False; robust=False
+Synthetic xNi=0.45: fPRECIP900/1000=0.018345,0.172659; nominal=False; robust=False
+Synthetic xNi=0.50: fPRECIP900/1000=0.159207,0.319702; nominal=True; robust=True
+Synthetic xNi=0.55: fPRECIP900/1000=0.300069,0.466744; nominal=True; robust=False
+Synthetic xNi=0.60: fPRECIP900/1000=0.440931,0.613787; nominal=False; robust=False
+Synthetic xNi=0.65: fPRECIP900/1000=0.581793,0.760829; nominal=False; robust=False
+Executed equilibrium batch:14 cases, every mass/composition balance and analytic fraction PASS
+Deliberately absent result classified as unknown, not reject or pass
+Cubic h2+k2+l2=3: exact 2theta shift=-0.227398 deg; first-order=-0.228625 deg
+Cubic h2+k2+l2=4: exact 2theta shift=-0.269791 deg; first-order=-0.271291 deg
+Cubic h2+k2+l2=8: exact 2theta shift=-0.432799 deg; first-order=-0.435586 deg
+Synthetic five-peak joint fit: a=0.361800000 nm; zero=0.040000000 deg; SSE&lt;1e-20 deg^2
+Scope: no measured pattern, real-alloy screening, mechanical-property prediction or thermal-history simulation</pre>
+
+<h2 id="exercises">22.9 Exercises with complete solutions</h2>
+<div class="exercise"><h3>1. Count a genuine five-component grid</h3><p>Derive the count for 5–50 atomic percent in 5-percent steps, and explain the change if absent components are admitted.</p><details class="solution"><summary>Solution</summary><p>Write fractions as \(q_i/20\). For all components present, \(1\le q_i\le10\) and their sum is twenty. After subtracting one from each, the sum is fifteen and the upper bound is nine. Stars and bars gives \(\binom{19}{4}=3876\); each of five disjoint violations leaves sum five and contributes \(\binom94=126\). Hence \(3876-630=3246\). With zeros admitted, start with \(\binom{24}{4}=10626\); each violation \(q_i\ge11\) contributes \(\binom{13}{4}=715\), and simultaneous violations are impossible. The count becomes \(10626-3575=7051\). Those extra points include lower-component faces. They are not additional genuine five-component alloys.</p></details></div>
+<div class="exercise"><h3>2. Audit a temperature fraction and a window claim</h3><p>For a melting value of 1250 °C, compare the two 0.8 operations. Then explain why two acceptable endpoint fractions do not prove an acceptable service interval.</p><details class="solution"><summary>Solution</summary><p>The Celsius operation gives 1000 °C. An absolute ratio gives \(0.8(1523.15)=1218.52\) K, or 945.37 °C. A reproduction must state which convention it follows; only the latter is invariant as an absolute-temperature ratio. The example \(f=0.1+0.6\sin^2[\pi(T-T_a)/(T_b-T_a)]\) gives 0.1 at both ends but 0.7 at their midpoint. A 0.05–0.5 criterion therefore fails inside. The claim can be strengthened by checking intermediate equilibria, tracking boundaries, or proving a derivative bound with a sufficiently fine grid and safety margin. Continuity alone is insufficient.</p></details></div>
+<div class="exercise"><h3>3. Turn a sampled inequality into a sufficient certificate</h3><p>Suppose the maximum temperature gap is h and \(|f'|\le L\). If numerical and stipulated model errors are bounded by \(\epsilon\) and \(\delta\), how far must each sampled estimate stay from each threshold?</p><details class="solution"><summary>Solution</summary><p>Because the endpoints are included, choose a nearest sample no more than h/2 away. The derivative bound contributes at most Lh/2 to the difference. The triangle inequality adds numerical and model terms, giving \(|f_{\rm physical}(T)-\widehat f(T_j)|\le Lh/2+\epsilon+\delta\), assuming each stated bound really applies throughout the domain. Every sampled estimate must lie inside the allowed interval by more than that sum for strict thresholds. If L or the discrepancy bound is unknown, the formula is conditional rather than a certificate inferred from the grid itself.</p></details></div>
+<div class="exercise"><h3>4. Derive the tangent-plane driving force</h3><p>Differentiate the balanced parent/product mixture and evaluate the quadratic example at product amounts 0.1 and 0.2.</p><details class="solution"><summary>Solution</summary><p>Balance requires \(x_M=(z-\lambda x)/(1-\lambda)\), so \(x_M'(0)=z-x\). Differentiating the mixture gives \(G'(0)=-g_M(z)+g_M'(z)(z-x)+g_P(x)=g_P(x)-\ell_z(x)\). At z=0.3 and x=0.7, the parent tangent is zero and the product minimum is −300, giving derivative −300 J/mol. At \(\lambda=0.1\), \(x_M=0.23/0.9=0.255555556\), and \(G=0.9(10000)(-0.044444444)^2-30=-12.222222222\). At \(\lambda=0.2\), \(x_M=0.16/0.8=0.2\), and \(G=80-60=20\). The first-order direction favors some small amount, while finite curvature can oppose a larger stipulated amount. No nucleation rate follows.</p></details></div>
+<div class="exercise"><h3>5. Check reference invariance of the driving comparison</h3><p>Why does a common elemental affine subtraction preserve D, and why can separate phase-mixing references invalidate the comparison?</p><details class="solution"><summary>Solution</summary><p>Let \(q(x)=a+bx\). The transformed parent tangent is \(g_M(z)-q(z)+[g_M'(z)-b](x-z)=\ell_z(x)-q(x)\). The transformed product is \(g_P(x)-q(x)\), so their difference equals the old \(\ell_z(x)-g_P(x)\) for every x; its maximum is unchanged. If different phases subtract different functions \(q_M,q_P\), the difference gains \(q_P(x)-q_M(x)\), changing the inferred driving force. Deeper separately referenced mixing energies can therefore be useful descriptions of mixing within each phase without being a valid ranking of the competing phases.</p></details></div>
+<div class="exercise"><h3>6. Certify the synthetic equilibrium and distinguish two passes</h3><p>Derive the contact formula and use the actual 1000 K result to explain why x=0.55 is nominally acceptable but not robustly certified under the stipulated bound.</p><details class="solution"><summary>Solution</summary><p>For MATRIX, \(\mu_A=RT\ln(1-a)\), \(\mu_B=D+RT\ln a\). For PRECIP, \(\mu_A=D+\delta+RT\ln(1-b)\), \(\mu_B=\delta+RT\ln b\). Equalities give \(1-a=u(1-b)\), \(a=wb\), hence \(b=(u-1)/(u-w)\). Positive branch curvature proves that the shared tangent lies below each entire branch, establishing global support. At 1000 K the actual contacts give \(f_P=(0.55-0.391289385)/(0.731327105-0.391289385)\approx0.466744\). It is below 0.5, but adding 0.04 reaches 0.506744. A nominal pass is not a pass for every value in that uncertainty interval. It is not proof of actual physical failure either. The lower and upper margins must be checked at every declared condition.</p></details></div>
+<div class="exercise"><h3>7. Derive the angular shift and keep its units</h3><p>Differentiate Bragg's law for isotropic cubic expansion. Why does an identical fractional expansion produce different shifts for different reflections?</p><details class="solution"><summary>Solution</summary><p>At fixed wavelength, \(d\sin\theta\) is constant, so \(dd/d+\cot\theta\,d\theta=0\). Since the same indexed cubic spacing is proportional to a, \(dd/d=da/a\), yielding \(d(2\theta)=-2\tan\theta\,da/a\) in radians. Larger diffraction angles have larger tangent and therefore larger angular shifts. For a 0.5-percent expansion the code's first-order shifts are −0.228625°, −0.271291° and −0.435586° for 111,200,220; exact finite shifts are slightly smaller in magnitude. Multiplying the radian derivative by 180/π is essential before comparing with degrees. A single arbitrary common angular translation is not the same model as uniform lattice expansion.</p></details></div>
+<div class="exercise"><h3>8. Explain the zero-offset identifiability problem</h3><p>Can one indexed peak determine both a lattice parameter and a constant angular offset? What do five exact peaks establish in the constructed fit?</p><details class="solution"><summary>Solution</summary><p>One equation \(t=F_h(a)+z_0\) leaves a free parameter: choose any admissible a and set \(z_0=t-F_h(a)\). With several distinct angles, the rows \((F_h'(a),1)\) are not proportional because \(F_h'=-2\tan\theta_h/a\) differs across reflections. The Jacobian has rank two, giving local identifiability under known indexing. The constructed five-peak fit recovers 0.3618 nm and 0.04° with an actual residual bound. It does not certify an unknown structure or phase mixture, absence of strain, a correct instrument model or experimental uncertainty. Those require independent tests; the fit is conditional on the stated synthetic model.</p></details></div>
+<div class="exercise"><h3>9. Design a characterization test that can reject the calculation</h3><p>A calculation proposes two FCC composition sets. What comparisons would be more informative than accepting the best-matching single powder pattern?</p><details class="solution"><summary>Solution</summary><p>Retain both predicted phase compositions and amounts and verify the bulk elemental balance first. Compare measured chemical populations at an appropriate spatial resolution, stating whether their sampling averages more than one region. Test multiple indexed diffraction positions, relative intensities, absences and coherent lattice shifts, while accounting for instrumental offset and possible strain/broadening. Convert phase fractions to the same mole, mass or volume basis before comparison. Check whether the processing time and temperature could plausibly approach the calculated state. Search for unexplained peaks or chemistry that could indicate a missing candidate phase. None of these tests is guaranteed to settle an under-resolved sample, but they provide ways for the observations to contradict the proposed equilibrium rather than merely illustrate it.</p></details></div>
+<p class="closing">High throughput is most powerful when it accelerates an explicit question. The result is a reproducible set of conditional predictions, together with enough thermodynamic and measurement reasoning to choose the next experiment and recognize when the model must change.</p>
+<p class="chapter-nav"><a href="index.html">All chapters</a></p>
+<!-- BOOK-CONTENT-END --></article><nav class="page-turn"><a href="index.html">Chapter index</a></nav></main></div><footer class="site-footer">Independent study edition. Prof. K. Guruvidyathri, University of Hyderabad; NPTEL coordinating institution IIT Madras. Original exposition and teaching constructions; attribution does not imply endorsement.</footer></body></html>

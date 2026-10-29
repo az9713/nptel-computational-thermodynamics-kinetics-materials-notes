@@ -1,0 +1,896 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "complete": true,
+  "recording_count": 61,
+  "substantive_lessons": 60,
+  "introduction_count": 1,
+  "exact_once_substantive_chapter_mapping": true,
+  "source_duration_hours": 25.921983506944443,
+  "scope": "Full machine-transcript reading and topic mapping, not full audiovisual or board-equation verification",
+  "limitations": [
+    "Recognition and chunk-boundary errors remain possible",
+    "Primary-source access scopes are stated locally in chapters",
+    "No raw transcript or source media redistributed"
+  ],
+  "chapter_hashes": {
+    "chapter-01-microstructure-phases-composition.html": "c123f965c6d72ccdea4914960efca3346e1ba70a7aafd83d676e70b3e06bcee5",
+    "chapter-02-chemical-order-sites-composition.html": "9f882d8f9ce3cc80fc3a7f42db67eff355ab4017b464ab43fe5db0a6ceabaf0d",
+    "chapter-03-unary-binary-equilibrium-diagrams.html": "ae63a2c757cbbdef3c842bc7619b04b6afccfeb23b8a20172cf095bb3f51b0b4",
+    "chapter-04-ternary-sections-reactions-projections.html": "87135b8f136963346689c752e7cf4013ec6658cd5a5adc20ec89bd08f98f6cdd",
+    "chapter-05-phase-amounts-heat-flow-cooling-curves.html": "acdc265dcfe2c732651440b9b3237d39ca775312e258a91d8b402360c0174288",
+    "chapter-06-states-molecular-energy-heat-capacity.html": "0af2b4020037a6d4b526ff7d12a6e0ed7312aba7af4d857e076ea92c44af379d",
+    "chapter-07-first-law-reversible-adiabatic-paths.html": "e8312d8f0b9a414bedc763b1f8fdada0b49dd44437348b282d1b170c0f1f9381",
+    "chapter-08-entropy-engines-statistical-concentration.html": "cf40efb072ac317a7d76975a417c342ebcabf523a5d80bff061a7b9f5859cdc0",
+    "chapter-09-entropy-contributions-thermodynamic-potentials.html": "d58476469ddb382c9ec776b4fc37d5367ba2df8fa95ffa18c3c3a6d9fe7277bd",
+    "chapter-10-lattice-stability-caloric-mixing.html": "095746842be219508ced20167f325853515d56456efa5532725bef3feee6b120",
+    "chapter-11-mixing-chemical-potentials-activities.html": "c12bda2a41c816ffc28f484236a6bd7e3bef0aa43d5f9ee0a688e8bb9186ff13",
+    "chapter-12-global-tangents-driving-forces-phase-rule.html": "6f8f77bbb4554d11e2207bbb8381806f8512dc5d218329871128e251b1dcb59b",
+    "chapter-13-calphad-models-database-minimization.html": "7f4fc8dcc83c4c7c45b5c8721bb11cc542de675f8475d01693c143c0a5adcc16",
+    "chapter-14-reproducible-equilibrium-calculations.html": "d9950d0ffd018ee5bd1b6778311684b2b74ddcaa8c034c6e93a9bc0d3403e348",
+    "chapter-15-composition-paths-references-tzero.html": "23c1e3e09cf4a1009554c7e731aff9e89c4c72758c9bdbaa1dc686261765ff80",
+    "chapter-16-scheil-solidification-conservative-histories.html": "da4aaf511c100fa28edc0e55e1e0e8c9b63badb0368fb1cd6bf7e88c3b774a58",
+    "chapter-17-assessment-data-measurements-constraints.html": "1d14960c3b7134e0149f34e656150adcc7378664b76b0b4c9f56c98200d26cc3",
+    "chapter-18-sublattice-models-assessment-databases.html": "f528fff6d2e6b2fe4ef696f838c804ca0449425b6ab882ea3ae35a0a8ffc99ae",
+    "chapter-19-diffusion-mobility-thermodynamic-forces.html": "50b09f397003f5ac587b0a840c409446644d30d24212513df9f9458fbd2c1a97",
+    "chapter-20-conservative-transport-interfaces-rapid-solidification.html": "f081244ad1ec7b41949bcaa32106c7376e4a36f3c2af7d776f2b94f272394836",
+    "chapter-21-nucleation-transformation-diagrams-precipitation-aging.html": "b7229e9e8b92c5cb654a5f423bb840699390bd4cf7f6957dbe2d44692a914b84",
+    "chapter-22-high-throughput-design-phase-identification.html": "be3771499520b00e6780c0ed68adfc0a0f2ee858d90a9c28b092525dd27e6e3b",
+    "chapter-23-material-property-models-and-strength.html": "d8627dae1bd38782199af5940f481f669e3c4b363974d609abe27247d70e30eb",
+    "chapter-24-size-electrochemical-reservoirs-database-limits.html": "3ef129e72d7153d8d962ec8785d68379ce7e599fc50b497e9c84c178b9bc0a14"
+  },
+  "recordings": [
+    {
+      "video_id": "lxBnV9EUSFI",
+      "playlist_position": 1,
+      "official_lesson": null,
+      "reading_complete": true,
+      "included": false,
+      "chapters": [],
+      "disposition": "Introduction read for orientation; substantive content covered through all60 official lessons",
+      "evidence_type": "Complete local faster-whisper small.en ASR, not publisher captions",
+      "duration_seconds": 483.8574375,
+      "media_sha256": "ba9eafa721651f4bb1d07e6ce52064bfaef933895170e9d32f29503b1ae12224"
+    },
+    {
+      "video_id": "UA4P_D6fJkE",
+      "playlist_position": 2,
+      "official_lesson": 1,
+      "reading_complete": true,
+      "included": true,
+      "chapters": [
+        "chapter-01-microstructure-phases-composition.html"
+      ],
+      "disposition": "Included; full machine transcript read, topic spans mapped; original explanatory reconstruction",
+      "evidence_type": "Complete local faster-whisper small.en ASR, not publisher captions",
+      "duration_seconds": 1372.16,
+      "media_sha256": "b327644a71a365898fd49708b28f4958e6174b64c4768b425ab669bb470d4229"
+    },
+    {
+      "video_id": "aFXTk8V6mcw",
+      "playlist_position": 3,
+      "official_lesson": 2,
+      "reading_complete": true,
+      "included": true,
+      "chapters": [
+        "chapter-02-chemical-order-sites-composition.html"
+      ],
+      "disposition": "Included; full machine transcript read, topic spans mapped; original explanatory reconstruction",
+      "evidence_type": "Complete local faster-whisper small.en ASR, not publisher captions",
+      "duration_seconds": 1575.61325,
+      "media_sha256": "99bf5b96bce6392d44f52856e00af56cbee614860c4259d930f8556d90972bc0"
+    },
+    {
+      "video_id": "955OEvtMoUg",
+      "playlist_position": 4,
+      "official_lesson": 3,
+      "reading_complete": true,
+      "included": true,
+      "chapters": [
+        "chapter-03-unary-binary-equilibrium-diagrams.html"
+      ],
+      "disposition": "Included; full machine transcript read, topic spans mapped; original explanatory reconstruction",
+      "evidence_type": "Complete local faster-whisper small.en ASR, not publisher captions",
+      "duration_seconds": 1560.6131875,
+      "media_sha256": "e402ab8aa221824340abf6142ff31d4ee7445188475bd48b42607cea7e19ad61"
+    },
+    {
+      "video_id": "AXcxrGV96Ys",
+      "playlist_position": 5,
+      "official_lesson": 4,
+      "reading_complete": true,
+      "included": true,
+      "chapters": [
+        "chapter-03-unary-binary-equilibrium-diagrams.html"
+      ],
+      "disposition": "Included; full machine transcript read, topic spans mapped; original explanatory reconstruction",
+      "evidence_type": "Complete local faster-whisper small.en ASR, not publisher captions",
+      "duration_seconds": 958.008875,
+      "media_sha256": "f738a1b92bde2688910143eb7282d44e9c6bf834db789a548bc14530ef33438a"
+    },
+    {
+      "video_id": "eQU3Qs_GHJw",
+      "playlist_position": 6,
+      "official_lesson": 5,
+      "reading_complete": true,
+      "included": true,
+      "chapters": [
+        "chapter-03-unary-binary-equilibrium-diagrams.html"
+      ],
+      "disposition": "Included; full machine transcript read, topic spans mapped; original explanatory reconstruction",
+      "evidence_type": "Complete local faster-whisper small.en ASR, not publisher captions",
+      "duration_seconds": 1144.00075,
+      "media_sha256": "2b86099e4fc9810e7fa436c28b35fd26e593d5cb37733c3fdd0f581e2d06c100"
+    },
+    {
+      "video_id": "hE4-f_QtVlw",
+      "playlist_position": 7,
+      "official_lesson": 6,
+      "reading_complete": true,
+      "included": true,
+      "chapters": [
+        "chapter-04-ternary-sections-reactions-projections.html"
+      ],
+      "disposition": "Included; full machine transcript read, topic spans mapped; original explanatory reconstruction",
+      "evidence_type": "Complete local faster-whisper small.en ASR, not publisher captions",
+      "duration_seconds": 1014.52625,
+      "media_sha256": "6c59a1e80b4139756ba3fe20a73471c6dc2257b04ce124736800adf64dfc893a"
+    },
+    {
+      "video_id": "Id1L8ZyZ03Y",
+      "playlist_position": 8,
+      "official_lesson": 7,
+      "reading_complete": true,
+      "included": true,
+      "chapters": [
+        "chapter-04-ternary-sections-reactions-projections.html"
+      ],
+      "disposition": "Included; full machine transcript read, topic spans mapped; original explanatory reconstruction",
+      "evidence_type": "Complete local faster-whisper small.en ASR, not publisher captions",
+      "duration_seconds": 1104.57325,
+      "media_sha256": "78fb9794c6aea180b0d31e536a42ebdb0215a77a694be113ebbbf3f5389ca446"
+    },
+    {
+      "video_id": "mzFz8_AqMJc",
+      "playlist_position": 9,
+      "official_lesson": 8,
+      "reading_complete": true,
+      "included": true,
+      "chapters": [
+        "chapter-04-ternary-sections-reactions-projections.html"
+      ],
+      "disposition": "Included; full machine transcript read, topic spans mapped; original explanatory reconstruction",
+      "evidence_type": "Complete local faster-whisper small.en ASR, not publisher captions",
+      "duration_seconds": 1871.6676875,
+      "media_sha256": "080c8ac16a453d47fc7658f5d25f9897a0d178bc7ec8a501e8d3e69d9d858295"
+    },
+    {
+      "video_id": "m-RUuHye-tc",
+      "playlist_position": 10,
+      "official_lesson": 9,
+      "reading_complete": true,
+      "included": true,
+      "chapters": [
+        "chapter-05-phase-amounts-heat-flow-cooling-curves.html"
+      ],
+      "disposition": "Included; full machine transcript read, topic spans mapped; original explanatory reconstruction",
+      "evidence_type": "Complete local faster-whisper small.en ASR, not publisher captions",
+      "duration_seconds": 1275.0541875,
+      "media_sha256": "08db633c9ac69285c27a3c14b94a8b0f3e64d9a806f4b2e603411bcc18b633bd"
+    },
+    {
+      "video_id": "bQOEhmJcmAU",
+      "playlist_position": 11,
+      "official_lesson": 10,
+      "reading_complete": true,
+      "included": true,
+      "chapters": [
+        "chapter-05-phase-amounts-heat-flow-cooling-curves.html"
+      ],
+      "disposition": "Included; full machine transcript read, topic spans mapped; original explanatory reconstruction",
+      "evidence_type": "Complete local faster-whisper small.en ASR, not publisher captions",
+      "duration_seconds": 702.31075,
+      "media_sha256": "8e6f7d3ca7aa8bbc70df17acc6b93fe8651f3f39bcf77f56451c543b4c15bfe2"
+    },
+    {
+      "video_id": "LKqeecILglA",
+      "playlist_position": 12,
+      "official_lesson": 11,
+      "reading_complete": true,
+      "included": true,
+      "chapters": [
+        "chapter-06-states-molecular-energy-heat-capacity.html"
+      ],
+      "disposition": "Included; full machine transcript read, topic spans mapped; original explanatory reconstruction",
+      "evidence_type": "Complete local faster-whisper small.en ASR, not publisher captions",
+      "duration_seconds": 1854.7635625,
+      "media_sha256": "414349cd2aed33085ed89b7044ed87dd5e6d8a30b6ec0173f51d9a2753baf152"
+    },
+    {
+      "video_id": "AIufuEzEgFY",
+      "playlist_position": 13,
+      "official_lesson": 12,
+      "reading_complete": true,
+      "included": true,
+      "chapters": [
+        "chapter-06-states-molecular-energy-heat-capacity.html"
+      ],
+      "disposition": "Included; full machine transcript read, topic spans mapped; original explanatory reconstruction",
+      "evidence_type": "Complete local faster-whisper small.en ASR, not publisher captions",
+      "duration_seconds": 2644.520625,
+      "media_sha256": "9ded5c5b266f147dba1597cd60eaf6456dd2e27dcc5bb7ebd1c4bc7f86ddd684"
+    },
+    {
+      "video_id": "5Ms2vab0HsQ",
+      "playlist_position": 14,
+      "official_lesson": 13,
+      "reading_complete": true,
+      "included": true,
+      "chapters": [
+        "chapter-07-first-law-reversible-adiabatic-paths.html"
+      ],
+      "disposition": "Included; full machine transcript read, topic spans mapped; original explanatory reconstruction",
+      "evidence_type": "Complete local faster-whisper small.en ASR, not publisher captions",
+      "duration_seconds": 1828.0141875,
+      "media_sha256": "0b00539bc2814e4014da7c42317fd0497e7201d159e7af97840a95a2b8a70d92"
+    },
+    {
+      "video_id": "5oXfprB7Jts",
+      "playlist_position": 15,
+      "official_lesson": 14,
+      "reading_complete": true,
+      "included": true,
+      "chapters": [
+        "chapter-07-first-law-reversible-adiabatic-paths.html"
+      ],
+      "disposition": "Included; full machine transcript read, topic spans mapped; original explanatory reconstruction",
+      "evidence_type": "Complete local faster-whisper small.en ASR, not publisher captions",
+      "duration_seconds": 1659.158625,
+      "media_sha256": "440145c95aa7701504b6efa08a54c48933bda4c28d592a07064a4e8be4403003"
+    },
+    {
+      "video_id": "Vqu8De1sdYs",
+      "playlist_position": 16,
+      "official_lesson": 15,
+      "reading_complete": true,
+      "included": true,
+      "chapters": [
+        "chapter-08-entropy-engines-statistical-concentration.html"
+      ],
+      "disposition": "Included; full machine transcript read, topic spans mapped; original explanatory reconstruction",
+      "evidence_type": "Complete local faster-whisper small.en ASR, not publisher captions",
+      "duration_seconds": 2179.56425,
+      "media_sha256": "c662d8728b7e7badce1079a383a8e67c4d6a3191c34f3c25e49f230e0e09dc16"
+    },
+    {
+      "video_id": "yRMvL3aBYQw",
+      "playlist_position": 17,
+      "official_lesson": 16,
+      "reading_complete": true,
+      "included": true,
+      "chapters": [
+        "chapter-08-entropy-engines-statistical-concentration.html"
+      ],
+      "disposition": "Included; full machine transcript read, topic spans mapped; original explanatory reconstruction",
+      "evidence_type": "Complete local faster-whisper small.en ASR, not publisher captions",
+      "duration_seconds": 1850.35175,
+      "media_sha256": "a2d3cd90ef47504a8ce5d173e0c98e0b02a9100284fbd7beb129451f0f6e725b"
+    },
+    {
+      "video_id": "A-1WonbIt9A",
+      "playlist_position": 18,
+      "official_lesson": 17,
+      "reading_complete": true,
+      "included": true,
+      "chapters": [
+        "chapter-09-entropy-contributions-thermodynamic-potentials.html"
+      ],
+      "disposition": "Included; full machine transcript read, topic spans mapped; original explanatory reconstruction",
+      "evidence_type": "Complete local faster-whisper small.en ASR, not publisher captions",
+      "duration_seconds": 2859.6303125,
+      "media_sha256": "79b80644b7b2513116e83a92d629bd0ef937e2fe76405ffb88d1c5873cd9f72e"
+    },
+    {
+      "video_id": "3FbPv8oxa7w",
+      "playlist_position": 19,
+      "official_lesson": 18,
+      "reading_complete": true,
+      "included": true,
+      "chapters": [
+        "chapter-10-lattice-stability-caloric-mixing.html"
+      ],
+      "disposition": "Included; full machine transcript read, topic spans mapped; original explanatory reconstruction",
+      "evidence_type": "Complete local faster-whisper small.en ASR, not publisher captions",
+      "duration_seconds": 3345.9955,
+      "media_sha256": "cdec376120eb789acf1de851316b77f0471b882c6b010da86d18152d2a23f054"
+    },
+    {
+      "video_id": "qf453j8wLgc",
+      "playlist_position": 20,
+      "official_lesson": 19,
+      "reading_complete": true,
+      "included": true,
+      "chapters": [
+        "chapter-11-mixing-chemical-potentials-activities.html"
+      ],
+      "disposition": "Included; full machine transcript read, topic spans mapped; original explanatory reconstruction",
+      "evidence_type": "Complete local faster-whisper small.en ASR, not publisher captions",
+      "duration_seconds": 2211.3291875,
+      "media_sha256": "a2f57ab06559e87ec37b360e02ba4ceee4e155f46bc751ae068ddf6000353b2d"
+    },
+    {
+      "video_id": "Jy9Vlk0tUZ4",
+      "playlist_position": 21,
+      "official_lesson": 20,
+      "reading_complete": true,
+      "included": true,
+      "chapters": [
+        "chapter-11-mixing-chemical-potentials-activities.html"
+      ],
+      "disposition": "Included; full machine transcript read, topic spans mapped; original explanatory reconstruction",
+      "evidence_type": "Complete local faster-whisper small.en ASR, not publisher captions",
+      "duration_seconds": 1957.02425,
+      "media_sha256": "cf62c661b16a212276c3cb4bbe5cb5f37290f5d82dfa8498d0dc4e0092007a4b"
+    },
+    {
+      "video_id": "yWQ7vsf2JRs",
+      "playlist_position": 22,
+      "official_lesson": 21,
+      "reading_complete": true,
+      "included": true,
+      "chapters": [
+        "chapter-12-global-tangents-driving-forces-phase-rule.html"
+      ],
+      "disposition": "Included; full machine transcript read, topic spans mapped; original explanatory reconstruction",
+      "evidence_type": "Complete local faster-whisper small.en ASR, not publisher captions",
+      "duration_seconds": 1014.433375,
+      "media_sha256": "8dd2cff74b63b6fcd3bf9bab35c5a3292a993810bfa28a48785a4cac485dd767"
+    },
+    {
+      "video_id": "cz9NYZfL7Ow",
+      "playlist_position": 23,
+      "official_lesson": 22,
+      "reading_complete": true,
+      "included": true,
+      "chapters": [
+        "chapter-12-global-tangents-driving-forces-phase-rule.html"
+      ],
+      "disposition": "Included; full machine transcript read, topic spans mapped; original explanatory reconstruction",
+      "evidence_type": "Complete local faster-whisper small.en ASR, not publisher captions",
+      "duration_seconds": 1407.7794375,
+      "media_sha256": "0ee16e03bf8b66c8e3b3656e0e290c0a00abe214c34c8bfe3e59a0f8701fe4c6"
+    },
+    {
+      "video_id": "lq50vklOrw8",
+      "playlist_position": 24,
+      "official_lesson": 23,
+      "reading_complete": true,
+      "included": true,
+      "chapters": [
+        "chapter-12-global-tangents-driving-forces-phase-rule.html"
+      ],
+      "disposition": "Included; full machine transcript read, topic spans mapped; original explanatory reconstruction",
+      "evidence_type": "Complete local faster-whisper small.en ASR, not publisher captions",
+      "duration_seconds": 1475.1173125,
+      "media_sha256": "0b65241981ce3ff3585f3b55e17abdffac0df779d07ed9cf63425a042409148e"
+    },
+    {
+      "video_id": "nVZ3k3h6DN4",
+      "playlist_position": 25,
+      "official_lesson": 24,
+      "reading_complete": true,
+      "included": true,
+      "chapters": [
+        "chapter-12-global-tangents-driving-forces-phase-rule.html"
+      ],
+      "disposition": "Included; full machine transcript read, topic spans mapped; original explanatory reconstruction",
+      "evidence_type": "Complete local faster-whisper small.en ASR, not publisher captions",
+      "duration_seconds": 2267.5214375,
+      "media_sha256": "089ddf27f36fbc234affd93587b700de58237206a6397024d0bcba0a9cd69d0b"
+    },
+    {
+      "video_id": "_YSc-fSIUi4",
+      "playlist_position": 26,
+      "official_lesson": 25,
+      "reading_complete": true,
+      "included": true,
+      "chapters": [
+        "chapter-13-calphad-models-database-minimization.html"
+      ],
+      "disposition": "Included; full machine transcript read, topic spans mapped; original explanatory reconstruction",
+      "evidence_type": "Complete local faster-whisper small.en ASR, not publisher captions",
+      "duration_seconds": 1423.151,
+      "media_sha256": "c3dd9fe55da33d114162fa559376683745bbb62fd219c29f0775b130f95cfd72"
+    },
+    {
+      "video_id": "xCGYkJPUQbA",
+      "playlist_position": 27,
+      "official_lesson": 26,
+      "reading_complete": true,
+      "included": true,
+      "chapters": [
+        "chapter-13-calphad-models-database-minimization.html"
+      ],
+      "disposition": "Included; full machine transcript read, topic spans mapped; original explanatory reconstruction",
+      "evidence_type": "Complete local faster-whisper small.en ASR, not publisher captions",
+      "duration_seconds": 1303.7075625,
+      "media_sha256": "dff386bfcf789b21bad37f160aeb6c955a57534bfd69423ea8c7d026f0a4cf25"
+    },
+    {
+      "video_id": "diFN59CIKJo",
+      "playlist_position": 28,
+      "official_lesson": 27,
+      "reading_complete": true,
+      "included": true,
+      "chapters": [
+        "chapter-14-reproducible-equilibrium-calculations.html"
+      ],
+      "disposition": "Included; full machine transcript read, topic spans mapped; original explanatory reconstruction",
+      "evidence_type": "Complete local faster-whisper small.en ASR, not publisher captions",
+      "duration_seconds": 1608.167625,
+      "media_sha256": "22216f9118a516dcb6455d75c982b1de2543c82d7a3d270336b10477f62762c4"
+    },
+    {
+      "video_id": "ek7BitlHojI",
+      "playlist_position": 29,
+      "official_lesson": 28,
+      "reading_complete": true,
+      "included": true,
+      "chapters": [
+        "chapter-14-reproducible-equilibrium-calculations.html"
+      ],
+      "disposition": "Included; full machine transcript read, topic spans mapped; original explanatory reconstruction",
+      "evidence_type": "Complete local faster-whisper small.en ASR, not publisher captions",
+      "duration_seconds": 2179.099875,
+      "media_sha256": "334bce81bcbdb9c1ab59d40a6b0c493dea556f1b86541a66a79b41740bd0db8a"
+    },
+    {
+      "video_id": "mxuZkETH_Jg",
+      "playlist_position": 30,
+      "official_lesson": 29,
+      "reading_complete": true,
+      "included": true,
+      "chapters": [
+        "chapter-14-reproducible-equilibrium-calculations.html"
+      ],
+      "disposition": "Included; full machine transcript read, topic spans mapped; original explanatory reconstruction",
+      "evidence_type": "Complete local faster-whisper small.en ASR, not publisher captions",
+      "duration_seconds": 1899.996,
+      "media_sha256": "6671dcc45f0de7e38a06c452d763efc249d61da92b9f9b1f51072ec2594ad002"
+    },
+    {
+      "video_id": "wXVkvJ8PH9g",
+      "playlist_position": 31,
+      "official_lesson": 30,
+      "reading_complete": true,
+      "included": true,
+      "chapters": [
+        "chapter-14-reproducible-equilibrium-calculations.html"
+      ],
+      "disposition": "Included; full machine transcript read, topic spans mapped; original explanatory reconstruction",
+      "evidence_type": "Complete local faster-whisper small.en ASR, not publisher captions",
+      "duration_seconds": 2205.3384375,
+      "media_sha256": "af6b0c8aa4fc57cd0dceb7e26cd2d9082fa5288caaab5d0952d4cbad5fe47ed0"
+    },
+    {
+      "video_id": "9NB_EO-GxKQ",
+      "playlist_position": 32,
+      "official_lesson": 31,
+      "reading_complete": true,
+      "included": true,
+      "chapters": [
+        "chapter-15-composition-paths-references-tzero.html"
+      ],
+      "disposition": "Included; full machine transcript read, topic spans mapped; original explanatory reconstruction",
+      "evidence_type": "Complete local faster-whisper small.en ASR, not publisher captions",
+      "duration_seconds": 1623.12125,
+      "media_sha256": "fb60760411242bf3594de56120c8b5efd6a4e3265f733e3436ea304bd6129199"
+    },
+    {
+      "video_id": "Yv0dMq5moX0",
+      "playlist_position": 33,
+      "official_lesson": 32,
+      "reading_complete": true,
+      "included": true,
+      "chapters": [
+        "chapter-15-composition-paths-references-tzero.html"
+      ],
+      "disposition": "Included; full machine transcript read, topic spans mapped; original explanatory reconstruction",
+      "evidence_type": "Complete local faster-whisper small.en ASR, not publisher captions",
+      "duration_seconds": 1602.8735,
+      "media_sha256": "ca5fc98d860df2d6eb74982c49c2fba559a4d8e85b34dc4feb20eb5c51dfcabc"
+    },
+    {
+      "video_id": "qqoAc6JpTOs",
+      "playlist_position": 34,
+      "official_lesson": 33,
+      "reading_complete": true,
+      "included": true,
+      "chapters": [
+        "chapter-15-composition-paths-references-tzero.html"
+      ],
+      "disposition": "Included; full machine transcript read, topic spans mapped; original explanatory reconstruction",
+      "evidence_type": "Complete local faster-whisper small.en ASR, not publisher captions",
+      "duration_seconds": 1588.152,
+      "media_sha256": "331e53dbd1342fd3d41375a85ace42d98a998ec0995b117d1fadfface4d5bf56"
+    },
+    {
+      "video_id": "SGtheIa_Tl0",
+      "playlist_position": 35,
+      "official_lesson": 34,
+      "reading_complete": true,
+      "included": true,
+      "chapters": [
+        "chapter-15-composition-paths-references-tzero.html"
+      ],
+      "disposition": "Included; full machine transcript read, topic spans mapped; original explanatory reconstruction",
+      "evidence_type": "Complete local faster-whisper small.en ASR, not publisher captions",
+      "duration_seconds": 1268.506125,
+      "media_sha256": "a2e9d68545f47038e75fe64a8b3e2b307bfb27722570e29c9ddba28ab75d69a3"
+    },
+    {
+      "video_id": "LKEh7qZXme8",
+      "playlist_position": 36,
+      "official_lesson": 35,
+      "reading_complete": true,
+      "included": true,
+      "chapters": [
+        "chapter-16-scheil-solidification-conservative-histories.html"
+      ],
+      "disposition": "Included; full machine transcript read, topic spans mapped; original explanatory reconstruction",
+      "evidence_type": "Complete local faster-whisper small.en ASR, not publisher captions",
+      "duration_seconds": 1842.921375,
+      "media_sha256": "93048a4115f9cb2a899fb2d71f8d60ebaebcd40f770694f3274c55b3697b384f"
+    },
+    {
+      "video_id": "OolkJI4f_bY",
+      "playlist_position": 37,
+      "official_lesson": 36,
+      "reading_complete": true,
+      "included": true,
+      "chapters": [
+        "chapter-17-assessment-data-measurements-constraints.html"
+      ],
+      "disposition": "Included; full machine transcript read, topic spans mapped; original explanatory reconstruction",
+      "evidence_type": "Complete local faster-whisper small.en ASR, not publisher captions",
+      "duration_seconds": 1086.136625,
+      "media_sha256": "af345b82d70071947421abe05df0b81dae2aa338eb3e8a1a162649b516828960"
+    },
+    {
+      "video_id": "sCTYh4Gk6Bc",
+      "playlist_position": 38,
+      "official_lesson": 37,
+      "reading_complete": true,
+      "included": true,
+      "chapters": [
+        "chapter-17-assessment-data-measurements-constraints.html"
+      ],
+      "disposition": "Included; full machine transcript read, topic spans mapped; original explanatory reconstruction",
+      "evidence_type": "Complete local faster-whisper small.en ASR, not publisher captions",
+      "duration_seconds": 1435.4111875,
+      "media_sha256": "144526b9b479e8b1082b69d9dbce68a288050f8f1da6bbbd06632cfc1e3bd6c8"
+    },
+    {
+      "video_id": "5gMniJxWDcI",
+      "playlist_position": 39,
+      "official_lesson": 38,
+      "reading_complete": true,
+      "included": true,
+      "chapters": [
+        "chapter-17-assessment-data-measurements-constraints.html"
+      ],
+      "disposition": "Included; full machine transcript read, topic spans mapped; original explanatory reconstruction",
+      "evidence_type": "Complete local faster-whisper small.en ASR, not publisher captions",
+      "duration_seconds": 743.8745,
+      "media_sha256": "79949ef168fc542cf67e0aa4da594e2b791992fc2077cf656e773e33935e3e31"
+    },
+    {
+      "video_id": "mn3Cd77yka4",
+      "playlist_position": 40,
+      "official_lesson": 39,
+      "reading_complete": true,
+      "included": true,
+      "chapters": [
+        "chapter-17-assessment-data-measurements-constraints.html"
+      ],
+      "disposition": "Included; full machine transcript read, topic spans mapped; original explanatory reconstruction",
+      "evidence_type": "Complete local faster-whisper small.en ASR, not publisher captions",
+      "duration_seconds": 2580.66575,
+      "media_sha256": "aa6c0f547208bcab6c757dabb978b6eb59869e5584e17e3995037d0dc37a55b9"
+    },
+    {
+      "video_id": "6N7efzoyosk",
+      "playlist_position": 41,
+      "official_lesson": 40,
+      "reading_complete": true,
+      "included": true,
+      "chapters": [
+        "chapter-17-assessment-data-measurements-constraints.html"
+      ],
+      "disposition": "Included; full machine transcript read, topic spans mapped; original explanatory reconstruction",
+      "evidence_type": "Complete local faster-whisper small.en ASR, not publisher captions",
+      "duration_seconds": 1297.5310625,
+      "media_sha256": "716342f78614631152e9086e743dae4e20e4e7e1fc241cccd96fc98b3a5bb5ab"
+    },
+    {
+      "video_id": "BvCfZN-2KeU",
+      "playlist_position": 42,
+      "official_lesson": 41,
+      "reading_complete": true,
+      "included": true,
+      "chapters": [
+        "chapter-18-sublattice-models-assessment-databases.html"
+      ],
+      "disposition": "Included; full machine transcript read, topic spans mapped; original explanatory reconstruction",
+      "evidence_type": "Complete local faster-whisper small.en ASR, not publisher captions",
+      "duration_seconds": 1486.4021875,
+      "media_sha256": "d230a27a98746946c9e4133dd5479d69e9d942f36d9949b88522ec424cf537ae"
+    },
+    {
+      "video_id": "C2qokvTCI3Q",
+      "playlist_position": 43,
+      "official_lesson": 42,
+      "reading_complete": true,
+      "included": true,
+      "chapters": [
+        "chapter-18-sublattice-models-assessment-databases.html"
+      ],
+      "disposition": "Included; full machine transcript read, topic spans mapped; original explanatory reconstruction",
+      "evidence_type": "Complete local faster-whisper small.en ASR, not publisher captions",
+      "duration_seconds": 1480.92225,
+      "media_sha256": "8d42e32bc05e863a246ed27d4833d6c14997c4502c2d327722e30b3f7e8d905c"
+    },
+    {
+      "video_id": "PU_E23fAdE8",
+      "playlist_position": 44,
+      "official_lesson": 43,
+      "reading_complete": true,
+      "included": true,
+      "chapters": [
+        "chapter-18-sublattice-models-assessment-databases.html"
+      ],
+      "disposition": "Included; full machine transcript read, topic spans mapped; original explanatory reconstruction",
+      "evidence_type": "Complete local faster-whisper small.en ASR, not publisher captions",
+      "duration_seconds": 1518.44575,
+      "media_sha256": "a3a7dc07de124c60e9d877009d7f27447d6e8aea03670a49ebaeb19d06541537"
+    },
+    {
+      "video_id": "NndIepcRizg",
+      "playlist_position": 45,
+      "official_lesson": 44,
+      "reading_complete": true,
+      "included": true,
+      "chapters": [
+        "chapter-18-sublattice-models-assessment-databases.html"
+      ],
+      "disposition": "Included; full machine transcript read, topic spans mapped; original explanatory reconstruction",
+      "evidence_type": "Complete local faster-whisper small.en ASR, not publisher captions",
+      "duration_seconds": 1704.484,
+      "media_sha256": "6c440671279565ddc8edcd7397a3f74e4931085a50f3e3f899b347ba09b2a581"
+    },
+    {
+      "video_id": "3x-kkfu6w9E",
+      "playlist_position": 46,
+      "official_lesson": 45,
+      "reading_complete": true,
+      "included": true,
+      "chapters": [
+        "chapter-18-sublattice-models-assessment-databases.html"
+      ],
+      "disposition": "Included; full machine transcript read, topic spans mapped; original explanatory reconstruction",
+      "evidence_type": "Complete local faster-whisper small.en ASR, not publisher captions",
+      "duration_seconds": 1047.1735,
+      "media_sha256": "a2aa7822783a0a1c150b0038a3a57915aa4994b09e428423bd44a4ad7b9c62cc"
+    },
+    {
+      "video_id": "lcAIQt7LHh0",
+      "playlist_position": 47,
+      "official_lesson": 46,
+      "reading_complete": true,
+      "included": true,
+      "chapters": [
+        "chapter-19-diffusion-mobility-thermodynamic-forces.html"
+      ],
+      "disposition": "Included; full machine transcript read, topic spans mapped; original explanatory reconstruction",
+      "evidence_type": "Complete local faster-whisper small.en ASR, not publisher captions",
+      "duration_seconds": 1646.805625,
+      "media_sha256": "45ec822c17952aeb0b094309d5005b3747a09f89050660658ab55c4580b4b0dd"
+    },
+    {
+      "video_id": "dP6RcxXd6mY",
+      "playlist_position": 48,
+      "official_lesson": 47,
+      "reading_complete": true,
+      "included": true,
+      "chapters": [
+        "chapter-19-diffusion-mobility-thermodynamic-forces.html"
+      ],
+      "disposition": "Included; full machine transcript read, topic spans mapped; original explanatory reconstruction",
+      "evidence_type": "Complete local faster-whisper small.en ASR, not publisher captions",
+      "duration_seconds": 1811.4815625,
+      "media_sha256": "924587b34197e4b9026f740627fb204e0490af34915c30720b36fcf329173dd5"
+    },
+    {
+      "video_id": "oR54_YarDII",
+      "playlist_position": 49,
+      "official_lesson": 48,
+      "reading_complete": true,
+      "included": true,
+      "chapters": [
+        "chapter-19-diffusion-mobility-thermodynamic-forces.html"
+      ],
+      "disposition": "Included; full machine transcript read, topic spans mapped; original explanatory reconstruction",
+      "evidence_type": "Complete local faster-whisper small.en ASR, not publisher captions",
+      "duration_seconds": 1643.60125,
+      "media_sha256": "13cf610df6b0bb437681375a6633cb2d031080c789832158c075bd9b31fcbf0e"
+    },
+    {
+      "video_id": "sQLRFii3dwY",
+      "playlist_position": 50,
+      "official_lesson": 49,
+      "reading_complete": true,
+      "included": true,
+      "chapters": [
+        "chapter-20-conservative-transport-interfaces-rapid-solidification.html"
+      ],
+      "disposition": "Included; full machine transcript read, topic spans mapped; original explanatory reconstruction",
+      "evidence_type": "Complete local faster-whisper small.en ASR, not publisher captions",
+      "duration_seconds": 1198.7069375,
+      "media_sha256": "2e09635c59c51a0969f8656029997538c2a4b00de75a65b2a35d17029b2b1f8c"
+    },
+    {
+      "video_id": "7P2L5ahOOUk",
+      "playlist_position": 51,
+      "official_lesson": 50,
+      "reading_complete": true,
+      "included": true,
+      "chapters": [
+        "chapter-20-conservative-transport-interfaces-rapid-solidification.html"
+      ],
+      "disposition": "Included; full machine transcript read, topic spans mapped; original explanatory reconstruction",
+      "evidence_type": "Complete local faster-whisper small.en ASR, not publisher captions",
+      "duration_seconds": 1196.15275,
+      "media_sha256": "3917a345ee20a3f7b45b2d292eadf9d31785492738e3a7ff4169a062be606218"
+    },
+    {
+      "video_id": "aD9ENCXvjxw",
+      "playlist_position": 52,
+      "official_lesson": 51,
+      "reading_complete": true,
+      "included": true,
+      "chapters": [
+        "chapter-20-conservative-transport-interfaces-rapid-solidification.html"
+      ],
+      "disposition": "Included; full machine transcript read, topic spans mapped; original explanatory reconstruction",
+      "evidence_type": "Complete local faster-whisper small.en ASR, not publisher captions",
+      "duration_seconds": 1541.805,
+      "media_sha256": "7a1de890e05d441d0e8aa38455134f96abe7380cd745a0fb59a6d5d119765909"
+    },
+    {
+      "video_id": "h8tc6VBdt_Y",
+      "playlist_position": 53,
+      "official_lesson": 52,
+      "reading_complete": true,
+      "included": true,
+      "chapters": [
+        "chapter-20-conservative-transport-interfaces-rapid-solidification.html"
+      ],
+      "disposition": "Included; full machine transcript read, topic spans mapped; original explanatory reconstruction",
+      "evidence_type": "Complete local faster-whisper small.en ASR, not publisher captions",
+      "duration_seconds": 1169.031875,
+      "media_sha256": "2f8c1c03b6a48f3bc7cd8b06c4fb78c1ebd697fb5dc22363da149e565de94708"
+    },
+    {
+      "video_id": "XNhnrzhPJX8",
+      "playlist_position": 54,
+      "official_lesson": 53,
+      "reading_complete": true,
+      "included": true,
+      "chapters": [
+        "chapter-21-nucleation-transformation-diagrams-precipitation-aging.html"
+      ],
+      "disposition": "Included; full machine transcript read, topic spans mapped; original explanatory reconstruction",
+      "evidence_type": "Complete local faster-whisper small.en ASR, not publisher captions",
+      "duration_seconds": 1377.3148125,
+      "media_sha256": "275492fddc5edfb0f14146e5643f3c2c09c7fd1d8f4b759b62ef0001e94a78b4"
+    },
+    {
+      "video_id": "Jkoicj1Fhes",
+      "playlist_position": 55,
+      "official_lesson": 54,
+      "reading_complete": true,
+      "included": true,
+      "chapters": [
+        "chapter-21-nucleation-transformation-diagrams-precipitation-aging.html"
+      ],
+      "disposition": "Included; full machine transcript read, topic spans mapped; original explanatory reconstruction",
+      "evidence_type": "Complete local faster-whisper small.en ASR, not publisher captions",
+      "duration_seconds": 967.0646875,
+      "media_sha256": "9880eb82cd739185512494b06f38127d83558dc75e96307ec2820ed82bfeb3e2"
+    },
+    {
+      "video_id": "msz4HjomKpU",
+      "playlist_position": 56,
+      "official_lesson": 55,
+      "reading_complete": true,
+      "included": true,
+      "chapters": [
+        "chapter-21-nucleation-transformation-diagrams-precipitation-aging.html"
+      ],
+      "disposition": "Included; full machine transcript read, topic spans mapped; original explanatory reconstruction",
+      "evidence_type": "Complete local faster-whisper small.en ASR, not publisher captions",
+      "duration_seconds": 1233.165375,
+      "media_sha256": "d0e56eae3997e80ecbeadf3095f6dc35f1a2074c8f31454d0351fa55a84dca4d"
+    },
+    {
+      "video_id": "17gucCFasYY",
+      "playlist_position": 57,
+      "official_lesson": 56,
+      "reading_complete": true,
+      "included": true,
+      "chapters": [
+        "chapter-22-high-throughput-design-phase-identification.html"
+      ],
+      "disposition": "Included; full machine transcript read, topic spans mapped; original explanatory reconstruction",
+      "evidence_type": "Complete local faster-whisper small.en ASR, not publisher captions",
+      "duration_seconds": 1310.8593125,
+      "media_sha256": "8cc8f84b8d53880d699d5bee54d95f748f035d8d47c0a9a119fcbb32349755f3"
+    },
+    {
+      "video_id": "4xTnDKBPSzM",
+      "playlist_position": 58,
+      "official_lesson": 57,
+      "reading_complete": true,
+      "included": true,
+      "chapters": [
+        "chapter-22-high-throughput-design-phase-identification.html"
+      ],
+      "disposition": "Included; full machine transcript read, topic spans mapped; original explanatory reconstruction",
+      "evidence_type": "Complete local faster-whisper small.en ASR, not publisher captions",
+      "duration_seconds": 1154.124625,
+      "media_sha256": "6fa06ac20bd7362a7ea652d24fe35df9f27c02ac878acef50e03ce06bee7203d"
+    },
+    {
+      "video_id": "atjrQP2E11Y",
+      "playlist_position": 59,
+      "official_lesson": 58,
+      "reading_complete": true,
+      "included": true,
+      "chapters": [
+        "chapter-23-material-property-models-and-strength.html"
+      ],
+      "disposition": "Included; full machine transcript read, topic spans mapped; original explanatory reconstruction",
+      "evidence_type": "Complete local faster-whisper small.en ASR, not publisher captions",
+      "duration_seconds": 740.0199375,
+      "media_sha256": "1a80f03d928fb737fce7fd5d1fd3ec07e2f75e4453bfcd25b998becf40d7501e"
+    },
+    {
+      "video_id": "JoOavIGtk80",
+      "playlist_position": 60,
+      "official_lesson": 59,
+      "reading_complete": true,
+      "included": true,
+      "chapters": [
+        "chapter-24-size-electrochemical-reservoirs-database-limits.html"
+      ],
+      "disposition": "Included; full machine transcript read, topic spans mapped; original explanatory reconstruction",
+      "evidence_type": "Complete local faster-whisper small.en ASR, not publisher captions",
+      "duration_seconds": 922.9003125,
+      "media_sha256": "1c264ec92b5778af9fc4a51481269b0f1d63ed65bdf52ce987fd71848f1e8b9d"
+    },
+    {
+      "video_id": "s5nxvmVmGAc",
+      "playlist_position": 61,
+      "official_lesson": 60,
+      "reading_complete": true,
+      "included": true,
+      "chapters": [
+        "chapter-24-size-electrochemical-reservoirs-database-limits.html"
+      ],
+      "disposition": "Included; full machine transcript read, topic spans mapped; original explanatory reconstruction",
+      "evidence_type": "Complete local faster-whisper small.en ASR, not publisher captions",
+      "duration_seconds": 862.4355625,
+      "media_sha256": "ccc2e9a0b8f4685a0984dc80790c9f62bf318f2f91b9944e2dfe69fe55a57267"
+    }
+  ]
+}

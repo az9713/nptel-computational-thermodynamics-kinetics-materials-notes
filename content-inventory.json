@@ -1,0 +1,265 @@
+{
+  "schema_version": 1,
+  "public_files": [
+    ".gitattributes",
+    ".gitignore",
+    ".nojekyll",
+    "README.md",
+    "WORKFLOW.md",
+    "assets/assessment-identifiability.svg",
+    "assets/assessment-models.svg",
+    "assets/book.css",
+    "assets/book.js",
+    "assets/calphad-continuation.svg",
+    "assets/ch22_screening_diffraction.svg",
+    "assets/ch23_property_models.svg",
+    "assets/ch24_size_reservoirs.svg",
+    "assets/conservative-transport.svg",
+    "assets/cooling-models.svg",
+    "assets/diffusion-mobility.svg",
+    "assets/entropy-counts.svg",
+    "assets/equilibrium-workflow.svg",
+    "assets/first-law-paths.svg",
+    "assets/global-tangents.svg",
+    "assets/input/tex/extensions/boldsymbol.js",
+    "assets/input/tex/extensions/cancel.js",
+    "assets/input/tex/extensions/mathtools.js",
+    "assets/isomorphous-model.svg",
+    "assets/lattice-caloric.svg",
+    "assets/math-config.js",
+    "assets/mathjax-LICENSE",
+    "assets/mathjax-tex-svg.js",
+    "assets/microstructure-map.svg",
+    "assets/mixtures-activity.svg",
+    "assets/molecular-caloric.svg",
+    "assets/nucleation-aging.svg",
+    "assets/potentials-entropy.svg",
+    "assets/regular-solution.svg",
+    "assets/scheil-conservation.svg",
+    "assets/site-preview.png",
+    "assets/sublattice-order.svg",
+    "assets/ternary-balances.svg",
+    "assets/ternary-lab.js",
+    "assets/tzero-paths.svg",
+    "book-overview.html",
+    "chapter-01-microstructure-phases-composition.html",
+    "chapter-01-microstructure-phases-composition.meta.json",
+    "chapter-02-chemical-order-sites-composition.html",
+    "chapter-02-chemical-order-sites-composition.meta.json",
+    "chapter-03-unary-binary-equilibrium-diagrams.html",
+    "chapter-03-unary-binary-equilibrium-diagrams.meta.json",
+    "chapter-04-ternary-sections-reactions-projections.html",
+    "chapter-04-ternary-sections-reactions-projections.meta.json",
+    "chapter-05-phase-amounts-heat-flow-cooling-curves.html",
+    "chapter-05-phase-amounts-heat-flow-cooling-curves.meta.json",
+    "chapter-06-states-molecular-energy-heat-capacity.html",
+    "chapter-06-states-molecular-energy-heat-capacity.meta.json",
+    "chapter-07-first-law-reversible-adiabatic-paths.html",
+    "chapter-07-first-law-reversible-adiabatic-paths.meta.json",
+    "chapter-08-entropy-engines-statistical-concentration.html",
+    "chapter-08-entropy-engines-statistical-concentration.meta.json",
+    "chapter-09-entropy-contributions-thermodynamic-potentials.html",
+    "chapter-09-entropy-contributions-thermodynamic-potentials.meta.json",
+    "chapter-10-lattice-stability-caloric-mixing.html",
+    "chapter-10-lattice-stability-caloric-mixing.meta.json",
+    "chapter-11-mixing-chemical-potentials-activities.html",
+    "chapter-11-mixing-chemical-potentials-activities.meta.json",
+    "chapter-12-global-tangents-driving-forces-phase-rule.html",
+    "chapter-12-global-tangents-driving-forces-phase-rule.meta.json",
+    "chapter-13-calphad-models-database-minimization.html",
+    "chapter-13-calphad-models-database-minimization.meta.json",
+    "chapter-14-reproducible-equilibrium-calculations.html",
+    "chapter-14-reproducible-equilibrium-calculations.meta.json",
+    "chapter-15-composition-paths-references-tzero.html",
+    "chapter-15-composition-paths-references-tzero.meta.json",
+    "chapter-16-scheil-solidification-conservative-histories.html",
+    "chapter-16-scheil-solidification-conservative-histories.meta.json",
+    "chapter-17-assessment-data-measurements-constraints.html",
+    "chapter-17-assessment-data-measurements-constraints.meta.json",
+    "chapter-18-sublattice-models-assessment-databases.html",
+    "chapter-18-sublattice-models-assessment-databases.meta.json",
+    "chapter-19-diffusion-mobility-thermodynamic-forces.html",
+    "chapter-19-diffusion-mobility-thermodynamic-forces.meta.json",
+    "chapter-20-conservative-transport-interfaces-rapid-solidification.html",
+    "chapter-20-conservative-transport-interfaces-rapid-solidification.meta.json",
+    "chapter-21-nucleation-transformation-diagrams-precipitation-aging.html",
+    "chapter-21-nucleation-transformation-diagrams-precipitation-aging.meta.json",
+    "chapter-22-high-throughput-design-phase-identification.html",
+    "chapter-22-high-throughput-design-phase-identification.meta.json",
+    "chapter-23-material-property-models-and-strength.html",
+    "chapter-23-material-property-models-and-strength.meta.json",
+    "chapter-24-size-electrochemical-reservoirs-database-limits.html",
+    "chapter-24-size-electrochemical-reservoirs-database-limits.meta.json",
+    "chapter-code-validation.json",
+    "code/ch01_microstructure.py",
+    "code/ch02_order_and_bases.py",
+    "code/ch03_phase_diagrams.py",
+    "code/ch04_ternary_balances.py",
+    "code/ch05_cooling_curves.py",
+    "code/ch06_molecular_caloric.py",
+    "code/ch07_first_law_paths.py",
+    "code/ch08_entropy_and_counts.py",
+    "code/ch09_potentials_entropy.py",
+    "code/ch10_lattice_caloric.py",
+    "code/ch11_mixtures_activity.py",
+    "code/ch12_global_tangents.py",
+    "code/ch13_calphad_models.py",
+    "code/ch14_equilibrium_workflow.py",
+    "code/ch15_sections_references_tzero.py",
+    "code/ch16_scheil_conservation.py",
+    "code/ch17_data_constraints.py",
+    "code/ch18_models_and_assessment.py",
+    "code/ch19_diffusion_mobility.py",
+    "code/ch20_conservative_transport.py",
+    "code/ch21_nucleation_aging.py",
+    "code/ch22_screening_characterization.py",
+    "code/ch23_material_properties.py",
+    "code/ch24_size_electrochemistry_scope.py",
+    "code/plot_ch23_property_models.py",
+    "completion.json",
+    "content-inventory.json",
+    "course-review.json",
+    "data/ch14_synthetic.tdb",
+    "data/ch15_tzero.tdb",
+    "data/ch22_screening.tdb",
+    "editorial-review-summary.json",
+    "index.html",
+    "numerical-lab.html",
+    "numerical_lab.py",
+    "package-validation.json",
+    "public-package-validation.json",
+    "publication-validation.json",
+    "reader-validation.json",
+    "references.html",
+    "requirements.txt",
+    "source-free-validation.json",
+    "source-manifest.json",
+    "source-map.html",
+    "source-validation-summary.json",
+    "tools/audit_public.py",
+    "tools/build_book.py",
+    "tools/plot_assessment_identifiability.py",
+    "tools/plot_assessment_models.py",
+    "tools/plot_calphad_models.py",
+    "tools/plot_conservative_transport.py",
+    "tools/plot_cooling.py",
+    "tools/plot_diffusion_mobility.py",
+    "tools/plot_entropy.py",
+    "tools/plot_equilibrium_workflow.py",
+    "tools/plot_first_law.py",
+    "tools/plot_lattice.py",
+    "tools/plot_microstructure.py",
+    "tools/plot_mixtures.py",
+    "tools/plot_molecular_caloric.py",
+    "tools/plot_nucleation_aging.py",
+    "tools/plot_order.py",
+    "tools/plot_phase_diagrams.py",
+    "tools/plot_potentials.py",
+    "tools/plot_regular_solution.py",
+    "tools/plot_scheil_conservation.py",
+    "tools/plot_tangents.py",
+    "tools/plot_ternary.py",
+    "tools/plot_tzero_paths.py",
+    "tools/validate_book.py",
+    "tools/verify_publication.py",
+    "tools/verify_source_free.py"
+  ],
+  "chapters": [
+    {
+      "file": "chapter-01-microstructure-phases-composition.html",
+      "body_sha256": "c123f965c6d72ccdea4914960efca3346e1ba70a7aafd83d676e70b3e06bcee5"
+    },
+    {
+      "file": "chapter-02-chemical-order-sites-composition.html",
+      "body_sha256": "9f882d8f9ce3cc80fc3a7f42db67eff355ab4017b464ab43fe5db0a6ceabaf0d"
+    },
+    {
+      "file": "chapter-03-unary-binary-equilibrium-diagrams.html",
+      "body_sha256": "ae63a2c757cbbdef3c842bc7619b04b6afccfeb23b8a20172cf095bb3f51b0b4"
+    },
+    {
+      "file": "chapter-04-ternary-sections-reactions-projections.html",
+      "body_sha256": "87135b8f136963346689c752e7cf4013ec6658cd5a5adc20ec89bd08f98f6cdd"
+    },
+    {
+      "file": "chapter-05-phase-amounts-heat-flow-cooling-curves.html",
+      "body_sha256": "acdc265dcfe2c732651440b9b3237d39ca775312e258a91d8b402360c0174288"
+    },
+    {
+      "file": "chapter-06-states-molecular-energy-heat-capacity.html",
+      "body_sha256": "0af2b4020037a6d4b526ff7d12a6e0ed7312aba7af4d857e076ea92c44af379d"
+    },
+    {
+      "file": "chapter-07-first-law-reversible-adiabatic-paths.html",
+      "body_sha256": "e8312d8f0b9a414bedc763b1f8fdada0b49dd44437348b282d1b170c0f1f9381"
+    },
+    {
+      "file": "chapter-08-entropy-engines-statistical-concentration.html",
+      "body_sha256": "cf40efb072ac317a7d76975a417c342ebcabf523a5d80bff061a7b9f5859cdc0"
+    },
+    {
+      "file": "chapter-09-entropy-contributions-thermodynamic-potentials.html",
+      "body_sha256": "d58476469ddb382c9ec776b4fc37d5367ba2df8fa95ffa18c3c3a6d9fe7277bd"
+    },
+    {
+      "file": "chapter-10-lattice-stability-caloric-mixing.html",
+      "body_sha256": "095746842be219508ced20167f325853515d56456efa5532725bef3feee6b120"
+    },
+    {
+      "file": "chapter-11-mixing-chemical-potentials-activities.html",
+      "body_sha256": "c12bda2a41c816ffc28f484236a6bd7e3bef0aa43d5f9ee0a688e8bb9186ff13"
+    },
+    {
+      "file": "chapter-12-global-tangents-driving-forces-phase-rule.html",
+      "body_sha256": "6f8f77bbb4554d11e2207bbb8381806f8512dc5d218329871128e251b1dcb59b"
+    },
+    {
+      "file": "chapter-13-calphad-models-database-minimization.html",
+      "body_sha256": "7f4fc8dcc83c4c7c45b5c8721bb11cc542de675f8475d01693c143c0a5adcc16"
+    },
+    {
+      "file": "chapter-14-reproducible-equilibrium-calculations.html",
+      "body_sha256": "d9950d0ffd018ee5bd1b6778311684b2b74ddcaa8c034c6e93a9bc0d3403e348"
+    },
+    {
+      "file": "chapter-15-composition-paths-references-tzero.html",
+      "body_sha256": "23c1e3e09cf4a1009554c7e731aff9e89c4c72758c9bdbaa1dc686261765ff80"
+    },
+    {
+      "file": "chapter-16-scheil-solidification-conservative-histories.html",
+      "body_sha256": "da4aaf511c100fa28edc0e55e1e0e8c9b63badb0368fb1cd6bf7e88c3b774a58"
+    },
+    {
+      "file": "chapter-17-assessment-data-measurements-constraints.html",
+      "body_sha256": "1d14960c3b7134e0149f34e656150adcc7378664b76b0b4c9f56c98200d26cc3"
+    },
+    {
+      "file": "chapter-18-sublattice-models-assessment-databases.html",
+      "body_sha256": "f528fff6d2e6b2fe4ef696f838c804ca0449425b6ab882ea3ae35a0a8ffc99ae"
+    },
+    {
+      "file": "chapter-19-diffusion-mobility-thermodynamic-forces.html",
+      "body_sha256": "50b09f397003f5ac587b0a840c409446644d30d24212513df9f9458fbd2c1a97"
+    },
+    {
+      "file": "chapter-20-conservative-transport-interfaces-rapid-solidification.html",
+      "body_sha256": "f081244ad1ec7b41949bcaa32106c7376e4a36f3c2af7d776f2b94f272394836"
+    },
+    {
+      "file": "chapter-21-nucleation-transformation-diagrams-precipitation-aging.html",
+      "body_sha256": "b7229e9e8b92c5cb654a5f423bb840699390bd4cf7f6957dbe2d44692a914b84"
+    },
+    {
+      "file": "chapter-22-high-throughput-design-phase-identification.html",
+      "body_sha256": "be3771499520b00e6780c0ed68adfc0a0f2ee858d90a9c28b092525dd27e6e3b"
+    },
+    {
+      "file": "chapter-23-material-property-models-and-strength.html",
+      "body_sha256": "d8627dae1bd38782199af5940f481f669e3c4b363974d609abe27247d70e30eb"
+    },
+    {
+      "file": "chapter-24-size-electrochemical-reservoirs-database-limits.html",
+      "body_sha256": "3ef129e72d7153d8d962ec8785d68379ce7e599fc50b497e9c84c178b9bc0a14"
+    }
+  ]
+}

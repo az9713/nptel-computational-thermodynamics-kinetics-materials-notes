@@ -1,0 +1,123 @@
+{
+  "chapter": 22,
+  "title": "High-throughput design, driving forces and phase identification",
+  "file": "chapter-22-high-throughput-design-phase-identification.html",
+  "status": "Accepted in two independent scientific reviews",
+  "authored_body_sha256": "be3771499520b00e6780c0ed68adfc0a0f2ee858d90a9c28b092525dd27e6e3b",
+  "recordings": [
+    {
+      "official_lesson": 56,
+      "playlist_position": 57,
+      "video_id": "17gucCFasYY",
+      "duration_seconds": 1310.8593125,
+      "source_type": "local faster-whisper small.en ASR, not publisher captions",
+      "transcript_reading": "Entire transcript read sequentially",
+      "chunk_policy": "90-second cores with2-second context; recognition and boundary uncertainty remain"
+    },
+    {
+      "official_lesson": 57,
+      "playlist_position": 58,
+      "video_id": "4xTnDKBPSzM",
+      "duration_seconds": 1154.124625,
+      "source_type": "local faster-whisper small.en ASR, not publisher captions",
+      "transcript_reading": "Entire transcript read sequentially",
+      "chunk_policy": "90-second cores with2-second context; recognition and boundary uncertainty remain"
+    }
+  ],
+  "sections": [
+    {
+      "anchor": "design-space",
+      "video_id": "17gucCFasYY",
+      "start": 116,
+      "end": 649
+    },
+    {
+      "anchor": "counting",
+      "video_id": "17gucCFasYY",
+      "start": 649,
+      "end": 1299
+    },
+    {
+      "anchor": "criteria",
+      "video_id": "17gucCFasYY",
+      "start": 848,
+      "end": 1064
+    },
+    {
+      "anchor": "energy-comparison",
+      "video_id": "4xTnDKBPSzM",
+      "start": 121,
+      "end": 668
+    },
+    {
+      "anchor": "diffraction",
+      "video_id": "4xTnDKBPSzM",
+      "start": 668,
+      "end": 1147
+    }
+  ],
+  "worked_solutions": 9,
+  "executable_listings": 1,
+  "actual_engine": {
+    "name": "pycalphad",
+    "version": "0.11.1",
+    "gas_constant": 8.3145,
+    "database": "data/ch22_screening.tdb",
+    "database_sha256": "5338495c814ecf130d3990dfffc12dae4eb04da9df5c765557db37d2b8ceb0ac",
+    "equilibrium_calls": 14,
+    "composition_points": 7,
+    "temperatures_kelvin": [
+      900,
+      1000
+    ],
+    "scope": "Original synthetic binary MATRIX/PRECIP ideal branches; 3246compositions counted but NOT engine-screened"
+  },
+  "original_constructions": [
+    "Positive/zero-inclusive bounded simplex counts and processed-record identity distinction",
+    "Absolute versus operational Celsius-temperature fractions and endpoint/window counterexample with a conditional derivative-bound certificate",
+    "Conserved infinitesimal tangent-plane driving-force proof and finite-amount counterexample",
+    "Actually executed14-case equilibrium screen with analytic full-branch supporting-line and amount/composition certificates",
+    "Nominal versus robust sampled classification under an explicitly stipulated fraction bound; missing-result classification",
+    "Cubic Bragg derivative and known-indexing five-peak lattice/zero-offset identifiability and actual exact synthetic fit"
+  ],
+  "primary_references": [
+    {
+      "url": "https://euler.phys.cmu.edu/widom/pubs/PDF/NatCom12_2021_4329.pdf",
+      "scope": "Actual author-hosted primaryPDF pp1–2 and8 fulltext read, selected3/6/7/9context; not all10pages or supplements. Page2 explicitly uses Celsius in its operational fraction; page8specifies5–50at% and discusses database discrepancy."
+    },
+    {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4366518/",
+      "scope": "Actual primary indexed abstract/selectedResults/Discussioncredibility and Methods read. Naturedirectarticle/PDFredirectfailed; no originalcalculation or supplements reproduced."
+    },
+    {
+      "url": "https://journals.iucr.org/a/issues/2022/01/00/vk5047/index.html",
+      "scope": "Actual abstract,introduction,section2 and beginning3 read for coherent-domain size,microstrain and instrumental broadening; not wholepaper or experiment reproduction."
+    }
+  ],
+  "independent_review": {
+    "status": "accepted",
+    "accepted": true,
+    "body_sha256": "be3771499520b00e6780c0ed68adfc0a0f2ee858d90a9c28b092525dd27e6e3b",
+    "review_ids": [
+      "ct-ch22-r1",
+      "ct-ch22-r2"
+    ],
+    "reviewer_ids": [
+      "separate-ai-agent-cardiovascular",
+      "separate-ai-agent-coordinator"
+    ],
+    "blocking": 0,
+    "major": 0,
+    "minor": 0
+  },
+  "limitations": [
+    "Both full56–57localASRsread; no comprehensive audiovisual/board verification.",
+    "Published commercial alloy screens, originalinputarchives and measuredpattern/strengthdata not rerun.",
+    "Originalpycalphadmodel has only two stipulated ideal branches, not an assessedCuNi or HEA database.",
+    "Analytic common-line certificate covers the complete declaredbranches at two sampledtemperatures; no entirewindowclaim orrealphasesetcompleteness.",
+    "Fractiondiscrepancybound±0.04 is stipulated, not inferreduncertainty.",
+    "Diffractionfit uses exactsyntheticdata with knownindexing,wavelength and model; no experimental phaseidentification,noiseestimate orglobalstructureuniqueness.",
+    "Sourcecompoundlabels/quantitativemeasuredpatterns not recovered; extendedbinaryphase suggestions remainhypotheses."
+  ],
+  "article_words_including_math_code": 4584
+}

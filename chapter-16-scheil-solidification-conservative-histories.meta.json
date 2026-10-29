@@ -1,0 +1,82 @@
+{
+  "chapter": 16,
+  "title": "Scheil solidification, segregation and conservative histories",
+  "file": "chapter-16-scheil-solidification-conservative-histories.html",
+  "status": "Accepted in two independent scientific reviews",
+  "authored_body_sha256": "da4aaf511c100fa28edc0e55e1e0e8c9b63badb0368fb1cd6bf7e88c3b774a58",
+  "recordings": [
+    {
+      "official_lesson": 35,
+      "playlist_position": 36,
+      "video_id": "LKEh7qZXme8",
+      "duration_seconds": 1842.921375,
+      "source_type": "local faster-whisper small.en ASR, not publisher captions",
+      "transcript_reading": "Entire transcript read sequentially",
+      "chunk_policy": "90-second cores with 2-second context; possible recognition and boundary errors"
+    }
+  ],
+  "sections": [
+    {
+      "anchor": "profiles",
+      "video_id": "LKEh7qZXme8",
+      "start": 22,
+      "end": 535
+    },
+    {
+      "anchor": "assumptions",
+      "video_id": "LKEh7qZXme8",
+      "start": 983,
+      "end": 1124
+    },
+    {
+      "anchor": "balance",
+      "video_id": "LKEh7qZXme8",
+      "start": 1124,
+      "end": 1295
+    },
+    {
+      "anchor": "terminal",
+      "video_id": "LKEh7qZXme8",
+      "start": 1295,
+      "end": 1469
+    },
+    {
+      "anchor": "algorithm",
+      "video_id": "LKEh7qZXme8",
+      "start": 1469,
+      "end": 1836
+    }
+  ],
+  "worked_solutions": 9,
+  "executable_listings": 1,
+  "original_constructions": [
+    "Shrinking-reservoir derivation with new-versus-average solid distinction",
+    "Synthetic terminal eutectic amount and constituent-phase split",
+    "Exact conservative finite-step recurrence with analytic refinement comparison",
+    "Layer enthalpy versus mean-composition variance counterexample",
+    "Timescale and local-equilibrium assumption audit"
+  ],
+  "independent_review": {
+    "status": "accepted",
+    "accepted": true,
+    "body_sha256": "da4aaf511c100fa28edc0e55e1e0e8c9b63badb0368fb1cd6bf7e88c3b774a58",
+    "review_ids": [
+      "ct-ch16-r1",
+      "ct-ch16-r2"
+    ],
+    "reviewer_ids": [
+      "separate-ai-agent-graph-theory",
+      "separate-ai-agent-coordinator"
+    ],
+    "blocking": 0,
+    "major": 0,
+    "minor": 0
+  },
+  "limitations": [
+    "No comprehensive audiovisual or board audit",
+    "Recorded commercial Al–Si graphical calculation not rerun",
+    "Synthetic constant-k mass-basis model, not an assessed alloy or experimental prediction",
+    "Bocklund2020 only abstract and full-text pages7–8,15–16 read; no author software or experiment reproduction",
+    "Classical Scheil path has no unique clock, cracking prediction or interface kinetics"
+  ]
+}

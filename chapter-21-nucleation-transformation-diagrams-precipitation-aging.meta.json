@@ -1,0 +1,135 @@
+{
+  "chapter": 21,
+  "title": "Nucleation, transformation diagrams and precipitation aging",
+  "file": "chapter-21-nucleation-transformation-diagrams-precipitation-aging.html",
+  "status": "Accepted in two independent scientific reviews",
+  "authored_body_sha256": "b7229e9e8b92c5cb654a5f423bb840699390bd4cf7f6957dbe2d44692a914b84",
+  "recordings": [
+    {
+      "official_lesson": 53,
+      "playlist_position": 54,
+      "video_id": "XNhnrzhPJX8",
+      "duration_seconds": 1377.3148125,
+      "source_type": "local faster-whisper small.en ASR, not publisher captions",
+      "transcript_reading": "Entire transcript read sequentially",
+      "chunk_policy": "90-second cores with 2-second context; recognition and boundary uncertainty remains"
+    },
+    {
+      "official_lesson": 54,
+      "playlist_position": 55,
+      "video_id": "Jkoicj1Fhes",
+      "duration_seconds": 967.0646875,
+      "source_type": "local faster-whisper small.en ASR, not publisher captions",
+      "transcript_reading": "Entire transcript read sequentially",
+      "chunk_policy": "90-second cores with 2-second context; recognition and boundary uncertainty remains"
+    },
+    {
+      "official_lesson": 55,
+      "playlist_position": 56,
+      "video_id": "msz4HjomKpU",
+      "duration_seconds": 1233.165375,
+      "source_type": "local faster-whisper small.en ASR, not publisher captions",
+      "transcript_reading": "Entire transcript read sequentially",
+      "chunk_policy": "90-second cores with 2-second context; recognition and boundary uncertainty remains"
+    }
+  ],
+  "sections": [
+    {
+      "anchor": "barrier",
+      "video_id": "XNhnrzhPJX8",
+      "start": 88,
+      "end": 718
+    },
+    {
+      "anchor": "rates",
+      "video_id": "XNhnrzhPJX8",
+      "start": 718,
+      "end": 1029
+    },
+    {
+      "anchor": "extended",
+      "video_id": "XNhnrzhPJX8",
+      "start": 1030,
+      "end": 1152
+    },
+    {
+      "anchor": "ttt",
+      "video_id": "Jkoicj1Fhes",
+      "start": 53,
+      "end": 236
+    },
+    {
+      "anchor": "ttt",
+      "video_id": "Jkoicj1Fhes",
+      "start": 547,
+      "end": 728
+    },
+    {
+      "anchor": "history",
+      "video_id": "Jkoicj1Fhes",
+      "start": 667,
+      "end": 728
+    },
+    {
+      "anchor": "population",
+      "video_id": "msz4HjomKpU",
+      "start": 1029,
+      "end": 1142
+    },
+    {
+      "anchor": "ripening",
+      "video_id": "msz4HjomKpU",
+      "start": 620,
+      "end": 685
+    },
+    {
+      "anchor": "aging",
+      "video_id": "msz4HjomKpU",
+      "start": 35,
+      "end": 620
+    },
+    {
+      "anchor": "aging",
+      "video_id": "msz4HjomKpU",
+      "start": 733,
+      "end": 1197
+    }
+  ],
+  "worked_solutions": 9,
+  "executable_listings": 1,
+  "original_constructions": [
+    "Capillarity maximum, zero crossing and Poisson observation probability",
+    "Exact random-growth extended volume and impingement scope",
+    "Constructive identical-isothermal/different-history counterexample",
+    "Exact extended moment step and refined cooling start",
+    "Physical particle-size moment and solute inventory distinction",
+    "Curvature-induced opposite growth rates and surface-area check",
+    "Separate fixed-fraction competing-mechanism strength toy"
+  ],
+  "independent_review": {
+    "status": "accepted",
+    "accepted": true,
+    "body_sha256": "b7229e9e8b92c5cb654a5f423bb840699390bd4cf7f6957dbe2d44692a914b84",
+    "review_ids": [
+      "ct-ch21-r1",
+      "ct-ch21-r2"
+    ],
+    "reviewer_ids": [
+      "separate-ai-agent-cardiovascular",
+      "separate-ai-agent-coordinator"
+    ],
+    "blocking": 0,
+    "major": 0,
+    "minor": 0
+  },
+  "limitations": [
+    "No audiovisual or board audit",
+    "No commercial precipitation solver or experimental overlay reproduced",
+    "All numerical material parameters synthetic",
+    "Poisson coverage not a solute-coupled population balance",
+    "No KWN or cluster-dynamics solver executed",
+    "Clouet2005 actual preprintpp1–4 read, not26pagefullmethod or alloyvalidation",
+    "Sun2023 actual preprintpp1–3 read only, not29pagemodelaudit or quantitativevalidation",
+    "No prediction of experimental peak-aging time or actual alloystrength"
+  ]
+}

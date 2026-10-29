@@ -1,0 +1,131 @@
+{
+  "chapter": 3,
+  "title": "Reading unary and binary equilibrium diagrams",
+  "file": "chapter-03-unary-binary-equilibrium-diagrams.html",
+  "status": "Accepted in two independent scientific reviews",
+  "authored_body_sha256": "ae63a2c757cbbdef3c842bc7619b04b6afccfeb23b8a20172cf095bb3f51b0b4",
+  "recordings": [
+    {
+      "official_lesson": 3,
+      "playlist_position": 4,
+      "video_id": "955OEvtMoUg",
+      "duration_seconds": 1560.6131875,
+      "source_type": "local faster-whisper small.en ASR, not publisher captions",
+      "transcript_reading": "Entire transcript read sequentially",
+      "chunk_policy": "90-second cores with 2-second context; possible recognition and boundary errors"
+    },
+    {
+      "official_lesson": 4,
+      "playlist_position": 5,
+      "video_id": "AXcxrGV96Ys",
+      "duration_seconds": 958.008875,
+      "source_type": "local faster-whisper small.en ASR, not publisher captions",
+      "transcript_reading": "Entire transcript read sequentially",
+      "chunk_policy": "90-second cores with 2-second context; possible recognition and boundary errors"
+    },
+    {
+      "official_lesson": 5,
+      "playlist_position": 6,
+      "video_id": "eQU3Qs_GHJw",
+      "duration_seconds": 1144.00075,
+      "source_type": "local faster-whisper small.en ASR, not publisher captions",
+      "transcript_reading": "Entire transcript read sequentially",
+      "chunk_policy": "90-second cores with 2-second context; possible recognition and boundary errors"
+    }
+  ],
+  "sections": [
+    {
+      "anchor": "state-map",
+      "video_id": "955OEvtMoUg",
+      "start": 61,
+      "end": 284
+    },
+    {
+      "anchor": "unary",
+      "video_id": "955OEvtMoUg",
+      "start": 284,
+      "end": 610
+    },
+    {
+      "anchor": "binary-axes",
+      "video_id": "955OEvtMoUg",
+      "start": 610,
+      "end": 1002
+    },
+    {
+      "anchor": "isomorphous",
+      "video_id": "955OEvtMoUg",
+      "start": 1002,
+      "end": 1490
+    },
+    {
+      "anchor": "tie-lines",
+      "video_id": "AXcxrGV96Ys",
+      "start": 59,
+      "end": 523
+    },
+    {
+      "anchor": "lever-rule",
+      "video_id": "AXcxrGV96Ys",
+      "start": 523,
+      "end": 791
+    },
+    {
+      "anchor": "miscibility-gap",
+      "video_id": "AXcxrGV96Ys",
+      "start": 808,
+      "end": 945
+    },
+    {
+      "anchor": "gradual-transformations",
+      "video_id": "eQU3Qs_GHJw",
+      "start": 144,
+      "end": 371
+    },
+    {
+      "anchor": "eutectic",
+      "video_id": "eQU3Qs_GHJw",
+      "start": 371,
+      "end": 745
+    },
+    {
+      "anchor": "names",
+      "video_id": "eQU3Qs_GHJw",
+      "start": 745,
+      "end": 1129
+    }
+  ],
+  "worked_solutions": 9,
+  "executable_listings": 1,
+  "original_constructions": [
+    "Full declared ideal solid/liquid Gibbs-energy model with analytical coexistence endpoints and global supporting-line proof",
+    "Computed isomorphous diagram and equilibrium phase amount curve",
+    "First-order endpoint uncertainty propagation",
+    "Exact synthetic eutectic phase and microconstituent balance",
+    "Three-phase reaction extent as a free variable at invariant conditions"
+  ],
+  "independent_review": {
+    "status": "accepted",
+    "accepted": true,
+    "body_sha256": "ae63a2c757cbbdef3c842bc7619b04b6afccfeb23b8a20172cf095bb3f51b0b4",
+    "review_ids": [
+      "ct-ch03-r1",
+      "ct-ch03-r2"
+    ],
+    "reviewer_ids": [
+      "separate-ai-agent-graph-theory",
+      "separate-ai-agent-coordinator"
+    ],
+    "blocking": 0,
+    "major": 0,
+    "minor": 0
+  },
+  "limitations": [
+    "No full audiovisual or board audit",
+    "Not a Cu–Ni or Al–Si experimental fit",
+    "Miscibility evidence uses explicitly identified published abstracts; not a bulk-database adjudication",
+    "Bulk two-phase ideal model neglects interfaces, vacancies, order, nonideal mixing and heat-capacity differences",
+    "Numerical support-line sampling checks implementation; analytical convexity supplies the global argument",
+    "Eutectic example uses stipulated mass-fraction endpoints at the eutectic limiting temperature"
+  ]
+}

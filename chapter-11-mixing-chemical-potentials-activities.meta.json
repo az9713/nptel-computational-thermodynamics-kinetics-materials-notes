@@ -1,0 +1,105 @@
+{
+  "chapter": 11,
+  "title": "Mixing, chemical potentials, activities and transfer equilibrium",
+  "file": "chapter-11-mixing-chemical-potentials-activities.html",
+  "status": "Accepted in two independent scientific reviews",
+  "authored_body_sha256": "c12bda2a41c816ffc28f484236a6bd7e3bef0aa43d5f9ee0a688e8bb9186ff13",
+  "recordings": [
+    {
+      "official_lesson": 19,
+      "playlist_position": 20,
+      "video_id": "qf453j8wLgc",
+      "duration_seconds": 2211.3291875,
+      "source_type": "local faster-whisper small.en ASR, not publisher captions",
+      "transcript_reading": "Entire transcript read sequentially",
+      "chunk_policy": "90-second cores with 2-second context; possible recognition and boundary errors"
+    },
+    {
+      "official_lesson": 20,
+      "playlist_position": 21,
+      "video_id": "Jy9Vlk0tUZ4",
+      "duration_seconds": 1957.02425,
+      "source_type": "local faster-whisper small.en ASR, not publisher captions",
+      "transcript_reading": "Entire transcript read sequentially",
+      "chunk_policy": "90-second cores with 2-second context; possible recognition and boundary errors"
+    }
+  ],
+  "sections": [
+    {
+      "anchor": "mixing",
+      "video_id": "qf453j8wLgc",
+      "start": 66,
+      "end": 475
+    },
+    {
+      "anchor": "counting",
+      "video_id": "qf453j8wLgc",
+      "start": 475,
+      "end": 1518
+    },
+    {
+      "anchor": "regular",
+      "video_id": "qf453j8wLgc",
+      "start": 1518,
+      "end": 1700
+    },
+    {
+      "anchor": "partial",
+      "video_id": "qf453j8wLgc",
+      "start": 1708,
+      "end": 2205
+    },
+    {
+      "anchor": "duhem",
+      "video_id": "Jy9Vlk0tUZ4",
+      "start": 79,
+      "end": 838
+    },
+    {
+      "anchor": "activity",
+      "video_id": "Jy9Vlk0tUZ4",
+      "start": 898,
+      "end": 1518
+    },
+    {
+      "anchor": "transfer",
+      "video_id": "Jy9Vlk0tUZ4",
+      "start": 1518,
+      "end": 1950
+    }
+  ],
+  "worked_solutions": 9,
+  "executable_listings": 1,
+  "original_constructions": [
+    "Full multinomial/Stirling and sublattice amount-basis derivation",
+    "Negative-mixing local instability counterexample",
+    "Extensive chain-rule partial molar identities and finite amount integration",
+    "Euler and Gibbs-Duhem proof with regular-solution derivatives",
+    "Matched-reference vapor example and unequal-activity equal-mu counterexample",
+    "Henry-standard conversion and temperature-dependent excess-entropy distinction"
+  ],
+  "independent_review": {
+    "status": "accepted",
+    "accepted": true,
+    "body_sha256": "c12bda2a41c816ffc28f484236a6bd7e3bef0aa43d5f9ee0a688e8bb9186ff13",
+    "review_ids": [
+      "ct-ch11-r1",
+      "ct-ch11-r2"
+    ],
+    "reviewer_ids": [
+      "separate-ai-agent-cardiovascular",
+      "separate-ai-agent-coordinator"
+    ],
+    "blocking": 0,
+    "major": 0,
+    "minor": 0
+  },
+  "limitations": [
+    "No comprehensive audiovisual or board audit",
+    "No measured alloy or oxide phase diagram fitted or reproduced",
+    "Activities and vapor ratio depend on declared standard and ideal-vapor assumptions",
+    "Rost2015 main article and full Methods read; supplementary raw data not audited",
+    "Fracchia2022 Matters Arising read in full; neither experimental dataset adjudicated",
+    "No fixed-oxygen closed-system model silently applied to air-equilibrated specimens"
+  ]
+}

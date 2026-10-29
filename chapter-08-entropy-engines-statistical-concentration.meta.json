@@ -1,0 +1,111 @@
+{
+  "chapter": 8,
+  "title": "Entropy, engines and statistical concentration",
+  "file": "chapter-08-entropy-engines-statistical-concentration.html",
+  "status": "Accepted in two independent scientific reviews",
+  "authored_body_sha256": "cf40efb072ac317a7d76975a417c342ebcabf523a5d80bff061a7b9f5859cdc0",
+  "recordings": [
+    {
+      "official_lesson": 15,
+      "playlist_position": 16,
+      "video_id": "Vqu8De1sdYs",
+      "duration_seconds": 2179.56425,
+      "source_type": "local faster-whisper small.en ASR, not publisher captions",
+      "transcript_reading": "Entire transcript read sequentially",
+      "chunk_policy": "90-second cores with 2-second context; possible recognition and boundary errors"
+    },
+    {
+      "official_lesson": 16,
+      "playlist_position": 17,
+      "video_id": "yRMvL3aBYQw",
+      "duration_seconds": 1850.35175,
+      "source_type": "local faster-whisper small.en ASR, not publisher captions",
+      "transcript_reading": "Entire transcript read sequentially",
+      "chunk_policy": "90-second cores with 2-second context; possible recognition and boundary errors"
+    }
+  ],
+  "sections": [
+    {
+      "anchor": "engine",
+      "video_id": "Vqu8De1sdYs",
+      "start": 88,
+      "end": 585
+    },
+    {
+      "anchor": "carnot",
+      "video_id": "Vqu8De1sdYs",
+      "start": 585,
+      "end": 960
+    },
+    {
+      "anchor": "clausius",
+      "video_id": "Vqu8De1sdYs",
+      "start": 960,
+      "end": 1722
+    },
+    {
+      "anchor": "reservoirs",
+      "video_id": "Vqu8De1sdYs",
+      "start": 1722,
+      "end": 2172
+    },
+    {
+      "anchor": "maximum",
+      "video_id": "yRMvL3aBYQw",
+      "start": 164,
+      "end": 765
+    },
+    {
+      "anchor": "multiplicity",
+      "video_id": "yRMvL3aBYQw",
+      "start": 765,
+      "end": 1250
+    },
+    {
+      "anchor": "concentration",
+      "video_id": "yRMvL3aBYQw",
+      "start": 1250,
+      "end": 1704
+    },
+    {
+      "anchor": "boltzmann",
+      "video_id": "yRMvL3aBYQw",
+      "start": 1704,
+      "end": 1842
+    }
+  ],
+  "worked_solutions": 9,
+  "executable_listings": 1,
+  "original_constructions": [
+    "Auxiliary reversible-engine derivation of Clausius inequality and reversible-path entropy",
+    "Actual-heat ledger for common ideal-gas endpoints",
+    "Finite-body entropy concavity and energy-conservation extremum",
+    "Exact integer binomial probabilities and point-versus-band concentration",
+    "Independent-mode multiplicity convolution and noncertain modal energy split",
+    "Physical-bit entropy transfer versus total generation distinction"
+  ],
+  "independent_review": {
+    "status": "accepted",
+    "accepted": true,
+    "body_sha256": "cf40efb072ac317a7d76975a417c342ebcabf523a5d80bff061a7b9f5859cdc0",
+    "review_ids": [
+      "ct-ch08-r1",
+      "ct-ch08-r2"
+    ],
+    "reviewer_ids": [
+      "separate-ai-agent-graph-theory",
+      "separate-ai-agent-coordinator"
+    ],
+    "blocking": 0,
+    "major": 0,
+    "minor": 0
+  },
+  "limitations": [
+    "No comprehensive audiovisual or board audit",
+    "Coin randomization is a counting analogy, not an isolated mechanical dynamics model",
+    "No proof of monotonic fine-grained Hamiltonian ensemble entropy",
+    "No physical memory-erasure apparatus/data reproduced",
+    "Thermodynamic entropy and multiplicity connections require stated constraints, ensemble and consistent state measure",
+    "No universal operation/token energy bound inferred from Landauer reset model"
+  ]
+}

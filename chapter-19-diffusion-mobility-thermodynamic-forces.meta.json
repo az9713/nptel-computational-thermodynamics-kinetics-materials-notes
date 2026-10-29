@@ -1,0 +1,126 @@
+{
+  "chapter": 19,
+  "title": "Diffusion, mobility and thermodynamic forces",
+  "file": "chapter-19-diffusion-mobility-thermodynamic-forces.html",
+  "status": "Accepted in two independent scientific reviews",
+  "authored_body_sha256": "50b09f397003f5ac587b0a840c409446644d30d24212513df9f9458fbd2c1a97",
+  "recordings": [
+    {
+      "official_lesson": 46,
+      "playlist_position": 47,
+      "video_id": "lcAIQt7LHh0",
+      "duration_seconds": 1646.805625,
+      "source_type": "local faster-whisper small.en ASR, not publisher captions",
+      "transcript_reading": "Entire transcript read sequentially",
+      "chunk_policy": "90-second cores with 2-second context; recognition and boundary uncertainty remains"
+    },
+    {
+      "official_lesson": 47,
+      "playlist_position": 48,
+      "video_id": "dP6RcxXd6mY",
+      "duration_seconds": 1811.4815625,
+      "source_type": "local faster-whisper small.en ASR, not publisher captions",
+      "transcript_reading": "Entire transcript read sequentially",
+      "chunk_policy": "90-second cores with 2-second context; recognition and boundary uncertainty remains"
+    },
+    {
+      "official_lesson": 48,
+      "playlist_position": 49,
+      "video_id": "oR54_YarDII",
+      "duration_seconds": 1643.60125,
+      "source_type": "local faster-whisper small.en ASR, not publisher captions",
+      "transcript_reading": "Entire transcript read sequentially",
+      "chunk_policy": "90-second cores with 2-second context; recognition and boundary uncertainty remains"
+    }
+  ],
+  "sections": [
+    {
+      "anchor": "walks",
+      "video_id": "lcAIQt7LHh0",
+      "start": 164,
+      "end": 568
+    },
+    {
+      "anchor": "barriers",
+      "video_id": "lcAIQt7LHh0",
+      "start": 568,
+      "end": 1640
+    },
+    {
+      "anchor": "conservation",
+      "video_id": "dP6RcxXd6mY",
+      "start": 107,
+      "end": 495
+    },
+    {
+      "anchor": "halfspace",
+      "video_id": "dP6RcxXd6mY",
+      "start": 495,
+      "end": 753
+    },
+    {
+      "anchor": "coefficients",
+      "video_id": "oR54_YarDII",
+      "start": 584,
+      "end": 786
+    },
+    {
+      "anchor": "mobility",
+      "video_id": "dP6RcxXd6mY",
+      "start": 1493,
+      "end": 1805
+    },
+    {
+      "anchor": "mobility",
+      "video_id": "oR54_YarDII",
+      "start": 178,
+      "end": 1024
+    },
+    {
+      "anchor": "uphill",
+      "video_id": "dP6RcxXd6mY",
+      "start": 753,
+      "end": 1493
+    },
+    {
+      "anchor": "interface",
+      "video_id": "oR54_YarDII",
+      "start": 1223,
+      "end": 1635
+    }
+  ],
+  "worked_solutions": 9,
+  "executable_listings": 1,
+  "original_constructions": [
+    "Jump-rate and detailed-balance derivations",
+    "Half-space inversion and reservoir uptake",
+    "Thermodynamic-factor versus positive-mobility separation",
+    "Conserved gradient dynamics and fastest linear spinodal mode",
+    "Coupled flux dissipation and diffusion-matrix spectrum",
+    "Conservative moving interface jump"
+  ],
+  "independent_review": {
+    "status": "accepted",
+    "accepted": true,
+    "body_sha256": "50b09f397003f5ac587b0a840c409446644d30d24212513df9f9458fbd2c1a97",
+    "review_ids": [
+      "ct-ch19-r1",
+      "ct-ch19-r2"
+    ],
+    "reviewer_ids": [
+      "separate-ai-agent-graph-theory",
+      "separate-ai-agent-coordinator"
+    ],
+    "blocking": 0,
+    "major": 0,
+    "minor": 0
+  },
+  "limitations": [
+    "No audiovisual or board audit",
+    "No commercial kinetic solver or assessed alloy diffusion database reproduced",
+    "All executable material data synthetic",
+    "Linear spinodal mode only, not nonlinear phase-field simulation",
+    "Cahn1958 actual selected pp258–260 inspected, not full paper reproduction",
+    "Campbell2014 actual diffusion pp8–10 inspected, not all cited experiments"
+  ]
+}

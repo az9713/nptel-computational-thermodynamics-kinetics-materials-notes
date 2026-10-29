@@ -1,0 +1,101 @@
+{
+  "chapter": 10,
+  "title": "Lattice stability, caloric integration and microscopic mixing energies",
+  "file": "chapter-10-lattice-stability-caloric-mixing.html",
+  "status": "Accepted in two independent scientific reviews",
+  "authored_body_sha256": "095746842be219508ced20167f325853515d56456efa5532725bef3feee6b120",
+  "recordings": [
+    {
+      "official_lesson": 18,
+      "playlist_position": 19,
+      "video_id": "3FbPv8oxa7w",
+      "duration_seconds": 3345.9955,
+      "source_type": "local faster-whisper small.en ASR, not publisher captions",
+      "transcript_reading": "Entire transcript read sequentially",
+      "chunk_policy": "90-second cores with 2-second context; possible recognition and boundary errors"
+    }
+  ],
+  "sections": [
+    {
+      "anchor": "zero",
+      "video_id": "3FbPv8oxa7w",
+      "start": 230,
+      "end": 595
+    },
+    {
+      "anchor": "caloric",
+      "video_id": "3FbPv8oxa7w",
+      "start": 595,
+      "end": 959
+    },
+    {
+      "anchor": "lattice",
+      "video_id": "3FbPv8oxa7w",
+      "start": 959,
+      "end": 1671
+    },
+    {
+      "anchor": "reference",
+      "video_id": "3FbPv8oxa7w",
+      "start": 1671,
+      "end": 1910
+    },
+    {
+      "anchor": "cycle",
+      "video_id": "3FbPv8oxa7w",
+      "start": 1910,
+      "end": 2175
+    },
+    {
+      "anchor": "bonds",
+      "video_id": "3FbPv8oxa7w",
+      "start": 2175,
+      "end": 2587
+    },
+    {
+      "anchor": "vibration",
+      "video_id": "3FbPv8oxa7w",
+      "start": 2587,
+      "end": 2863
+    },
+    {
+      "anchor": "enthalpy",
+      "video_id": "3FbPv8oxa7w",
+      "start": 2863,
+      "end": 3340
+    }
+  ],
+  "worked_solutions": 9,
+  "executable_listings": 1,
+  "original_constructions": [
+    "Third-law-compatible piecewise caloric model and complete latent-heat cycle",
+    "Common reference invariance versus independent phase zeroing",
+    "Bond-end derivation and fixed-composition finite-size correction",
+    "Quantum stiffness change and classical energy/free-energy distinction",
+    "Small attributed updated published dataset arithmetic"
+  ],
+  "independent_review": {
+    "status": "accepted",
+    "accepted": true,
+    "body_sha256": "095746842be219508ced20167f325853515d56456efa5532725bef3feee6b120",
+    "review_ids": [
+      "ct-ch10-r1",
+      "ct-ch10-r2"
+    ],
+    "reviewer_ids": [
+      "separate-ai-agent-graph-theory",
+      "separate-ai-agent-coordinator"
+    ],
+    "blocking": 0,
+    "major": 0,
+    "minor": 0
+  },
+  "limitations": [
+    "No comprehensive audiovisual or board audit",
+    "No measured or assessed unary thermodynamic database reproduced",
+    "No electronic-structure or phonon calculations rerun",
+    "Only two published research-data rows transcribed; full associated paper not read",
+    "Standard-pressure entry verified through indexed primary text; direct access403",
+    "Constrained caloric extrapolations valid only within specified model interval"
+  ]
+}

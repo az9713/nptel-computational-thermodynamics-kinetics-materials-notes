@@ -1,0 +1,101 @@
+{
+  "chapter": 1,
+  "title": "Microstructure, phases and composition",
+  "file": "chapter-01-microstructure-phases-composition.html",
+  "status": "Accepted in two independent scientific reviews",
+  "authored_body_sha256": "c123f965c6d72ccdea4914960efca3346e1ba70a7aafd83d676e70b3e06bcee5",
+  "recordings": [
+    {
+      "official_lesson": 1,
+      "playlist_position": 2,
+      "video_id": "UA4P_D6fJkE",
+      "duration_seconds": 1372.16,
+      "source_type": "local faster-whisper small.en ASR, not publisher captions",
+      "transcript_reading": "Complete280-segment transcript read sequentially",
+      "chunk_policy": "90sec cores with2sec context, midpoint ownership; boundaries may repeat or alter words"
+    }
+  ],
+  "sections": [
+    {
+      "anchor": "microstructure",
+      "video_id": "UA4P_D6fJkE",
+      "start": 71,
+      "end": 215
+    },
+    {
+      "anchor": "crystals",
+      "video_id": "UA4P_D6fJkE",
+      "start": 215,
+      "end": 449
+    },
+    {
+      "anchor": "phase",
+      "video_id": "UA4P_D6fJkE",
+      "start": 449,
+      "end": 557
+    },
+    {
+      "anchor": "composition",
+      "video_id": "UA4P_D6fJkE",
+      "start": 557,
+      "end": 711
+    },
+    {
+      "anchor": "solutions",
+      "video_id": "UA4P_D6fJkE",
+      "start": 711,
+      "end": 898
+    },
+    {
+      "anchor": "balance",
+      "video_id": "UA4P_D6fJkE",
+      "start": 898,
+      "end": 1198
+    },
+    {
+      "anchor": "prediction",
+      "video_id": "UA4P_D6fJkE",
+      "start": 1198,
+      "end": 1365
+    }
+  ],
+  "worked_solutions": 7,
+  "executable_listings": 1,
+  "original_constructions": [
+    "Exact mass/amount conversions",
+    "Stipulated sugar-capacity balance, not measured solubility",
+    "Monatomic FCC/BCC conventional-cell counts",
+    "Synthetic2Dphase maps with equalarea unequalinterface"
+  ],
+  "independent_review": {
+    "status": "accepted",
+    "accepted": true,
+    "body_sha256": "c123f965c6d72ccdea4914960efca3346e1ba70a7aafd83d676e70b3e06bcee5",
+    "review_ids": [
+      "ct-ch01-r1",
+      "ct-ch01-r2"
+    ],
+    "reviewer_ids": [
+      "separate-ai-agent-graph-theory",
+      "separate-ai-agent-coordinator"
+    ],
+    "blocking": 0,
+    "major": 0,
+    "minor": 0
+  },
+  "limitations": [
+    "No comprehensive audiovisual/board audit",
+    "ASR and chunk boundary errors possible",
+    "No experimental microstructure or property validation",
+    "No real sucrose solubility datum asserted",
+    "2Dmap doesnot establish3Dgeometry"
+  ],
+  "review_round_1": {
+    "report": "private editorial record",
+    "reviewed_body_sha256": "2f449a708abaf72d144fdf47a53ff1a9dc42ce3c0de80a3a5ebba4a25692747a",
+    "blocking": 0,
+    "major": 1,
+    "minor": 3,
+    "status": "All four findings repaired; revised body awaiting independent round2"
+  }
+}

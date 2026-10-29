@@ -1,0 +1,111 @@
+{
+  "chapter": 7,
+  "title": "The first law, reversible paths and adiabatic processes",
+  "file": "chapter-07-first-law-reversible-adiabatic-paths.html",
+  "status": "Accepted in two independent scientific reviews",
+  "authored_body_sha256": "e8312d8f0b9a414bedc763b1f8fdada0b49dd44437348b282d1b170c0f1f9381",
+  "recordings": [
+    {
+      "official_lesson": 13,
+      "playlist_position": 14,
+      "video_id": "5Ms2vab0HsQ",
+      "duration_seconds": 1828.0141875,
+      "source_type": "local faster-whisper small.en ASR, not publisher captions",
+      "transcript_reading": "Entire transcript read sequentially",
+      "chunk_policy": "90-second cores with 2-second context; possible recognition and boundary errors"
+    },
+    {
+      "official_lesson": 14,
+      "playlist_position": 15,
+      "video_id": "5oXfprB7Jts",
+      "duration_seconds": 1659.158625,
+      "source_type": "local faster-whisper small.en ASR, not publisher captions",
+      "transcript_reading": "Entire transcript read sequentially",
+      "chunk_policy": "90-second cores with 2-second context; possible recognition and boundary errors"
+    }
+  ],
+  "sections": [
+    {
+      "anchor": "first-law",
+      "video_id": "5Ms2vab0HsQ",
+      "start": 52,
+      "end": 386
+    },
+    {
+      "anchor": "reversible",
+      "video_id": "5Ms2vab0HsQ",
+      "start": 568,
+      "end": 1045
+    },
+    {
+      "anchor": "pressure-work",
+      "video_id": "5Ms2vab0HsQ",
+      "start": 1053,
+      "end": 1558
+    },
+    {
+      "anchor": "isothermal",
+      "video_id": "5oXfprB7Jts",
+      "start": 76,
+      "end": 416
+    },
+    {
+      "anchor": "return",
+      "video_id": "5oXfprB7Jts",
+      "start": 493,
+      "end": 645
+    },
+    {
+      "anchor": "inexact",
+      "video_id": "5oXfprB7Jts",
+      "start": 416,
+      "end": 493
+    },
+    {
+      "anchor": "adiabatic",
+      "video_id": "5oXfprB7Jts",
+      "start": 645,
+      "end": 834
+    },
+    {
+      "anchor": "adiabatic-endpoints",
+      "video_id": "5oXfprB7Jts",
+      "start": 729,
+      "end": 1183
+    }
+  ],
+  "worked_solutions": 9,
+  "executable_listings": 1,
+  "original_constructions": [
+    "Common-complete-endpoint isothermal reversible and finite-step comparison",
+    "Right-Riemann load sums and return-cycle accounting",
+    "Mixed-derivative test and integrating-factor calculation",
+    "Reversible constant-capacity adiabatic derivation and finite-load endpoint solve",
+    "Two-step adiabatic return to original pressure with nonreturning temperature/volume",
+    "Exact smooth harmonic stiffness-quench Gaussian calculation and independent quadrature"
+  ],
+  "independent_review": {
+    "status": "accepted",
+    "accepted": true,
+    "body_sha256": "e8312d8f0b9a414bedc763b1f8fdada0b49dd44437348b282d1b170c0f1f9381",
+    "review_ids": [
+      "ct-ch07-r1",
+      "ct-ch07-r2"
+    ],
+    "reviewer_ids": [
+      "separate-ai-agent-cardiovascular",
+      "separate-ai-agent-coordinator"
+    ],
+    "blocking": 0,
+    "major": 0,
+    "minor": 0
+  },
+  "limitations": [
+    "No comprehensive audiovisual or board audit",
+    "Conventional gas-only pressure-work examples require declared transient damping/boundary accounting",
+    "Endpoint-matched irreversible isothermal example does not assert a uniform constant gas temperature during its transient",
+    "Adiabatic paths to the same final pressure have different complete endpoints",
+    "Entropy balance is previewed through an exact ideal-gas state-function expression; formal interpretation follows next chapter",
+    "Harmonic quench is an equilibrium-initialized smooth-potential example, not a hard-wall free expansion or general strong-coupling result"
+  ]
+}

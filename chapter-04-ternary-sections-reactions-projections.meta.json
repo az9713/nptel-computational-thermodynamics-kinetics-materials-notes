@@ -1,0 +1,129 @@
+{
+  "chapter": 4,
+  "title": "Ternary geometry, reaction paths and liquidus projections",
+  "file": "chapter-04-ternary-sections-reactions-projections.html",
+  "status": "Accepted in two independent scientific reviews",
+  "authored_body_sha256": "87135b8f136963346689c752e7cf4013ec6658cd5a5adc20ec89bd08f98f6cdd",
+  "recordings": [
+    {
+      "official_lesson": 6,
+      "playlist_position": 7,
+      "video_id": "hE4-f_QtVlw",
+      "duration_seconds": 1014.52625,
+      "source_type": "local faster-whisper small.en ASR, not publisher captions",
+      "transcript_reading": "Entire transcript read sequentially",
+      "chunk_policy": "90-second cores with 2-second context; possible recognition and boundary errors"
+    },
+    {
+      "official_lesson": 7,
+      "playlist_position": 8,
+      "video_id": "Id1L8ZyZ03Y",
+      "duration_seconds": 1104.57325,
+      "source_type": "local faster-whisper small.en ASR, not publisher captions",
+      "transcript_reading": "Entire transcript read sequentially",
+      "chunk_policy": "90-second cores with 2-second context; possible recognition and boundary errors"
+    },
+    {
+      "official_lesson": 8,
+      "playlist_position": 9,
+      "video_id": "mzFz8_AqMJc",
+      "duration_seconds": 1871.6676875,
+      "source_type": "local faster-whisper small.en ASR, not publisher captions",
+      "transcript_reading": "Entire transcript read sequentially",
+      "chunk_policy": "90-second cores with 2-second context; possible recognition and boundary errors"
+    }
+  ],
+  "sections": [
+    {
+      "anchor": "simplex",
+      "video_id": "hE4-f_QtVlw",
+      "start": 47,
+      "end": 519
+    },
+    {
+      "anchor": "sections",
+      "video_id": "hE4-f_QtVlw",
+      "start": 519,
+      "end": 1007
+    },
+    {
+      "anchor": "extension",
+      "video_id": "Id1L8ZyZ03Y",
+      "start": 45,
+      "end": 649
+    },
+    {
+      "anchor": "tie-lines",
+      "video_id": "Id1L8ZyZ03Y",
+      "start": 649,
+      "end": 685
+    },
+    {
+      "anchor": "tie-triangles",
+      "video_id": "Id1L8ZyZ03Y",
+      "start": 685,
+      "end": 920
+    },
+    {
+      "anchor": "vertical-sections",
+      "video_id": "Id1L8ZyZ03Y",
+      "start": 920,
+      "end": 1097
+    },
+    {
+      "anchor": "reactions",
+      "video_id": "mzFz8_AqMJc",
+      "start": 38,
+      "end": 1002
+    },
+    {
+      "anchor": "liquidus",
+      "video_id": "mzFz8_AqMJc",
+      "start": 1002,
+      "end": 1328
+    },
+    {
+      "anchor": "solder",
+      "video_id": "mzFz8_AqMJc",
+      "start": 1328,
+      "end": 1858
+    }
+  ],
+  "worked_solutions": 9,
+  "executable_listings": 1,
+  "interactive_assets": [
+    "assets/ternary-lab.js"
+  ],
+  "original_constructions": [
+    "Affine simplex coordinates and inverse",
+    "Exact 231-mixture barycentric reconstruction and area checks",
+    "Off-section coexistence endpoints as a vertical-section counterexample",
+    "Boundary-invisible ternary-energy model with exact central stability comparison",
+    "Sublattice multiplicity versus elemental stoichiometry derivation",
+    "Complete reaction-product mass balance on identified NIST legacy table"
+  ],
+  "independent_review": {
+    "status": "accepted",
+    "accepted": true,
+    "body_sha256": "87135b8f136963346689c752e7cf4013ec6658cd5a5adc20ec89bd08f98f6cdd",
+    "review_ids": [
+      "ct-ch04-r1",
+      "ct-ch04-r2"
+    ],
+    "reviewer_ids": [
+      "separate-ai-agent-cardiovascular",
+      "separate-ai-agent-coordinator"
+    ],
+    "blocking": 0,
+    "major": 0,
+    "minor": 0
+  },
+  "limitations": [
+    "No comprehensive audiovisual or board audit",
+    "Synthetic endpoint geometry does not establish real-alloy phase stability",
+    "No reproduction of original animations or uninspected board numerical readings",
+    "Historical NIST table and paper are distinguished versions; arithmetic precision is not experimental precision",
+    "Four-phase invariant amounts need an additional reaction extent/enthalpy condition",
+    "Interactive explorer changes normalized amounts within stipulated endpoints; it is not an equilibrium solver"
+  ]
+}

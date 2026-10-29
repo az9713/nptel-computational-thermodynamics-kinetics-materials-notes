@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="450" viewBox="0 0 1000 450" role="img" aria-labelledby="t d">
+<title id="t">Synthetic size and reservoir effects</title>
+<desc id="d">Left constrained spherical two-state crossing rises from760K at5nm toward1000K. Right illustrative reduction potential falls by0.05915935volts per pH unit. Neither curve is fitted data.</desc>
+<rect width="1000" height="450" rx="16" fill="#101722"/>
+<style>text{font-family:Arial,sans-serif;fill:#e5edf7;font-size:16px}.minor{fill:#aebed2;font-size:14px}.grid{stroke:#334155;stroke-width:1}.axis{stroke:#b6c5d9;stroke-width:1.5}</style>
+<text x="70" y="36">Constrained particle comparison</text>
+<path d="M70,65 V350 H420" fill="none" class="axis"/>
+<text x="580" y="36">Illustrative proton/electron reservoir</text>
+<path d="M580,65 V350 H930" fill="none" class="axis"/>
+<path d="M70,350.00 H420" class="grid"/><text x="22" y="355.00" class="minor">700</text>
+<path d="M70,262.50 H420" class="grid"/><text x="22" y="267.50" class="minor">800</text>
+<path d="M70,175.00 H420" class="grid"/><text x="22" y="180.00" class="minor">900</text>
+<path d="M70,87.50 H420" class="grid"/><text x="22" y="92.50" class="minor">1000</text>
+<text x="62.00" y="375" class="minor">5</text>
+<text x="135.68" y="375" class="minor">25</text>
+<text x="227.79" y="375" class="minor">50</text>
+<text x="319.89" y="375" class="minor">75</text>
+<text x="412.00" y="375" class="minor">100</text>
+<polyline points="70.000,297.500 73.684,262.500 77.368,237.500 81.053,218.750 84.737,204.167 88.421,192.500 92.105,182.955 95.789,175.000 99.474,168.269 103.158,162.500 106.842,157.500 110.526,153.125 114.211,149.265 117.895,145.833 121.579,142.763 125.263,140.000 128.947,137.500 132.632,135.227 136.316,133.152 140.000,131.250 143.684,129.500 147.368,127.885 151.053,126.389 154.737,125.000 158.421,123.707 162.105,122.500 165.789,121.371 169.474,120.312 173.158,119.318 176.842,118.382 180.526,117.500 184.211,116.667 187.895,115.878 191.579,115.132 195.263,114.423 198.947,113.750 202.632,113.110 206.316,112.500 210.000,111.919 213.684,111.364 217.368,110.833 221.053,110.326 224.737,109.840 228.421,109.375 232.105,108.929 235.789,108.500 239.474,108.088 243.158,107.692 246.842,107.311 250.526,106.944 254.211,106.591 257.895,106.250 261.579,105.921 265.263,105.603 268.947,105.297 272.632,105.000 276.316,104.713 280.000,104.435 283.684,104.167 287.368,103.906 291.053,103.654 294.737,103.409 298.421,103.172 302.105,102.941 305.789,102.717 309.474,102.500 313.158,102.289 316.842,102.083 320.526,101.884 324.211,101.689 327.895,101.500 331.579,101.316 335.263,101.136 338.947,100.962 342.632,100.791 346.316,100.625 350.000,100.463 353.684,100.305 357.368,100.151 361.053,100.000 364.737,99.853 368.421,99.709 372.105,99.569 375.789,99.432 379.474,99.298 383.158,99.167 386.842,99.038 390.526,98.913 394.211,98.790 397.895,98.670 401.579,98.553 405.263,98.438 408.947,98.325 412.632,98.214 416.316,98.106 420.000,98.000" fill="none" stroke="#52d1b6" stroke-width="3"/>
+<circle cx="70.000" cy="297.500" r="4" fill="#e9bb75"/>
+<circle cx="88.421" cy="192.500" r="4" fill="#e9bb75"/>
+<circle cx="235.789" cy="108.500" r="4" fill="#e9bb75"/>
+<text x="165" y="410">Radius / nm</text><text x="77" y="59" class="minor">Crossing / K</text>
+<path d="M580,322.00 H930" class="grid"/><text x="536" y="327.00" class="minor">0.0</text>
+<path d="M580,266.00 H930" class="grid"/><text x="536" y="271.00" class="minor">0.2</text>
+<path d="M580,210.00 H930" class="grid"/><text x="536" y="215.00" class="minor">0.4</text>
+<path d="M580,154.00 H930" class="grid"/><text x="536" y="159.00" class="minor">0.6</text>
+<path d="M580,98.00 H930" class="grid"/><text x="536" y="103.00" class="minor">0.8</text>
+<text x="575.00" y="375" class="minor">0</text>
+<text x="750.00" y="375" class="minor">7</text>
+<text x="925.00" y="375" class="minor">14</text>
+<polyline points="580.000,98.000 755.000,213.952 930.000,329.905" fill="none" stroke="#b8a1ff" stroke-width="3"/>
+<text x="733" y="410">pH</text><text x="585" y="59" class="minor">Potential / V (specified reference)</text><text x="70" y="438" class="minor">Synthetic parameters; equal-radius end states</text><text x="580" y="438" class="minor">Synthetic E° = 0.8 V; m/n = 1; 298.15 K</text>
+</svg>

@@ -1,0 +1,7 @@
+pycalphad==0.11.1
+numpy==2.5.4
+symengine==0.13.0
+scipy==1.18.1
+xarray==2026.9.0
+pandas==3.1.0
+matplotlib==3.11.2
